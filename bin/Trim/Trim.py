@@ -7,4 +7,41 @@ E-mail: aqhoogkamer@outlook.com / s1047388@student.hsleiden.nl
 
 this script will trim fastq files based on the phred quality scores.
 '''
-import Bio
+from Bio import SeqIO
+import os
+'''
+this block counts the number of reads and filters reads that have more 
+than 5% low quality bases.
+'''
+file1 = "data/test/s_2_1_sequence"
+os.system("rm {file1}-trimmed".format(file1 = file1))
+count = 0
+for rec in SeqIO.parse(file1, "fastq"):
+    count += 1
+    qual = rec.letter_annotations["phred_quality"]
+    qualcount = 0
+    for i in qual:
+        if i < 46:
+            qualcount = qualcount + 1
+        else:
+            pass
+    if qualcount < (len(rec.seq)*0.05):
+        out_handle = open("{file1}-trimmed".format(file1=file1), "a")
+        SeqIO.write(rec, out_handle, "fastq")
+        out_handle.close
+    else:
+        pass
+   
+
+#print("{count} reads".format(count = count))
+
+'''
+this block will translate the phred
+
+records = SeqIO.parse(open("data/test/s_2_1_sequence.txt"), "fastq")
+
+out_handle = open("data/test/s_2_1_sequence.txt.qual", "w")
+SeqIO.write(records, out_handle, "qual")
+out_handle.close()
+
+'''
