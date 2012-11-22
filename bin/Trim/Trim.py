@@ -13,8 +13,12 @@ import os
 this block counts the number of reads and filters reads that have more 
 than 5% low quality bases.
 '''
-file1 = "data/test/s_2_1_sequence"
-os.system("rm {file1}-trimmed".format(file1 = file1))
+os.system("pwd > a1")
+file2 = open("a1","r")
+a2 = file2.read()
+file2.close
+a2 = a2.strip("\n")
+file1 = "{pwd}/data/test/s_2_1_sequence".format(pwd = a2)
 count = 0
 for rec in SeqIO.parse(file1, "fastq"):
     count += 1
@@ -31,17 +35,4 @@ for rec in SeqIO.parse(file1, "fastq"):
         out_handle.close
     else:
         pass
-   
-
-#print("{count} reads".format(count = count))
-
-'''
-this block will translate the phred
-
-records = SeqIO.parse(open("data/test/s_2_1_sequence.txt"), "fastq")
-
-out_handle = open("data/test/s_2_1_sequence.txt.qual", "w")
-SeqIO.write(records, out_handle, "qual")
-out_handle.close()
-
-'''
+os.system("rm a1")
