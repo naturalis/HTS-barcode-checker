@@ -6,13 +6,25 @@ Author: Alex Hoogkamer
 E-mail: aqhoogkamer@outlook.com / s1047388@student.hsleiden.nl
 
 this script wil take the blast results and change them into a more human friendly format.
+
+dependencies:
+Bio python
 '''
 from Bio.Blast import NCBIXML
 import os
 
+'''
+here the current working directory is saved
+and the directories containing the script is
+removed. the result is the directory in which
+the all nececary files
+'''
 pwd = os.getcwd()
 pwd = pwd.strip("/bin/Output")
-result_handle = open("{pwd}/data/test/my_blast.xml".format(pwd = pwd), "r")
+pwd = pwd + "/data/test/"
+os.chdir('/')
+os.chdir(pwd)
+result_handle = open("my_blast.xml", "r")
 blast_records = NCBIXML.parse(result_handle)
 b1 = 0
 

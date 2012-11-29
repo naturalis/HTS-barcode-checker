@@ -9,15 +9,26 @@ this script wil filter the blast results on E-value and bit-score.
 
 coverage 95%
 identity 97%
+
+dependencies:
+Bio python
 '''
 from Bio.Blast import NCBIXML
 import os
 
+'''
+here the current working directory is saved
+and the directories containing the script is
+removed. the result is the directory in which
+the all nececary files
+'''
 pwd = os.getcwd()
-pwd = pwd.strip("/bin/Quality") 
-file1 = "{pwd}/data/test/trimmed".format(pwd = pwd)
+pwd = pwd.strip("/bin/Quality")
+pwd = pwd + "/data/test/"
+os.chdir('/')
+os.chdir(pwd)
 
-result_handle = open("{pwd}/data/test/my_blast.xml".format(pwd = pwd), "r")
+result_handle = open("my_blast.xml".format(pwd = pwd), "r")
 blast_records = NCBIXML.parse(result_handle)
 
 E_VALUE_THRESH = 0.04
@@ -35,7 +46,7 @@ for blast_record in blast_records:
                 if ident > MIN_IDENT and cover > MIN_COVER:
                     good_record_list.append(blast_record)
 
-save_file = open("{pwd}/data/test/my_blast.xml".format(pwd = a2), "w")
-save_file.write(good_record_list.read())
+save_file = open("my_blast.xml", "w")
+save_file.write(good_record_list)
 save_file.close
 print("75%")
