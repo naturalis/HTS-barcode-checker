@@ -25,24 +25,29 @@ pwd = pwd + "/data/test/"
 os.chdir('/')
 os.chdir(pwd)
 result_handle = open("my_blast.xml", "r")
-blast_records = NCBIXML.parse(result_handle)
-b1 = 0
 
-for blast_record in blast_records:
+MIN_IDENT = 97
+MIN_COVER = 95
+E_VALUE_THRESH = 0.04
+
+for blast_record in NCBIXML.parse(result_handle):
+    c1 = 0
     for alignment in blast_record.alignments:
-        for hsp in alignment.hsps:
-            a1 = (hsp.identities/(alignment.length*0.01))
-            a2 = (len(hsp.match)/(len(hsp.query)*0.01))
-            b1 = b1 + 1
-            print('****Alignment****')
-            print('sequence:'   , alignment.title)
-            print('length:'     , alignment.length)
-            print('% identity:' , a1)
-            print('e value:'    , hsp.expect)
-            print('% coverage'  , a2)
-            print(hsp.query[0:75] + '...')
-            print(hsp.match[0:75] + '...')
-            print(hsp.sbjct[0:75] + '...')
+        if c1 < 1:
+            for hsp in alignment.hsps:
+                ident = float(hsp.identities/(len(hsp.match)*0.01))
+                cover = float(len(hsp.match)/(len(hsp.query)*0.01))
+                if hsp.expect < E_VALUE_THRESH and ident > MIN_IDENT and cover > MIN_COVER:
+                    print('****Alignment****')
+                    print('sequence:'   , alignment.title)
+                    print('length:'     , alignment.length)
+                    print('% identity:' , ident)
+                    print('e value:'    , hsp.expect)
+                    print('% coverage'  , cover)
+                    print(hsp.query[0:75] + '...')
+                    print(hsp.match[0:75] + '...')
+                    print(hsp.sbjct[0:75] + '...')
+        c1 = c1 + 1
+result_handle.close()
 
-if b1 == 0:
-    print("none")
+print("done 100%")

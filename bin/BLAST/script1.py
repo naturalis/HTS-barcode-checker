@@ -24,7 +24,7 @@ os.chdir(pwd)
 filename = "trimmed"
 
 fasta_string = open(filename).read()
-fasta_handle = NCBIWWW.qblast("blastn","nt", fasta_string)
+fasta_handle = NCBIWWW.qblast("blastn","nt", fasta_string, megablast = False)
 save_file = open("my_blast.xml".format(pwd = pwd), "w")
 save_file.write(fasta_handle.read())
 save_file.close

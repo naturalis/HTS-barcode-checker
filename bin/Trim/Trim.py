@@ -25,16 +25,21 @@ pwd = pwd.strip("/bin/Trim")
 pwd = pwd + "/data/test/"
 os.chdir('/')
 os.chdir(pwd)
-print("====== Welcome ======")
-print("\nvoer alstublieft de naam van uw file in:")
-filename = sys.stdin.readline()
+if sys.argv[1] == "-m":
+    print("====== Welcome ======")
+    print("\nvoer alstublieft de naam van uw file in:")
+    filename = sys.stdin.readline()
+    print("voer de phred score thresshold in:")
+    bad_qual_score = sys.stdin.readline() 
+    print("als laaste willen wij nog het maximum percentage slechte reads:")
+    percentage_bad_base = sys.stdin.readline()
+else:
+    filename = sys.argv[1]
+    bad_qual_score = sys.argv[2]
+    percentage_bad_base = sys.argv[3]
 filename = filename.strip("\n")
-try:
-    with open("trimmmed", "r") as file_clear:
-        file_clear.write("")
-        file_clear.close
-except(IOError):
-    pass
+
+#os.system("rm trimmed")
 
 try:
     with open(filename,"r") as file_check:
@@ -54,10 +59,6 @@ delete the reads based on a percentage
 both the precentage and quality thresshold 
 will be inputed form the terminal
 '''
-print("voer de phred score thresshold in:")
-bad_qual_score = sys.stdin.readline()
-print("als laaste willen wij nog het maximum percentage slechte reads:")
-percentage_bad_base = sys.stdin.readline()
 
 for rec in SeqIO.parse(filename, "fastq"):
     quality_seq = rec.letter_annotations["phred_quality"] # extract the quality sequence for the fastq record
