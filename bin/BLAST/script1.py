@@ -9,25 +9,38 @@
 
 from Bio.Blast import NCBIWWW
 import os
+import sys
+'''
 
 '''
-here the current working directory is saved
-and the directories containing the script is
-removed. the result is the directory in which
-the all nececary files
+input_handle = sys.stdin.readlines()
 '''
-pwd = os.getcwd()
-pwd = pwd.strip("/bin/BLAST") 
-pwd = pwd + "/data/test/"
-os.chdir('/')
-os.chdir(pwd)
-filename = "trimmed"
+the input from the Trim script needs to be convertert into 
+a format which is useable by NCBIWWW
+'''
+data_handle = []
+fasta = ''
+a = 0
+for line in input_handle:
+    if a < 0:
+        if line[0] == '>':
+            fasta = line
+            a = a + 1
+        else:
+            pass
+    else:
+        if line[0] == '>':
+            fasta = fasta + "\n"
+            data_handle.append(fasta)
+            fasta = line
+        else:
+            fasta = fasta + line.strip("\n")
 
-fasta_string = open(filename).read()
-fasta_handle = NCBIWWW.qblast("blastn","nt", fasta_string, megablast = False)
-save_file = open("my_blast.xml".format(pwd = pwd), "w")
+blast_handle = ''
+for line in data_handle:
+    blast_handle = blast_handle + line
+fasta_handle = NCBIWWW.qblast("blastn","nt", blast_handle, megablast = False)
+save_file = open("my_blast.xml", "w")
 save_file.write(fasta_handle.read())
 save_file.close
 fasta_handle.close
-
-print("done 50%")
