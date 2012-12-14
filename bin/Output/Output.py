@@ -11,33 +11,26 @@ dependencies:
 Bio python
 '''
 from Bio.Blast import NCBIXML
-import os
+import sys
+
+good_blast = sys.stdin.readlines() # this recieves the titles of the alignments that passed the quality control
+result_handle = open(sys.argv[1], "r")# this points to the my_blast.xml and comes from the terminal
+max_results = sys.argv[2] # the max number of results per query is given from the terminal
+good_blast = good_blast[0].split(";")# the input comes as one entry in a list, this converts it into a list of titles
 
 '''
-here the current working directory is saved
-and the directories containing the script is
-removed. the result is the directory in which
-the all nececary files
+this block takes an xml file filled with NCBI BLAST output and parses it 
+into a human readable format. per query sequence it will show a given 
+number or less results.
 '''
-pwd = os.getcwd()
-pwd = pwd.strip("/bin/Output")
-pwd = pwd + "/data/test/"
-os.chdir('/')
-os.chdir(pwd)
-result_handle = open("my_blast.xml", "r")
-
-MIN_IDENT = 97
-MIN_COVER = 95
-E_VALUE_THRESH = 0.04
-
 for blast_record in NCBIXML.parse(result_handle):
-    c1 = 0
+    current_results = 0
     for alignment in blast_record.alignments:
-        if c1 < 1:
+        if current_results < max_results: #if the max number of results is reached it will continue on the the next query
             for hsp in alignment.hsps:
-                ident = float(hsp.identities/(len(hsp.match)*0.01))
+                ident = float(hsp.identities/(len(hsp.match)*0.01)) # this calculates the % identeties and % coverage of the current alignment
                 cover = float(len(hsp.match)/(len(hsp.query)*0.01))
-                if hsp.expect < E_VALUE_THRESH and ident > MIN_IDENT and cover > MIN_COVER:
+                if alignment.title in good_blast:
                     print('****Alignment****')
                     print('sequence:'   , alignment.title)
                     print('length:'     , alignment.length)
@@ -47,7 +40,5 @@ for blast_record in NCBIXML.parse(result_handle):
                     print(hsp.query[0:75] + '...')
                     print(hsp.match[0:75] + '...')
                     print(hsp.sbjct[0:75] + '...')
-        c1 = c1 + 1
+        current_results = current_results + 1
 result_handle.close()
-
-print("done 100%")

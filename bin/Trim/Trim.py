@@ -57,12 +57,12 @@ for rec in SeqIO.parse(filename, "fastq"):
             qualitycount = qualitycount + 1
         else:
             pass
-    if qualitycount < (len(rec.seq)*percentage_bad_base): # the quality count needs to be below the given percentage before it is written to file
+    if qualitycount < ((len(rec.seq))*percentage_bad_base): # the quality count needs to be below the given percentage before it is written to file
         '''
         the output is given to the terminal in the fasta format.
         '''
-        out_handle = open("trimmed", "a")
+        #out_handle = open("trimmed", "a")
         sys.stdout.write(str(rec.format("fasta"))) #this writes the fastq record in fasta format to the terminal
-        out_handle.close # the file is closed each time to prevent the RAM to fill needlessly is the file is big.
+        #out_handle.close # the file is closed each time to prevent the RAM to fill needlessly is the file is big.
     else:
         pass

@@ -42,5 +42,6 @@ for line in data_handle:
 fasta_handle = NCBIWWW.qblast("blastn","nt", blast_handle, megablast = False)
 save_file = open("my_blast.xml", "w")
 save_file.write(fasta_handle.read())
+sys.stdout.write(fasta_handle.read())
 save_file.close
 fasta_handle.close
