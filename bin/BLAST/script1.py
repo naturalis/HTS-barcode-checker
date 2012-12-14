@@ -8,7 +8,7 @@
 #Bio python
 
 from Bio.Blast import NCBIWWW
-import os
+#import os
 import sys
 '''
 
