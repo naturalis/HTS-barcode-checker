@@ -17,10 +17,11 @@ output: XML file with blastN search results
 from Bio.Blast import NCBIWWW
 #import os
 import sys
-'''
 
-'''
 input_handle = sys.stdin.readlines()
+out_file = sys.argv[1]
+algorit = sys.argv[2]
+database = sys.argv[3]
 '''
 the input from the Trim script needs to be converted into 
 a format which is usable by NCBIWWW
@@ -47,9 +48,9 @@ for line in input_handle:
 blast_handle = ''
 for line in data_handle:
     blast_handle = blast_handle + line
-fasta_handle = NCBIWWW.qblast("blastn","nt", blast_handle, megablast = False)  # define blast parameters for blast search
-save_file = open("my_blast.xml", "w")                                          # results of the blast search are stored in xml file
+fasta_handle = NCBIWWW.qblast("{algorit}".format(algorit = algorit), "{database}".format(database = database), blast_handle)  # define blast parameters for blast search
+save_file = open(out_file, "w")                                          # results of the blast search are stored in xml file
 save_file.write(fasta_handle.read())
-sys.stdout.write(fasta_handle.read())
+sys.stdout.write(out_file)
 save_file.close
 fasta_handle.close

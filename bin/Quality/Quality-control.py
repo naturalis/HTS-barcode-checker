@@ -24,11 +24,12 @@ and the directories containing the script is
 removed. the result is the directory in which
 the all necessary files are placed
 '''
-result_handle  = open(sys.argv[1], "r")                       # this gets input in an xml format from blast
+filename       = sys.stdin.readline()
+result_handle  = open(filename, "r")                       # this gets input in an xml format from blast
 
-E_VALUE_THRESH = 0.04
-MIN_IDENT      = 97
-MIN_COVER      = 95
+E_VALUE_THRESH = sys.argv[1]
+MIN_IDENT      = sys.argv[2]
+MIN_COVER      = sys.argv[3]
 result_list    = []
 
 for blast_record in NCBIXML.parse(result_handle):
@@ -39,15 +40,7 @@ for blast_record in NCBIXML.parse(result_handle):
                                                                # an alignment needs to meet 3 criteria before we consider it an acceptable result: above the minimum identity, minimum coverage and E-value
             if hsp.expect < E_VALUE_THRESH and ident > MIN_IDENT and cover > MIN_COVER:
                 result_list.append(alignment.title)
-                #result_list.append(alignment.hit_id)
-                #result_list.append(alignment.hit_def)
                 result_list.append(';')                        #the ; marks the end of a title and is used to split the list into seperate titles in the output script
                 
-
-#os.system("rm my_blast_filterd.txt")
-#save_file = open("my_blast_filterd.txt", "a")
 for line in result_list:
-    #save_file.write(line + '\n')
     sys.stdout.write(str(line))
-#save_file.close
-#result_handle.close()

@@ -17,6 +17,7 @@ import sys
 good_blast    = sys.stdin.readlines()    # this receives the titles of the alignments that passed the quality control
 result_handle = open(sys.argv[1], "r")   # this points to the my_blast.xml and comes from the terminal
 max_results   = sys.argv[2]              # the max number of results per query is given from the terminal
+print(good_blast)
 good_blast    = good_blast[0].split(";") # the input comes as one entry in a list, this converts it into a list of titles
 
 '''
@@ -38,6 +39,7 @@ for blast_record in NCBIXML.parse(result_handle):
                     print('% identity:' , ident)
                     print('e value:'    , hsp.expect)
                     print('% coverage'  , cover)
+                    print('\n')
                     print(hsp.query[0:75] + '...')
                     print(hsp.match[0:75] + '...')
                     print(hsp.sbjct[0:75] + '...')

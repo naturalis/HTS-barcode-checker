@@ -14,10 +14,6 @@ Unix OS
 from Bio import SeqIO
 import sys
 
-'''
-
-'''
-
 flag = sys.argv[1]
 if flag == "-m":
     print("======= Welcome =======")
@@ -54,7 +50,7 @@ for rec in SeqIO.parse(filename, "fastq"):
     given value
     '''
     for phred_score in quality_seq:
-        if phred_score < bad_qual_score:                    # if quality score is below a given score quality count increases by 1
+        if int(phred_score) < int(bad_qual_score):                    # if quality score is below a given score quality count increases by 1
             qualitycount = qualitycount + 1
         else:
             pass
