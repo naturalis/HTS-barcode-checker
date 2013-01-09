@@ -63,9 +63,9 @@ for rec in SeqIO.parse(filename, "fastq"):
         '''
         the output is given to the terminal in the fasta format.
         '''
-        #out_handle = open("trimmed", "a")
-        sys.stdout.write(str(rec.format("fasta")))          #this writes the fastQ record in fasta format to the terminal
-        #out_handle.close # the file is closed each time to prevent the RAM to fill needlessly is the file is big.
+        out_handle = open("trimmed", "a")
+        out_handle.write(rec.format("fasta"))          #this writes the fastQ record in fasta format to the terminal
+        out_handle.close # the file is closed each time to prevent the RAM to fill needlessly is the file is big.
     else:
         pass
 logging.info("finished trimming")

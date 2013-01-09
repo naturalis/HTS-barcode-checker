@@ -34,7 +34,7 @@ MIN_IDENT      = int(sys.argv[2])
 MIN_COVER      = int(sys.argv[3])
 result_list    = []
 
-#print('start quality control')
+
 logging.info('start quality control')
 for blast_record in NCBIXML.parse(result_handle):
     for alignment in blast_record.alignments:

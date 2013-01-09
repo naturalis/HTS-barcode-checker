@@ -12,6 +12,7 @@ import logging
 logging.basicConfig(level = logging.INFO)
 list_checked_blast_results = sys.stdin.readlines()
 flag = sys.argv[1]
+name_file = []
 
 if flag == '-l':
     filepath = sys.argv[2]
@@ -26,18 +27,22 @@ else:
 
 html = a.readlines()
 
+print(list_checked_blast_results)
 logging.info('starting cites_check')
-namefile = list_checked_blast_results[0].split(";;")
+for defenition in list_checked_blast_results:
+    name_file.append(defenition.split(';;'))
+#namefile = list_checked_blast_results[1].split(";;")
+print(name_file)
 search_name=[]
-for line in namefile:
-    a = line.find(' ')
-    namelinea = line[:a]
-    line = line[a+1:]
-    b = line.find(' ')
-    namelineb = line[:b]
-    line = namelinea + ' ' + namelineb
-    search_name.append(line)
-#print(search_name)
+for line in name_file:
+    for line in line:
+        a = line.find(' ')
+        namelinea = line[:a]
+        line = line[a+1:]
+        b = line.find(' ')
+        namelineb = line[:b]
+        line = namelinea + ' ' + namelineb
+        search_name.append(line)
 
 names_cites_list = []
 for line in html:
@@ -46,8 +51,8 @@ for line in html:
     name = line[a+3:b]
     if name != '':
         names_cites_list.append(name)
-#print(names_cites_list)
-    
+
+print(search_name)
 c = []
 length = len(search_name)
 for name in search_name:
