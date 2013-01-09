@@ -13,6 +13,9 @@ Unix OS
 '''
 from Bio import SeqIO
 import sys
+import logging
+
+logging.basicConfig(level = logging.INFO)
 
 flag = sys.argv[1]
 if flag == "-m":
@@ -27,6 +30,7 @@ elif flag == "-h":
     print("======= Welcome =======")
     print("/n this is the help documentation.")
 else:
+    logging.info("no flag")
     filename            = flag
     bad_qual_score      = sys.argv[2]
     percentage_bad_base = sys.argv[3]
@@ -42,7 +46,7 @@ both the percentage and quality threshold
 will be inputed form the terminal
 '''
 
-#print('start trim')
+logging.info("start trimming")
 for rec in SeqIO.parse(filename, "fastq"):
     quality_seq = rec.letter_annotations["phred_quality"]   # extract the quality sequence for the fastQ record
     qualitycount = 0
@@ -64,3 +68,4 @@ for rec in SeqIO.parse(filename, "fastq"):
         #out_handle.close # the file is closed each time to prevent the RAM to fill needlessly is the file is big.
     else:
         pass
+logging.info("finished trimming")
