@@ -6,12 +6,16 @@ Pipeline for BLAST analysis of IonTorrent DNA barcoding data.
 requirements:
 Linux
 
-dependecies:
+dependencies:
 python-biopython (RPM)
 
 
-this pipeline takes fasQ input files and converts them to fasta format to be used in our blast section of the script.
-the fasta file will then be blasted (blastn) and results are passed back as a XMl file.
-the XML file is then used to perform a quality control(parameters will be entered by the user) and displayed back to the user's terminal
-the results will then be checked on the cites list(available at http://www.cites.org/eng/app/appendices.php) to see if there are any illegal "hits"
-the results are displayed to the user on the command line
+This pipeline takes FastQ input files and converts them to FASTA 
+format to be used in our BLAST section of the script. The FASTA file 
+will then be blasted (blastn) and results are passed back as an XML 
+file. The XML file is then used to perform a quality control 
+(parameters will be entered by the user) and displayed back to the 
+user's terminal. The results will then be checked on the CITES list
+(available at http://www.cites.org/eng/app/appendices.php) to see if 
+there are any illegal "hits". The results are displayed to the user 
+on the command line
