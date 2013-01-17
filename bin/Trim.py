@@ -17,27 +17,14 @@ import logging
 
 logging.basicConfig(level = logging.INFO)
 
-flag = sys.argv[1]
-if flag == "-m":
-    print("======= Welcome =======")
-    print("\n (1/3) Please specify the name of the target file:")
-    filename = sys.stdin.readline()
-    print(" (2/3)Please enter Phred score threshold:")
-    bad_qual_score = sys.stdin.readline() 
-    print(" (3/3)enter the maximum percentage bad reads:")
-    percentage_bad_base = sys.stdin.readline()
-elif flag == "-h":
-    print("======= Welcome =======")
-    print("/n this is the help documentation.")
-else:
-    logging.info("no flag")
-    filename            = flag
-    bad_qual_score      = sys.argv[2]
-    percentage_bad_base = sys.argv[3]
-            
+input_file = sys.argv[1]
+output_path = sys.argv[2]
+phred_score = sys.argv[3]
+percentage_bad_base = 10
+                            
 '''
 this block filters reads that have more 
-than 5% low quality bases.
+than 10% low quality bases.
 this for loop will extract the phred_quality 
 for a fastQ file.
 it will count the number of bad bases and 
@@ -47,7 +34,7 @@ will be inputed form the terminal
 '''
 
 logging.info("start trimming")
-for rec in SeqIO.parse(filename, "fastq"):
+for rec in SeqIO.parse('{input_file}'.format(input_file = input_file), "fastq"):
     quality_seq = rec.letter_annotations["phred_quality"]   # extract the quality sequence for the fastQ record
     qualitycount = 0
     '''
@@ -63,7 +50,7 @@ for rec in SeqIO.parse(filename, "fastq"):
         '''
         the output is given to the terminal in the fasta format.
         '''
-        out_handle = open("trimmed", "a")
+        out_handle = open("{path}/trimmed".format(path = output_path), "a")
         out_handle.write(rec.format("fasta"))          #this writes the fastQ record in fasta format to the terminal
         out_handle.close # the file is closed each time to prevent the RAM to fill needlessly is the file is big.
     else:

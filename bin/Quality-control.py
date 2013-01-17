@@ -44,7 +44,6 @@ for blast_record in NCBIXML.parse(result_handle):
                                                                # an alignment needs to meet 3 criteria before we consider it an acceptable result: above the minimum identity, minimum coverage and E-value
             if int(hsp.expect) < E_VALUE_THRESH and int(ident) > MIN_IDENT and int(cover) > MIN_COVER:
                 result_list.append(alignment.hit_def)
-                print(alignment.hit_def)
                 result_list.append(';;')                        #the ; marks the end of a title and is used to split the list into seperate titles in the output script
 
 logging.info('finished quality control')

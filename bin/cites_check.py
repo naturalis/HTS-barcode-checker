@@ -3,36 +3,38 @@
 this script searches the cites appendices (available at : http://www.cites.org/eng/app/appendices.php)
 for hits on illegal species(?)
 
+Created on 7 Jan. 2013
 
+Author: Alex Hoogkamer
+E-mail: aqhoogkamer@outlook.com / s1047388@student.hsleiden.nl
 '''
+
+#import the modules os to handle downloading, sys for input and output, logging for
+#user information and BeautifulSoup for html parsing 
 import sys
 import os
 import logging
+from bs4 import BeautifulSoup
 
 logging.basicConfig(level = logging.INFO)
 list_checked_blast_results = sys.stdin.readlines()
-flag = sys.argv[1]
 name_file = []
 
-if flag == '-l':
-    filepath = sys.argv[2]
-    a = open('{filepath}'.format(filepath = filepath), 'r')
-else:
-    try:
-        a = open ("appendices.php", "r")
-    except:
-        logging.info('no local copy cites list, downloading from cites.org')
-        os.system("wget http://www.cites.org/eng/app/appendices.php")
-        a = open ("appendices.php", "r")
+try:
+    php_doc = open ("appendices.php", "r")
+except:
+    logging.info('no local copy cites list, downloading from cites.org')
+    os.system("wget http://www.cites.org/eng/app/appendices.php")
+    php_doc = open ("appendices.php", "r")
 
-html = a.readlines()
-
-print(list_checked_blast_results)
 logging.info('starting cites_check')
+soup = BeautifulSoup(php_doc)
+
+list_cites = soup.find_all(['i','b','em']) 
+
 for defenition in list_checked_blast_results:
     name_file.append(defenition.split(';;'))
-#namefile = list_checked_blast_results[1].split(";;")
-print(name_file)
+
 search_name=[]
 for line in name_file:
     for line in line:
@@ -44,25 +46,16 @@ for line in name_file:
         line = namelinea + ' ' + namelineb
         search_name.append(line)
 
-names_cites_list = []
-for line in html:
-    a = line.find('<i>')
-    b = line.find('</i>')
-    name = line[a+3:b]
-    if name != '':
-        names_cites_list.append(name)
-
-print(search_name)
 c = []
-length = len(search_name)
 for name in search_name:
-    if name in names_cites_list:                                               #compare the blast results with the cites list 
-        c.append(name)
-    else:
-        pass
+    for entry in list_cites:
+        a = entry.find(name)
+        if a != -1:
+            if name not in c:
+                c.append(name)
 
 if len(c) != 0:
-    print("found illegal substance in sample :")
+    print("the following species are found in the input file and on the cites list:")
     for line in c:
         print(line)
 else:
