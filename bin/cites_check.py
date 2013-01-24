@@ -30,7 +30,9 @@ except:
 logging.info('starting cites_check')
 soup = BeautifulSoup(php_doc)
 
-list_cites = soup.find_all(['i','b','em']) 
+logging.info('soup')
+list_cites = soup.find_all(['i','b','em'])
+logging.info('/soup') 
 
 for defenition in list_checked_blast_results:
     name_file.append(defenition.split(';;'))

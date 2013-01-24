@@ -47,5 +47,8 @@ for blast_record in NCBIXML.parse(result_handle):
                 result_list.append(';;')                        #the ; marks the end of a title and is used to split the list into seperate titles in the output script
 
 logging.info('finished quality control')
+file = open('temp','a')
 for line in result_list:
     sys.stdout.write(str(line))
+    file.write(line)
+file.close

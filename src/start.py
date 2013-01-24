@@ -16,7 +16,7 @@ import logging, os, argparse
 #the logging level is set to INFO so useful information can be presented to the user
 logging.basicConfig(level = logging.INFO)
 
-args = argparse.ArgumentParser(description = 'Pipeline to identify dna from samlples and check if they are present on the cites list')
+args = argparse.ArgumentParser(description = 'Pipeline to identify dna from samples and check if they are present on the cites list, the pipeline takes a file with fastq reads or a file with fasta reads')
 
 #these are the command line arguments for the pipeline
 args.add_argument('-i', '--input_file', type = str, help = 'Enter the path to the input file, the input file needs to be in fastq format for trimming or in fasta format without trimming', nargs='+') 
@@ -41,9 +41,9 @@ print(path)
 #if trimming is triggerd the script trimming is run first, otherwise it is not run
 if args.trimming:
     logging.info('running pipeline')
-    os.system('python {path}/Trim.py {input_file} {path_output} {phred_score_thresshold} | python {path}/blast.py {path}/my_blast.xml {algorithm} {database} {path_output}/trimmed | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check.py'.format(path = path, phred_score_thresshold = args.phred_thresshold, input_file = args.input_file, path_output = args.output_file, algorithm = args.blast_algorithm, database = args.database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity))
+    os.system('python {path}/Trim.py {input_file} {path_output} {phred_score_thresshold} | python {path}/blast.py {path}/blast.xml {algorithm} {database} {path_output}/trimmed | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check.py'.format(path = path, phred_score_thresshold = args.phred_thresshold, input_file = args.input_file, path_output = args.output_file, algorithm = args.blast_algorithm, database = args.database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity))
     logging.info('finished pipeline')
 else:
     logging.info('starting pipeline')
-    os.system('python {path}/blast.py {path_output}/my_blast.xml {algorithm} {database} {input_file} | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check.py'.format(path = path, input_file = args.input_file[0], path_output = args.output_file[0], algorithm = args.blast_algorithm, database = args.database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity))
+    os.system('python {path}/blast.py {path_output}/blast.xml {algorithm} {database} {input_file} | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check.py'.format(path = path, input_file = args.input_file[0], path_output = args.output_file[0], algorithm = args.blast_algorithm, database = args.database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity))
     logging.info('finished pipeline')

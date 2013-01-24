@@ -15,10 +15,12 @@ from Bio.Blast import NCBIXML
 import sys
 import logging
 
-good_blast    = sys.stdin.readlines()    # this receives the titles of the alignments that passed the quality control
-result_handle = open(sys.argv[1], "r")   # this points to the my_blast.xml and comes from the terminal
-max_results   = int(sys.argv[2])         # the max number of results per query is given from the terminal
-good_blast    = good_blast[0].split(";") # the input comes as one entry in a list, this converts it into a list of titles
+list_checked_blast_results    = open('temp','r')    # this receives the titles of the alignments that passed the quality control
+result_handle = open('~/workspace/barcode-blast-pipeline/data/blast.xml','r') #open(sys.argv[1], "r")   # this points to the my_blast.xml and comes from the terminal
+max_results   = 1 #int(sys.argv[2])         # the max number of results per query is given from the terminal
+
+for defenition in list_checked_blast_results:
+    name_file.append(defenition.split(';;'))
 
 '''
 this block takes an XML file filled with NCBI BLAST output and parses it 
