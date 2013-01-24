@@ -2,8 +2,8 @@
 '''
 @author: Thomas Bolderink
 
-this script searches the cites appendices (available at : http://www.cites.org/eng/app/appendices.php)
-for hits on illegal species(?)
+this script searches the cites appendices(html file) (available at : http://www.cites.org/eng/app/appendices.php)
+for hits on the cites list and extracts the hit and description 
 
 
 '''
@@ -17,26 +17,30 @@ closere = re.compile("</td>")
 i = 0
 
 
+TAG_REnbsp = re.compile(r'&nbsp;')
 TAG_RE = re.compile(r'<[^>]+>')
-
+#'<[^>]+>'
 def remove_tags(text):
     return TAG_RE.sub('', text)
 
+
+def remove_nbsp(text):
+    return TAG_REnbsp.sub('', text)
+
 while i < len (lines):
     if regex.search(lines[i]) != None:
-        #lines[i]= re.sub("</?[^\W].{0,10}?>", "", lines[i])
-        #print lines[i]
-        test = remove_tags(lines[i])
-        print test
+        notags  = remove_tags(lines[i])
+        nosnbsp = remove_nbsp(notags)
+        print nosnbsp
         j = i
+        
+        
         while closere.search(lines[j]) == None:
-            #lines[j]= re.sub("</?[^\W].{0,10}?>", "", lines[j])
             j = j + 1
-            test2 = remove_tags(lines[j])
-            print test2
+            notags2 = remove_tags(lines[j])
+            nonbsp  = remove_nbsp(notags2)
+            print nonbsp
             
-            #lines[j]= re.sub("</td>","",lines[j])
-            #print lines[j]
     i = i + 1
         
         
