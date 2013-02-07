@@ -1,1 +1,0 @@
-python start.py -o C:\Users\thomas\Documents\GitHub\barcode-blast-pipeline\data\my_blast.xml -db nt -ba blastn -ps C:\Users\thomas\Documents\GitHub\barcode-blast-pipeline\bin -i C:\Users\thomas\Documents\GitHub\barcode-blast-pipeline\data\IonXpress
