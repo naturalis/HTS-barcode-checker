@@ -9,6 +9,7 @@ dependencies:
 Bio python
 Unix OS
 
+A script for blasting fasta reads.
 
 input: fastqfile
 output: XML file with blastN search results

@@ -14,45 +14,44 @@ dependencies:
 Bio python
 Unix OS
 '''
+# from biopython we import the xml parser to parse a .xml file that is obtained with blast.py
 from Bio.Blast import NCBIXML
-import os, sys, logging, subprocess
+# further we import sys for input/output logging for user information 
+import sys, logging
 
 '''
 here the current working directory is saved
 and the directories containing the script is
 removed. the result is the directory in which
 the all necessary files are placed
-
-a = ["python test.py", "Agave"]
-
-p = subprocess.Popen(a)
-    
-logging.info(p)
 '''
 
-logging.basicConfig(level = logging.INFO)
-filename       = sys.stdin.readline()
-filename       = filename.strip('\n')
-result_handle  = open(filename, "r")                       # this gets input in an xml format from blast
-E_VALUE_THRESH = float(sys.argv[1])
-MIN_IDENT      = int(sys.argv[2])
-MIN_COVER      = int(sys.argv[3])
-result_list    = []
+
+logging.basicConfig(level = logging.INFO)       # the logging level is set to info
+filename       = sys.stdin.readline()           # the filename is the path to an xml file from the ncbi webserver
+filename       = filename.strip('\n')           # a \n is removed from the path
+result_handle  = open(filename, "r")            # this gets input in an xml format from blast
+E_VALUE_THRESH = float(sys.argv[1])             # an e-value treshold is given from the commandline
+MIN_IDENT      = int(sys.argv[2])               # the minimum identity criteria
+MIN_COVER      = int(sys.argv[3])               # the minimum coverage criteria
+result_list    = []                             # a list to store the hits that meed certain criteria
 
 
 logging.info('start quality control')
+# the program iterates over the xml file
 for blast_record in NCBIXML.parse(result_handle):
+    # each alignment is extracted from the blast_record
     for alignment in blast_record.alignments:
         for hsp in alignment.hsps:
-            ident = float(hsp.identities/(len(hsp.match)*0.01))# this calculates the % identities and % coverage of the current alignment
+            # this calculates the % identities and % coverage of the current alignment
+            ident = float(hsp.identities/(len(hsp.match)*0.01))
             cover = float(len(hsp.match)/((blast_record.query_length)*0.01))
-                                                               # an alignment needs to meet 3 criteria before we consider it an acceptable result: above the minimum identity, minimum coverage and E-value
+            # an alignment needs to meet 3 criteria before we consider it an acceptable result: above the minimum identity, minimum coverage and E-value
             if int(hsp.expect) < E_VALUE_THRESH and int(ident) > MIN_IDENT and int(cover) > MIN_COVER:
+                # the hit_def and hit_id are stored in a list for use later in the script, an ; marks the end of a hit
                 line = alignment.hit_def + '"' + alignment.hit_id + '"' + ';;'
-                #result_list.append(alignment.hit_def)
-                #result_list.append(alignment.hit_id)
-                #result_list.append(';;')                        #the ; marks the end of a title and is used to split the list into seperate titles in the output script
                 result_list.append(line)
 
+# the list with the hit_def and hit_id of blast hits is given to the next stage
 sys.stdout.writelines(result_list)
 logging.info("finished quality control")
