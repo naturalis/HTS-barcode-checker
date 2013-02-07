@@ -21,29 +21,41 @@ args = argparse.ArgumentParser(description = 'Pipeline to identify dna from samp
 #these are the command line arguments for the pipeline
 args.add_argument('-i', '--input_file', type = str, help = 'Enter the path to the input file, the input file needs to be in fastq format for trimming or in fasta format without trimming', nargs='+') 
 args.add_argument('-o','--output_file', type = str, help = 'Enter the path to the output file', nargs='+')
-args.add_argument('-db','--database', type = str, help = 'Enter which database to be used with BLAST', default = 'nt')
+args.add_argument('-db','--blast_database', type = str, help = 'Enter which database to be used with BLAST', default = 'nt')
 args.add_argument('-ba', '--blast_algorithm', type = str, help = 'Enter which database to be used with BLAST', default = 'blastn')
 args.add_argument('-me', '--min_evalue', type = float, help = 'Enter the minimal E-value for BLAST results', default = 0.04)
 args.add_argument('-mc', '--min_coverage', type = int, help = 'Enter the minimal coverage for BLAST results', default = 95 )
 args.add_argument('-mi', '--min_identity', type = int, help = 'Enter the minimal identity for BLAST results', default = 97)
 args.add_argument('-ps', '--path_scripts', type = str, help = 'Enter the path of the scripts', nargs='+')
-args.add_argument('-t', '--trimming', action="store_true", help = 'Enter if the input file will be trimmed')
+args.add_argument('-t', '--fastq_trimming', action="store_true", help = 'Enter if the input file will be trimmed')
 args.add_argument('-tp', '--phred_thresshold', type = int, help = 'Enter the the phred score cutoff for the trimming tool', default = 46)
-
+args.add_argument('-bh', '--hitlist_size', type = int, help = 'enter the size of the BLAST hit list')
+args.add_argument('-m', '--megablast', action='store_true', help = 'Switch to use megablast instead of blastn')
+args.add_argument('-g', '--gapcost', type = str, help = 'Enter the gap cost for blast search, it is entered as "x y"')
+args.add_argument('-nr', '--nucleotide_reward', type = int, help = 'Enter the match score for blast search')
+args.add_argument('-np', '--nucleotide_penalty', type = str, help = 'Enter the mismatch score for blast search')
+args.add_argument('-w', '--wordsize', type = int, help = 'Enter the wordsize for blast search')
 #here the arguments are added to the program
 args = args.parse_args()
 
 #print(args)
 path = args.path_scripts[0]
 path = path.strip('\r')
-print(path)
 
 #if trimming is triggerd the script trimming is run first, otherwise it is not run
-if args.trimming:
+if args.fastq_trimming:
     logging.info('running pipeline')
-    os.system('python {path}/Trim.py {input_file} {path_output} {phred_score_thresshold} | python {path}/blast.py {path}/blast.xml {algorithm} {database} {path_output}/trimmed | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check.py'.format(path = path, phred_score_thresshold = args.phred_thresshold, input_file = args.input_file, path_output = args.output_file, algorithm = args.blast_algorithm, database = args.database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity))
+    if args.megablast:
+        os.system('python {path}/Trim.py {input_file} {path_output} {phred_score_thresshold} | python {path}/blast.py -m -o {path}/blast.xml -a {algorithm} -d {database} -i {path_output} -s {hitlist_size} -p -w "{word}" -np "{penalty}" -nr "{reward}" -g "{gap}" | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check2.py | python {path}/Output.py {path_output} {path}'.format(path = path, phred_score_thresshold = args.phred_thresshold, input_file = args.input_file, path_output = args.output_file, algorithm = args.blast_algorithm, database = args.blast_database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity, hitlist_size = args.hitlist_size, word = args.wordsize, penalty = args.nucleotide_penalty, reward = args.nucleotide_reward, gap = args.gapcost))
+    else:
+        os.system('python {path}/Trim.py {input_file} {path_output} {phred_score_thresshold} | python {path}/blast.py -o {path}/blast.xml -a {algorithm} -d {database} -i {path_output} -s {hitlist_size} -p -w "{word}" -np "{penalty}" -nr "{reward}" -g "{gap}" | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check2.py | python {path}/Output.py {path_output} {path}'.format(path = path, phred_score_thresshold = args.phred_thresshold, input_file = args.input_file, path_output = args.output_file, algorithm = args.blast_algorithm, database = args.blast_database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity, hitlist_size = args.hitlist_size, word = args.wordsize, penalty = args.nucleotide_penalty, reward = args.nucleotide_reward, gap = args.gapcost))
+    #os.system('python {path}/Output.py {path_output} {path}'.format(path_output = args.output_file, path = path))
     logging.info('finished pipeline')
 else:
     logging.info('starting pipeline')
-    os.system('python {path}/blast.py {path_output}/blast.xml {algorithm} {database} {input_file} | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check.py'.format(path = path, input_file = args.input_file[0], path_output = args.output_file[0], algorithm = args.blast_algorithm, database = args.database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity))
+    if args.megablast:
+        os.system('python {path}/blast.py -o {path_output} -a {algorithm} -d {database} -i {input_file} -w "{word}" -np "{penalty}" -nr "{reward}" -g "{gap}" -m | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check2.py | python {path}/Output.py {path_output} {path}'.format(path = path, input_file = args.input_file[0], path_output = args.output_file[0], algorithm = args.blast_algorithm, database = args.blast_database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity, hitlist_size = args.hitlist_size, word = args.wordsize, penalty = args.nucleotide_penalty, reward = args.nucleotide_reward, gap = args.gapcost))
+    else:
+        os.system('python {path}/blast.py -o {path_output} -a {algorithm} -d {database} -i {input_file} -w "{word}" -np "{penalty}" -nr "{reward}" -g "{gap}" | python {path}/Quality-control.py {evalue} {identity} {coverage} | python {path}/cites_check2.py | python {path}/Output.py {path_output} {path}'.format(path = path, input_file = args.input_file[0], path_output = args.output_file[0], algorithm = args.blast_algorithm, database = args.blast_database, evalue = args.min_evalue, coverage = args.min_coverage, identity = args.min_identity, hitlist_size = args.hitlist_size, word = args.wordsize, penalty = args.nucleotide_penalty, reward = args.nucleotide_reward, gap = args.gapcost))
+    #os.system('python {path}/Output.py {path_output} {path}'.format(path_output = args.output_file, path = path))
     logging.info('finished pipeline')

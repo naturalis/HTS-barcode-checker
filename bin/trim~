@@ -1,0 +1,1 @@
+python Trim.py /home/alex/workspace/barcode-blast-pipeline/data/test/s_2_1_sequence /home/alex/workspace/barcode-blast-pipeline/data/test/s_2_1_sequence-trimmed 13

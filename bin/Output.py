@@ -15,37 +15,47 @@ from Bio.Blast import NCBIXML
 import sys
 import logging
 
-list_checked_blast_results    = open('temp','r')    # this receives the titles of the alignments that passed the quality control
-result_handle = open('~/workspace/barcode-blast-pipeline/data/blast.xml','r') #open(sys.argv[1], "r")   # this points to the my_blast.xml and comes from the terminal
-max_results   = 1 #int(sys.argv[2])         # the max number of results per query is given from the terminal
+cites = sys.stdin.readlines()
+xml = sys.argv[1]
+path = sys.argv[2]
+path = path[:-3]+"data"
+result_handle = open(xml, "r")   # this points to the my_blast.xml and comes from the terminal
+logging.basicConfig(level = logging.INFO)
 
-for defenition in list_checked_blast_results:
-    name_file.append(defenition.split(';;'))
+asseccion = []
+for line in cites:
+    c = line.find(',')
+    line = line[c+1:]
+    line = line.strip('\n')
+    asseccion.append(line)
 
 '''
 this block takes an XML file filled with NCBI BLAST output and parses it 
 into a human readable format. per query sequence it will show a given 
 number or less results.
 '''
+
+results_file = open("{path}/pipe_results.csv".format(path = path),"w")
+results_file.write('"Query","Accession","Description","Bit score","Coverage","e-value","Indentity","cites"\n')
+results_file.close()
+
+i = 1
 logging.info('start output')
 for blast_record in NCBIXML.parse(result_handle):
-    current_results = 0
     for alignment in blast_record.alignments:
-        if current_results < max_results:                           #if the max number of results is reached it will continue on the the next query
-            for hsp in alignment.hsps:
-                ident = float(hsp.identities/(len(hsp.match)*0.01)) # this calculates the % identities and % coverage of the current alignment
-                cover = float(len(hsp.match)/(len(hsp.query)*0.01))
-                if alignment.hit_def in good_blast:
-                    print('****Alignment****')                      # print formatting for user
-                    print('sequence:'   , alignment.title)
-                    print('length:'     , alignment.length)
-                    print('% identity:' , ident)
-                    print('e value:'    , hsp.expect)
-                    print('% coverage'  , cover)
-                    print(hsp.query[0:75] + '...')
-                    print(hsp.match[0:75] + '...')
-                    print(hsp.sbjct[0:75] + '...')
-                    print('\n')
-        current_results = current_results + 1
+        for hsp in alignment.hsps:
+            ident = float(hsp.identities/(len(hsp.match)*0.01)) # this calculates the % identities and % coverage of the current alignment
+            cover = float(len(hsp.match)/((blast_record.query_length)*0.01))
+            ident = round(ident, 5)
+            cover = round(cover, 5)
+ 
+            hit_def = alignment.hit_def
+            if alignment.hit_id in asseccion:
+                result_string = '"{a}","{g}","{b}","{c}","{d}","{e}","{f}","yes"\n'.format(a = blast_record.query, b = alignment.hit_def, c = hsp.bits, d = cover, e = hsp.expect, f = ident, g = alignment.hit_id)
+            else:
+                result_string = '"{a}","{g}","{b}","{c}","{d}","{e}","{f}"\n'.format(a = blast_record.query, b = alignment.hit_def, c = hsp.bits, d = cover, e = hsp.expect, f = ident, g = alignment.hit_id)
+            results_file = open("{path}/pipe_results.csv".format(path = path),"a")
+            results_file.write(result_string)
+            results_file.close()
 result_handle.close()
 logging.info('finished output')

@@ -40,15 +40,14 @@ for blast_record in NCBIXML.parse(result_handle):
     for alignment in blast_record.alignments:
         for hsp in alignment.hsps:
             ident = float(hsp.identities/(len(hsp.match)*0.01))# this calculates the % identities and % coverage of the current alignment
-            cover = float(len(hsp.match)/(len(hsp.query)*0.01))
+            cover = float(len(hsp.match)/((blast_record.query_length)*0.01))
                                                                # an alignment needs to meet 3 criteria before we consider it an acceptable result: above the minimum identity, minimum coverage and E-value
             if int(hsp.expect) < E_VALUE_THRESH and int(ident) > MIN_IDENT and int(cover) > MIN_COVER:
-                result_list.append(alignment.hit_def)
-                result_list.append(';;')                        #the ; marks the end of a title and is used to split the list into seperate titles in the output script
+                line = alignment.hit_def + '"' + alignment.hit_id + '"' + ';;'
+                #result_list.append(alignment.hit_def)
+                #result_list.append(alignment.hit_id)
+                #result_list.append(';;')                        #the ; marks the end of a title and is used to split the list into seperate titles in the output script
+                result_list.append(line)
 
+sys.stdout.writelines(result_list)
 logging.info('finished quality control')
-file = open('temp','a')
-for line in result_list:
-    sys.stdout.write(str(line))
-    file.write(line)
-file.close
