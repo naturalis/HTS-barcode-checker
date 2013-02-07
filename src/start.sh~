@@ -1,9 +1,4 @@
 #!/bin/sh
-#deze file start de pipelijn.
+#this file starts the blast -barcode pipeline (scripts: blast.py , trim.py , quality.py , output.py , cites_check).
 #author: Alex Hoogkamer
-cd ..
-#python bin/Trim/Trim.py
-#python bin/BLAST/script1.py
-python bin/Quality/Quality-control.py
-python bin/Output/Output.py
-echo "done"
+python start2.py -i ~/workspace/barcode-blast-pipeline/data/gen -o ~/workspace/barcode-blast-pipeline/data/ -ps ~/workspace/barcode-blast-pipeline/bin
