@@ -23,12 +23,20 @@ result_handle = open(xml, "r")   # this points to the my_blast.xml and comes fro
 logging.basicConfig(level = logging.INFO)
 
 asseccion = []
+cites_names = []
+a = 0
 for line in cites:
-    c = line.find(',')
-    line = line[c+1:]
-    line = line.strip('\n')
-    asseccion.append(line)
-
+    line = line.strip("\n")
+    #line = line.strip("\r")
+    if line == ";":
+       a = 1
+    else:
+        if a == 1:
+            asseccion.append(line)
+        elif a == 0:
+            cites_names.append(line)
+#logging.info(asseccion)
+#logging.info(cites_names)
 '''
 this block takes an XML file filled with NCBI BLAST output and parses it 
 into a human readable format. per query sequence it will show a given 
@@ -36,7 +44,7 @@ number or less results.
 '''
 
 results_file = open("{path}/pipe_results.csv".format(path = path),"w")
-results_file.write('"Query","Accession","Description","Bit score","Coverage","e-value","Indentity","cites"\n')
+results_file.write('"Query","Accession","Description","Bit score","Coverage","e-value","Identity","CITES"\n')
 results_file.close()
 
 i = 1
@@ -58,4 +66,7 @@ for blast_record in NCBIXML.parse(result_handle):
             results_file.write(result_string)
             results_file.close()
 result_handle.close()
+
+print(cites_names)
+
 logging.info('finished output')

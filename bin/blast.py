@@ -30,7 +30,7 @@ args.add_argument('-m', '--megablast', action='store_true', help = 'Switch to us
 args.add_argument('-g', '--gapcost', help = 'Enter the gap cost, it is entered as "x y"' , default = "5 5")
 args.add_argument('-nr', '--nucleotide_reward', help = 'Enter the match', default = "5")
 args.add_argument('-np', '--nucleotide_penalty', help = 'Enter the mismatch', default = "-4")
-args.add_argument('-w', '--wordsize', help = 'Enter the wordsize for blast', default = "11")
+args.add_argument('-w', '--wordsize', help = 'Enter the wordsize for blast', default = 11)
 
 args = args.parse_args()
 

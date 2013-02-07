@@ -15,16 +15,21 @@ Bio python
 Unix OS
 '''
 from Bio.Blast import NCBIXML
-import os
-import sys
-import logging
+import os, sys, logging, subprocess
 
 '''
 here the current working directory is saved
 and the directories containing the script is
 removed. the result is the directory in which
 the all necessary files are placed
+
+a = ["python test.py", "Agave"]
+
+p = subprocess.Popen(a)
+    
+logging.info(p)
 '''
+
 logging.basicConfig(level = logging.INFO)
 filename       = sys.stdin.readline()
 filename       = filename.strip('\n')
@@ -50,4 +55,4 @@ for blast_record in NCBIXML.parse(result_handle):
                 result_list.append(line)
 
 sys.stdout.writelines(result_list)
-logging.info('finished quality control')
+logging.info("finished quality control")
