@@ -33,8 +33,9 @@ def clean_cell (cell):
 	
 	import re
 
+	cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
 	regex = re.compile(r'[\n\r\t]')
-	cell = regex.sub('', cell)
+	cell = regex.sub('', cell).strip().replace('&nbsp;',' ')
 	
 	while '  ' in cell:
 		cell = cell.replace('  ', ' ')
@@ -68,9 +69,9 @@ def parse_php (php_file):
 			# if the cell is filled, retrieve the
 			# species name and add it to the dictionary
 			if cell != None:
-				cell = str(''.join(cell.findAll(text=True)))
+				cell = clean_cell(cell)
 				if ';' in cell:	cell = cell.split(';')[1]
-				CITES_dict[count].append(clean_cell(cell))
+				CITES_dict[count].append([cell,clean_cell(td)])
 			count += 1
 	
 	# return the dictionary containing the species
@@ -89,11 +90,11 @@ def TNRS (name):
 		params={'query':name},
 		allow_redirects=True)
 
-	redirect_url = TNRS_req.url
+	redirect_url, time_count = TNRS_req.url, 0
 
 	# send retrieve requests at 5 second intervals till
 	# the api returns the JSON object with the results
-	while redirect_url:
+	while redirect_url and time_count < 60:
 		retrieve_response = requests.get(redirect_url)
 		retrieve_results = retrieve_response.json()
 		
@@ -101,22 +102,97 @@ def TNRS (name):
 		# retrieve all accepted names for the species
 		# and return these
 		if u'names' in retrieve_results:
-			name_list = []
+			name_list = [name,[]]
 			names = retrieve_results.get(u'names')
 			for item in names[0]['matches']:
-				name_list.append(str(item['acceptedName']))
+				if item['sourceId'] == 'NCBI':
+					name_list.append(str(item['uri']).split('/')[-1])
+				synonym = item['acceptedName']
+				if synonym != name and ' ' in synonym and synonym != '':
+					name_list[1].append(str(item['acceptedName']))
 
 			# return the list with species names
 			return name_list
+		
+		# time out before sending the new request
+		# use a counter to keep track of the time, if there is
+		# still no server reply the function will return an empty list
 		time.sleep(5)
+		time_count += 5
 
+	print('Timeout for species %s' % name)
+	return [name,[]]
+
+def get_taxid (species):
+	
+	# get taxon id based on species name (if not provided by TNRS search)
+
+	# import Entrez module from biopython to connect to the genbank servers
+	from Bio import Entrez
+
+	'''
+	def get_TaxonomyChild():
+	handle = Entrez.esearch(db="Taxonomy", term="Chlamydiales [subtree] AND species[rank]", RetMax="100000")
+	record = Entrez.read(handle)
+	IdListOrganisms = record["IdList"]
+	for organism in IdListOrganisms:
+		if organism == "813":
+			handle = Entrez.esearch(db="Taxonomy", term="txid"+organism+"[Organism]", RetMax="100000")
+			record = Entrez.read(handle)
+			StrainList = record["IdList"]
+			for Strain in StrainList:
+				if Strain == "471472":
+					print Strain
+'''
+
+	Entrez.email = "s1mpmm41l@npclient.com"
+	species = species.replace(" ", "+").strip()
+	search = Entrez.esearch(term = species, db = "taxonomy", retmode = "xml")
+	record = Entrez.read(search)
+
+	print record
+		
+	if record['IdList'] != []:
+		
+		return record['IdList'][0]
+
+	return 'none'
+
+def combine_sets (CITES_dic):
+	
+	# Expand the CITES information with TNRS synonyms and Taxonomic IDs
+
+	# parse through the different CITES appendixes and
+	# and try to retrieve the TNRS synonyms and NCBI Taxonomic IDs
+	# for each species
+
+	species_count, ncbi_taxon = 0, 0
+
+	for appendix in CITES_dic:
+		for cell in CITES_dic[appendix][:10]:
+			TNRS_data = TNRS(cell[0])
+			if len(TNRS_data) != 3:
+				print TNRS_data
+				print cell[1]
+
+				#if TNRS
+				for alt in TNRS_data[1]:
+					print ('als =  %s, taxon_id = %s' % (alt ,get_taxid(alt)))
+
+			else:
+				ncbi_taxon += 1
+
+			species_count += 1
+	
+	print('Species count: %i, Taxon_ID count: %i' % (species_count, ncbi_taxon))
 
 def main ():
 	
-	#CITES_php = download_raw_CITES()
-	#CITES_dic = parse_php(CITES_php)
-	names = TNRS('Aloe pillansii')
-	print names
+	CITES_php = download_raw_CITES()
+	CITES_dic = parse_php(CITES_php)
+	combine_sets(CITES_dic)
+
+
 
 if __name__ == "__main__":
     main()
