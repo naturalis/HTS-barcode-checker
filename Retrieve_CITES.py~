@@ -181,11 +181,6 @@ def combine_sets (CITES_dic):
 			TNRS_data = TNRS(cell[0].replace(' spp.',''))
 			print TNRS_data
 			print '\n'
-			if len(TNRS_data) == 3:
-				ncbi_taxon +=1 
-			species_count += 1
-
-	print('Species count: %i, Taxon_ID count: %i' % (species_count, ncbi_taxon))
 			
 			
 

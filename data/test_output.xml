@@ -1,0 +1,1577 @@
+<?xml version="1.0"?>
+<!DOCTYPE BlastOutput PUBLIC "-//NCBI//NCBI BlastOutput/EN" "NCBI_BlastOutput.dtd">
+<BlastOutput>
+  <BlastOutput_program>blastn</BlastOutput_program>
+  <BlastOutput_version>BLASTN 2.2.27+</BlastOutput_version>
+  <BlastOutput_reference>Stephen F. Altschul, Thomas L. Madden, Alejandro A. Sch&amp;auml;ffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), &quot;Gapped BLAST and PSI-BLAST: a new generation of protein database search programs&quot;, Nucleic Acids Res. 25:3389-3402.</BlastOutput_reference>
+  <BlastOutput_db>nt</BlastOutput_db>
+  <BlastOutput_query-ID>59129</BlastOutput_query-ID>
+  <BlastOutput_query-def>MID 2_contig1</BlastOutput_query-def>
+  <BlastOutput_query-len>241</BlastOutput_query-len>
+  <BlastOutput_param>
+    <Parameters>
+      <Parameters_expect>10</Parameters_expect>
+      <Parameters_sc-match>4</Parameters_sc-match>
+      <Parameters_sc-mismatch>-5</Parameters_sc-mismatch>
+      <Parameters_gap-open>5</Parameters_gap-open>
+      <Parameters_gap-extend>5</Parameters_gap-extend>
+      <Parameters_filter>L;m;</Parameters_filter>
+    </Parameters>
+  </BlastOutput_param>
+<BlastOutput_iterations>
+<Iteration>
+  <Iteration_iter-num>1</Iteration_iter-num>
+  <Iteration_query-ID>59129</Iteration_query-ID>
+  <Iteration_query-def>MID 2_contig1</Iteration_query-def>
+  <Iteration_query-len>241</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|224974130|gb|FJ761676.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone Singleton_66-3039_0753 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, complete sequence; and 5.8S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>FJ761676</Hit_accession>
+  <Hit_len>291</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>136.554</Hsp_bit-score>
+      <Hsp_score>344</Hsp_score>
+      <Hsp_evalue>6.01079e-29</Hsp_evalue>
+      <Hsp_query-from>77</Hsp_query-from>
+      <Hsp_query-to>241</Hsp_query-to>
+      <Hsp_hit-from>123</Hsp_hit-from>
+      <Hsp_hit-to>291</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>141</Hsp_identity>
+      <Hsp_positive>141</Hsp_positive>
+      <Hsp_gaps>16</Hsp_gaps>
+      <Hsp_align-len>175</Hsp_align-len>
+      <Hsp_qseq>ACCCTCTGTGTCCCGACCGAATCTCGCTTCGGGGGTTACCG---CCTA---GCGCGG-CCCCCGGCGGCCACCATCAAA-CTCGTCGTAACGCGTCTGATCGGAGTGTGA--GTAAATTGAAACAAAACTTTCAACAACGGATCTCTTGGTTCAGGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>ACCCTTTGTGTTCTGACTG--TGTTGCCTCGGGGGCGACCGTGCCCGACGGGCGCGGGCCCCCGGTGGCCTC-ATCAAAACTCGTCGTAAC-CTTCTG-TCTGAGTCTAAAAGTAAATT-AAGCAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>||||| ||||| | ||| |  | | || |||||||  ||||   || |   |||||| ||||||| |||| | |||||| ||||||||||| | |||| || |||| | |  ||||||| || |||||||||||||||||||||||||||||| |||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>2</Iteration_iter-num>
+  <Iteration_query-ID>59130</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig2</Iteration_query-def>
+  <Iteration_query-len>139</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|209981600|gb|FJ235950.1|</Hit_id>
+  <Hit_def>Fungal sp. AB17 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>FJ235950</Hit_accession>
+  <Hit_len>396</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>82.02</Hsp_bit-score>
+      <Hsp_score>204</Hsp_score>
+      <Hsp_evalue>1.5677e-12</Hsp_evalue>
+      <Hsp_query-from>2</Hsp_query-from>
+      <Hsp_query-to>61</Hsp_query-to>
+      <Hsp_hit-from>138</Hsp_hit-from>
+      <Hsp_hit-to>79</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>56</Hsp_identity>
+      <Hsp_positive>56</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>60</Hsp_align-len>
+      <Hsp_qseq>GCTGCGTTCTTCATCGATGCAGGAGCCTAGAGATCCGTTGTTCATGGTTGTACAATCCTC</Hsp_qseq>
+      <Hsp_hseq>GCTGCGTTCTTCATCGATGCAGGAGCCTAGAGATCCGTTGTTCATGGTTTTGTTATCCTC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||| |   ||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>3</Iteration_iter-num>
+  <Iteration_query-ID>59131</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig3</Iteration_query-def>
+  <Iteration_query-len>198</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|408887532|ref|NR_073341.1|</Hit_id>
+  <Hit_def>Trichosporon asahii 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|20153290|gb|AY055381.1| Trichosporon asahii 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|20378518|gb|AF444457.1| Trichosporon asahii strain CBS 8520 18S ribosomal RNA, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA, partial sequence &gt;gi|20378526|gb|AF444465.1| Trichosporon asahii strain CBS 8640 18S ribosomal RNA, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA, partial sequence &gt;gi|20378527|gb|AF444466.1| Trichosporon asahii strain CBS 7137 18S ribosomal RNA, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA, partial sequence &gt;gi|215260586|gb|EU863545.1| Trichosporon asahii strain PUMCH5Z6527 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260587|gb|EU863546.1| Trichosporon asahii strain PUMCH5Z6443 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260588|gb|EU863547.1| Trichosporon asahii strain PUMCH6Z6579 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260589|gb|EU863548.1| Trichosporon asahii strain PUMCH6Z2782 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260590|gb|EU863549.1| Trichosporon asahii strain PUMCH6Z10766 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260591|gb|EU863550.1| Trichosporon asahii strain PUMCH6W5203 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260592|gb|EU863551.1| Trichosporon asahii strain PUMCH6Z9690 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260593|gb|EU863552.1| Trichosporon asahii strain PUMCH6Z8369 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260594|gb|EU863553.1| Trichosporon asahii strain PUMCH7Z7552 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260595|gb|EU863554.1| Trichosporon asahii strain PUMCH7R7615 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260596|gb|EU863555.1| Trichosporon asahii strain PUMCH7Z102 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260597|gb|EU863556.1| Trichosporon asahii strain PUMCH30401 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260598|gb|EU863557.1| Trichosporon asahii strain PUMCH30402 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260599|gb|EU863558.1| Trichosporon asahii strain PUMCH30403 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260600|gb|EU863559.1| Trichosporon asahii strain PUMCH30405 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260601|gb|EU863560.1| Trichosporon asahii strain PUMCH30406 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260602|gb|EU863561.1| Trichosporon asahii strain PUMCH30407 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260603|gb|EU863562.1| Trichosporon asahii strain PUMCH30408 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260604|gb|EU863563.1| Trichosporon asahii strain PUMCH30409 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260605|gb|EU863564.1| Trichosporon asahii strain PUMCH30410 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260606|gb|EU863565.1| Trichosporon asahii strain PUMCHBY12 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260607|gb|EU863566.1| Trichosporon asahii strain PUMCHBY13 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260608|gb|EU863567.1| Trichosporon asahii strain PUMCHBY14 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260609|gb|EU863568.1| Trichosporon asahii strain PUMCHBY15 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260610|gb|EU863569.1| Trichosporon asahii strain PUMCHBY16 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260611|gb|EU863570.1| Trichosporon asahii strain PUMCHBY17 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260612|gb|EU863571.1| Trichosporon asahii strain PUMCHBY18 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260613|gb|EU863572.1| Trichosporon asahii strain PUMCHBY19 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260614|gb|EU863573.1| Trichosporon asahii strain PUMCHBY25 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260615|gb|EU863574.1| Trichosporon asahii strain PUMCHBY26 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260616|gb|EU863575.1| Trichosporon asahii strain PUMCHBY29 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260617|gb|EU863576.1| Trichosporon asahii strain PUMCH8W2360 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260618|gb|EU863577.1| Trichosporon asahii strain PUMCHJS30 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260619|gb|EU863578.1| Trichosporon asahii strain PUMCH8R5548 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|215260620|gb|EU863579.1| Trichosporon asahii strain PUMCH8W2883 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|434861207|gb|KC254105.1| Trichosporon asahii culture-collection UOA/HCPF&lt;GRC&gt;:14569B internal transcribed spacer 1, complete sequence; 18S ribosomal RNA gene, partial sequence; 5.8S ribosomal RNA gene and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|434861210|gb|KC254106.1| Trichosporon asahii culture-collection UOA/HCPF&lt;GRC&gt;:AB107 internal transcribed spacer 1, complete sequence; 18S ribosomal RNA gene, partial sequence; 5.8S ribosomal RNA gene and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|434861213|gb|KC254107.1| Trichosporon asahii culture-collection UOA/HCPF&lt;GRC&gt;:AB180 internal transcribed spacer 1, complete sequence; 18S ribosomal RNA gene, partial sequence; 5.8S ribosomal RNA gene and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>NR_073341</Hit_accession>
+  <Hit_len>541</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>311.062</Hsp_bit-score>
+      <Hsp_score>792</Hsp_score>
+      <Hsp_evalue>1.7647e-81</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>198</Hsp_query-to>
+      <Hsp_hit-from>6</Hsp_hit-from>
+      <Hsp_hit-to>203</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>198</Hsp_identity>
+      <Hsp_positive>198</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>198</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTAGTGATTGCCTTTATAGGCTTATAACTATATCCACTTACACCTGTGAACTGTTCTACTACTTGACGCAAGTCGAGTATTTTTACAAACAATGTGTAATGAACGTCGTTTTATTATAACAAAATAAAACTTTCAACAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTAGTGATTGCCTTTATAGGCTTATAACTATATCCACTTACACCTGTGAACTGTTCTACTACTTGACGCAAGTCGAGTATTTTTACAAACAATGTGTAATGAACGTCGTTTTATTATAACAAAATAAAACTTTCAACAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>4</Iteration_iter-num>
+  <Iteration_query-ID>59132</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig4</Iteration_query-def>
+  <Iteration_query-len>85</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|449040180|gb|KC152056.1|</Hit_id>
+  <Hit_def>Uncultured Aspergillus isolate DGGE gel band stripe6 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, complete sequence; and 5.8S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>KC152056</Hit_accession>
+  <Hit_len>234</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>118.636</Hsp_bit-score>
+      <Hsp_score>298</Hsp_score>
+      <Hsp_evalue>1.48891e-23</Hsp_evalue>
+      <Hsp_query-from>3</Hsp_query-from>
+      <Hsp_query-to>85</Hsp_query-to>
+      <Hsp_hit-from>121</Hsp_hit-from>
+      <Hsp_hit-to>204</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>82</Hsp_identity>
+      <Hsp_positive>82</Hsp_positive>
+      <Hsp_gaps>3</Hsp_gaps>
+      <Hsp_align-len>85</Hsp_align-len>
+      <Hsp_qseq>GCCGGGG-CTACGTGAACTTCATGCCTGAGAGTGATGCAGTCTGAGTCTGAATAT-AAATCAGTCAAAACTTTCAACAATGGATC</Hsp_qseq>
+      <Hsp_hseq>GCCGGGGACTAC-TGAACTTCATGCCTGAGAGTGATGCAGTCTGAGTCTGAATATAAAATCAGTCAAAACTTTCAACAATGGATC</Hsp_hseq>
+      <Hsp_midline>||||||| |||| |||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>5</Iteration_iter-num>
+  <Iteration_query-ID>59133</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig5</Iteration_query-def>
+  <Iteration_query-len>186</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|238696002|gb|FJ980392.1|</Hit_id>
+  <Hit_def>Aquilaria sinensis voucher PS1178MT01 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>FJ980392</Hit_accession>
+  <Hit_len>687</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>292.365</Hsp_bit-score>
+      <Hsp_score>744</Hsp_score>
+      <Hsp_evalue>7.50114e-76</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>186</Hsp_query-to>
+      <Hsp_hit-from>60</Hsp_hit-from>
+      <Hsp_hit-to>245</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>186</Hsp_identity>
+      <Hsp_positive>186</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>186</Hsp_align-len>
+      <Hsp_qseq>AGCAGCATGACCCGTGAACGTTAATAACAATGTGCCGAGTTGGAATTGTGTCGTTATGCCCCATTCCCTCTTCGGTTGGCCCTTGTGGCCGTCATAACCAAACCCCGGCGCGGACTGCGCCAAGGAACTTGATCACATAATACGTTTGCCTCGTGCACCCAGAAATGGGGGCGGTGGGGATCAAGC</Hsp_qseq>
+      <Hsp_hseq>AGCAGCATGACCCGTGAACGTTAATAACAATGTGCCGAGTTGGAATTGTGTCGTTATGCCCCATTCCCTCTTCGGTTGGCCCTTGTGGCCGTCATAACCAAACCCCGGCGCGGACTGCGCCAAGGAACTTGATCACATAATACGTTTGCCTCGTGCACCCAGAAATGGGGGCGGTGGGGATCAAGC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>6</Iteration_iter-num>
+  <Iteration_query-ID>59134</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig6</Iteration_query-def>
+  <Iteration_query-len>85</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|91694794|gb|DQ467995.1|</Hit_id>
+  <Hit_def>Aspergillus nomius strain TK32 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>DQ467995</Hit_accession>
+  <Hit_len>597</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>120.583</Hsp_bit-score>
+      <Hsp_score>303</Hsp_score>
+      <Hsp_evalue>3.85986e-24</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>85</Hsp_query-to>
+      <Hsp_hit-from>134</Hsp_hit-from>
+      <Hsp_hit-to>216</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>82</Hsp_identity>
+      <Hsp_positive>82</Hsp_positive>
+      <Hsp_gaps>2</Hsp_gaps>
+      <Hsp_align-len>85</Hsp_align-len>
+      <Hsp_qseq>GGCCCGCCGCCCGCCCGCGAGACACCACGAACTCTGAACGATCTAGTGAAGTCTGAGTTGATTGTATCGCAATCAGTTAAAACTT</Hsp_qseq>
+      <Hsp_hseq>GGCCCGCTGCCCGCC-G-GAGACACCACGAACTCTGAACGATCTAGTGAAGTCTGAGTTGATTGTATCGCAATCAGTTAAAACTT</Hsp_hseq>
+      <Hsp_midline>||||||| ||||||| | |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>7</Iteration_iter-num>
+  <Iteration_query-ID>59135</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig7</Iteration_query-def>
+  <Iteration_query-len>218</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|408886873|ref|NR_073311.1|</Hit_id>
+  <Hit_def>Kurtzmanomyces tardus 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence &gt;gi|20452292|gb|AF444566.1| Kurtzmanomyces tardus strain CBS 7421 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>NR_073311</Hit_accession>
+  <Hit_len>637</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>270.162</Hsp_bit-score>
+      <Hsp_score>687</Hsp_score>
+      <Hsp_evalue>3.62176e-69</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>218</Hsp_query-to>
+      <Hsp_hit-from>6</Hsp_hit-from>
+      <Hsp_hit-to>222</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>203</Hsp_identity>
+      <Hsp_positive>203</Hsp_positive>
+      <Hsp_gaps>9</Hsp_gaps>
+      <Hsp_align-len>222</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTAGTGAATTC-TGGGAGTCCCTCCTGACCGGAGAAGGCCCAATCCACTATCTCTC-ACACCCTAGTGCATTTGTCCCCTTTTTACCTTTTAACCCTTTTGCATTCGAAAAGGTTGTTGTGT--TGCAAACATTTGATAAAATGAAAGAAAAACTTTCAGCAATGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTAGTGAATTCATGGGAGTCCCTCTTAACCGGAGAAGGCCCAATCCACTATCTTTTTAAACCCTAGTGCATTTGTCCC-TTTTTACCA---AACCCTTTTGCATTCGAAAAGGTTGTCGTGTGATTAATACATTTGATAAA-TGAAAGAAAAACTTTCAGCAATGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||| |||||||||||| | |||||||||||||||||||||||||| |  | ||||||||||||||||||| ||||||||    |||||||||||||||||||||||||| ||||  |  | |||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>8</Iteration_iter-num>
+  <Iteration_query-ID>59136</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig8</Iteration_query-def>
+  <Iteration_query-len>139</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|406352047|gb|JX317206.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone HCB2.13 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JX317206</Hit_accession>
+  <Hit_len>607</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>219.134</Hsp_bit-score>
+      <Hsp_score>556</Hsp_score>
+      <Hsp_evalue>8.31601e-54</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>139</Hsp_query-to>
+      <Hsp_hit-from>69</Hsp_hit-from>
+      <Hsp_hit-to>207</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>139</Hsp_identity>
+      <Hsp_positive>139</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>139</Hsp_align-len>
+      <Hsp_qseq>GTGATTAATTATTGAGTGTAAAAACTCATAATCTTCTATACAAACCACTGTTTTAAAATGTTTACTAGAATGTCCAAGCAGTTAAGCTGTTGAAATATTAAAAGTTTAATAAAACTTTCAGCAACGGATCTCTTGGTTC</Hsp_qseq>
+      <Hsp_hseq>GTGATTAATTATTGAGTGTAAAAACTCATAATCTTCTATACAAACCACTGTTTTAAAATGTTTACTAGAATGTCCAAGCAGTTAAGCTGTTGAAATATTAAAAGTTTAATAAAACTTTCAGCAACGGATCTCTTGGTTC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>9</Iteration_iter-num>
+  <Iteration_query-ID>59137</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig9</Iteration_query-def>
+  <Iteration_query-len>227</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|346229377|gb|JF497138.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone ABP_35 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JF497138</Hit_accession>
+  <Hit_len>632</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>356.248</Hsp_bit-score>
+      <Hsp_score>908</Hsp_score>
+      <Hsp_evalue>4.41131e-95</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>227</Hsp_query-to>
+      <Hsp_hit-from>271</Hsp_hit-from>
+      <Hsp_hit-to>45</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>227</Hsp_identity>
+      <Hsp_positive>227</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>227</Hsp_align-len>
+      <Hsp_qseq>GCTGCGTTCTTCATCGATGCGAGAGCCAAGAGATCCGTTGTTGAAAGTTGTATTAACTTATTATAATCAAACGTTCCAATGACATATTATAATGTTTATAATAGATAAGTTCACAGGTGTTAAATAATGATTGGATTTGTCAATTAGAATGAGCACTTGTTAACTAGGTTAACCAGCTCAACTCTAATCGTGCAAAATTCATTAATGATCCTTCCGCAGGTTCACCT</Hsp_qseq>
+      <Hsp_hseq>GCTGCGTTCTTCATCGATGCGAGAGCCAAGAGATCCGTTGTTGAAAGTTGTATTAACTTATTATAATCAAACGTTCCAATGACATATTATAATGTTTATAATAGATAAGTTCACAGGTGTTAAATAATGATTGGATTTGTCAATTAGAATGAGCACTTGTTAACTAGGTTAACCAGCTCAACTCTAATCGTGCAAAATTCATTAATGATCCTTCCGCAGGTTCACCT</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>10</Iteration_iter-num>
+  <Iteration_query-ID>59138</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig10</Iteration_query-def>
+  <Iteration_query-len>225</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|224975213|gb|FJ762759.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone Singleton_62-2947_2473 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, complete sequence; and 5.8S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>FJ762759</Hit_accession>
+  <Hit_len>269</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>333.655</Hsp_bit-score>
+      <Hsp_score>850</Hsp_score>
+      <Hsp_evalue>2.7901e-88</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>225</Hsp_query-to>
+      <Hsp_hit-from>262</Hsp_hit-from>
+      <Hsp_hit-to>39</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>220</Hsp_identity>
+      <Hsp_positive>220</Hsp_positive>
+      <Hsp_gaps>1</Hsp_gaps>
+      <Hsp_align-len>225</Hsp_align-len>
+      <Hsp_qseq>TCTTCATCGATGCCAGAACCAAGAGATCCATTGTTGAAAGTTGTTAACGATTTTGTTTACGATCAGACTAAGACAGGCACTGCATAAAGGGTTTGGTTGGGGTCCGTTCGGGCTGGCGACCAGCCCGAGGAAACGATACAAGTGCGCCGAGGAGGACAAGGGTGCTATCTCGACGGGGCCGAAGCCCCAGACGATAATGATCCCTCCGCAGGTTCACCTGACGGA</Hsp_qseq>
+      <Hsp_hseq>TCTTCATCGATGCCAGAACCAAGAGATCCATTGTTGAAAGTTGTTAACGATTTTGTTTACGATCAGACTGAGACAGGCACTGCAAAAAGGGTTTGGTTGGGGTCCGTTCGGGCTGGGGACCAGCCCGAGGAAACGATACAAGTGCGCCGAGGAGGACAAGGGTGCTATCTCGACGGGGCCGAAGCCCCCGACGATAATGATCCCTCCGCAGGTTCACCT-ACGGA</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||| ||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||| |||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>11</Iteration_iter-num>
+  <Iteration_query-ID>59139</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig11</Iteration_query-def>
+  <Iteration_query-len>172</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|300079131|gb|GQ924056.1|</Hit_id>
+  <Hit_def>Uncultured Xylariales clone W5c8110H internal transcribed spacer 1, partial sequence; 5.8S ribosomal RNA gene, complete sequence; and internal transcribed spacer 2, partial sequence</Hit_def>
+  <Hit_accession>GQ924056</Hit_accession>
+  <Hit_len>571</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>113.572</Hsp_bit-score>
+      <Hsp_score>285</Hsp_score>
+      <Hsp_evalue>4.98015e-22</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>172</Hsp_query-to>
+      <Hsp_hit-from>18</Hsp_hit-from>
+      <Hsp_hit-to>200</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>145</Hsp_identity>
+      <Hsp_positive>145</Hsp_positive>
+      <Hsp_gaps>23</Hsp_gaps>
+      <Hsp_align-len>189</Hsp_align-len>
+      <Hsp_qseq>CGGAGGGATCATTACAGAGTTGAAAAACTCCCAAAACCCACTGTGAACTGTACGCTGTTACCTC-GCG--------GGTAGCT-CCTGGGAG-GA-GCTGATAGCACCGCCGGGGGAACACAAAACTC--G-TTTCAG-CGTATTCTCTGAGTA-CAAACACAAAAGTCAAAACCTTCAACAACGGATC</Hsp_qseq>
+      <Hsp_hseq>CGGAGGGATCATTACAGAGTTGTAAAACTCCC-AAACCCA-TGTGAAC-ATAC-CTGTTGCCTCGGCGGCCTACCCGGCAGCTACCCTGTAGCTACCCTG-TAG-TCCGCCGGCGGAATACAAAACTCTTGTTTTCAGTTGTCATCTCTGAGAATAAAACAAATAAATCAAAACTTTCAACAACGGATC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||| ||||||||| ||||||| |||||||  ||| ||||| |||| |||        || |||| ||  | ||  |  ||| |||  ||||||| |||| |||||||||  | ||||||  ||  |||||||| |  ||||| | || ||||||| ||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>12</Iteration_iter-num>
+  <Iteration_query-ID>59140</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig12</Iteration_query-def>
+  <Iteration_query-len>210</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|312434590|gb|HQ608112.1|</Hit_id>
+  <Hit_def>Ascomycota sp. AR-2010 isolate TR081 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>HQ608112</Hit_accession>
+  <Hit_len>576</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>164.6</Hsp_bit-score>
+      <Hsp_score>416</Hsp_score>
+      <Hsp_evalue>2.16893e-37</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>210</Hsp_query-to>
+      <Hsp_hit-from>42</Hsp_hit-from>
+      <Hsp_hit-to>260</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>179</Hsp_identity>
+      <Hsp_positive>179</Hsp_positive>
+      <Hsp_gaps>21</Hsp_gaps>
+      <Hsp_align-len>225</Hsp_align-len>
+      <Hsp_qseq>GGAGGGATCATTACCGAGTTACCAATCTC---AAACCCT-GTGGACCTACCTGTTT-GTT-CTTCTGGCGGGCGACCCCTGGGAGGGGTCGTAGCTTAAACCTGAGCGCCCGCCAGCAGT---AAACTCTTTGATGTCTA---G-CTGTCTGAGCAA-CT-ATAAATAAGAATCAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>GGAGGGATCATTACAGAGTTGCAAAACTCCCTAAACACTTGTGAACCTACCAGTATCGTTGCTTC-GGTGGGCGGCCCCAGGGCGGGGCCGTAGCCTTTACA-G-GCGCCCGCCGGAGGTTACAAACTCTAT-ATTTTTAATTGTCTCTCTGAGTAAACTTATAAATAAG--TCAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||| ||||| | || |||   |||| || ||| ||||||| || | ||| |||| || ||||| |||| ||| |||| |||||| |  ||  | ||||||||| |  ||   ||||||| | || | ||   | || |||||| || || |||||||||  |||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>13</Iteration_iter-num>
+  <Iteration_query-ID>59141</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig13</Iteration_query-def>
+  <Iteration_query-len>179</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|409093722|gb|JQ292919.1|</Hit_id>
+  <Hit_def>Candida tropicalis strain LR4 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JQ292919</Hit_accession>
+  <Hit_len>510</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>281.458</Hsp_bit-score>
+      <Hsp_score>716</Hsp_score>
+      <Hsp_evalue>1.4401e-72</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>179</Hsp_query-to>
+      <Hsp_hit-from>14</Hsp_hit-from>
+      <Hsp_hit-to>192</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>179</Hsp_identity>
+      <Hsp_positive>179</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>179</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTACTGATTTGCTTAATTGCACCACATGTGTTTTTTATTGAACAAATTTCTTTGGTGGCGGGAGCAATCCTACCGCCAGAGGTTATAACTAAACCAAACTTTTTATTTACAGTCAAACTTGATTTATTATTACAATAGTCAAAACTTTCAACAACGG</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTACTGATTTGCTTAATTGCACCACATGTGTTTTTTATTGAACAAATTTCTTTGGTGGCGGGAGCAATCCTACCGCCAGAGGTTATAACTAAACCAAACTTTTTATTTACAGTCAAACTTGATTTATTATTACAATAGTCAAAACTTTCAACAACGG</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>14</Iteration_iter-num>
+  <Iteration_query-ID>59142</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig14</Iteration_query-def>
+  <Iteration_query-len>183</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|310753880|gb|HQ211770.1|</Hit_id>
+  <Hit_def>Uncultured Agaricomycotina clone 6_g19 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>HQ211770</Hit_accession>
+  <Hit_len>485</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>99.9383</Hsp_bit-score>
+      <Hsp_score>250</Hsp_score>
+      <Hsp_evalue>6.32886e-18</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>183</Hsp_query-to>
+      <Hsp_hit-from>206</Hsp_hit-from>
+      <Hsp_hit-to>42</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>140</Hsp_identity>
+      <Hsp_positive>140</Hsp_positive>
+      <Hsp_gaps>26</Hsp_gaps>
+      <Hsp_align-len>187</Hsp_align-len>
+      <Hsp_qseq>TTCATCGATGCCAGAACCAAGAGATCCGTTGTTGAAAGTTTTAACTTTTTAT-CTTAATCCCACTCA-GACTTCAACCAGCTTTCAGTAGTGT-TTGAGACTGCAGAGCAGCCAGAAGTAACGACACAGGGGTAGCCAAATCGGTGCAAGCAC-CTTCTCTAATGATCCTTCCGCAGGTTCACCTAC</Hsp_qseq>
+      <Hsp_hseq>TTCATCGATGCGAGAGCCAAGAGATCCGTTGTTGAAAGTTTT-ATTTGTTATAATAAAAGACATTCATGACTTCA---AG-TTT--GTAG-GTCCAGAGACCACAGTGCA--CAGGTGT-ATGA---AGGG--A---AAA---GTGCTTGCACACATCTCTAATGATCCTTCCGCAGGTTCACCTAC</Hsp_hseq>
+      <Hsp_midline>||||||||||| ||| |||||||||||||||||||||||||| | || ||||  | ||   || ||| |||||||   || |||  |||| ||   |||||  ||| |||  |||  || | ||   ||||  |   |||   ||||  |||| | |||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>15</Iteration_iter-num>
+  <Iteration_query-ID>59143</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig15</Iteration_query-def>
+  <Iteration_query-len>259</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|378925933|gb|JQ070106.1|</Hit_id>
+  <Hit_def>Fonsecaea monophora strain ATCC MYA-4769 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JQ070106</Hit_accession>
+  <Hit_len>643</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>402.212</Hsp_bit-score>
+      <Hsp_score>1026</Hsp_score>
+      <Hsp_evalue>6.42607e-109</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>259</Hsp_query-to>
+      <Hsp_hit-from>17</Hsp_hit-from>
+      <Hsp_hit-to>276</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>259</Hsp_identity>
+      <Hsp_positive>259</Hsp_positive>
+      <Hsp_gaps>1</Hsp_gaps>
+      <Hsp_align-len>260</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTAATGAGTTAGGGTCTTCTAG-CCCGACCTCCCAACCCTTTGTTTACTAGACCTCAGTTGCTTCGGCAGGTCCGTCTTAAATCTGACCGCTGGAGGACCGCTCAATGCGGGCGTTGCCTCTGGCCAGTGTCTGCCGATAGCCTAATCTCCTAACTCTGGATCAATCATGATTTACAATGTCTAAGTGATTTTATTCAATTAAAAGCAAAAACTTTCAACAACGGATCTCTTGGTTCT</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTAATGAGTTAGGGTCTTCTAGGCCCGACCTCCCAACCCTTTGTTTACTAGACCTCAGTTGCTTCGGCAGGTCCGTCTTAAATCTGACCGCTGGAGGACCGCTCAATGCGGGCGTTGCCTCTGGCCAGTGTCTGCCGATAGCCTAATCTCCTAACTCTGGATCAATCATGATTTACAATGTCTAAGTGATTTTATTCAATTAAAAGCAAAAACTTTCAACAACGGATCTCTTGGTTCT</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>16</Iteration_iter-num>
+  <Iteration_query-ID>59144</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig16</Iteration_query-def>
+  <Iteration_query-len>191</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|363411902|gb|JN397332.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone U_QM_090722_258_Bb08.b1 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, complete sequence; and 5.8S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JN397332</Hit_accession>
+  <Hit_len>295</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>184.855</Hsp_bit-score>
+      <Hsp_score>468</Hsp_score>
+      <Hsp_evalue>1.73281e-43</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>190</Hsp_query-to>
+      <Hsp_hit-from>116</Hsp_hit-from>
+      <Hsp_hit-to>295</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>162</Hsp_identity>
+      <Hsp_positive>162</Hsp_positive>
+      <Hsp_gaps>12</Hsp_gaps>
+      <Hsp_align-len>191</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTAACAAGTCCA-CATATGTGCACTGTCGCTTCGGCGTGGTGCATATATAAGCCCCGTGCAGCAATGCACGTGTGACACATTTTATCGTTTGACTGATTATACCACAAATCATAATAGCAAACTTTTAACAATGGATCTCTAGGCTCTTGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACTTGCGGAAGGATCATTAACAAATCCAACGTATGTGCA--G-CGCGAAGGTGT--TGCACATATAAGCCCCGTGCAGCAATGCGCGTGTGACA--TTTTATCGTTTGACAGAAAAGTT-ATAAATCATTATA---AACTTTTAACAATGGATCTCTAGGCTCTTGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>|||||||| |||||||||||||||||||| |||| | ||||||||  | |||   || ||  |||| ||||||||||||||||||||||| |||||||||  |||||||||||||| ||  |    | ||||||| |||   |||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>17</Iteration_iter-num>
+  <Iteration_query-ID>59145</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig17</Iteration_query-def>
+  <Iteration_query-len>214</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|388460780|gb|JQ745257.1|</Hit_id>
+  <Hit_def>Rhizopus oryzae strain ATCC 20344 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JQ745257</Hit_accession>
+  <Hit_len>621</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>327.033</Hsp_bit-score>
+      <Hsp_score>833</Hsp_score>
+      <Hsp_evalue>2.74809e-86</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>214</Hsp_query-to>
+      <Hsp_hit-from>16</Hsp_hit-from>
+      <Hsp_hit-to>227</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>212</Hsp_identity>
+      <Hsp_positive>212</Hsp_positive>
+      <Hsp_gaps>2</Hsp_gaps>
+      <Hsp_align-len>214</Hsp_align-len>
+      <Hsp_qseq>TAGGTGAACCTGCGGAAGGATCATTAATTATGTTAAAGCGCCTTACCTCTTAGGGTTTCCTCTGGGGTAAGTGATTGCTTCTACACTGTGATGAAATTTGGCTGAGAGACTCAGACTGGTCATGGGTAGACCTATCTGGGGTTTGATCGATGCCACTCCTGGTTTCAGGAGCACCCTTCATAATAAACCTAGAAATTCAGTATTATAAAGTTTA</Hsp_qseq>
+      <Hsp_hseq>TAGGTGAACCTGCGGAAGGATCATTAATTATGTTAAAGCGCCTTACCTCTTAGGGTTTCCTCTGGGGTAAGTGATTGCTTCTACACTGTGA--AAATTTGGCTGAGAGACTCAGACTGGTCATGGGTAGACCTATCTGGGGTTTGATCGATGCCACTCCTGGTTTCAGGAGCACCCTTCATAATAAACCTAGAAATTCAGTATTATAAAGTTTA</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||  |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>18</Iteration_iter-num>
+  <Iteration_query-ID>59146</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig18</Iteration_query-def>
+  <Iteration_query-len>251</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|300078161|gb|GU054084.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone L042886-122-066-G06 internal transcribed spacer 1, partial sequence; 5.8S ribosomal RNA gene, complete sequence; and internal transcribed spacer 2, partial sequence</Hit_def>
+  <Hit_accession>GU054084</Hit_accession>
+  <Hit_len>667</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>372.608</Hsp_bit-score>
+      <Hsp_score>950</Hsp_score>
+      <Hsp_evalue>5.24407e-100</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>251</Hsp_query-to>
+      <Hsp_hit-from>6</Hsp_hit-from>
+      <Hsp_hit-to>256</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>245</Hsp_identity>
+      <Hsp_positive>245</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>251</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTATCGAGTTTTGAACGGGTTGTTGCTGGCCTCATACGGGGCATGTGCACGCCTGACTTCATCCACTCTTCAACCTCTGTGCACTTATTGTAGGCTAGTGTGAAAGGTTGCATTTATTTGCGACTGGAAGCCTGTCTACGTTTTACTACAAACGCTTCAGTTATAGAATGTTTATCTGCGTATAACGCATTTATATACAACTTTCAGCAACGGATCTCTTGGCTCTCGC</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTATCGAGTTTTGAACGGGTTGTTGCTGGCCTCATACGGGGCATGTGCACGCCTGACTTCATCCACTCTTCAACCCCTGTGCACTTATTGTAGGCTAGCGTGAAAGGCCGCATTCATTTGCGGCTGGAAGCCTGTCTACGTTTTACTACAAACGCTTCAGTTATAGAATGTTTATCTGCGTATAACGCATTTATATACAACTTTCAGCAACGGATCTCTTGGCTCTCGC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||| ||||||||  ||||| ||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>19</Iteration_iter-num>
+  <Iteration_query-ID>59147</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig19</Iteration_query-def>
+  <Iteration_query-len>244</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|338794144|gb|JF694087.1|</Hit_id>
+  <Hit_def>Hansenia weberbaueriana voucher E00041974 (RBGE) 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 26S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JF694087</Hit_accession>
+  <Hit_len>673</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>357.416</Hsp_bit-score>
+      <Hsp_score>911</Hsp_score>
+      <Hsp_evalue>1.96241e-95</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>244</Hsp_query-to>
+      <Hsp_hit-from>18</Hsp_hit-from>
+      <Hsp_hit-to>260</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>239</Hsp_identity>
+      <Hsp_positive>239</Hsp_positive>
+      <Hsp_gaps>3</Hsp_gaps>
+      <Hsp_align-len>245</Hsp_align-len>
+      <Hsp_qseq>GCGGAAGGATCATTGTCGATTCCTGCGATAGCAGAATGACCCGCTAACACGTAAACACACCGGGCCAGCGTCGGGGGGCTTGAGTCCCCCGTTCGCGAACCCCAGGAAGGTGGGCGCTCTCGGGTG-CCATCGACCGACGAAACCAACCGGGCGCGGTATGCGCCAAGGAAATCAAAACTGAATTGTATAGTCTAGCTTCCCGTCCGTGGGAAGAGGCGTCTTTCCGAAACACAAACGACTCTCG</Hsp_qseq>
+      <Hsp_hseq>GCGGAAGGATCATTGTCGATTCCTGCGATAGCAGAATGACCCGCTAACACGTAAACACACCGGGCCAGCGTCGGGGGGCTTGAGTCCCCCGTTTGCGAACCCCAGGAAGGTGGGTGCTCTCGGGTGCCCATCGACCGACGAAACCAACCGGGCGCGGTATGCGCCAAGGAAATCAAAACTGAATTGTA-CGTCT-GCTTCCCGTCCGTGGGAAGAGGCGTCTTTCCGAAACACAAACGACTCTCG</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||| ||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||  |||| ||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>20</Iteration_iter-num>
+  <Iteration_query-ID>59148</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig20</Iteration_query-def>
+  <Iteration_query-len>216</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|224459537|gb|FJ197968.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone BouITS4_32 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>FJ197968</Hit_accession>
+  <Hit_len>462</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>145.903</Hsp_bit-score>
+      <Hsp_score>368</Hsp_score>
+      <Hsp_evalue>9.21941e-32</Hsp_evalue>
+      <Hsp_query-from>36</Hsp_query-from>
+      <Hsp_query-to>215</Hsp_query-to>
+      <Hsp_hit-from>6</Hsp_hit-from>
+      <Hsp_hit-to>176</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>147</Hsp_identity>
+      <Hsp_positive>147</Hsp_positive>
+      <Hsp_gaps>15</Hsp_gaps>
+      <Hsp_align-len>183</Hsp_align-len>
+      <Hsp_qseq>GGTTGTCGCTGGCGCGGGTGCATGCAC--TGCGCTGCCTCCGTCAACGCACACATGT-CCGTGTGCACGTTTGCTCTGCACATGACACATTTCTGCGCATGTCTGATTCGTCCACGAACACAATGAGCGATGGTCAACTTTTAACAATGGATCTCTAGGCTCCTGCATCGATGAAGAACGCAG</Hsp_qseq>
+      <Hsp_hseq>GGTTG--GGTCGCG-GGGTGCATGCACGCTGCCGTCCAACCG-CGACGCACATCCGTTCCGTGTGCACGTTCGCTCTGCAC-TGGCACATTTCTGCGAATGTCTGATCCATCCGTGAACA------GCAATGATCAACTTTTA-CAATGGATCTCTAGGCTCCCGCATCGATGAAGAACGCAG</Hsp_hseq>
+      <Hsp_midline>|||||  | | ||| ||||||||||||  |||  | |  ||| | |||||||   || ||||||||||||| ||||||||| || |||||||||||| ||||||||| | |||  |||||      || ||| |||||||||| ||||||||||||||||||| |||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>21</Iteration_iter-num>
+  <Iteration_query-ID>59149</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig21</Iteration_query-def>
+  <Iteration_query-len>193</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|300078038|gb|GU053961.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone LX040884-122-045-H11 internal transcribed spacer 1, partial sequence; 5.8S ribosomal RNA gene, complete sequence; and internal transcribed spacer 2, partial sequence</Hit_def>
+  <Hit_accession>GU053961</Hit_accession>
+  <Hit_len>674</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>210.954</Hsp_bit-score>
+      <Hsp_score>535</Hsp_score>
+      <Hsp_evalue>2.41193e-51</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>191</Hsp_query-to>
+      <Hsp_hit-from>27</Hsp_hit-from>
+      <Hsp_hit-to>217</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>170</Hsp_identity>
+      <Hsp_positive>170</Hsp_positive>
+      <Hsp_gaps>6</Hsp_gaps>
+      <Hsp_align-len>194</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTATCGTATTCAAACGGGGTGCGCTCGGGTTCGG-CCTGCACCGGCGGAGACGCCGTGCTGCGGG-CTCCCGGCGCCCCTTCCACACCAAACCCCTGTGCACCT-TTGGGAAGGCGGCACGCGGAGACGTGAGCCGTCGGCCCCTTTTCTCACAAGCTCTTTGTAACTTGTA</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTATCGTA-TCGAACCGGGTGCGTCCGGGTCGGGCCCTGCACCGGCGGAGACGCCGTGCTGCGGGCCTCCCGGCGCGCCTTCCACACCAAACCCCTGTGCACCTCTTGGGAAGGCGTTCGGCGGAGACGTCGGGCGTCAGCCCCTATTCTCACAAGCTC--TGTCTCTTGTA</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||| || ||| |||||||  |||||  || |||||||||||||||||||||||||||||| |||||||||| ||||||||||||||||||||||||||| |||||||||||    ||||||||||  | |||| |||||| |||||||||||||  |||  ||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>22</Iteration_iter-num>
+  <Iteration_query-ID>59150</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig22</Iteration_query-def>
+  <Iteration_query-len>242</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|103485081|dbj|AB260871.1|</Hit_id>
+  <Hit_def>Litsea glutinosa genes for ITS1, 5.8S rRNA, ITS2 and 26S rRNA, partial and complete sequence, specimen_voucher: MAK:XX.B. 62</Hit_def>
+  <Hit_accession>AB260871</Hit_accession>
+  <Hit_len>636</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>297.818</Hsp_bit-score>
+      <Hsp_score>758</Hsp_score>
+      <Hsp_evalue>1.71196e-77</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>206</Hsp_query-to>
+      <Hsp_hit-from>206</Hsp_hit-from>
+      <Hsp_hit-to>1</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>202</Hsp_identity>
+      <Hsp_positive>202</Hsp_positive>
+      <Hsp_gaps>4</Hsp_gaps>
+      <Hsp_align-len>208</Hsp_align-len>
+      <Hsp_qseq>GAGATATCCGTTGC-GAGAGTCGTCTAGTGG-CTCACAGACGGGCGGCGGATCCCCACGCGGTGAGGCGGCCGCCCTTTCCGCTTCTATTATTACTTGGCGCTCGCCGCGCCACGAGGGTTTTGTTCGGAGCTCGTCGTGACGCGCGGGTCGCATCCCCGCGCGCCGCGAGCGACGTTTCCGCGGGACTGGGTTCGCCGGTGGTCGGT</Hsp_qseq>
+      <Hsp_hseq>GAGATATCCGTTGCCGAGAGTCGTCTAGTGGGCTCACAGACGGGCGGCGGATCCCCACGCGGTGAGGCGGCCGCCCTTTCCGCTTCTATTATTACTTGGCGCTCGCCGCGCCCAGAGGGTTTTGTTCGGAGCTCGTCGTGACGCGCGGGTCGCATCCCCGCGCGCCGCGAGCGACGTTTCCGCGGGACT-GGTTCGCCGGTGGT-GGT</Hsp_hseq>
+      <Hsp_midline>|||||||||||||| |||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||  ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||| |||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>23</Iteration_iter-num>
+  <Iteration_query-ID>59151</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig23</Iteration_query-def>
+  <Iteration_query-len>228</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|196459986|emb|FM173046.1|</Hit_id>
+  <Hit_def>Uncultured compost fungus 18S rRNA gene (partial), ITS1, 5.8S rRNA gene, ITS2 and 28S rRNA gene (partial), clone TT005</Hit_def>
+  <Hit_accession>FM173046</Hit_accession>
+  <Hit_len>448</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>280.679</Hsp_bit-score>
+      <Hsp_score>714</Hsp_score>
+      <Hsp_evalue>2.47123e-72</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>214</Hsp_query-to>
+      <Hsp_hit-from>204</Hsp_hit-from>
+      <Hsp_hit-to>1</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>201</Hsp_identity>
+      <Hsp_positive>201</Hsp_positive>
+      <Hsp_gaps>12</Hsp_gaps>
+      <Hsp_align-len>215</Hsp_align-len>
+      <Hsp_qseq>TTCATCGATGCGAGAACCAAGAGATCCGTTGTTGAAAGTTTTGAAGATTTGTGTTCTTCGTGACAAGTTGTAATAAAAGATAAAATCTTGAGTTTAATCTCCGGGCGGGCAGGCCCAAGGCTCCGCCCACCCAAAGCAAAGGCATAATAATAAGCAAGTGTGT-AAGGTGGCCGCCGCGCAGTCAAGCGCCGGCAGCAGAACAGTAATGATCCTT</Hsp_qseq>
+      <Hsp_hseq>TTCATCGTTGCGAGAACCAAGAGATCCGTTGTTGAAAGTTTTGAAGATTTGTGTTCTTCGTGACAAGTTGTAAT-AAAGATAAAATCTTGAGTTTAATCTCCGGGCGGGCA-----AA-----AGCCCACCCAAAGCAAAGGCATAATAATAAGCAAGTGTGTAAAGGTGGCCGCCGCGCAGTCAAGCGCCGGCAGCAGAACAGTAATGATCCTT</Hsp_hseq>
+      <Hsp_midline>||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||     ||      ||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>24</Iteration_iter-num>
+  <Iteration_query-ID>59152</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig24</Iteration_query-def>
+  <Iteration_query-len>265</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|299802686|gb|GU189705.1|</Hit_id>
+  <Hit_def>Uncultured Sebacina clone 9959 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>GU189705</Hit_accession>
+  <Hit_len>1150</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>134.996</Hsp_bit-score>
+      <Hsp_score>340</Hsp_score>
+      <Hsp_evalue>1.76998e-28</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>265</Hsp_query-to>
+      <Hsp_hit-from>3</Hsp_hit-from>
+      <Hsp_hit-to>256</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>201</Hsp_identity>
+      <Hsp_positive>201</Hsp_positive>
+      <Hsp_gaps>33</Hsp_gaps>
+      <Hsp_align-len>276</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTAACGAATGACAAAGTCGGTCGACTGTGCTGGCATCAACCAATGCACGTGCACGTCGGTCGGCAAACCATCCACACACCTTGTGCACACCTAGACCGTGGAGA-CG--TTCGTCGGG-ACTTG-TCCCGGCTTGAGCGACTT---TGCC--GGTACCTTTTCCACA-ACTCTGTATGTGATTGGGATGTCCGAGTGCTCTTAAGCACGATAACGAAAAGTATAACTTTCAACAACGGATCTCTTGGCTCTCGC</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTAATGAATTACAA-GTCGGCCGTCTGTGCTGGTGGCAAC--A--CATGTGCACGTCRGTCG-CAAA---TCCACACACCT-GTGCACTT-TAGACTTTGGGGTTCGCATTC-WCRTGCAGTCGGTCTCCT-TTGGGAGGCTTGAATCCCAGGGTA--KTTTACACACACTCTGAATGTAAT-GGAATGTACCTGTGCT--TAACCGCGC--ATTTAA--TACAACTTTCAACAACGGATCTCTTGGCTCTCGC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||| |||| |||| ||||| || |||||||||   ||||  |  || ||||||||| |||| ||||   ||||||||||| ||||||   |||||  ||| |  ||  |||  |  | | | | || |   ||| | | |||   | ||  ||||   ||| |||| |||||| |||| || || |||| |  |||||  ||| | ||   |   ||  || |||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>25</Iteration_iter-num>
+  <Iteration_query-ID>59153</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig25</Iteration_query-def>
+  <Iteration_query-len>261</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|418205683|gb|JX677934.1|</Hit_id>
+  <Hit_def>Trichoderma asperellum strain AF14 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JX677934</Hit_accession>
+  <Hit_len>604</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>396.369</Hsp_bit-score>
+      <Hsp_score>1011</Hsp_score>
+      <Hsp_evalue>3.6884e-107</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>261</Hsp_query-to>
+      <Hsp_hit-from>2</Hsp_hit-from>
+      <Hsp_hit-to>262</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>259</Hsp_identity>
+      <Hsp_positive>259</Hsp_positive>
+      <Hsp_gaps>2</Hsp_gaps>
+      <Hsp_align-len>262</Hsp_align-len>
+      <Hsp_qseq>TCCGTAGGTGAAC-TGCGGAGGGATCATTACCGAGTTTACAACTCCCAAACCCAATGTAAACGTTACCAAACTGTTGCCTCGGCGGGGTCCACGCCCCGGGTGCGTCGCAGCCCCGGAACCAGGCGCCCGCCGGAGGAACCAACCAAACTCTTTCTGTAGTCCCCTCGCGGACGTATTTCTTACAGCTCTGAGCAAAAATTCAAAATGAATCAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAG</Hsp_qseq>
+      <Hsp_hseq>TCCGTAGGTGAACCTGCGGAGGGATCATTACCGAGTTTACAACTCCCAAACCCAATGTGAACGTTACCAAACTGTTGCCTCGGCGGGGTC-ACGCCCCGGGTGCGTCGCAGCCCCGGAACCAGGCGCCCGCCGGAGGAACCAACCAAACTCTTTCTGTAGTCCCCTCGCGGACGTATTTCTTACAGCTCTGAGCAAAAATTCAAAATGAATCAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAG</Hsp_hseq>
+      <Hsp_midline>||||||||||||| |||||||||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>26</Iteration_iter-num>
+  <Iteration_query-ID>59154</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig26</Iteration_query-def>
+  <Iteration_query-len>219</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|366091081|gb|JN542527.1|</Hit_id>
+  <Hit_def>Phoma multirostrata 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JN542527</Hit_accession>
+  <Hit_len>547</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>321.969</Hsp_bit-score>
+      <Hsp_score>820</Hsp_score>
+      <Hsp_evalue>9.19188e-85</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>218</Hsp_query-to>
+      <Hsp_hit-from>19</Hsp_hit-from>
+      <Hsp_hit-to>234</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>215</Hsp_identity>
+      <Hsp_positive>215</Hsp_positive>
+      <Hsp_gaps>4</Hsp_gaps>
+      <Hsp_align-len>219</Hsp_align-len>
+      <Hsp_qseq>GTAGGTGAACCTGCGGAAGGATCATTACCTAGAGTTGTAG-CTTTGCCTGCTATCTCTTACCCATGTCTTTTGAGTACCTTCGTTTCCTCGGCCGGGTCCCGCCCGCCGATTGGATCACATTTAAACCCTTTGTAGTTGCAATCAGCGTCTGAAAAACTTTAATAGTTACAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>GTAGGTGAACCTGCGGAAGGATCATTACCTAGAGTTGTAGGCTTTGCCTGCTATCTCTTACCCATGTCTTTTGAGTACCTTCGTTTCCTCGGC-GGGTCC-GCCCGCCGATTGGA-CACATTTAAACCCTTTGTAGTTGCAATCAGCGTCTGAAAAACTTTAATAGTTACAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||| |||||| |||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>27</Iteration_iter-num>
+  <Iteration_query-ID>59155</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig27</Iteration_query-def>
+  <Iteration_query-len>252</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|406352029|gb|JX317188.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone HCB1.105 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JX317188</Hit_accession>
+  <Hit_len>644</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>136.943</Hsp_bit-score>
+      <Hsp_score>345</Hsp_score>
+      <Hsp_evalue>4.58851e-29</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>252</Hsp_query-to>
+      <Hsp_hit-from>44</Hsp_hit-from>
+      <Hsp_hit-to>286</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>195</Hsp_identity>
+      <Hsp_positive>195</Hsp_positive>
+      <Hsp_gaps>33</Hsp_gaps>
+      <Hsp_align-len>264</Hsp_align-len>
+      <Hsp_qseq>AGGTGAACCTGCGGAAGGATCATTACTGAAGGCCCCTAATCGGGCTTTTCTGTATGGT--C-TCTCTCTGGCTGTGCGCCGCGAGGCTTGCACGCTCGAGGGGACCGTCCATCGACACCTGTGCACTCTGCGGGTCACGTTTGT-GGCCCTGCTTTTTTCATTATCT-ACTTGGTTT---TGGA-TGTC-ATTG-CTTTCG-TAATTGAAAATACAACTTTCAGCAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>AGGTGAACCTGCGGAAGGATCATTAACGAA--------ATCGGACTT--CGGTCTGGTGACGTCTCTCTTGCTGTGCGCCTTTTGGCT-GCACGCTTG---GGAA--TCCA-C-ACACCTGTGCACACT-CGGTTGGCGGGCTTCGGCCCGCCTCTTCGCCTACACTTACTTTGTATGTCTCGAATGTCTATTATCTTATGATAAA--AAAATACAACTTTCAGCAACGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||  |||        ||||| |||  | || ||||  | ||||||| ||||||||||    |||| ||||||| |   |||   |||| | |||||||||||| || ||| |  ||    | |||||  || ||  | |   || |||| || |   | || |||| |||  |||  | |||   ||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>28</Iteration_iter-num>
+  <Iteration_query-ID>59156</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig28</Iteration_query-def>
+  <Iteration_query-len>196</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|63408946|gb|AY970100.1|</Hit_id>
+  <Hit_def>Uncultured ascomycete isolate dfmo1059_082 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>AY970100</Hit_accession>
+  <Hit_len>493</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>295.481</Hsp_bit-score>
+      <Hsp_score>752</Hsp_score>
+      <Hsp_evalue>8.6507e-77</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>195</Hsp_query-to>
+      <Hsp_hit-from>16</Hsp_hit-from>
+      <Hsp_hit-to>211</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>193</Hsp_identity>
+      <Hsp_positive>193</Hsp_positive>
+      <Hsp_gaps>1</Hsp_gaps>
+      <Hsp_align-len>196</Hsp_align-len>
+      <Hsp_qseq>GCCCTCACGGGTAGACCTCCCACCCTTGAGTACTACACCTTTGTTGCTTTGGCGGGCCGCTTCGGCCACCGGCTTAGGCTGGTGAGCGCCCGCCAGAGGACCCTAAACTCTGAATTATGTGTCGTCTGAGTACTATACAATAGTTAAAACTTTCAACAACGGATCTCTTGGTTCT-GCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>GCCCTCACGGGTAGACCTCCCACCCTTGAGTACTATACCTTTGTTGCTTTGGCGGGCCGCTTCGGCCACCGGCTTAGGCTGGTGAGTGCCCGCCAGAGGACCCTAAACTCTGAATTATGTGTCGTCTGAGTACTATACAATAGTTAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>29</Iteration_iter-num>
+  <Iteration_query-ID>59157</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig29</Iteration_query-def>
+  <Iteration_query-len>259</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|51557153|gb|AY695067.1|</Hit_id>
+  <Hit_def>Dactylella lysipaga internal transcribed spacer 1, partial sequence; 5.8S ribosomal RNA gene, complete sequence; and internal transcribed spacer 2, partial sequence</Hit_def>
+  <Hit_accession>AY695067</Hit_accession>
+  <Hit_len>589</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>381.956</Hsp_bit-score>
+      <Hsp_score>974</Hsp_score>
+      <Hsp_evalue>8.0434e-103</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>258</Hsp_query-to>
+      <Hsp_hit-from>49</Hsp_hit-from>
+      <Hsp_hit-to>309</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>256</Hsp_identity>
+      <Hsp_positive>256</Hsp_positive>
+      <Hsp_gaps>5</Hsp_gaps>
+      <Hsp_align-len>262</Hsp_align-len>
+      <Hsp_qseq>GTAGGTGAACCTGCGGAAGGATCATTACCAATTCATGTCTCCCGGCCGTAAGGTCGGTGCAGGCTCAACC-TTTGTGA-CCAAAAAA--CCTTTCGCTTCGGCAGCAGCTCGGTTGGCAACAGCCTCTGCATCAGCCTGCCGGTAGCACCAACATCATTAAACTTGCAGTTAACAAACATTGTCTGAACACCAAATTTTCGAATGAAAATCAAAACTTTCAACAACGGATCTCTTGGTTCCCGCATCGATGAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>GTAGGTGAACCTGCGGAAGGATCATTACCAATTCATGTCTCCCGGCCGTAAGGTCGGTGCAGGCTCAACCCTTTGTGAACCAAAAAAAACCTTTTGCTTCGGCAGCAGCTCGGTTGGCAACAGCCTCTGCATCAGCCTGCCGGTAGCACCAACATCAT-AAACTTGCAGTTAACAAACATTGTCTGAACACCAAATTTTCGAATGAAAATCAAAACTTTCAACAACGGATCTCTTGGTTCCCGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||||| ||||||||  ||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>30</Iteration_iter-num>
+  <Iteration_query-ID>59158</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig30</Iteration_query-def>
+  <Iteration_query-len>262</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|300078252|gb|GU054175.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone LX042233-122-012-F07 internal transcribed spacer 1, partial sequence; 5.8S ribosomal RNA gene, complete sequence; and internal transcribed spacer 2, partial sequence</Hit_def>
+  <Hit_accession>GU054175</Hit_accession>
+  <Hit_len>605</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>372.997</Hsp_bit-score>
+      <Hsp_score>951</Hsp_score>
+      <Hsp_evalue>4.00321e-100</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>261</Hsp_query-to>
+      <Hsp_hit-from>25</Hsp_hit-from>
+      <Hsp_hit-to>281</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>254</Hsp_identity>
+      <Hsp_positive>254</Hsp_positive>
+      <Hsp_gaps>6</Hsp_gaps>
+      <Hsp_align-len>262</Hsp_align-len>
+      <Hsp_qseq>GTAGGTGAACCTGCGGAAGGATCATTAAAGAGTAAGGGTGCTCAGCGCCCGACCTCCAACCCTTTGTTGTTAAAACTACCTTGTTGCTTTGGCGGGACCGCTCGGTCTCGAGCCGCTGGGGATTCGTCCCAGGCGAGCGCCCGCCAGAGTTAAACCAAACTCTTGTTATCAAAACCGGTACGTCTAGTAAGTTAAAAAATTTGAA-AAATCAAAACTTTCAACAACGGATCTCTTGGTTCTCGCATCGATCAAGAACGCAGC</Hsp_qseq>
+      <Hsp_hseq>GTAGGTGAACCTGCGGAAGGATCATTAAAGAGTAAGGGTGCTCAGCGCCCGACCTCCAACCCTTTGTTGTTAAAACTACCTTGTTGCTTTGGCGGGACCGCTCGGTCTCGAGCCGCTGGGGATTCGTCCCAGGCGAGCGCCCGCCAGAGTTAAACCAAACTCTTGTTATCAAAACCGGT-CGTCT-G--AG-TAAAAATTTTGAATAAATCAAAACTTTCAACAACGGATCTCTTGGTTCTCGCATCGATGAAGAACGCAGC</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ||||| |  || |||||| |||||| |||||||||||||||||||||||||||||||||||||||||||| |||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>31</Iteration_iter-num>
+  <Iteration_query-ID>59159</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig31</Iteration_query-def>
+  <Iteration_query-len>155</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|190694218|gb|EU718663.1|</Hit_id>
+  <Hit_def>Uncultured fungus clone Alpha13 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>EU718663</Hit_accession>
+  <Hit_len>637</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>150.577</Hsp_bit-score>
+      <Hsp_score>380</Hsp_score>
+      <Hsp_evalue>3.61068e-33</Hsp_evalue>
+      <Hsp_query-from>5</Hsp_query-from>
+      <Hsp_query-to>155</Hsp_query-to>
+      <Hsp_hit-from>178</Hsp_hit-from>
+      <Hsp_hit-to>30</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>130</Hsp_identity>
+      <Hsp_positive>130</Hsp_positive>
+      <Hsp_gaps>6</Hsp_gaps>
+      <Hsp_align-len>153</Hsp_align-len>
+      <Hsp_qseq>CGGCAGGGCACTCTCCAGAGGGCGTTTCCACGGCCC-CCGGCAGGAGTCGAACCAGGCCTACCGAGGCAACACACGGTGTAATAGACAAAAGGTTGGGAGGTCGGG-CCTCAAGGGACCCTAACTCATTAATGATCCTTCCGCAGGTTCACCT</Hsp_qseq>
+      <Hsp_hseq>CGGTAGG-CACTCTCCAGAGGACGTTTT-ACGGTCCTCCGGTAGGA--CGAGCCAGGCCTACCGAAGCAACACAAGGTATAATAAGCAAAGGGTTGGGAGGTCGGGCCCTTGATGGACCCTAACTCGGTAATGATCCTTCCGCAGGTTCACCT</Hsp_hseq>
+      <Hsp_midline>||| ||| ||||||||||||| |||||  |||| || |||| ||||  ||| ||||||||||||| |||||||| ||| |||||  |||| ||||||||||||||| |||  | ||||||||||||  |||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>32</Iteration_iter-num>
+  <Iteration_query-ID>59160</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig32</Iteration_query-def>
+  <Iteration_query-len>201</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|300252683|gb|HM569609.1|</Hit_id>
+  <Hit_def>Fungal sp. RS07OS internal transcribed spacer 1, partial sequence</Hit_def>
+  <Hit_accession>HM569609</Hit_accession>
+  <Hit_len>278</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>308.725</Hsp_bit-score>
+      <Hsp_score>786</Hsp_score>
+      <Hsp_evalue>8.91718e-81</Hsp_evalue>
+      <Hsp_query-from>1</Hsp_query-from>
+      <Hsp_query-to>201</Hsp_query-to>
+      <Hsp_hit-from>73</Hsp_hit-from>
+      <Hsp_hit-to>273</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>1</Hsp_hit-frame>
+      <Hsp_identity>199</Hsp_identity>
+      <Hsp_positive>199</Hsp_positive>
+      <Hsp_gaps>0</Hsp_gaps>
+      <Hsp_align-len>201</Hsp_align-len>
+      <Hsp_qseq>ATTCACCCAGTCTATTGCAACGATTCCTGGGTTAACAAAGAATGGATTTTCATTTAAAACATTTTTAAATCAAACAATACCAATTGATTCTTAATTGAATTGAAGAAGTAAAAAAGAAAAAAGCTCTCAATTGAGACTTTGGACTTTTTAAACAACTTTAAGCAATGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAG</Hsp_qseq>
+      <Hsp_hseq>ATTCACCCAGTCTATTGCAACGATTCCTGGGTTACCAAAGAATGGATTTTCATTTAAAACATTTTTCAATCAAACAATACCAATTGATTCTTAATTGAATTGAAGAAGTAAAAAAGAAAAAAGCTCTCAATTGAGACTTTGGACTTTTTAAACAACTTTAAGCAATGGATCTCTTGGCTCTCGCATCGATGAAGAACGCAG</Hsp_hseq>
+      <Hsp_midline>|||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+<Iteration>
+  <Iteration_iter-num>33</Iteration_iter-num>
+  <Iteration_query-ID>59161</Iteration_query-ID>
+  <Iteration_query-def>MID 2contig33</Iteration_query-def>
+  <Iteration_query-len>278</Iteration_query-len>
+<Iteration_hits>
+<Hit>
+  <Hit_num>1</Hit_num>
+  <Hit_id>gi|384157486|gb|JQ912656.1|</Hit_id>
+  <Hit_def>Lichtheimia hyalospora YS07041101 18S ribosomal RNA gene, partial sequence; internal transcribed spacer 1, 5.8S ribosomal RNA gene, and internal transcribed spacer 2, complete sequence; and 28S ribosomal RNA gene, partial sequence</Hit_def>
+  <Hit_accession>JQ912656</Hit_accession>
+  <Hit_len>722</Hit_len>
+  <Hit_hsps>
+    <Hsp>
+      <Hsp_num>1</Hsp_num>
+      <Hsp_bit-score>330.149</Hsp_bit-score>
+      <Hsp_score>841</Hsp_score>
+      <Hsp_evalue>3.16924e-87</Hsp_evalue>
+      <Hsp_query-from>7</Hsp_query-from>
+      <Hsp_query-to>260</Hsp_query-to>
+      <Hsp_hit-from>246</Hsp_hit-from>
+      <Hsp_hit-to>1</Hsp_hit-to>
+      <Hsp_query-frame>1</Hsp_query-frame>
+      <Hsp_hit-frame>-1</Hsp_hit-frame>
+      <Hsp_identity>239</Hsp_identity>
+      <Hsp_positive>239</Hsp_positive>
+      <Hsp_gaps>12</Hsp_gaps>
+      <Hsp_align-len>256</Hsp_align-len>
+      <Hsp_qseq>TCAATTCTTTTCATTGAAA-CCTCTGGG-CTACCAAAGGTTAGTAACCCAAACCCTAAAGGTTCATGCCTTGGTCGCTTCACCCAATAAGTCTCCTAAAAGGAGGGTCTCTACTAGGCACAAGCTGACTCGATCCAATCTTCCGTCACCACATTACATGGTTACTCGACTAGACCAAGTGCTAAAAGGCAGAGTCAACCAGGGTGACCCAACATTGCACATACTGTGAGGAACAAAAGAGACCTCTCAGTAATGAT</Hsp_qseq>
+      <Hsp_hseq>TCAATTCTTTTCATTGAAAACCACTGGGGCTA------GT-AGTAACC--AACCCCAAAGGTT-ATGCCTTGGTCGCTTCACCCAACAAGTCTCCTGAAAGGAGGGTCTCTACTAGGCACAAGCTGACTCGATCCAATCTTCCTTCACCACATTACATGGTTACTCGACTAGACCAAGTGCTAAAAGGCAGAGTCAACCAGGGTGACCCAACATTGCACATACTGTGAGGAACAAAAGAGACCTCTCAGTAATGAT</Hsp_hseq>
+      <Hsp_midline>||||||||||||||||||| || ||||| |||      || |||||||  ||||| ||||||| |||||||||||||||||||||| ||||||||| |||||||||||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</Hsp_midline>
+    </Hsp>
+  </Hit_hsps>
+</Hit>
+</Iteration_hits>
+  <Iteration_stat>
+    <Statistics>
+      <Statistics_db-num>17310416</Statistics_db-num>
+      <Statistics_db-len>1325970485</Statistics_db-len>
+      <Statistics_hsp-len>0</Statistics_hsp-len>
+      <Statistics_eff-space>0</Statistics_eff-space>
+      <Statistics_kappa>0.17</Statistics_kappa>
+      <Statistics_lambda>0.27</Statistics_lambda>
+      <Statistics_entropy>0.39</Statistics_entropy>
+    </Statistics>
+  </Iteration_stat>
+</Iteration>
+</BlastOutput_iterations>
+</BlastOutput>
+
+
+
