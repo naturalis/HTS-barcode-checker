@@ -90,17 +90,13 @@ def TNRS (name):
 	TNRS_req = requests.get('http://api.phylotastic.org/tnrs/submit',
 		params={'query':name}, allow_redirects=True)
 
-	print TNRS_req
 	redirect_url, time_count = TNRS_req.url, 0
-	print TNRS_req.url
 
 	# send retrieve requests at 5 second intervals till
 	# the api returns the JSON object with the results
-	while redirect_url and time_count < 60:
+	while redirect_url and time_count < 15:
 		retrieve_response = requests.get(redirect_url)
-		print retrieve_response
 		retrieve_results = retrieve_response.json()
-		print retrieve_results
 		
 		# if the results contains the JSON object
 		# retrieve all accepted names for the species
@@ -203,12 +199,13 @@ def combine_sets (CITES_dic):
 	taxon_id_dic = {}
 
 	for appendix in CITES_dic:
-		for cell in CITES_dic[appendix][:25]:
+		for cell in CITES_dic[appendix]:
 			# create a list of all lower taxon id's			
 			temp_name = cell[0].replace(' spp.','')
 			
+			print cell
 			# break when a cell turns out to be empty			
-			#if temp_name == '' or temp_name == ' ': break			
+			if temp_name == '' or temp_name == ' ': break			
 
 			TNRS_data = TNRS(temp_name)
 			temp_taxon_list = get_taxid(temp_name)

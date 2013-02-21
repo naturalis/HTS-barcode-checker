@@ -94,7 +94,7 @@ def TNRS (name):
 
 	# send retrieve requests at 5 second intervals till
 	# the api returns the JSON object with the results
-	while redirect_url and time_count < 60:
+	while redirect_url and time_count < 15:
 		retrieve_response = requests.get(redirect_url)
 		retrieve_results = retrieve_response.json()
 		
@@ -199,12 +199,14 @@ def combine_sets (CITES_dic):
 	taxon_id_dic = {}
 
 	for appendix in CITES_dic:
-		for cell in CITES_dic[appendix][:25]:
+		for cell in CITES_dic[appendix]:
 			# create a list of all lower taxon id's			
 			temp_name = cell[0].replace(' spp.','')
 			
 			# break when a cell turns out to be empty			
-			#if temp_name == '' or temp_name == ' ': break			
+			if temp_name == '' or temp_name == ' ': break			
+			print cell
+			print temp_name
 
 			TNRS_data = TNRS(temp_name)
 			temp_taxon_list = get_taxid(temp_name)

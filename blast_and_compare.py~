@@ -7,13 +7,22 @@ import argparse
 # get the commandline arguments that specify the input fastafile and the output file
 parser = argparse.ArgumentParser(description = ('retrieve blast and taxonomic information for a fasta file'))
 
-parser.add_argument('-i', metavar='fasta file', type=str, 
+parser.add_argument('-i', '--input_file', metavar='fasta file', dest='i', type=str, 
 			help='enter the fasta file')
-parser.add_argument('-o', metavar='output file', type=str, 
+parser.add_argument('-o', '--output_file', metavar='output file', dest='o', type=str, 
 			help='enter the output file')
+parser.add_argument('-a', '--BLAST_algorithm', metavar='algorithm', dest='a', type=str, 
+			help='Enter the algorithm BLAST wil use (default=blastn)', default='blastn')
+parser.add_argument('-d', '--BLAST_database', metavar='database', dest='d', type=str,
+			help = 'Enter the database BLAST wil use (default=nt)', default = 'nt')
+parser.add_argument('-s', '--hitlist_size', metavar='# hits', dest='s', type=str,
+			help = 'Enter the size of the hitlist BLAST wil return (default=1)', default='1')
+parser.add_argument('-m', '--megablast', dest='m', action='store_true', 
+			help = 'Use megablast, can only be used in combination with blastn')
+
 args = parser.parse_args()
 
-def blast_bulk (fasta_file):
+def blast_bulk (fasta_file, settings):
 
 	# The blast modules are imported from biopython
 	from Bio.Blast import NCBIWWW, NCBIXML
@@ -26,7 +35,7 @@ def blast_bulk (fasta_file):
 
 	# Blast the sequences against the NCBI nucleotide database
 	# return a list with the blast results
-	result_handle = NCBIWWW.qblast('blastn', 'nt', fasta_handle)
+	result_handle = NCBIWWW.qblast(settings[0], settings[1], fasta_handle, megablast=settings[3], hitlist_size=settings[2])
 	blast_list = [item for item in NCBIXML.parse(result_handle)]	
 
 	return blast_list
@@ -52,38 +61,33 @@ def CITES_db (CITES_file):
 
 	return CITES_dic
 
-def parse_blast (blast_list):#, e_value, min_coverage, min_identity):
+def parse_blast (blast_list, filter_list, CITES_dic, outpath, mode):
 	
 	# parse_through the blast results and remove
 	# results that do not meet the e-value, coverage,
 	# identity and blacklist critera
 
 	for blast_result in blast_list:
-		for alignment in blast_result.alignments:
+		for alignment in blast_result.alignments[:5]:
 			for hsp in alignment.hsps:
 	            		
 				# calculate the %identity
 		            	identity = float(hsp.identities/(len(hsp.match)*0.01))
+
+				# grab the genbank number
+				gb_num = alignment.title.split('|')[1]
 				
 				# an alignment needs to meet 3 criteria before 
 				# it is an acceptable result: above the minimum 
 				# identity, minimum coverage and E-value
 			
-				result_list = [blast_result.query, ('\"' + alignment.title + '\"'), identity,
-						blast_result.query_length,hsp.expect, hsp.bits]
+				# create containing the relevant blast results
+				# pass this list to the filter_hits function to
+				# filter and write the blast results
+				filter_hits([blast_result.query, ('\"' + alignment.title + '\"'), gb_num, str(identity),
+						str(blast_result.query_length), str(hsp.expect), str(hsp.bits)],
+						filter_list, CITES_dic, outpath, mode)
 
-				print obtain_tax(alignment.title.split('|')[1])
-				print alignment.title
-				print alignment
-				print hsp.expect
-
-				return
-	
-				#blast_record.query, b = alignment.hit_def, c = hsp.bits, d = cover, e = hsp.expect, f = ident, g = alignment.hit_id)	
-
-				#if int(hsp.expect) < e_value and identity > min_identity and blast_result.query_length > min_identity:
-					
-					# compare the 
 
 def obtain_tax (code):
 	
@@ -109,27 +113,41 @@ def obtain_tax (code):
 
 	return taxon
 
-def filter_hits (blast, filter_dic, blacklist, CITES_dic):
+def filter_hits (blast, filter_list, CITES_dic, outpath, mode):
 	
-	# filter the blast hits, based on the e-value, minimum
-	# identity, minimum coverage and the user blacklist
-	if blast_data[0] <= blast_filter[0] and blast_data[1] >= blast_filter[1] and blast_data[2] >= blast_data[2]:
-		if blast_data[3] not in blacklist:
-			taxon_id = obtain_tax(blast_data[3])
-			if taxon_id in CITES_dic:
-				write_results()
-			else:
-				write_results()
+	# filter the blast hits, based on the minimum
+	# identity, minimum coverage, e-value and the user blacklist
+	if float(blast[3]) >= filter_list[0] and int(blast[4]) >= filter_list[1] and float(blast[5]) <= filter_list[2]:
+		if blast[2] not in filter_list[3]:
+			taxon = obtain_tax(blast[2])
+			results = blast+taxon
 
-def write_results (result):
-	pass
+			# check if the taxon id of the blast hit
+			# is present in the CITES_dic
+			if taxon[0] in CITES_dic:			
+				results+CITES_dic[taxon[0]]
+			
+			# write the results
+			write_results(','.join(results), outpath, mode)
+			
+			
+
+def write_results (result, outpath, mode):
+	
+	# write the results to the output file
+	out_file = open(outpath, mode)
+	out_file.write(result + '\n')
+	out_file.close()
+
 
 def main ():
-	filter_crit = [0.05, 97, 100]
-	black_list = []
+	blast_settings = [args.a, args.d, args.s, args.m]
+	filter_list = [99, 100, 0.05,['300252683']]
 	CITES_dic = {}
-	blast_list = blast_bulk(args.i)
-	parse_blast(blast_list)
+	header = 'query,hit,accession,identity,hit length,e-value,bit-score, taxon id, name, CITES species, CITES info, NCBI species, appendix'
+	write_results(header, args.o, 'w')
+	blast_list = blast_bulk(args.i, blast_settings)
+	parse_blast(blast_list, filter_list, CITES_dic, args.o, 'a')
 	
 
 if __name__ == "__main__":
