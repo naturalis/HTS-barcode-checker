@@ -6,13 +6,14 @@
 
 
 # import the argparse module to handle the input commands
-#import argparse, sys
+import argparse
 
-#parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
+parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
 
-#parser.add_argument('--download', metavar='', type=str, 
-#			help='Enter the 454 sequence fasta file(s)', nargs='+')
-#parser.add_argument('--output_dir', metavar='output directory', type=str, 
+parser.add_argument('--output', metavar='CITES database name', type=str,
+			help='Name and path to the location for the CITES database')
+args = parser.parse_args()
+
 
 def download_raw_CITES ():
 	
@@ -23,14 +24,14 @@ def download_raw_CITES ():
 	CITES_url = urllib2.urlopen('http://www.cites.org/eng/app/appendices.php')
 	CITES_php = CITES_url.read()
 
-	#print(CITES_php)
-
 	# return the raw .php file
 	return CITES_php
 
 
 def clean_cell (cell):
 	
+	# minor function to clean up the html tags and 
+	# formating of the CITES appendix
 	import re
 
 	cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
@@ -68,10 +69,10 @@ def parse_php (php_file):
 			cell = td.find('b')
 			# if the cell is filled, retrieve the
 			# species name and add it to the dictionary
-			if cell != None:
+			if cell != None and cell != ' ' and cell != '':
 				cell = clean_cell(cell)
 				if ';' in cell:	cell = cell.split(';')[1]
-				CITES_dict[count].append([cell,clean_cell(td)])
+				CITES_dict[count].append([cell,'\"' + clean_cell(td) + '\"'])
 			count += 1
 	
 	# return the dictionary containing the species
@@ -87,16 +88,19 @@ def TNRS (name):
 
 	# Send the TNRS request
 	TNRS_req = requests.get('http://api.phylotastic.org/tnrs/submit',
-		params={'query':name},
-		allow_redirects=True)
+		params={'query':name}, allow_redirects=True)
 
+	print TNRS_req
 	redirect_url, time_count = TNRS_req.url, 0
+	print TNRS_req.url
 
 	# send retrieve requests at 5 second intervals till
 	# the api returns the JSON object with the results
 	while redirect_url and time_count < 60:
 		retrieve_response = requests.get(redirect_url)
+		print retrieve_response
 		retrieve_results = retrieve_response.json()
+		print retrieve_results
 		
 		# if the results contains the JSON object
 		# retrieve all accepted names for the species
@@ -104,8 +108,6 @@ def TNRS (name):
 		if u'names' in retrieve_results:
 			name_list = [name,[]]
 			names = retrieve_results.get(u'names')
-			print name
-			print retrieve_results
 			try:
 				for item in names[0]['matches']:
 					if item['sourceId'] == 'NCBI':
@@ -140,6 +142,7 @@ def get_taxid (species):
 
 	# import Entrez module from biopython to connect to the genbank servers
 	from Bio import Entrez
+	import time
 
 	# correct species name for parsing and set temp email
 	Entrez.email = "get_taxid@expand_CITES.com"
@@ -158,13 +161,36 @@ def get_taxid (species):
 		search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml", retmax = count)
 		record = Entrez.read(search)
 
+	# sleep for a second to prevent floading
+	time.sleep(1)
+
 	if record['IdList'] != []:
-		#for ding in record['IdList']:
-		#	print ding
-		
+	
 		return record['IdList']
 
 	return []
+
+def obtain_tax (taxid):
+	# a module from Biopython is imported to connect to the Entrez database
+	from Bio import Entrez
+	import time
+		
+	organism = ''
+
+	# based on the taxid the species and taxonomy are retrieved from the Entrez database
+	try:
+		Entrez.email = "get_taxid@expand_CITES.com"
+		search = Entrez.efetch(db="taxonomy", id= taxid, retmode="xml")
+		record = Entrez.read(search)
+		organism = record[0]['ScientificName']
+		handle.close()
+	except:
+		pass
+
+	# sleep for a second to prevent floading
+	time.sleep(1)
+
+	return organism
 
 def combine_sets (CITES_dic):
 	
@@ -174,23 +200,66 @@ def combine_sets (CITES_dic):
 	# and try to retrieve the TNRS synonyms and NCBI Taxonomic IDs
 	# for each species
 
-	species_count, ncbi_taxon = 0, 0
+	taxon_id_dic = {}
 
 	for appendix in CITES_dic:
-		for cell in CITES_dic[appendix]:
-			TNRS_data = TNRS(cell[0].replace(' spp.',''))
-			print TNRS_data
-			print '\n'
+		for cell in CITES_dic[appendix][:25]:
+			# create a list of all lower taxon id's			
+			temp_name = cell[0].replace(' spp.','')
 			
+			# break when a cell turns out to be empty			
+			#if temp_name == '' or temp_name == ' ': break			
+
+			TNRS_data = TNRS(temp_name)
+			temp_taxon_list = get_taxid(temp_name)
+
+			# if no TAXON ID was found for the name
+			# check if taxon IDs can be obtained for
+			# the synonyms
+			if len(TNRS_data) != 3:
+				for name in TNRS_data[1]:
+					temp_taxon_list += get_taxid(name)
+			
+			# expand the taxon_id_dic with the taxid's as
+			# keys and the CITES species / CITES cell and 
+			# taxid linked species as values
+			for taxid in temp_taxon_list:
+				if taxid in taxon_id_dic:
+					if appendix < int(taxon_id_dic[taxid][3]):
+						taxon_id_dic[taxid] = [cell[0],cell[1],obtain_tax(taxid),str(appendix)]
+				else:
+					taxon_id_dic[taxid] = [cell[0],cell[1],obtain_tax(taxid),str(appendix)]
+	
+	return taxon_id_dic
+			
+
+def write_csv (taxon_id_dic, database_path):
+
+	# write the CITES results to the database
+	
+	db = open(database_path, 'w')
+	for taxid in taxon_id_dic:
+		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')
+	db.close()
 			
 
 def main ():
 	
+	# retrieve the raw CITES appendix page
 	CITES_php = download_raw_CITES()
-	CITES_dic = parse_php(CITES_php)
-	combine_sets(CITES_dic)
 
-	# new_list=list(set(old_list))		
+	# parse through the CITES page and retrieve the
+	# species names
+	CITES_dic = parse_php(CITES_php)
+
+	# use TNRS to grab the species synonyms and
+	# taxid if available. Expand the taxids with 
+	# taxids from lower ranked records
+	taxon_id_dic = combine_sets(CITES_dic)
+	
+	# write the results to the output location
+	write_csv(taxon_id_dic, args.output)
+	
 
 if __name__ == "__main__":
     main()
