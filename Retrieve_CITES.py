@@ -10,7 +10,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
 
-parser.add_argument('--output', metavar='CITES database name', type=str,
+parser.add_argument('-db', '--CITES_db', metavar='CITES database name', dest='db',type=str,
 			help='Name and path to the location for the CITES database')
 args = parser.parse_args()
 
@@ -28,6 +28,12 @@ def download_raw_CITES ():
 	return CITES_php
 
 
+def CITES_date (CITES_file):
+	
+	# open the local CITES database to retrieve the date
+	return open(CITES_file, 'r').readline().split(',')[1]
+
+	
 def clean_cell (cell):
 	
 	# minor function to clean up the html tags and 
@@ -56,9 +62,11 @@ def parse_php (php_file):
 	# read the CITES web page	
 	CITES_page = BeautifulSoup(php_file)
 	
+	data = clean_cell(CITES_page.find('strong'))
+
 	# extract the tables
 	tables = CITES_page.findAll('table')
-	
+
 	# parse through the table and find all cites species
 	# (in bold / italic) and under which category they fit
 	rows = tables[1].findAll('tr')
@@ -76,7 +84,7 @@ def parse_php (php_file):
 			count += 1
 	
 	# return the dictionary containing the species
-	return CITES_dict			
+	return [data, CITES_dict]
 
 
 def TNRS (name):
@@ -132,13 +140,14 @@ def TNRS (name):
 	print('Timeout for species %s' % name)
 	return [name,[]]
 
+
 def get_taxid (species):
 	
 	# get taxon id based on species name (if not provided by TNRS search)
 
 	# import Entrez module from biopython to connect to the genbank servers
 	from Bio import Entrez
-	import time
+	#import time
 
 	# correct species name for parsing and set temp email
 	Entrez.email = "get_taxid@expand_CITES.com"
@@ -148,28 +157,29 @@ def get_taxid (species):
 	# If there are more subtaxa then NCBI returns by default (20)
 	# do a second search with the retmax parameter set to the 
 	# expected number of taxa.
-	search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml")
-	record = Entrez.read(search)
-	count = record['Count']
-
-	if count > 20:
-	
-		search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml", retmax = count)
+	try:
+		search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml")
 		record = Entrez.read(search)
+		count = record['Count']
 
-	# sleep for a second to prevent floading
-	time.sleep(1)
-
-	if record['IdList'] != []:
+		if count > 20:
 	
-		return record['IdList']
+			search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml", retmax = count)
+			record = Entrez.read(search)
+
+		if record['IdList'] != []:
+	
+			return record['IdList']
+	except:
+		print('failed to obtain hit for %s' % species)
 
 	return []
+
 
 def obtain_tax (taxid):
 	# a module from Biopython is imported to connect to the Entrez database
 	from Bio import Entrez
-	import time
+	#import time
 		
 	organism = ''
 
@@ -183,10 +193,8 @@ def obtain_tax (taxid):
 	except:
 		pass
 
-	# sleep for a second to prevent floading
-	time.sleep(1)
-
 	return organism
+
 
 def combine_sets (CITES_dic):
 	
@@ -205,18 +213,18 @@ def combine_sets (CITES_dic):
 			
 			# break when a cell turns out to be empty			
 			if temp_name == '' or temp_name == ' ': break			
-			print cell
-			print temp_name
 
-			TNRS_data = TNRS(temp_name)
+			# grab the TAXON IDs for the species name
 			temp_taxon_list = get_taxid(temp_name)
 
 			# if no TAXON ID was found for the name
 			# check if taxon IDs can be obtained for
-			# the synonyms
-			if len(TNRS_data) != 3:
-				for name in TNRS_data[1]:
-					temp_taxon_list += get_taxid(name)
+			# the species synonyms
+			if temp_taxon_list == []:
+				TNRS_data = TNRS(temp_name)
+				if len(TNRS_data) < 3 and len(TNRS_data[1]) > 0:
+					for name in TNRS_data[1]:
+						temp_taxon_list += get_taxid(name)
 			
 			# expand the taxon_id_dic with the taxid's as
 			# keys and the CITES species / CITES cell and 
@@ -231,33 +239,45 @@ def combine_sets (CITES_dic):
 	return taxon_id_dic
 			
 
-def write_csv (taxon_id_dic, database_path):
+def write_csv (date, taxon_id_dic, database_path):
 
 	# write the CITES results to the database
 	
 	db = open(database_path, 'w')
+	db.write('Date,' + date + ',\n')
 	for taxid in taxon_id_dic:
 		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')
 	db.close()
 			
 
-def main ():
-	
+def main ():	
 	# retrieve the raw CITES appendix page
 	CITES_php = download_raw_CITES()
 
 	# parse through the CITES page and retrieve the
 	# species names
-	CITES_dic = parse_php(CITES_php)
+	CITES_info = parse_php(CITES_php)
+	
+	# try to open the CITES database and check if the current version
+	# (if there is one) is up to date
+	try:
+		if CITES_info[0] == CITES_date(args.db):
+			print 'Local CITES database is up to date'
+			return
+	except:
+		pass
+
+	print 'Downloading new local copy of the CITES database'
 
 	# use TNRS to grab the species synonyms and
 	# taxid if available. Expand the taxids with 
 	# taxids from lower ranked records
-	taxon_id_dic = combine_sets(CITES_dic)
-	
+	taxon_id_dic = combine_sets(CITES_info[1])
+
 	# write the results to the output location
-	write_csv(taxon_id_dic, args.output)
+	write_csv(CITES_info[0], taxon_id_dic, args.db)
 	
 
 if __name__ == "__main__":
-    main()
+	main()	
+

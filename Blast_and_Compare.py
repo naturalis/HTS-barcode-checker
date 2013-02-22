@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # descrip
 
 
@@ -15,10 +17,20 @@ parser.add_argument('-a', '--BLAST_algorithm', metavar='algorithm', dest='a', ty
 			help='Enter the algorithm BLAST wil use (default=blastn)', default='blastn')
 parser.add_argument('-d', '--BLAST_database', metavar='database', dest='d', type=str,
 			help = 'Enter the database BLAST wil use (default=nt)', default = 'nt')
-parser.add_argument('-s', '--hitlist_size', metavar='# hits', dest='s', type=str,
+parser.add_argument('-s', '--hitlist_size', dest='s', type=str,
 			help = 'Enter the size of the hitlist BLAST wil return (default=1)', default='1')
 parser.add_argument('-m', '--megablast', dest='m', action='store_true', 
 			help = 'Use megablast, can only be used in combination with blastn')
+parser.add_argument('-mi', '--min_identity', dest='mi', type=int, 
+			help = 'Enter the minimal identity for BLAST results', default = 97)
+parser.add_argument('-mc', '--min_coverage', dest='mc', type=int, 
+			help = 'Enter the minimal coverage for BLAST results', default = 100)
+parser.add_argument('-me', '--max_evalue', dest='me', type=float, 
+			help = 'Enter the minimal E-value for BLAST results', default = 0.05)
+parser.add_argument('-b', '--blacklist', metavar='blacklist file', dest='b', type=str,
+			help = 'File containing the blacklisted genbank id\'s')
+parser.add_argument('-c', '--CITES_db', metavar='CITES database file', dest='c', type=str,
+			help = 'Path to the local copy of the CITES database')
 
 args = parser.parse_args()
 
@@ -45,8 +57,10 @@ def blacklist (blacklist_file):
 	# return a list containing the blacklisted genbank id's
 	# the blacklist follows the following format:
 	# genbank_id, description
-	
-	return [line.split(',')[0] for line in open(blacklist_file,'r')]
+	try:
+		return [line for line in open(blacklist_file,'r')]
+	except:
+		return []
 
 def CITES_db (CITES_file):
 	
@@ -57,7 +71,8 @@ def CITES_db (CITES_file):
 	
 	for line in open(CITES_file, 'r'):
 		line = line.split(',')
-		CITES_dic[line[0]] = line[1:]
+		if line[0] != 'Date':
+			CITES_dic[line[0]] = line[1:]
 
 	return CITES_dic
 
@@ -68,7 +83,7 @@ def parse_blast (blast_list, filter_list, CITES_dic, outpath, mode):
 	# identity and blacklist critera
 
 	for blast_result in blast_list:
-		for alignment in blast_result.alignments[:5]:
+		for alignment in blast_result.alignments:
 			for hsp in alignment.hsps:
 	            		
 				# calculate the %identity
@@ -142,8 +157,8 @@ def write_results (result, outpath, mode):
 
 def main ():
 	blast_settings = [args.a, args.d, args.s, args.m]
-	filter_list = [99, 100, 0.05,['300252683']]
-	CITES_dic = {}
+	filter_list = [args.mi, args.mc, args.me, blacklist(args.b)]
+	CITES_dic = CITES_db(args.c)
 	header = 'query,hit,accession,identity,hit length,e-value,bit-score, taxon id, name, CITES species, CITES info, NCBI species, appendix'
 	write_results(header, args.o, 'w')
 	blast_list = blast_bulk(args.i, blast_settings)
