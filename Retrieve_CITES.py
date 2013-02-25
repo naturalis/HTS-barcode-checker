@@ -40,14 +40,19 @@ def clean_cell (cell):
 	# formating of the CITES appendix
 	import re
 
-	cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
-	regex = re.compile(r'[\n\r\t]')
-	cell = regex.sub('', cell).strip().replace('&nbsp;',' ')
+	# Try to remove tags, if not possible return a blank
+	try:
+		cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
+		regex = re.compile(r'[\n\r\t]')
+		cell = regex.sub('', cell).strip().replace('&nbsp;',' ')
 	
-	while '  ' in cell:
-		cell = cell.replace('  ', ' ')
+		while '  ' in cell:
+			cell = cell.replace('  ', ' ')
 
-	return cell	
+		return cell
+
+	except:
+		return ''
 
 
 def parse_php (php_file):
@@ -74,13 +79,13 @@ def parse_php (php_file):
 		cols = tr.findAll('td')
 		count = 1
 		for td in cols:
-			cell = td.find('b')
+			cleaned = clean_cell(td.find('b'))
 			# if the cell is filled, retrieve the
 			# species name and add it to the dictionary
-			if cell != None and cell != ' ' and cell != '':
-				cell = clean_cell(cell)
-				if ';' in cell:	cell = cell.split(';')[1]
-				CITES_dict[count].append([cell,'\"' + clean_cell(td) + '\"'])
+			#if cell != None and cell != ' ' and cell != '':
+			if cleaned != '':			
+				if ';' in cleaned: cleaned = cleaned.split(';')[1]
+				CITES_dict[count].append([cleaned,'\"' + clean_cell(td) + '\"'])
 			count += 1
 	
 	# return the dictionary containing the species
@@ -208,11 +213,11 @@ def combine_sets (CITES_dic):
 
 	for appendix in CITES_dic:
 		for cell in CITES_dic[appendix]:
-			# create a list of all lower taxon id's			
+			# create a list of all lower taxon id's
 			temp_name = cell[0].replace(' spp.','')
 			
 			# break when a cell turns out to be empty			
-			if temp_name == '' or temp_name == ' ': break			
+			if temp_name == '' or temp_name == ' ': continue			
 
 			# grab the TAXON IDs for the species name
 			temp_taxon_list = get_taxid(temp_name)

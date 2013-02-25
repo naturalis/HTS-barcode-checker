@@ -55,6 +55,8 @@ def run_Blast (fasta_file, output_file, CITES_path, arguments):
 
 
 def main ():	
+	
+	Blast_args = [args.a, args.d, args.s, args.m, args.mi, args.mc, args.me, args.b]
 	# retrieve the raw CITES appendix page
 	CITES_php = download_raw_CITES()
 
