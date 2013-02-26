@@ -52,6 +52,7 @@ def blast_bulk (fasta_file, settings):
 
 	return blast_list
 
+
 def blacklist (blacklist_file):
 	
 	# return a list containing the blacklisted genbank id's
@@ -61,6 +62,7 @@ def blacklist (blacklist_file):
 		return [line for line in open(blacklist_file,'r')]
 	except:
 		return []
+
 
 def CITES_db (CITES_file):
 	
@@ -75,6 +77,7 @@ def CITES_db (CITES_file):
 			CITES_dic[line[0]] = line[1:]
 
 	return CITES_dic
+
 
 def parse_blast (blast_list, filter_list, CITES_dic, outpath, mode):
 	
@@ -128,6 +131,7 @@ def obtain_tax (code):
 
 	return taxon
 
+
 def filter_hits (blast, filter_list, CITES_dic, outpath, mode):
 	
 	# filter the blast hits, based on the minimum
@@ -156,12 +160,22 @@ def write_results (result, outpath, mode):
 
 
 def main ():
+	
+	# two lists of the desired blast and filter settings
 	blast_settings = [args.a, args.d, args.s, args.m]
 	filter_list = [args.mi, args.mc, args.me, blacklist(args.b)]
+	
+	# create a dictionary containing the local CITES set
 	CITES_dic = CITES_db(args.c)
+	
+	# create a blank result file and write the header
 	header = 'query,hit,accession,identity,hit length,e-value,bit-score, taxon id, name, CITES species, CITES info, NCBI species, appendix'
 	write_results(header, args.o, 'w')
+
+	# blast the fasta file
 	blast_list = blast_bulk(args.i, blast_settings)
+
+	# parse through the results and write the blast hits + CITES info
 	parse_blast(blast_list, filter_list, CITES_dic, args.o, 'a')
 	
 

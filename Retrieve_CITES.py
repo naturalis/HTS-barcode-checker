@@ -12,6 +12,8 @@ parser = argparse.ArgumentParser(description = 'Create a table containing the CI
 
 parser.add_argument('-db', '--CITES_db', metavar='CITES database name', dest='db',type=str,
 			help='Name and path to the location for the CITES database')
+parser.add_argument('-f', '--force', dest='f', action='store_true',
+			help='Force updating the CITES database')
 args = parser.parse_args()
 
 
@@ -266,7 +268,7 @@ def main ():
 	# try to open the CITES database and check if the current version
 	# (if there is one) is up to date
 	try:
-		if CITES_info[0] == CITES_date(args.db):
+		if CITES_info[0] == CITES_date(args.db) and args.f != True:
 			print 'Local CITES database is up to date'
 			return
 	except:
