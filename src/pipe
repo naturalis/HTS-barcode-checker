@@ -1,1 +1,0 @@
-python start.py -o ~/workspace/barcode-blast-pipeline/data/my_blast.xml -db nt -ba blastn -ps ~/workspace/barcode-blast-pipeline/bin -i ~/workspace/barcode-blast-pipeline/data/IonXpress
