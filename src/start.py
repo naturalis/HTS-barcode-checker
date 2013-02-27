@@ -1,14 +1,6 @@
 #!/usr/bin/python2.7
 '''
-created on 10 jan. 2013
-Author: Alex Hoogkamer
-E-mail: aqhoogkamer@outlook.com / s1047388@student.hsleiden.nl
-
-this file starts the barcode-blast-pipeline (scripts: blast.py , trim.py , Quality-control.py , output.py , cites_check).
-
-dependencies:
-Bio python
-Unix OS
+This file starts the CITES-checker pipeline (scripts: blast.py , trim.py , Quality-control.py , output.py , cites_check).
 '''
 # here argparse is imported for command line arguments, logging for displaying information for the user and os to start the other scripts
 import logging, os, argparse
