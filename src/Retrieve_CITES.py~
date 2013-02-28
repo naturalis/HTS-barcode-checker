@@ -30,10 +30,10 @@ def download_raw_CITES ():
 	return CITES_php
 
 
-def CITES_date ():
+def CITES_date (CITES_file):
 	
 	# open the local CITES database to retrieve the date
-	return open(args.db, 'r').readline().split(',')[1]
+	return open(CITES_file, 'r').readline().split(',')[1]
 
 	
 def clean_cell (cell):
@@ -244,11 +244,11 @@ def combine_sets (CITES_dic):
 	return taxon_id_dic
 			
 
-def write_csv (date, taxon_id_dic):
+def write_csv (date, taxon_id_dic, database_path):
 
 	# write the CITES results to the database
 	
-	db = open(args.db, 'w')
+	db = open(database_path, 'w')
 	db.write('Date,' + date + ',\n')
 	for taxid in taxon_id_dic:
 		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')
@@ -266,7 +266,7 @@ def main ():
 	# try to open the CITES database and check if the current version
 	# (if there is one) is up to date
 	try:
-		if CITES_info[0] == CITES_date() and args.f != True:
+		if CITES_info[0] == CITES_date(args.db) and args.f != True:
 			print 'Local CITES database is up to date'
 			return
 	except:
@@ -280,7 +280,7 @@ def main ():
 	taxon_id_dic = combine_sets(CITES_info[1])
 
 	# write the results to the output location
-	write_csv(CITES_info[0], taxon_id_dic)
+	write_csv(CITES_info[0], taxon_id_dic, args.db)
 	
 
 if __name__ == "__main__":
