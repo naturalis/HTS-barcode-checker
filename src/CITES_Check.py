@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 
-# descrip
-
+# Indentify a set of FASTA sequences and check for each sequences
+# if it a CITES protected species. The pipeline will use a
+# blacklist containing genbank ids of incorrectly identified
+# sequences on genbank, BLAST hits that will match with this list
+# are avoided
 
 # import the argparse module to handle the input commands
 import argparse
@@ -43,17 +46,48 @@ def blast_bulk ():
 	# The blast modules are imported from biopython
 	from Bio.Blast import NCBIWWW, NCBIXML
 	from Bio import SeqIO
+	import os
 	
 	# parse the fasta file and get a list of sequences
 	seq_list = [seq for seq in SeqIO.parse(args.i, 'fasta')]
 
+	# grap the file path to the input file, here the temporary fasta files will be created
+	dir, file = os.path.split(args.i)
+
+	# create the list where all the blast results are stored in
 	blast_list = []
 
-	# for each sequence obtain the blast result
-	for seq in seq_list:
-		result_handle = NCBIWWW.qblast(args.ba, args.bd, seq.format('fasta'), megablast=args.me, hitlist_size=args.hs)
-		blast_list.append(NCBIXML.read(result_handle))
+	# while there are still sequences left unblasted: create a file of these
+	# sequences and blast them
+	while len(seq_list) > 0:
 	
+		# create the temporary file
+		temp_file_path = os.path.join(dir, 'temp.fasta')
+		temp_file = open(temp_file_path, 'w')
+
+		# fill the temp file with a max set of 50 sequences
+		# these sequences are removed from the sequence list
+		if len(seq_list) >= 50:
+			SeqIO.write(seq_list[:50], temp_file, 'fasta')
+			seq_list = seq_list[50:]
+		else:
+			SeqIO.write(seq_list, temp_file, 'fasta')
+			seq_list = []
+		temp_file.close()
+
+		# read the temp fasta file
+		temp_fasta_file = open(temp_file_path, 'r')
+		fasta_handle = temp_fasta_file.read()
+
+		# blast the temporary file, and save the blasthits in the blast_list
+		result_handle = NCBIWWW.qblast(args.ba, args.bd, fasta_handle, megablast=args.me, hitlist_size=args.hs)
+		#result_handle = NCBIWWW.qblast(args.ba, args.bd, temp_file_path, megablast=args.me, hitlist_size=args.hs)
+		blast_list += [item for item in NCBIXML.parse(result_handle)]
+
+		# remove the temporary file		
+		os.remove(temp_file_path)
+
+	# return the filled blast hit
 	return blast_list
 
 
@@ -131,7 +165,7 @@ def obtain_tax (code):
 	from Bio import Entrez
 	from Bio import SeqIO
 
-	taxon = [[],[]]
+	taxon = ''
 
 	try:
 		# based on the genbank id the taxon id is retrieved from genbank
@@ -141,8 +175,7 @@ def obtain_tax (code):
 
 		# parse through the features and grap the taxon_id
 		sub = record.features
-		taxon[0] = sub[0].qualifiers['db_xref'][0].split(':')[1]
-		taxon[1] = record.annotations['organism']
+		taxon = sub[0].qualifiers['db_xref'][0].split(':')[1]
 
 	except:
 		pass
@@ -157,12 +190,13 @@ def filter_hits (blast, CITES_dic, blacklist, mode):
 	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
 		if blast[2] not in blacklist:
 			taxon = obtain_tax(blast[2])
-			results = blast+taxon
+			results = blast+[taxon]
 
 			# check if the taxon id of the blast hit
 			# is present in the CITES_dic
-			if taxon[0] in CITES_dic:			
-				results+CITES_dic[taxon[0]]
+			if taxon in CITES_dic:
+				#results += CITES_dic[taxon[0]]
+				results += CITES_dic[taxon][1:]
 			
 			# write the results
 			write_results(','.join(results), mode)
@@ -190,7 +224,8 @@ def main ():
 	blacklist = get_blacklist()
 
 	# create a blank result file and write the header
-	header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,genbank record species,CITES species,CITES info,NCBI Taxonomy name,appendix'
+	#header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,genbank record species,CITES species,CITES info,NCBI Taxonomy name,appendix'
+	header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,CITES info (numbers match the footnotes at the online CITES appendice),NCBI Taxonomy name,appendix'
 	write_results(header, 'w')
 
 	# blast the fasta file
