@@ -40,13 +40,14 @@ def clean_cell (cell):
 	
 	# minor function to clean up the html tags and 
 	# formating of the CITES appendix
-	import re
+	import re, unicodedata
 
 	# Try to remove tags, if not possible return a blank
 	try:
 		cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
 		regex = re.compile(r'[\n\r\t]')
 		cell = regex.sub('', cell).strip().replace('&nbsp;',' ')
+		cell = re.sub(r'&(#?)(.+?);','',cell)
 	
 		while '  ' in cell:
 			cell = cell.replace('  ', ' ')
@@ -61,11 +62,15 @@ def parse_php (php_file):
 
 	# import BeautifulSoup to parse the webpage
 	from BeautifulSoup import BeautifulSoup
+	import re
 	
 	# fill this dictionary with all species for the 3
 	# CITES categories
 	CITES_dict = {1:[],2:[],3:[]}
 	
+	# create a dictionary for the CITES footnotes
+	CITES_notes = {}
+
 	# read the CITES web page	
 	CITES_page = BeautifulSoup(php_file)
 	
@@ -87,11 +92,20 @@ def parse_php (php_file):
 			#if cell != None and cell != ' ' and cell != '':
 			if cleaned != '':			
 				if ';' in cleaned: cleaned = cleaned.split(';')[1]
-				CITES_dict[count].append([cleaned,'\"' + clean_cell(td) + '\"'])
+				CITES_dict[count].append([cleaned,clean_cell(td),[clean_cell(note) for note in td.findAll('a')]])
+
 			count += 1
+
+	# parse through the footnotes and create
+	# a dictionary for each one of the notes
+	rows = tables[2].findAll('tr')
+	for tr in rows:
+		notes = tr.findAll('td')
+		CITES_notes[clean_cell(notes[0])] = clean_cell(notes[1])
+		
 	
-	# return the dictionary containing the species
-	return [data, CITES_dict]
+	# return a list containing the data, species dictionary and CITES footnotes
+	return [data, CITES_dict, CITES_notes]
 
 
 def TNRS (name):
@@ -203,7 +217,7 @@ def obtain_tax (taxid):
 	return organism
 
 
-def combine_sets (CITES_dic):
+def combine_sets (CITES_dic, CITES_notes):
 	
 	# Expand the CITES information with TNRS synonyms and Taxonomic IDs
 
@@ -237,9 +251,17 @@ def combine_sets (CITES_dic):
 			# keys and the CITES species / CITES cell and 
 			# taxid linked species as values
 			for taxid in temp_taxon_list:
+				CITES_info = cell[1]			
 				if taxid in taxon_id_dic:
 					if appendix > int(taxon_id_dic[taxid][3]): continue
-				taxon_id_dic[taxid] = [cell[0],cell[1],obtain_tax(taxid),str(appendix)]
+				
+				# check if footnotes need to be attached:
+				if len(cell[2]) != 0:
+					for item in cell[2]:
+						if item != ' ' and item != '':
+							CITES_info += (' %s: %s' % (item, CITES_notes[item]))
+	
+				taxon_id_dic[taxid] = [cell[0],'\"' + CITES_info + '\"',obtain_tax(taxid),str(appendix)]
 	
 	return taxon_id_dic
 			
@@ -277,7 +299,7 @@ def main ():
 	# use TNRS to grab the species synonyms and
 	# taxid if available. Expand the taxids with 
 	# taxids from lower ranked records
-	taxon_id_dic = combine_sets(CITES_info[1])
+	taxon_id_dic = combine_sets(CITES_info[1], CITES_info[2])
 
 	# write the results to the output location
 	write_csv(CITES_info[0], taxon_id_dic)
