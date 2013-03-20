@@ -1,653 +1,735 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
 	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
 ]>
 <svg version="1.1"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="699px" height="510px" viewBox="4.965 3.435 699 510" enable-background="new 4.965 3.435 699 510"
-	 xml:space="preserve">
+	 x="0px" y="0px" width="722px" height="540px" viewBox="0 0 722 540" enable-background="new 0 0 722 540" xml:space="preserve">
 <defs>
 </defs>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="0,0 0,539.999 720,539.999 720,0 0,0 "/>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="360,9.15 360,502.499 694.5,502.499 694.5,9.15 360,9.15 
-	"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M359.88,9.15
-	c0-0.09,0.06-0.15,0.12-0.15h334.5c0.09,0,0.15,0.06,0.15,0.15v493.349c0,0.092-0.061,0.15-0.15,0.15H360
-	c-0.06,0-0.12-0.059-0.12-0.15V9.15z M360.15,502.499L360,502.38h334.5l-0.119,0.119V9.15l0.119,0.12H360l0.15-0.12V502.499z"/>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="14.13,9.135 14.13,411.749 348.63,411.749 348.63,9.135 
-	14.13,9.135 "/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M14.01,9.135
-	C14.01,9.06,14.07,9,14.13,9h334.5c0.075,0,0.12,0.06,0.12,0.135v402.614c0,0.076-0.045,0.137-0.12,0.137H14.13
-	c-0.06,0-0.12-0.061-0.12-0.137V9.135z M14.25,411.749l-0.12-0.119h334.5l-0.12,0.119V9.135l0.12,0.12H14.13l0.12-0.12V411.749z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M270.375,247.38v82.77h-2.25v-82.77
-	H270.375z M274.17,323.97l-4.92,8.416l-4.905-8.416c-0.315-0.539-0.135-1.23,0.405-1.529c0.54-0.316,1.23-0.135,1.545,0.404
-	l3.93,6.75h-1.935l3.93-6.75c0.315-0.539,1.005-0.721,1.545-0.404C274.305,322.739,274.485,323.431,274.17,323.97L274.17,323.97z"/>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M382.635,150.885h107.746v24.15
-	c-53.881,0-53.881,9.21-107.746,3.975V150.885z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M381.66,150.9
-	c0-0.54,0.449-0.99,0.99-0.99h107.73c0.568,0,1.02,0.45,1.02,0.99v24.15c0,0.54-0.451,0.99-0.99,0.99l-4.891,0.03l-4.59,0.09
-	l-4.32,0.12l-4.08,0.15l-3.809,0.21l-3.602,0.21l-3.389,0.27l-3.24,0.271l-3.061,0.33l-2.939,0.3l-2.82,0.33l-2.73,0.33l-5.219,0.66
-	l-5.07,0.66l-5.1,0.57l-5.25,0.48l-2.762,0.21l-2.818,0.15l-2.971,0.12l-3.09,0.09h-3.27l-3.42-0.03l-3.631-0.09l-3.84-0.15
-	l-4.08-0.21l-4.35-0.3l-4.621-0.36l-4.889-0.45c-0.51-0.06-0.9-0.48-0.9-1.02V150.9z M383.641,179.01l-0.9-0.99l4.891,0.45
-	l4.59,0.36l4.289,0.3l4.051,0.24l3.809,0.15l3.602,0.09l3.42,0.03l3.209-0.03l3.061-0.06l2.939-0.12l2.82-0.18l2.699-0.18
-	l5.221-0.48l5.041-0.6l5.1-0.63l5.219-0.66l2.73-0.33l2.85-0.33l2.941-0.33l3.09-0.3l3.24-0.27L465,174.87l3.631-0.24l3.84-0.18
-	l4.08-0.18l4.318-0.12l4.621-0.06l4.891-0.03l-0.99,0.99V150.9l0.99,0.99H382.65l0.99-0.99V179.01z"/>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="0,0 0,540 721.764,540 721.764,0 0,0 "/>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="349.514,9.15 349.514,519.48 713.281,519.48 713.281,9.15 
+	349.514,9.15 "/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M349.394,9.15
+	c0-0.09,0.06-0.15,0.12-0.15h363.768c0.092,0,0.121,0.06,0.121,0.15V519.48c0,0.09-0.029,0.15-0.121,0.15H349.514
+	c-0.06,0-0.12-0.061-0.12-0.15V9.15z M349.664,519.48l-0.15-0.121h363.768l-0.119,0.121V9.15l0.119,0.12H349.514l0.15-0.12V519.48z"
+	/>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="8.496,9.135 8.496,394.74 338.146,394.74 338.146,9.135 
+	8.496,9.135 "/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M8.36,9.135
+	C8.36,9.06,8.421,9,8.496,9h329.65c0.075,0,0.135,0.06,0.135,0.135V394.74c0,0.074-0.06,0.135-0.135,0.135H8.496
+	c-0.075,0-0.136-0.061-0.136-0.135V9.135z M8.616,394.74l-0.12-0.121h329.65l-0.12,0.121V9.135l0.12,0.12H8.496l0.12-0.12V394.74z"
+	/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M265.398,241.65v71.491h-2.256
+	V241.65H265.398z M269.188,306.961l-4.917,8.414l-4.932-8.414c-0.315-0.541-0.135-1.23,0.406-1.547
+	c0.541-0.314,1.233-0.135,1.549,0.406l3.939,6.75h-1.94l3.94-6.75c0.315-0.541,1.007-0.721,1.549-0.406
+	C269.323,305.73,269.503,306.42,269.188,306.961L269.188,306.961z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M377.934,150.885h108.023v24.15
+	c-54.012,0-54.012,9.21-108.023,3.975V150.885z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M376.941,150.885
+	c0-0.555,0.451-1.005,0.992-1.005h108.023c0.557,0,1.008,0.45,1.008,1.005v24.15c0,0.555-0.451,1.005-1.008,1.005l-2.48,0.015
+	l-2.422,0.015l-2.33,0.03l-2.271,0.045l-2.195,0.06l-2.119,0.06l-2.076,0.075l-2,0.09l-1.939,0.09l-1.879,0.105l-1.834,0.12
+	l-1.791,0.105l-1.713,0.135l-1.699,0.12l-3.232,0.285l-3.084,0.3l-2.932,0.315l-2.826,0.33l-2.723,0.345l-2.646,0.33l-2.586,0.33
+	l-5.098,0.645l-5.098,0.585l-2.615,0.255l-2.662,0.225l-2.752,0.195l-2.857,0.165l-2.961,0.12l-3.113,0.06l-3.264,0.03l-1.699-0.015
+	l-1.744-0.03l-1.789-0.03l-1.834-0.06l-1.91-0.06l-1.955-0.09l-2.014-0.105l-2.076-0.12l-2.15-0.15l-2.209-0.15l-2.271-0.18
+	l-2.346-0.195l-2.42-0.21l-2.496-0.24c-0.527-0.045-0.918-0.48-0.918-0.99L376.941,150.885z M378.941,178.995l-0.918-0.99
+	l2.496,0.225l2.406,0.225l2.346,0.18l2.256,0.18l2.195,0.15l2.119,0.15l2.076,0.12l2,0.09l1.939,0.09l1.879,0.075l1.834,0.045
+	l1.775,0.045l1.729,0.03h1.67l3.232-0.015l3.082-0.075l2.932-0.12l2.813-0.15l2.723-0.195l2.646-0.225l2.57-0.255l5.082-0.585
+	l5.082-0.63l2.602-0.345l2.662-0.33l2.736-0.33l2.842-0.33l2.963-0.315l3.098-0.3l3.248-0.3l1.699-0.12l1.729-0.135l1.805-0.12
+	l1.834-0.105l1.91-0.105l1.955-0.105l2.016-0.075l2.059-0.075l2.15-0.075l2.211-0.045l2.27-0.045l2.346-0.03l2.422-0.03h2.496
+	l-1.008,0.99v-24.15l1.008,1.005H377.934l1.008-1.005V178.995z"/>
 <g>
 	<defs>
-		<rect id="SVGID_40_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_41_">
-		<use xlink:href="#SVGID_40_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_41_)">
-		<text transform="matrix(1 0 0 1 399.123 167.793)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="7.668" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="13.438" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="21.59" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="28.068" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="34.797" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="37.678" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="42.238" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="49.193" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="54.707" y="0" font-family="'Calibri'" font-size="13.92">u</tspan><tspan x="61.908" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="65.033" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="69.6" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
-	</g>
-</g>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M195.63,332.386h141.75v57.943
-	c-70.875,0-70.875,22.066-141.75,9.525V332.386z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M194.64,332.386
-	c0-0.541,0.45-0.99,0.99-0.99h141.75c0.555,0,1.005,0.449,1.005,0.99v57.943c0,0.557-0.45,1.006-0.99,1.006l-3.27,0.016
-	l-3.165,0.045l-3.06,0.074l-2.97,0.105l-2.865,0.135l-2.805,0.164l-5.34,0.391l-5.01,0.465l-4.74,0.555l-4.455,0.615l-4.245,0.676
-	l-4.05,0.719l-3.855,0.766l-3.705,0.781l-3.57,0.795l-3.465,0.795l-3.405,0.795l-6.69,1.545l-6.69,1.395l-3.435,0.615l-3.51,0.555
-	l-3.615,0.48l-3.735,0.375l-3.915,0.285l-4.08,0.164l-4.29,0.045l-4.53-0.074l-4.785-0.225l-5.055-0.361l-5.37-0.539l-2.82-0.33
-	l-2.91-0.375l-2.985-0.436l-3.09-0.465l-3.18-0.525l-3.285-0.555c-0.48-0.074-0.825-0.494-0.825-0.99L194.64,332.386z
-	 M196.62,399.81l-0.825-0.975l3.255,0.555l3.165,0.525l3.075,0.449l2.955,0.42l2.88,0.375l2.79,0.33l5.31,0.541l5.025,0.359
-	l4.725,0.225l4.47,0.076l4.23-0.045l4.02-0.166l3.855-0.285l3.675-0.375l3.555-0.449l3.48-0.555l3.375-0.615l6.645-1.365
-	l6.675-1.545l3.405-0.795l3.495-0.826l3.6-0.795l3.735-0.779l3.885-0.766l4.08-0.719l4.275-0.691l4.515-0.629l4.77-0.555l5.07-0.465
-	l5.37-0.391l2.805-0.164l2.895-0.137l3-0.104l3.09-0.076l3.165-0.045l3.27-0.014l-0.99,0.988v-57.943l0.99,1.004H195.63l1.005-1.004
-	L196.62,399.81z"/>
-<g>
-	<defs>
-		<rect id="SVGID_39_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_42_">
-		<use xlink:href="#SVGID_39_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_42_)">
-		<text transform="matrix(1 0 0 1 208.0366 349.293)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="5.769" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="13.207" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="19.204" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="25.914" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="29.039" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="31.921" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="39.357" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="42.948" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="49.675" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="56.166" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="62.646" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="66.001" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="73.203" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="79.69" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="84.019" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="90.728" y="0" font-family="'Calibri'" font-size="13.92">b</tspan><tspan x="97.93" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="104.64" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="110.153" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="117.107" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_38_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_43_">
-		<use xlink:href="#SVGID_38_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_43_)">
-		<text transform="matrix(1 0 0 1 208.7632 366.0898)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="5.998" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="13.436" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="20.401" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="24.729" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="31.439" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="34.564" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="41.766" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="44.891" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="52.093" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="58.576" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="62.405" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="66.97" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="74.172" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="81.125" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="84.718" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="92.154" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="95.745" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="102.473" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="108.963" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="115.442" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_37_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_44_">
-		<use xlink:href="#SVGID_37_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_44_)">
-		<text transform="matrix(1 0 0 1 240.4429 382.8867)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="4.329" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="10.815" y="0" font-family="'Calibri'" font-size="13.92">x</tspan><tspan x="16.343" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="23.781" y="0" font-family="'Calibri'" font-size="13.92">n</tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_36_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_45_">
-		<use xlink:href="#SVGID_36_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_45_)">
-		<text transform="matrix(1 0 0 1 275.0054 382.8867)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="3.591" y="0" font-family="'Calibri'" font-size="13.92">D</tspan><tspan x="12.224" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
-	</g>
-</g>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="433.77,213.27 433.77,254.52 598.141,254.52 
-	598.141,213.27 433.77,213.27 "/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M432.75,213.27
-	c0-0.57,0.449-1.02,1.02-1.02h164.371c0.539,0,0.99,0.45,0.99,1.02v41.25c0,0.54-0.451,0.99-0.99,0.99H433.77
-	c-0.57,0-1.02-0.45-1.02-0.99V213.27z M434.76,254.52l-0.99-1.02h164.371l-0.99,1.02v-41.25l0.99,0.99H433.77l0.99-0.99V254.52z"/>
-<g>
-	<defs>
-		<rect id="SVGID_35_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_45_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_46_">
-		<use xlink:href="#SVGID_35_"  overflow="visible"/>
+		<use xlink:href="#SVGID_45_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_46_)">
-		<text transform="matrix(1 0 0 1 447.3574 230.168)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">5</tspan><tspan x="6.971" y="0" font-family="'Calibri'" font-size="13.92">.</tspan><tspan x="10.568" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="13.451" y="0" font-family="'Calibri'" font-size="13.92">F</tspan><tspan x="19.93" y="0" font-family="'Calibri'" font-size="13.92">il</tspan><tspan x="26.18" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="30.51" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="37.463" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="42.273" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="46.104" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="50.664" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="57.617" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="63.131" y="0" font-family="'Calibri'" font-size="13.92">u</tspan><tspan x="70.334" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="73.459" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="78.023" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="83.537" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="87.129" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="93.84" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="100.086" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="106.795" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="109.92" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="117.121" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="122.412" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="126.979" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="130.807" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="137.516" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 394.0488 167.6133)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="7.678" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="13.566" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="21.718" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="28.086" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="34.928" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="37.821" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="42.505" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="49.477" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="54.996" y="0" font-family="'Calibri'" font-size="14.04">u</tspan><tspan x="62.316" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="65.552" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="70.242" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
 	</g>
 </g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M184.696,304.02h142.097v57.945
+	c-71.049,0-71.049,22.08-142.097,9.541V304.02z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M183.689,304.02
+	c0-0.539,0.451-0.99,1.007-0.99h142.097c0.556,0,1.007,0.451,1.007,0.99v57.945c0,0.555-0.451,1.006-0.993,1.006l-6.466,0.059
+	l-6.044,0.195l-5.684,0.285l-5.338,0.375l-5.038,0.48l-4.736,0.555l-4.481,0.615l-4.255,0.676l-4.045,0.719l-3.864,0.766
+	l-3.714,0.779l-3.579,0.795l-6.887,1.605l-6.707,1.545l-6.721,1.395l-6.932,1.17l-3.639,0.48l-3.744,0.375l-3.925,0.285l-4.09,0.18
+	l-4.301,0.061l-4.526-0.076l-4.797-0.225l-5.082-0.375l-5.398-0.525l-5.714-0.703l-6.09-0.9l-6.481-1.066
+	c-0.481-0.09-0.842-0.494-0.842-0.988V304.02z M185.704,371.506l-0.842-0.99l6.436,1.064l6.045,0.885l5.668,0.705l5.354,0.525
+	l5.022,0.375l4.737,0.209l4.481,0.076l4.24-0.045l4.03-0.18l3.85-0.271l3.699-0.389l3.549-0.451l6.872-1.17l6.676-1.379l6.691-1.545
+	l6.917-1.605l3.609-0.811l3.729-0.779l3.91-0.766l4.075-0.721l4.286-0.689l4.526-0.615l4.797-0.555l5.067-0.494l5.398-0.391
+	l5.714-0.285l6.09-0.18l6.451-0.061l-0.993,0.99V304.02l1.008,1.006H184.696l1.007-1.006V371.506z"/>
 <g>
 	<defs>
-		<rect id="SVGID_34_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_44_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_47_">
-		<use xlink:href="#SVGID_34_"  overflow="visible"/>
+		<use xlink:href="#SVGID_44_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_47_)">
-		<text transform="matrix(1 0 0 1 449.2715 246.9648)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">b</tspan><tspan x="7.201" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="10.326" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="17.035" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="23.033" y="0" font-family="'Calibri'" font-size="13.92">k</tspan><tspan x="29.277" y="0" font-family="'Calibri'" font-size="13.92">li</tspan><tspan x="35.527" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="40.818" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="45.385" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="49.213" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="56.65" y="0" font-family="'Calibri'" font-size="13.92">f</tspan><tspan x="60.969" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 196.7046 320.7617)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="5.888" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="13.32" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="19.089" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="25.814" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="29.05" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="32.056" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="39.5" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="42.981" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="49.823" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="56.552" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="63.031" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="66.163" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="73.483" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="80.096" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="84.658" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="91.384" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="98.704" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="105.429" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="110.949" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="117.92" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_33_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_43_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_48_">
-		<use xlink:href="#SVGID_33_"  overflow="visible"/>
+		<use xlink:href="#SVGID_43_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_48_)">
-		<text transform="matrix(1 0 0 1 513.1152 246.9648)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="6.482" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="13.436" y="0" font-family="'Calibri'" font-size="13.92">nb</tspan><tspan x="27.84" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="34.549" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="41.752" y="0" font-family="'Calibri'" font-size="13.92">k</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 197.6655 337.5586)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="5.768" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="13.2" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="20.409" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="24.971" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="31.696" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="34.932" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="42.253" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="45.488" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="52.809" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="59.418" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="62.648" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="67.337" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="74.657" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="81.628" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="84.859" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="92.303" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="95.784" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="102.626" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="109.355" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="115.834" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_32_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_42_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_49_">
-		<use xlink:href="#SVGID_32_"  overflow="visible"/>
+		<use xlink:href="#SVGID_42_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_49_)">
-		<text transform="matrix(1 0 0 1 564.9512 246.9648)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="3.59" y="0" font-family="'Calibri'" font-size="13.92">D</tspan><tspan x="12.225" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 229.5405 354.3633)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="4.563" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="11.175" y="0" font-family="'Calibri'" font-size="14.04">x</tspan><tspan x="16.947" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="24.379" y="0" font-family="'Calibri'" font-size="14.04">n</tspan></text>
 	</g>
 </g>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M416.76,279.63H615.15v24.18c-99.211,0-99.211,9.18-198.391,3.961
-	V279.63z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M415.77,279.63
-	c0-0.539,0.451-0.99,0.99-0.99H615.15c0.539,0,0.99,0.451,0.99,0.99v24.18c0,0.541-0.451,0.99-0.99,0.99h-4.59l-4.41,0.029
-	l-4.32,0.031l-4.17,0.059l-4.02,0.031l-3.9,0.09l-3.811,0.061l-3.689,0.09l-3.57,0.09l-3.48,0.119l-3.389,0.09l-3.271,0.121
-	l-3.18,0.15l-3.09,0.119l-5.939,0.27l-5.701,0.301l-5.398,0.33l-5.191,0.33l-5.01,0.33l-4.889,0.33l-4.771,0.33l-9.33,0.629
-	l-9.359,0.6l-4.77,0.24l-4.891,0.24l-5.039,0.18l-5.191,0.15l-5.43,0.121l-5.699,0.059l-5.939,0.031h-3.121l-3.209-0.031
-	l-3.271-0.029l-3.389-0.061l-3.48-0.09l-3.57-0.09l-3.689-0.09l-3.811-0.119l-3.93-0.15l-4.051-0.15l-4.17-0.18l-4.32-0.18
-	l-4.41-0.24l-4.59-0.24c-0.539-0.031-0.959-0.451-0.959-0.99L415.77,279.63z M417.75,307.71l-0.961-0.99l4.592,0.24l4.408,0.209
-	l4.32,0.211l4.17,0.18l4.051,0.15l3.9,0.119l3.779,0.121l3.689,0.119l3.602,0.09l3.479,0.061l3.361,0.061l3.27,0.029l3.18,0.031
-	l3.09,0.029l5.971-0.029l5.639-0.061l5.432-0.121l5.189-0.148l5.01-0.211l4.859-0.209l4.771-0.271l9.33-0.57l9.359-0.629l4.77-0.33
-	l4.859-0.359l5.012-0.33l5.219-0.33l5.43-0.301l5.67-0.301l5.971-0.299l3.119-0.121l3.182-0.119l3.27-0.119l3.391-0.121l3.479-0.09
-	l3.57-0.09l3.689-0.09l3.811-0.09l3.93-0.061l4.051-0.061l4.17-0.029l4.289-0.029l4.441-0.031h4.59l-0.99,0.99v-24.18l0.99,1.02
-	H416.76l1.02-0.99L417.75,307.71z"/>
 <g>
 	<defs>
-		<rect id="SVGID_31_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_41_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_50_">
-		<use xlink:href="#SVGID_31_"  overflow="visible"/>
+		<use xlink:href="#SVGID_41_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_50_)">
-		<text transform="matrix(1 0 0 1 437.5527 296.543)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">F</tspan><tspan x="6.479" y="0" font-family="'Calibri'" font-size="13.92">il</tspan><tspan x="12.729" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="17.057" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="24.012" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="28.572" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="35.525" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="42.729" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="46.32" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="51.834" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="58.787" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="63.354" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="66.709" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="74.146" y="0" font-family="'Calibri'" font-size="13.92">f</tspan><tspan x="78.465" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="81.348" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="89.016" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="94.785" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="102.936" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="109.416" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="116.143" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="119.277" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="123.838" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="130.791" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="136.305" y="0" font-family="'Calibri'" font-size="13.92">u</tspan><tspan x="143.506" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="146.631" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="151.197" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 264.3062 354.3633)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="3.481" y="0" font-family="'Calibri'" font-size="14.04">Ds</tspan></text>
 	</g>
 </g>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M365.641,75.3c70.799,6.6,70.799-6.6,141.6-6.6V34.41h-141.6V75.3z
-	 M377.311,34.41v-4.44h140.639v34.5c-5.34,0-10.709,0.24-10.709,0.24v-30.3H377.311z M388.26,29.97v-4.32h141.871v34.38
-	c-6.092,0-12.182,0.18-12.182,0.18V29.97H388.26z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M364.65,34.41
-	c0-0.54,0.449-0.99,0.99-0.99h141.6c0.57,0,1.02,0.45,1.02,0.99V68.7c0,0.57-0.449,1.02-0.99,1.02H504l-3.18,0.03l-3.061,0.06
-	l-2.971,0.06l-2.879,0.06l-2.791,0.09l-5.34,0.24l-5.01,0.3l-4.74,0.33l-4.469,0.36l-4.26,0.42l-4.021,0.45l-3.869,0.45l-3.689,0.48
-	l-3.57,0.48l-3.48,0.48l-3.42,0.51l-6.66,0.96l-6.689,0.87l-3.42,0.42l-3.51,0.33l-3.602,0.33l-3.719,0.27l-3.9,0.21l-4.051,0.15
-	l-4.289,0.06h-4.5l-4.77-0.06l-5.07-0.15l-5.371-0.27l-2.789-0.15L378,77.28l-2.971-0.21l-3.09-0.24l-3.18-0.27l-3.27-0.3
-	c-0.51-0.03-0.9-0.48-0.9-0.99L364.65,34.41z M366.57,75.27l-0.9-0.99l3.27,0.3l3.15,0.27l3.061,0.24l3,0.21l2.85,0.18l2.82,0.18
-	l5.311,0.24l5.039,0.15l4.74,0.09h4.471l4.229-0.09l4.051-0.15l3.869-0.21l3.691-0.27l3.568-0.3l3.451-0.36l3.391-0.39l6.658-0.87
-	l6.691-0.96l3.389-0.51l3.48-0.48l3.6-0.51l3.721-0.45l3.869-0.48l4.08-0.42l4.262-0.42l4.529-0.39l4.74-0.33l5.039-0.27l5.371-0.24
-	l2.82-0.09l2.879-0.09l2.971-0.06l3.09-0.03l3.15-0.03l3.27-0.03l-0.99,0.99V34.41l0.99,1.02h-141.6l0.99-0.99L366.57,75.27z
-	 M376.32,34.41v-4.44c0-0.54,0.449-0.99,0.99-0.99h140.639c0.57,0,1.021,0.45,1.021,0.99v34.5c0,0.57-0.451,1.02-0.99,1.02h-2.01
-	l-1.92,0.03l-1.801,0.03l-1.619,0.06l-1.352,0.03l-0.6,0.03l-0.449,0.03h-0.42h-0.33l-0.09,0.03h-0.15v-2.01l0,0h0.24h0.27
-	l0.359-0.03l0.541-0.03h0.539l1.381-0.06l1.619-0.03l1.83-0.03l1.951-0.03l1.979-0.03l-0.988,0.99v-34.5l0.988,1.02H377.311
-	l0.99-1.02v4.44H376.32z M387.27,29.97v-4.32c0-0.54,0.451-0.99,0.99-0.99h141.871c0.568,0,1.02,0.45,1.02,0.99v34.38
-	c0,0.57-0.451,1.02-0.99,1.02h-2.279l-2.191,0.03l-2.07,0.03l-1.83,0.03l-1.559,0.03H519.6l-0.57,0.03h-0.42h-0.389l-0.09,0.03
-	h-0.182v-2.01l0,0h0.271h0.299l0.48-0.03h0.539l0.66-0.03l1.561-0.03l1.83-0.03l2.07-0.03h2.221l2.25-0.03l-0.99,0.99V25.65
-	l0.99,0.99H388.26l1.02-0.99v4.32H387.27z"/>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="389.301,213.27 389.301,254.52 554.104,254.52 
+	554.104,213.27 389.301,213.27 "/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M388.309,213.27
+	c0-0.57,0.451-1.02,0.992-1.02h164.803c0.541,0,0.992,0.45,0.992,1.02v41.25c0,0.54-0.451,0.99-0.992,0.99H389.301
+	c-0.541,0-0.992-0.45-0.992-0.99V213.27z M390.324,254.52l-1.023-1.02h164.803l-1.023,1.02v-41.25l1.023,0.99H389.301l1.023-0.99
+	V254.52z"/>
 <g>
 	<defs>
-		<rect id="SVGID_30_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_40_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_51_">
-		<use xlink:href="#SVGID_30_"  overflow="visible"/>
+		<use xlink:href="#SVGID_40_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_51_)">
-		<text transform="matrix(1 0 0 1 401.5449 51.3242)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="6.479" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="13.434" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="17.998" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="20.881" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="28.318" y="0" font-family="'Calibri'" font-size="13.92">f</tspan><tspan x="32.637" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="35.77" y="0" font-family="'Calibri'" font-size="13.92">F</tspan><tspan x="41.539" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="49.689" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="56.17" y="0" font-family="'Calibri'" font-size="13.92" letter-spacing="-1">T</tspan><tspan x="61.699" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="69.852" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 402.627 229.9883)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">5</tspan><tspan x="7.088" y="0" font-family="'Calibri'" font-size="14.04">.</tspan><tspan x="10.673" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="13.679" y="0" font-family="'Calibri'" font-size="14.04">F</tspan><tspan x="20.158" y="0" font-family="'Calibri'" font-size="14.04">il</tspan><tspan x="26.63" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="31.193" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="38.164" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="43.074" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="46.079" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="50.762" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="57.736" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="63.255" y="0" font-family="'Calibri'" font-size="14.04">u</tspan><tspan x="70.575" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="73.812" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="78.499" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="84.019" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="87.249" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="93.975" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="100.344" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="107.07" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="110.306" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="117.626" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="123.033" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="127.722" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="131.078" y="0" font-family="'Calibri'" font-size="14.04">a </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_29_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_39_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_52_">
-		<use xlink:href="#SVGID_29_"  overflow="visible"/>
+		<use xlink:href="#SVGID_39_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_52_)">
-		<text transform="matrix(1 0 0 1 406.8262 68.1211)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="5.514" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="12.467" y="0" font-family="'Calibri'" font-size="13.92">qu</tspan><tspan x="26.871" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="33.826" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="41.027" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="47.025" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="53.979" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 404.7988 246.7852)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="7.32" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="10.556" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="17.282" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="23.162" y="0" font-family="'Calibri'" font-size="14.04">k</tspan><tspan x="29.529" y="0" font-family="'Calibri'" font-size="14.04">li</tspan><tspan x="36.002" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="41.41" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="46.098" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="49.231" y="0" font-family="'Calibri'" font-size="14.04">of</tspan><tspan x="60.976" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="189.885,20.505 189.885,78.63 343.005,78.63 
-	343.005,20.505 189.885,20.505 "/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M188.88,20.505
-	c0-0.555,0.45-1.005,1.005-1.005h153.12c0.555,0,1.005,0.45,1.005,1.005V78.63c0,0.555-0.45,1.005-1.005,1.005h-153.12
-	c-0.555,0-1.005-0.45-1.005-1.005V20.505z M190.875,78.63l-0.99-1.005h153.12L342,78.63V20.505l1.005,1.005h-153.12l0.99-1.005
+<g>
+	<defs>
+		<rect id="SVGID_38_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_53_">
+		<use xlink:href="#SVGID_38_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_53_)">
+		<text transform="matrix(1.0024 0 0 1 468.916 246.7852)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="6.482" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="13.453" y="0" font-family="'Calibri'" font-size="14.04">nb</tspan><tspan x="28.093" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="34.819" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="42.139" y="0" font-family="'Calibri'" font-size="14.04">k</tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_37_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_54_">
+		<use xlink:href="#SVGID_37_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_54_)">
+		<text transform="matrix(1.0024 0 0 1 520.8848 246.7852)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="3.482" y="0" font-family="'Calibri'" font-size="14.04">Ds</tspan></text>
+	</g>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M406.354,281.221h130.729v41.039
+	c-65.35,0-65.35,15.631-130.729,6.75V281.221z"/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M405.359,281.221
+	c0-0.541,0.451-0.99,0.994-0.99h130.729c0.57,0,1.021,0.449,1.021,0.99v41.039c0,0.541-0.451,0.99-0.992,0.99l-5.953,0.061
+	l-5.564,0.119l-5.232,0.211l-4.902,0.27l-4.631,0.33l-4.391,0.391l-4.121,0.449l-3.908,0.48l-3.73,0.51l-3.549,0.51l-3.428,0.57
+	l-3.277,0.57l-6.346,1.139l-6.166,1.08l-6.164,0.99l-6.406,0.84l-3.338,0.33l-3.428,0.27l-3.609,0.211l-3.76,0.119l-3.939,0.031
+	l-4.18-0.061l-4.391-0.15l-4.691-0.27l-4.963-0.359l-5.262-0.51l-5.594-0.631l-5.955-0.75c-0.48-0.061-0.873-0.51-0.873-0.99
+	V281.221z M407.375,329.01l-0.871-0.99l5.924,0.75l5.563,0.631l5.234,0.48l4.9,0.389l4.633,0.24l4.359,0.18l4.121,0.031l3.908-0.031
+	l3.699-0.119l3.549-0.211l3.43-0.24l3.277-0.33l6.314-0.84l6.137-0.988l6.164-1.08l6.346-1.141l3.338-0.57l3.428-0.57l3.58-0.51
+	l3.758-0.539l3.939-0.48l4.15-0.42l4.422-0.42l4.66-0.33l4.963-0.27l5.264-0.211l5.594-0.119l5.924-0.061l-0.992,1.02v-41.039
+	l0.992,1.02H406.354l1.021-1.02V329.01z"/>
+<g>
+	<defs>
+		<rect id="SVGID_36_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_55_">
+		<use xlink:href="#SVGID_36_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_55_)">
+		<text transform="matrix(1.0024 0 0 1 432.3926 297.9492)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">F</tspan><tspan x="6.478" y="0" font-family="'Calibri'" font-size="14.04">il</tspan><tspan x="12.951" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="17.514" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="24.485" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="29.169" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="36.14" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="43.462" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="46.593" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="52.113" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="58.957" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="63.647" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="66.877" y="0" font-family="'Calibri'" font-size="14.04">of</tspan><tspan x="78.622" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_35_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_56_">
+		<use xlink:href="#SVGID_35_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_56_)">
+		<text transform="matrix(1.0024 0 0 1 433.8379 314.7539)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="7.678" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="13.566" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="21.718" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="28.086" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="34.928" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="37.821" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="42.505" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="49.477" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="54.996" y="0" font-family="'Calibri'" font-size="14.04">u</tspan><tspan x="62.316" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="65.552" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="70.242" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
+	</g>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M360.821,75.3c70.974,6.6,70.974-6.6,141.978-6.6V34.41H360.821
+	V75.3z M372.52,34.41v-4.44h140.984v34.5c-5.354,0-10.705,0.24-10.705,0.24v-30.3H372.52z M383.527,29.97v-4.32h142.188v34.38
+	c-6.105,0-12.211,0.18-12.211,0.18V29.97H383.527z"/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M359.829,34.41
+	c0-0.54,0.451-0.99,0.992-0.99h141.978c0.541,0,0.992,0.45,0.992,0.99V68.7c0,0.57-0.451,1.02-0.992,1.02l-6.467,0.03l-6.045,0.12
+	l-5.684,0.18l-5.354,0.21l-5.021,0.3l-4.752,0.33l-4.48,0.36l-4.271,0.42l-4.029,0.45l-3.879,0.45l-3.699,0.48l-3.578,0.479
+	l-6.887,0.99l-6.707,0.96l-6.707,0.87l-6.916,0.78l-3.609,0.3l-3.729,0.27l-3.881,0.21l-4.09,0.15l-4.299,0.09h-4.512l-4.781-0.06
+	l-5.053-0.15l-5.383-0.27l-5.715-0.36l-6.074-0.45l-6.466-0.54c-0.511-0.06-0.902-0.48-0.902-1.02V34.41z M361.844,75.3l-0.932-0.99
+	l6.436,0.57l6.045,0.45l5.684,0.33l5.354,0.27l5.021,0.15l4.752,0.06h4.48l4.24-0.09l4.061-0.15l3.85-0.21l3.699-0.24l3.578-0.33
+	l6.887-0.75l6.676-0.87l6.678-0.96l6.916-0.99l3.578-0.48l3.76-0.48l3.879-0.48l4.061-0.42l4.27-0.42l4.541-0.39l4.752-0.33
+	l5.084-0.271l5.352-0.24l5.715-0.18l6.074-0.12l6.467-0.03l-1.023,0.99V34.41l1.023,1.02H360.821l1.022-1.02V75.3z M371.527,34.41
+	v-4.44c0-0.54,0.451-0.99,0.992-0.99h140.984c0.572,0,1.023,0.45,1.023,0.99v34.5c0,0.57-0.451,1.02-1.023,1.02h-1.984l-1.926,0.03
+	l-0.932,0.03h-0.871l-0.844,0.03l-0.781,0.03l-0.721,0.03h-0.633l-0.57,0.03l-0.482,0.03h-0.391l-0.301,0.03h-0.18h-0.09v-2.01l0,0
+	h0.18l0.301-0.03h0.391l0.482-0.03h0.57l0.662-0.03l0.721-0.03l0.783-0.03h0.842l0.902-0.03l0.932-0.03l1.955-0.03h1.984
+	l-0.992,0.99v-34.5l0.992,1.02H372.52l0.992-1.02v4.44H371.527z M382.504,29.97v-4.32c0-0.57,0.451-1.02,1.023-1.02h142.188
+	c0.57,0,1.021,0.45,1.021,1.02v34.38c0,0.57-0.451,0.99-0.992,1.021h-2.285l-2.195,0.03h-1.053l-1.023,0.03h-0.961l-0.873,0.03
+	h-0.813l-0.752,0.03h-0.66l-0.543,0.03h-0.449h-0.332l-0.18,0.03h-0.121v-2.01h0.031h0.24l0.301-0.03h0.451l0.57-0.03h0.662
+	l0.723-0.03h0.842l0.871-0.03h0.963l1.021-0.03h1.053l2.227-0.03h2.256l-0.994,0.99V25.65l0.994,0.99H383.527l0.992-0.99v4.32
+	H382.504z"/>
+<g>
+	<defs>
+		<rect id="SVGID_34_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_57_">
+		<use xlink:href="#SVGID_34_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_57_)">
+		<text transform="matrix(1.0024 0 0 1 396.8691 51.1523)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="6.478" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="13.325" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="18.013" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="21.019" y="0" font-family="'Calibri'" font-size="14.04">of</tspan><tspan x="32.764" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="35.768" y="0" font-family="'Calibri'" font-size="14.04">F</tspan><tspan x="41.42" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="49.572" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="55.937" y="0" font-family="'Calibri'" font-size="14.04" letter-spacing="-0.998">T</tspan><tspan x="61.699" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="69.85" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_33_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_58_">
+		<use xlink:href="#SVGID_33_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_58_)">
+		<text transform="matrix(1.0024 0 0 1 401.9238 67.9492)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="5.52" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="12.491" y="0" font-family="'Calibri'" font-size="14.04">qu</tspan><tspan x="27.131" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="34.102" y="0" font-family="'Calibri'" font-size="14.04">nc</tspan><tspan x="47.304" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="54.275" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
+	</g>
+</g>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="179.012,20.505 179.012,78.63 332.507,78.63 
+	332.507,20.505 179.012,20.505 "/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M178.005,20.505
+	c0-0.555,0.451-1.005,1.007-1.005h153.495c0.556,0,1.007,0.45,1.007,1.005V78.63c0,0.555-0.451,1.005-1.007,1.005H179.012
+	c-0.556,0-1.007-0.45-1.007-1.005V20.505z M180.005,78.63l-0.993-1.005h153.495L331.5,78.63V20.505l1.008,1.005H179.012l0.993-1.005
 	V78.63z"/>
 <g>
 	<defs>
-		<rect id="SVGID_28_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_53_">
-		<use xlink:href="#SVGID_28_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_53_)">
-		<text transform="matrix(1 0 0 1 202.7554 37.418)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">1</tspan><tspan x="6.972" y="0" font-family="'Calibri'" font-size="13.92">.</tspan><tspan x="10.569" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="13.452" y="0" font-family="'Calibri'" font-size="13.92">D</tspan><tspan x="22.085" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="29.523" y="0" font-family="'Calibri'" font-size="13.92">w</tspan><tspan x="39.376" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="46.579" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="49.704" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="57.142" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="63.851" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="71.053" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="74.646" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="79.21" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="86.413" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="93.367" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="96.959" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="104.395" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="107.986" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="114.713" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="121.204" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="127.684" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_27_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_54_">
-		<use xlink:href="#SVGID_27_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_54_)">
-		<text transform="matrix(1 0 0 1 200.8413 54.2148)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="6.709" y="0" font-family="'Calibri'" font-size="13.92">pp</tspan><tspan x="21.114" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="28.067" y="0" font-family="'Calibri'" font-size="13.92">nd</tspan><tspan x="42.472" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="45.597" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="51.594" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="58.548" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="64.062" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="67.654" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="74.364" y="0" font-family="'Calibri'" font-size="13.92">nd</tspan><tspan x="88.768" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="92.36" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="99.091" y="0" font-family="'Calibri'" font-size="13.92">x</tspan><tspan x="105.092" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="109.657" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="114.218" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="120.928" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="126.925" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="131.49" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_26_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_55_">
-		<use xlink:href="#SVGID_26_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_55_)">
-		<text transform="matrix(1 0 0 1 234.9272 71.0117)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="4.565" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="11.767" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="18.721" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="22.077" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="27.591" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="34.793" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="41.747" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="47.744" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="50.869" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="57.823" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
-	</g>
-</g>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="184.26,207.63 184.26,248.88 326.01,248.88 326.01,207.63 
-	184.26,207.63 "/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M183.255,207.63
-	c0-0.555,0.45-1.005,1.005-1.005h141.75c0.555,0,0.99,0.45,0.99,1.005v41.25c0,0.555-0.435,1.005-0.99,1.005H184.26
-	c-0.555,0-1.005-0.45-1.005-1.005V207.63z M185.25,248.88l-0.99-1.005h141.75l-1.005,1.005v-41.25l1.005,1.005H184.26l0.99-1.005
-	V248.88z"/>
-<g>
-	<defs>
-		<rect id="SVGID_25_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_56_">
-		<use xlink:href="#SVGID_25_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_56_)">
-		<text transform="matrix(1 0 0 1 202.6694 224.543)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">2</tspan><tspan x="6.972" y="0" font-family="'Calibri'" font-size="13.92">.</tspan><tspan x="10.569" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="13.452" y="0" font-family="'Calibri'" font-size="13.92">O</tspan><tspan x="22.584" y="0" font-family="'Calibri'" font-size="13.92">b</tspan><tspan x="29.787" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="34.115" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="40.825" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="43.95" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="51.152" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="55.231" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="59.796" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="66.999" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="73.953" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="77.545" y="0" font-family="'Calibri'" font-size="13.92">N</tspan><tspan x="86.433" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="93.869" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="101.538" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="105.129" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_24_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_57_">
-		<use xlink:href="#SVGID_24_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_57_)">
-		<text transform="matrix(1 0 0 1 219.4663 241.3398)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="4.329" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="10.815" y="0" font-family="'Calibri'" font-size="13.92">x</tspan><tspan x="16.343" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="23.781" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="30.983" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="38.421" y="0" font-family="'Calibri'" font-size="13.92">m</tspan><tspan x="49.235" y="0" font-family="'Calibri'" font-size="13.92">y</tspan><tspan x="55.479" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="59.309" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="62.899" y="0" font-family="'Calibri'" font-size="13.92">D</tspan></text>
-	</g>
-</g>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="31.125,207.63 31.125,248.88 173.01,248.88 173.01,207.63 
-	31.125,207.63 "/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M30.135,207.63
-	c0-0.555,0.45-1.005,0.99-1.005H173.01c0.555,0,0.99,0.45,0.99,1.005v41.25c0,0.555-0.435,1.005-0.99,1.005H31.125
-	c-0.54,0-0.99-0.45-0.99-1.005V207.63z M32.13,248.88l-1.005-1.005H173.01l-1.005,1.005v-41.25l1.005,1.005H31.125l1.005-1.005
-	V248.88z"/>
-<g>
-	<defs>
-		<rect id="SVGID_23_" x="0.12" y="0.12" width="719.999" height="540"/>
-	</defs>
-	<clipPath id="SVGID_58_">
-		<use xlink:href="#SVGID_23_"  overflow="visible"/>
-	</clipPath>
-	<g clip-path="url(#SVGID_58_)">
-		<text transform="matrix(1 0 0 1 41.1226 224.543)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">3</tspan><tspan x="6.972" y="0" font-family="'Calibri'" font-size="13.92">.</tspan><tspan x="10.569" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="13.452" y="0" font-family="'Calibri'" font-size="13.92">U</tspan><tspan x="22.341" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="27.855" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="34.809" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="38.165" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="44.892" y="0" font-family="'Calibri'" font-size="13.92">N</tspan><tspan x="53.78" y="0" font-family="'Calibri'" font-size="13.92">R</tspan><tspan x="61.227" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="67.706" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="71.062" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="75.391" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="82.829" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="86.184" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="93.622" y="0" font-family="'Calibri'" font-size="13.92">b</tspan><tspan x="100.824" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="105.153" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="111.862" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="114.987" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="122.189" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
-	</g>
-</g>
-<g>
-	<defs>
-		<rect id="SVGID_22_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_32_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_59_">
-		<use xlink:href="#SVGID_22_"  overflow="visible"/>
+		<use xlink:href="#SVGID_32_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_59_)">
-		<text transform="matrix(1 0 0 1 51.9272 241.3398)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="5.514" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="12.716" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="19.67" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="25.667" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="28.792" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="35.746" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="41.26" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="44.393" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="49.684" y="0" font-family="'Calibri'" font-size="13.92">y</tspan><tspan x="55.929" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="63.131" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="70.569" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="77.535" y="0" font-family="'Calibri'" font-size="13.92">y</tspan><tspan x="83.78" y="0" font-family="'Calibri'" font-size="13.92">m</tspan><tspan x="94.83" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 191.6108 37.2461)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">1</tspan><tspan x="7.088" y="0" font-family="'Calibri'" font-size="14.04">.</tspan><tspan x="10.674" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="13.68" y="0" font-family="'Calibri'" font-size="14.04">D</tspan><tspan x="22.318" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="29.75" y="0" font-family="'Calibri'" font-size="14.04">w</tspan><tspan x="39.828" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="47.149" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="50.384" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="57.816" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="64.542" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="71.862" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="74.868" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="79.557" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="86.877" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="93.848" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="97.079" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="104.523" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="108.004" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="114.846" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="121.575" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="128.054" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="365.641,99.9 365.641,124.14 507.51,124.14 507.51,99.9 
-	365.641,99.9 "/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M364.65,99.9
-	c0-0.57,0.449-1.02,0.99-1.02H507.51c0.57,0,0.99,0.45,0.99,1.02v24.24c0,0.54-0.42,0.99-0.99,0.99H365.641
-	c-0.541,0-0.99-0.45-0.99-0.99V99.9z M366.631,124.14l-0.99-0.99H507.51l-0.99,0.99V99.9l0.99,0.99H365.641l0.99-0.99V124.14z"/>
 <g>
 	<defs>
-		<rect id="SVGID_21_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_31_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_60_">
-		<use xlink:href="#SVGID_21_"  overflow="visible"/>
+		<use xlink:href="#SVGID_31_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_60_)">
-		<text transform="matrix(1 0 0 1 378.9902 116.793)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">4</tspan><tspan x="6.971" y="0" font-family="'Calibri'" font-size="13.92">.</tspan><tspan x="10.568" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="13.451" y="0" font-family="'Calibri'" font-size="13.92">(B</tspan><tspan x="25.439" y="0" font-family="'Calibri'" font-size="13.92">u</tspan><tspan x="32.641" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="35.766" y="0" font-family="'Calibri'" font-size="13.92">k</tspan><tspan x="42.01" y="0" font-family="'Calibri'" font-size="13.92">)</tspan><tspan x="46.328" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="49.684" y="0" font-family="'Calibri'" font-size="13.92">N</tspan><tspan x="58.572" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="66.008" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="73.678" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="77.268" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="80.4" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="88.07" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="93.838" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="101.99" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="108.471" y="0" font-family="'Calibri'" font-size="13.92">T</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 189.564 54.043)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="6.725" y="0" font-family="'Calibri'" font-size="14.04">pp</tspan><tspan x="21.366" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="28.337" y="0" font-family="'Calibri'" font-size="14.04">nd</tspan><tspan x="42.978" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="46.214" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="52.095" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="59.066" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="64.586" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="67.943" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="74.668" y="0" font-family="'Calibri'" font-size="14.04">nd</tspan><tspan x="89.308" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="92.539" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="99.272" y="0" font-family="'Calibri'" font-size="14.04">x</tspan><tspan x="105.38" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="110.069" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="114.753" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="121.478" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="127.359" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="132.048" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M445.02,440.13h141.75v41.01c-70.889,0-70.889,15.631-141.75,6.75
-	V440.13z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M444.029,440.13
-	c0-0.539,0.451-0.99,0.99-0.99h141.75c0.541,0,0.99,0.451,0.99,0.99v41.01c0,0.541-0.449,0.99-0.99,0.99l-3.27,0.029l-3.15,0.031
-	l-3.061,0.059l-3,0.061l-2.85,0.09l-2.82,0.121l-5.34,0.27l-5.01,0.33l-4.74,0.391l-4.469,0.449l-4.26,0.48l-4.051,0.51l-3.84,0.539
-	l-3.721,0.541l-3.57,0.57l-3.479,0.568l-3.42,0.57l-6.66,1.08l-6.691,0.99l-3.42,0.451l-3.51,0.389l-3.6,0.33l-3.75,0.27l-3.9,0.211
-	l-4.08,0.119l-4.26,0.031l-4.529-0.061l-4.77-0.15l-5.07-0.27l-5.34-0.359l-2.82-0.24l-2.91-0.27l-2.971-0.301l-3.09-0.33
-	l-3.18-0.359l-3.27-0.391c-0.51-0.061-0.9-0.51-0.9-1.02L444.029,440.13z M446.01,487.86l-0.9-0.99l3.271,0.391l3.18,0.389
-	l3.059,0.33l2.971,0.27l2.881,0.271l2.789,0.24l5.34,0.389l5.01,0.24l4.74,0.18l4.471,0.031l4.23-0.031l4.049-0.119l3.871-0.18
-	l3.66-0.271l3.568-0.359l3.48-0.359l3.391-0.451l6.66-0.959l6.66-1.109l3.42-0.57l3.479-0.57l3.602-0.57l3.719-0.539l3.9-0.541
-	l4.08-0.51l4.26-0.48l4.5-0.449l4.77-0.391l5.07-0.33l5.371-0.299l2.789-0.092l2.91-0.09l2.971-0.09l3.09-0.059l3.18-0.031h3.27
-	l-0.99,0.99v-41.01l0.99,1.02H445.02l0.99-1.02V487.86z"/>
 <g>
 	<defs>
-		<rect id="SVGID_20_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_30_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_61_">
-		<use xlink:href="#SVGID_20_"  overflow="visible"/>
+		<use xlink:href="#SVGID_30_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_61_)">
-		<text transform="matrix(1 0 0 1 464.1309 457.043)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="7.668" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="13.438" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="21.59" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="28.068" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="34.797" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="37.678" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="42.238" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="49.193" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="54.707" y="0" font-family="'Calibri'" font-size="13.92">u</tspan><tspan x="61.908" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="65.033" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="69.6" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="75.113" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="78.941" y="0" font-family="'Calibri'" font-size="13.92">w</tspan><tspan x="88.795" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="91.92" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="96.484" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="103.688" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 223.9702 70.8398)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="4.689" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="12.009" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="18.981" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="22.113" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="27.632" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="34.953" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="41.924" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="47.805" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="51.041" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="58.012" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
 	</g>
 </g>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="173.329,207.63 173.329,248.88 315.425,248.88 
+	315.425,207.63 173.329,207.63 "/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M172.321,207.63
+	c0-0.555,0.451-1.005,1.008-1.005h142.097c0.542,0,0.993,0.45,0.993,1.005v41.25c0,0.555-0.451,1.005-0.993,1.005H173.329
+	c-0.557,0-1.008-0.45-1.008-1.005V207.63z M174.321,248.88l-0.992-1.005h142.097l-1.007,1.005v-41.25l1.007,1.005H173.329
+	l0.992-1.005V248.88z"/>
 <g>
 	<defs>
-		<rect id="SVGID_19_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_29_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_62_">
-		<use xlink:href="#SVGID_19_"  overflow="visible"/>
+		<use xlink:href="#SVGID_29_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_62_)">
-		<text transform="matrix(1 0 0 1 455.9824 473.8398)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="7.436" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="11.025" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="17.754" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="24.244" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="30.725" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="33.857" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="39.371" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="46.572" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="53.527" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="59.523" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="62.648" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="69.604" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="75.117" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="78.473" y="0" font-family="'Calibri'" font-size="13.92">fl</tspan><tspan x="85.91" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="92.619" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="99.338" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="105.82" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="112.775" y="0" font-family="'Calibri'" font-size="13.92">d</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 191.5952 224.3633)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">2</tspan><tspan x="7.088" y="0" font-family="'Calibri'" font-size="14.04">.</tspan><tspan x="10.674" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="13.68" y="0" font-family="'Calibri'" font-size="14.04">O</tspan><tspan x="22.934" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="30.254" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="34.817" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="41.542" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="44.778" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="52.098" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="55.328" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="60.017" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="67.338" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="74.309" y="0" font-family="'Calibri'" font-size="14.04"> N</tspan><tspan x="86.658" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="94.103" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="101.782" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="105.263" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M267.63,78.63v24.78h-2.25V78.63
-	H267.63z M271.41,97.215l-4.905,8.415l-4.905-8.415c-0.315-0.525-0.135-1.215,0.405-1.53c0.54-0.315,1.23-0.135,1.53,0.405
-	l3.945,6.75h-1.95l3.945-6.75c0.315-0.54,1.005-0.72,1.53-0.405C271.545,96,271.725,96.69,271.41,97.215L271.41,97.215z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M437.76,124.14l-0.119,24.525
-	l-2.25-0.015l0.119-24.525L437.76,124.14z M441.449,142.5l-4.949,8.385l-4.859-8.43c-0.316-0.54-0.135-1.23,0.404-1.545
-	c0.541-0.315,1.23-0.12,1.545,0.42l3.9,6.765l-1.936-0.015l3.961-6.735c0.314-0.525,1.004-0.705,1.545-0.39
-	C441.6,141.27,441.766,141.96,441.449,142.5L441.449,142.5z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M437.221,178.14l40.889,32.85
-	l-1.41,1.77l-40.889-32.88L437.221,178.14z M475.65,204.18l3.48,9.09l-9.631-1.44c-0.6-0.09-1.02-0.66-0.93-1.29
-	c0.09-0.6,0.66-1.02,1.26-0.93l7.74,1.14l-1.23,1.53l-2.789-7.32c-0.211-0.57,0.059-1.23,0.66-1.44
-	C474.779,203.31,475.439,203.58,475.65,204.18L475.65,204.18z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M517.02,254.52v22.889h-2.25V254.52
-	H517.02z M520.801,271.229l-4.92,8.4l-4.891-8.4c-0.33-0.539-0.15-1.229,0.391-1.53c0.539-0.33,1.229-0.15,1.529,0.39l3.959,6.751
-	h-1.949l3.93-6.751c0.33-0.54,1.02-0.72,1.531-0.39C520.92,270,521.1,270.69,520.801,271.229L520.801,271.229z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M101.52,207.99l0.105-0.84
-	c0.015-0.09,0.03-0.18,0.075-0.27l0.33-0.84c0.015-0.075,0.06-0.135,0.09-0.195l0.54-0.84c0.045-0.045,0.075-0.105,0.12-0.135
-	l0.75-0.84l1.02-0.93l1.2-0.885l1.38-0.855l1.545-0.825l1.695-0.81l1.86-0.795l2.01-0.765l2.145-0.735l2.295-0.735l2.415-0.705
-	l2.52-0.675l2.67-0.645l2.76-0.63l2.865-0.6l2.97-0.555l3.045-0.54l6.345-0.975l6.63-0.81l6.855-0.66l7.035-0.48l7.125-0.3l7.2-0.12
-	l7.215,0.105l7.11,0.285l7.035,0.465l6.855,0.615l6.63,0.78l6.345,0.9l3.075,0.51l2.955,0.54l2.865,0.555l2.76,0.585l2.655,0.615
-	l2.535,0.645l2.4,0.66l2.295,0.69l2.145,0.69l1.995,0.735l1.845,0.735l1.695,0.765l1.53,0.78l1.365,0.795l1.2,0.795l1.02,0.855
-	l0.84,0.885c0.045,0.045,0.075,0.09,0.12,0.135l0.195,0.3l-1.86,1.26l-0.21-0.285l0.12,0.135l-0.66-0.705l-0.84-0.72l-1.05-0.72
-	l-1.245-0.735l-1.455-0.72l-1.59-0.735l-1.785-0.705l-1.935-0.705l-2.085-0.69l-2.25-0.66l-2.355-0.66l-2.49-0.615l-2.61-0.615
-	l-2.73-0.585l-2.835-0.555l-2.925-0.525l-3.015-0.495l-6.285-0.9l-6.57-0.78l-6.81-0.615l-6.96-0.465l-7.08-0.27l-7.125-0.105
-	l-7.14,0.105l-7.065,0.3l-6.975,0.48l-6.795,0.66l-6.57,0.81l-6.285,0.945l-3.045,0.54l-2.91,0.555l-2.835,0.6l-2.73,0.6
-	l-2.61,0.645l-2.49,0.675l-2.355,0.675l-2.235,0.705l-2.085,0.735l-1.92,0.735l-1.77,0.735l-1.605,0.75l-1.44,0.795l-1.215,0.735
-	l-1.05,0.765l-0.84,0.72l-0.75,0.84l0.12-0.135l-0.54,0.84l0.09-0.195l-0.33,0.84l0.075-0.27l-0.105,0.84L101.52,207.99z
-	 M257.325,197.55l-1.68,9.6l-7.53-6.195c-0.48-0.39-0.555-1.095-0.165-1.575c0.405-0.48,1.11-0.555,1.59-0.165l6.03,4.965
-	l-1.815,0.675l1.35-7.695c0.105-0.615,0.69-1.02,1.305-0.915C257.01,196.35,257.43,196.935,257.325,197.55L257.325,197.55z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M256.755,248.49l-0.105,1.125
-	c0,0.075-0.015,0.15-0.045,0.225l-0.33,1.125c-0.015,0.06-0.03,0.12-0.06,0.165l-0.54,1.11l-0.825,1.245l-1.005,1.215l-1.2,1.17
-	l-1.395,1.155l-1.53,1.095l-1.725,1.08l-1.845,1.065l-2.01,1.02l-2.16,1.005l-2.28,0.96l-2.415,0.93l-2.55,0.915l-2.655,0.87
-	l-2.775,0.825l-2.865,0.81l-2.985,0.75l-3.075,0.72l-6.345,1.275l-6.645,1.096l-6.87,0.885l-7.05,0.645l-7.14,0.404l-7.2,0.137
-	l-7.215-0.137l-7.14-0.375l-7.035-0.629l-6.87-0.84l-6.645-1.035l-6.36-1.245l-3.075-0.675l-2.97-0.735l-2.88-0.765l-2.76-0.78
-	l-2.655-0.84l-2.55-0.885l-2.415-0.885l-2.28-0.93l-2.145-0.945l-1.995-0.975l-1.86-1.02l-1.71-1.02l-1.545-1.065l-1.365-1.08
-	l-1.185-1.08l-1.02-1.155l-0.825-1.155c-0.03-0.045-0.06-0.09-0.075-0.15l-0.54-1.035l2.01-1.02l0.525,1.05l-0.075-0.15l0.675,0.975
-	l0.84,0.975l1.065,0.99l1.245,0.99l1.425,0.975l1.62,0.99l1.77,0.96l1.935,0.945l2.085,0.915l2.22,0.9l2.355,0.885l2.49,0.855
-	l2.595,0.81l2.73,0.78l2.82,0.765l2.94,0.705l3.015,0.675l6.27,1.215l6.585,1.035l6.78,0.84l6.945,0.63l7.08,0.359l7.125,0.137
-	l7.11-0.121l7.08-0.404l6.96-0.646l6.78-0.87l6.585-1.08l6.285-1.275l3.015-0.69l2.925-0.75l2.835-0.78l2.715-0.825l2.595-0.84
-	l2.49-0.885l2.355-0.93l2.22-0.93l2.07-0.945l1.92-0.99l1.785-1.005l1.59-0.99l1.425-1.035l1.245-1.005l1.05-1.02l0.855-1.02
-	l0.675-0.96l0.54-1.11l-0.075,0.165l0.33-1.125l-0.03,0.21l0.105-1.125L256.755,248.49z M99.45,258.6l3.12-9.225l6.495,7.26
-	c0.42,0.465,0.375,1.185-0.075,1.59c-0.465,0.42-1.185,0.375-1.59-0.09l-5.22-5.82l1.905-0.39l-2.505,7.395
-	c-0.195,0.6-0.84,0.915-1.425,0.705C99.57,259.83,99.255,259.2,99.45,258.6L99.45,258.6z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M437.625,75.255l0.119,22.395
-	l-2.25,0.015l-0.119-22.395L437.625,75.255z M441.494,91.44l-4.859,8.445l-4.949-8.385c-0.316-0.54-0.15-1.23,0.389-1.545
-	c0.541-0.315,1.23-0.135,1.545,0.405l3.977,6.72l-1.951,0.015l3.9-6.765c0.314-0.54,1.006-0.735,1.545-0.42
-	C441.631,90.225,441.811,90.915,441.494,91.44L441.494,91.44z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M270.375,162.255v43.77h-2.25
-	v-43.77H270.375z M274.17,199.845l-4.92,8.415l-4.905-8.415c-0.315-0.54-0.135-1.23,0.405-1.53c0.54-0.315,1.23-0.135,1.545,0.405
-	l3.93,6.75h-1.935l3.93-6.75c0.315-0.54,1.005-0.72,1.545-0.405C274.305,198.615,274.485,199.305,274.17,199.845L274.17,199.845z"/>
 <g>
 	<defs>
-		<rect id="SVGID_18_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_28_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_63_">
-		<use xlink:href="#SVGID_18_"  overflow="visible"/>
+		<use xlink:href="#SVGID_28_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_63_)">
-		<text transform="matrix(1 0 0 1 27.0757 28.4336)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10.08">C</tspan><tspan x="7.209" y="0" font-family="'ArialMT'" font-size="10.08">r</tspan><tspan x="10.565" y="0" font-family="'ArialMT'" font-size="10.08">ea</tspan><tspan x="21.616" y="0" font-family="'ArialMT'" font-size="10.08">t</tspan><tspan x="24.487" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan><tspan x="30.013" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="32.42" y="0" font-family="'ArialMT'" font-size="10.08">t</tspan><tspan x="35.292" y="0" font-family="'ArialMT'" font-size="10.08">he</tspan><tspan x="46.342" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="48.991" y="0" font-family="'ArialMT'" font-size="10.08">l</tspan><tspan x="51.382" y="0" font-family="'ArialMT'" font-size="10.08">o</tspan><tspan x="56.907" y="0" font-family="'ArialMT'" font-size="10.08">c</tspan><tspan x="61.947" y="0" font-family="'ArialMT'" font-size="10.08">a</tspan><tspan x="67.473" y="0" font-family="'ArialMT'" font-size="10.08">l</tspan><tspan x="69.863" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 208.5483 241.1602)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="4.563" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="11.175" y="0" font-family="'Calibri'" font-size="14.04">x</tspan><tspan x="16.947" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="24.379" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="31.7" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="39.132" y="0" font-family="'Calibri'" font-size="14.04">m</tspan><tspan x="50.052" y="0" font-family="'Calibri'" font-size="14.04">y</tspan><tspan x="56.407" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="59.301" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="62.782" y="0" font-family="'Calibri'" font-size="14.04">D</tspan></text>
 	</g>
 </g>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="19.864,207.63 19.864,248.88 162.081,248.88 
+	162.081,207.63 19.864,207.63 "/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M18.856,207.63
+	c0-0.555,0.451-1.005,1.007-1.005h142.217c0.556,0,1.007,0.45,1.007,1.005v41.25c0,0.555-0.451,1.005-1.007,1.005H19.864
+	c-0.557,0-1.007-0.45-1.007-1.005V207.63z M20.856,248.88l-0.992-1.005h142.217l-1.007,1.005v-41.25l1.007,1.005H19.864l0.992-1.005
+	V248.88z"/>
 <g>
 	<defs>
-		<rect id="SVGID_17_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_27_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_64_">
-		<use xlink:href="#SVGID_17_"  overflow="visible"/>
+		<use xlink:href="#SVGID_27_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_64_)">
-		<text transform="matrix(1 0 0 1 27.0757 40.4414)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10.08">C</tspan><tspan x="7.209" y="0" font-family="'ArialMT'" font-size="10.08">I</tspan><tspan x="10.08" y="0" font-family="'ArialMT'" font-size="10.08">T</tspan><tspan x="16.318" y="0" font-family="'ArialMT'" font-size="10.08">ES</tspan><tspan x="29.765" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="31.93" y="0" font-family="'ArialMT'" font-size="10.08">da</tspan><tspan x="42.98" y="0" font-family="'ArialMT'" font-size="10.08">t</tspan><tspan x="45.852" y="0" font-family="'ArialMT'" font-size="10.08">aba</tspan><tspan x="62.428" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan><tspan x="67.236" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 29.4546 224.3633)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">3</tspan><tspan x="7.088" y="0" font-family="'Calibri'" font-size="14.04">.</tspan><tspan x="10.674" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="13.68" y="0" font-family="'Calibri'" font-size="14.04">U</tspan><tspan x="22.688" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="28.207" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="35.179" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="38.311" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="45.153" y="0" font-family="'Calibri'" font-size="14.04">N</tspan><tspan x="54.272" y="0" font-family="'Calibri'" font-size="14.04">R</tspan><tspan x="61.713" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="68.191" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="71.085" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="75.647" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="83.079" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="86.211" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="93.643" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="100.963" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="105.526" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="112.251" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="115.487" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="122.808" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_16_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_26_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_65_">
-		<use xlink:href="#SVGID_16_"  overflow="visible"/>
+		<use xlink:href="#SVGID_26_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_65_)">
-		<text transform="matrix(1 0 0 1 140.5757 289.1914)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10.08">I</tspan><tspan x="2.871" y="0" font-family="'ArialMT'" font-size="10.08">f</tspan><tspan x="5.984" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="7.908" y="0" font-family="'ArialMT'" font-size="10.08">no</tspan><tspan x="18.958" y="0" font-family="'ArialMT'" font-size="10.08"> I</tspan><tspan x="24.701" y="0" font-family="'ArialMT'" font-size="10.08">D</tspan><tspan x="31.91" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="34.559" y="0" font-family="'ArialMT'" font-size="10.08">i</tspan><tspan x="36.95" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan><tspan x="41.758" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="44.407" y="0" font-family="'ArialMT'" font-size="10.08">f</tspan><tspan x="47.52" y="0" font-family="'ArialMT'" font-size="10.08">oun</tspan><tspan x="64.096" y="0" font-family="'ArialMT'" font-size="10.08">d</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 40.3999 241.1602)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="5.519" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="12.84" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="19.811" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="25.692" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="28.928" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="35.9" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="41.419" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="44.551" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="49.832" y="0" font-family="'Calibri'" font-size="14.04">y</tspan><tspan x="56.187" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="63.507" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="70.939" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="78.02" y="0" font-family="'Calibri'" font-size="14.04">y</tspan><tspan x="84.375" y="0" font-family="'Calibri'" font-size="14.04">m</tspan><tspan x="95.549" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
 	</g>
 </g>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="360.881,99.9 360.881,124.14 503.129,124.14 503.129,99.9 
+	360.881,99.9 "/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M359.889,99.9
+	c0-0.57,0.451-1.02,0.992-1.02h142.248c0.541,0,0.992,0.45,0.992,1.02v24.24c0,0.54-0.451,0.99-0.992,0.99H360.881
+	c-0.541,0-0.992-0.45-0.992-0.99V99.9z M361.904,124.14l-1.023-0.99h142.248l-1.023,0.99V99.9l1.023,0.99H360.881l1.023-0.99V124.14
+	z"/>
 <g>
 	<defs>
-		<rect id="SVGID_15_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_25_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_66_">
-		<use xlink:href="#SVGID_15_"  overflow="visible"/>
+		<use xlink:href="#SVGID_25_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_66_)">
-		<text transform="matrix(1 0 0 1 579.9355 28.4336)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10.08">I</tspan><tspan x="2.871" y="0" font-family="'ArialMT'" font-size="10.08">den</tspan><tspan x="19.447" y="0" font-family="'ArialMT'" font-size="10.08">t</tspan><tspan x="22.318" y="0" font-family="'ArialMT'" font-size="10.08">i</tspan><tspan x="24.709" y="0" font-family="'ArialMT'" font-size="10.08">f</tspan><tspan x="27.822" y="0" font-family="'ArialMT'" font-size="10.08">y</tspan><tspan x="32.629" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="34.553" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan><tspan x="39.361" y="0" font-family="'ArialMT'" font-size="10.08">equen</tspan><tspan x="66.988" y="0" font-family="'ArialMT'" font-size="10.08">c</tspan><tspan x="72.027" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan><tspan x="77.553" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan><tspan x="82.361" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="85.232" y="0" font-family="'ArialMT'" font-size="10.08">an</tspan><tspan x="96.283" y="0" font-family="'ArialMT'" font-size="10.08">d</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 374.0957 116.6211)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">4</tspan><tspan x="7.088" y="0" font-family="'Calibri'" font-size="14.04">.</tspan><tspan x="10.673" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="13.679" y="0" font-family="'Calibri'" font-size="14.04">(</tspan><tspan x="17.88" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="25.56" y="0" font-family="'Calibri'" font-size="14.04">u</tspan><tspan x="32.88" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="36.117" y="0" font-family="'Calibri'" font-size="14.04">k</tspan><tspan x="42.484" y="0" font-family="'Calibri'" font-size="14.04">)</tspan><tspan x="46.685" y="0" font-family="'Calibri'" font-size="14.04"> N</tspan><tspan x="59.035" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="66.478" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="74.158" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="77.64" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="80.644" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="88.325" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="94.213" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="102.365" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="108.732" y="0" font-family="'Calibri'" font-size="14.04">T</tspan></text>
 	</g>
 </g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M400.668,457.02h142.098v41.01
+	c-71.033,0-71.033,15.631-142.098,6.75V457.02z"/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M399.676,457.02
+	c0-0.539,0.451-0.99,0.992-0.99h142.098c0.572,0,1.023,0.451,1.023,0.99v41.01c0,0.541-0.451,0.99-0.994,0.99l-6.465,0.061
+	l-6.045,0.119l-5.684,0.211l-5.354,0.27l-5.053,0.33l-4.752,0.391l-4.48,0.449l-4.27,0.48l-4.029,0.51l-3.881,0.541l-3.699,0.539
+	l-3.607,0.57l-6.887,1.141l-6.707,1.08l-6.707,0.988l-6.916,0.842l-3.639,0.328l-3.73,0.271l-3.908,0.209l-4.09,0.121l-4.271,0.029
+	l-4.541-0.061l-4.781-0.148l-5.082-0.271l-5.383-0.359l-5.715-0.51l-6.074-0.631l-6.467-0.75c-0.512-0.059-0.902-0.479-0.902-0.99
+	V457.02z M401.691,504.779l-0.902-0.988l6.465,0.75l6.045,0.629l5.686,0.48l5.352,0.391l5.023,0.238l4.752,0.182l4.48,0.029
+	l4.24-0.029l4.029-0.121l3.879-0.209l3.699-0.24l3.58-0.33l6.855-0.84l6.707-0.961l6.676-1.109l6.918-1.141l3.607-0.57l3.73-0.539
+	l3.908-0.541l4.061-0.51l4.27-0.48l4.543-0.449l4.781-0.391l5.053-0.359l5.383-0.27l5.713-0.211l6.076-0.119l6.465-0.029
+	l-0.992,0.988v-41.01l0.992,1.021H400.668l1.023-1.021V504.779z"/>
 <g>
 	<defs>
-		<rect id="SVGID_14_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_24_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_67_">
-		<use xlink:href="#SVGID_14_"  overflow="visible"/>
+		<use xlink:href="#SVGID_24_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_67_)">
-		<text transform="matrix(1 0 0 1 586.6543 40.4414)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10.08">c</tspan><tspan x="5.039" y="0" font-family="'ArialMT'" font-size="10.08">he</tspan><tspan x="16.09" y="0" font-family="'ArialMT'" font-size="10.08">ck</tspan><tspan x="26.17" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="28.578" y="0" font-family="'ArialMT'" font-size="10.08">f</tspan><tspan x="31.691" y="0" font-family="'ArialMT'" font-size="10.08">o</tspan><tspan x="37.217" y="0" font-family="'ArialMT'" font-size="10.08">r</tspan><tspan x="40.572" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="42.98" y="0" font-family="'ArialMT'" font-size="10.08">p</tspan><tspan x="48.506" y="0" font-family="'ArialMT'" font-size="10.08">r</tspan><tspan x="51.861" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan><tspan x="57.387" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan><tspan x="62.195" y="0" font-family="'ArialMT'" font-size="10.08">en</tspan><tspan x="73.246" y="0" font-family="'ArialMT'" font-size="10.08">c</tspan><tspan x="78.287" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan><tspan x="83.813" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="86.461" y="0" font-family="'ArialMT'" font-size="10.08">o</tspan><tspan x="91.986" y="0" font-family="'ArialMT'" font-size="10.08">f</tspan><tspan x="95.1" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 419.4238 473.7461)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="7.678" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="13.566" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="21.718" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="28.086" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="34.928" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="37.821" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="42.505" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="49.477" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="54.996" y="0" font-family="'Calibri'" font-size="14.04">u</tspan><tspan x="62.316" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="65.552" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="70.242" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="75.76" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="78.99" y="0" font-family="'Calibri'" font-size="14.04">w</tspan><tspan x="89.069" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="92.305" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="96.995" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="104.315" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_13_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_23_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_68_">
-		<use xlink:href="#SVGID_13_"  overflow="visible"/>
+		<use xlink:href="#SVGID_23_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_68_)">
-		<text transform="matrix(1 0 0 1 572.0137 52.4336)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="10.08">C</tspan><tspan x="7.209" y="0" font-family="'ArialMT'" font-size="10.08">I</tspan><tspan x="10.08" y="0" font-family="'ArialMT'" font-size="10.08">T</tspan><tspan x="16.318" y="0" font-family="'ArialMT'" font-size="10.08">ES</tspan><tspan x="29.764" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="31.93" y="0" font-family="'ArialMT'" font-size="10.08">p</tspan><tspan x="37.455" y="0" font-family="'ArialMT'" font-size="10.08">r</tspan><tspan x="40.813" y="0" font-family="'ArialMT'" font-size="10.08">o</tspan><tspan x="46.336" y="0" font-family="'ArialMT'" font-size="10.08">t</tspan><tspan x="49.207" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan><tspan x="54.732" y="0" font-family="'ArialMT'" font-size="10.08">c</tspan><tspan x="59.773" y="0" font-family="'ArialMT'" font-size="10.08">t</tspan><tspan x="62.645" y="0" font-family="'ArialMT'" font-size="10.08">ed</tspan><tspan x="73.695" y="0" font-family="'ArialMT'" font-size="10.08"> </tspan><tspan x="76.104" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan><tspan x="80.91" y="0" font-family="'ArialMT'" font-size="10.08">pe</tspan><tspan x="91.961" y="0" font-family="'ArialMT'" font-size="10.08">c</tspan><tspan x="97.002" y="0" font-family="'ArialMT'" font-size="10.08">i</tspan><tspan x="99.393" y="0" font-family="'ArialMT'" font-size="10.08">e</tspan><tspan x="104.918" y="0" font-family="'ArialMT'" font-size="10.08">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 411.3613 490.5586)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="7.443" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="10.924" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="17.767" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="24.495" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="30.975" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="33.981" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="39.499" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="46.819" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="53.792" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="59.672" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="62.909" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="69.88" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="75.399" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="78.63" y="0" font-family="'Calibri'" font-size="14.04">fl</tspan><tspan x="86.088" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="92.814" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="99.522" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="106.004" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="112.975" y="0" font-family="'Calibri'" font-size="14.04">d</tspan></text>
 	</g>
 </g>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M524.4,99.9h130.5v57.93c-65.25,0-65.25,22.08-130.5,9.54V99.9z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M523.41,99.9
-	c0-0.54,0.449-0.99,0.99-0.99h130.5c0.539,0,0.99,0.45,0.99,0.99v57.93c0,0.57-0.451,1.02-0.99,1.02h-3l-2.91,0.06l-5.551,0.18
-	l-5.219,0.3l-4.891,0.39l-4.65,0.45l-4.32,0.57l-4.139,0.6l-3.9,0.69l-3.721,0.72l-3.539,0.75l-3.391,0.78l-3.301,0.78l-3.18,0.81
-	l-3.15,0.81l-6.148,1.53l-6.18,1.38l-3.182,0.63l-3.209,0.57l-3.33,0.45l-3.451,0.39l-3.6,0.3l-3.779,0.15l-3.961,0.06l-4.17-0.09
-	l-4.41-0.21l-4.68-0.36L540.99,171l-5.279-0.72l-5.58-0.9l-2.941-0.51l-3.029-0.57c-0.48-0.09-0.811-0.48-0.811-0.99L523.41,99.9z
-	 M525.33,167.31l-0.811-0.96l3,0.54l2.91,0.54l5.551,0.87l5.219,0.69l4.92,0.54l4.592,0.36l4.35,0.24l4.109,0.06l3.9-0.03
-	l3.689-0.18l3.541-0.27l3.389-0.39l3.271-0.45l3.209-0.54l3.09-0.63l6.121-1.35l6.18-1.56l3.119-0.78l3.211-0.81l3.33-0.81
-	l3.42-0.78l3.6-0.78l3.75-0.72l3.93-0.66l4.17-0.66l4.41-0.54l4.65-0.48l4.949-0.39l5.25-0.3l5.611-0.18l2.908-0.03l3.031-0.03
-	l-0.99,0.99V99.9l0.99,0.99H524.4l0.99-0.99L525.33,167.31z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M256.888,78.63v24.78h-2.256V78.63
+	H256.888z M260.677,97.215l-4.917,8.415l-4.932-8.415c-0.301-0.525-0.12-1.215,0.406-1.53c0.541-0.315,1.233-0.135,1.549,0.405
+	l3.939,6.75h-1.94l3.94-6.75c0.315-0.54,1.007-0.72,1.549-0.405C260.812,96,260.993,96.69,260.677,97.215L260.677,97.215z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M433.133,124.14l-0.061,24.51
+	h-2.256l0.061-24.525L433.133,124.14z M436.877,142.485l-4.932,8.4l-4.902-8.43c-0.316-0.525-0.135-1.215,0.406-1.53
+	c0.541-0.315,1.232-0.135,1.549,0.405l3.924,6.765l-1.939-0.015l3.955-6.735c0.316-0.54,1.008-0.72,1.549-0.405
+	C437.012,141.255,437.193,141.945,436.877,142.485L436.877,142.485z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M432.982,178.59l13.398,32.235
+	l-2.076,0.855l-13.396-32.235L432.982,178.59z M447.523,203.655l-1.324,9.66l-7.773-5.895c-0.496-0.375-0.586-1.08-0.211-1.575
+	c0.377-0.495,1.084-0.6,1.58-0.225l6.24,4.74l-1.805,0.735l1.053-7.74c0.09-0.615,0.646-1.05,1.262-0.96
+	C447.162,202.47,447.598,203.04,447.523,203.655L447.523,203.655z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M472.83,254.505l0.016,24.479
+	h-2.256l-0.016-24.479H472.83z M476.635,272.805l-4.918,8.416l-4.916-8.416c-0.316-0.525-0.137-1.215,0.391-1.529
+	c0.541-0.314,1.232-0.135,1.549,0.404l3.955,6.734l-1.955,0.016l3.939-6.766c0.316-0.539,1.008-0.719,1.549-0.404
+	S476.949,272.266,476.635,272.805L476.635,272.805z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M90.356,208.05l0.03-0.42
+	l0.09-0.555l0.166-0.555l0.255-0.555l0.286-0.495l0.346-0.51l0.406-0.495L92.371,204l0.497-0.465l0.541-0.45l0.586-0.45l0.632-0.435
+	l0.676-0.42l0.692-0.42l1.549-0.825l1.699-0.81l1.864-0.795l2-0.765l2.15-0.75l2.286-0.72l2.421-0.705l2.556-0.675l2.662-0.645
+	l2.767-0.63l2.872-0.6l2.977-0.555l3.067-0.54l3.143-0.495l3.218-0.465l3.293-0.435l3.353-0.39l3.414-0.345l3.458-0.315l3.503-0.27
+	l3.534-0.21l3.563-0.18l3.594-0.12l3.594-0.09l3.609-0.03l3.639,0.03l3.609,0.075l3.579,0.12l3.563,0.165l7.037,0.465l3.474,0.285
+	l3.414,0.33l3.353,0.375l3.293,0.405l3.218,0.435l3.143,0.48l3.067,0.495l2.962,0.54l2.872,0.555l2.782,0.6l2.646,0.6l2.542,0.645
+	l2.421,0.66l2.286,0.69l2.15,0.69l2,0.72l1.85,0.75l1.699,0.765l1.534,0.765l0.722,0.405l0.677,0.405l0.616,0.405l0.587,0.42
+	l0.526,0.42l0.497,0.42l0.436,0.435l0.406,0.465l0.271,0.345l-1.804,1.365l-0.166-0.24l-0.301-0.345l-0.331-0.33l-0.406-0.36
+	l-0.451-0.36l-0.497-0.36l-0.556-0.36l-0.617-0.36l-0.616-0.36l-1.444-0.735l-1.609-0.72l-1.789-0.72l-1.94-0.69l-2.09-0.69
+	l-2.226-0.66l-2.376-0.66l-2.496-0.615l-2.631-0.615l-2.737-0.57l-2.827-0.57l-2.947-0.525l-3.022-0.495l-3.113-0.465l-3.203-0.435
+	l-3.263-0.405l-3.323-0.36l-3.383-0.33l-3.414-0.3l-7.007-0.45l-3.534-0.165l-3.564-0.12l-3.563-0.075l-3.609-0.03l-3.563,0.03
+	l-3.579,0.075l-3.548,0.135l-3.534,0.165l-3.503,0.225l-3.474,0.27l-3.443,0.3l-3.368,0.345l-3.338,0.39l-3.248,0.42l-3.203,0.465
+	l-3.113,0.495l-3.022,0.525l-2.933,0.555l-2.842,0.585l-2.737,0.615l-2.616,0.645l-2.496,0.66l-2.361,0.69l-2.225,0.705l-2.09,0.72
+	l-1.94,0.75l-1.774,0.735l-1.609,0.765l-1.429,0.765l-0.662,0.39l-0.602,0.39l-0.541,0.375l-0.512,0.375l-0.436,0.375l-0.406,0.36
+	l-0.346,0.375l-0.286,0.33l-0.241,0.33l-0.196,0.345l-0.15,0.285l-0.09,0.3l-0.075,0.285l-0.03,0.42L90.356,208.05z M246.618,197.55
+	l-1.745,9.585l-7.503-6.225c-0.481-0.39-0.556-1.11-0.15-1.59c0.391-0.465,1.112-0.54,1.579-0.135l6.03,4.995l-1.834,0.66
+	l1.398-7.695c0.105-0.6,0.691-1.005,1.308-0.9S246.723,196.935,246.618,197.55L246.618,197.55z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M246.001,248.46l-0.03,0.42
+	l-0.105,0.555l-0.166,0.555l-0.255,0.555l-0.271,0.51l-0.346,0.495l-0.421,0.495l-0.436,0.48l-0.497,0.45l-0.541,0.465l-0.586,0.435
+	l-0.617,0.435l-0.677,0.435l-0.707,0.42l-1.534,0.825l-1.699,0.81l-1.865,0.78l-2.015,0.765l-2.15,0.75l-2.286,0.72l-2.421,0.705
+	l-2.541,0.675l-2.662,0.66l-2.767,0.63l-2.887,0.585l-2.962,0.57l-3.067,0.525l-3.143,0.51l-3.233,0.465l-3.293,0.42l-3.353,0.39
+	l-3.414,0.36l-3.458,0.3l-3.503,0.27l-3.534,0.225l-3.579,0.165l-3.579,0.135l-3.608,0.075l-3.609,0.03l-3.609-0.03l-3.609-0.075
+	l-3.579-0.12l-3.579-0.165l-7.022-0.45l-3.474-0.3l-3.413-0.33l-3.353-0.36l-3.293-0.405l-3.218-0.45l-3.158-0.465l-3.052-0.51
+	l-2.978-0.525l-2.872-0.555l-2.767-0.6l-2.662-0.615l-2.541-0.63l-2.406-0.66l-2.301-0.69l-2.15-0.705l-2-0.72l-1.85-0.735
+	l-1.699-0.765l-1.534-0.78l-0.722-0.405l-0.662-0.39l-0.632-0.405l-0.571-0.42l-0.542-0.42l-0.496-0.435l-0.436-0.435l-0.406-0.45
+	l-0.271-0.375l1.82-1.32l0.15,0.21l0.286,0.33l0.361,0.36l0.391,0.345l0.451,0.36l0.511,0.36l0.542,0.36l0.602,0.375l0.646,0.36
+	l1.429,0.72l1.624,0.72l1.79,0.72l1.925,0.705l2.09,0.69l2.241,0.66l2.375,0.645l2.496,0.63l2.617,0.615l2.737,0.57l2.842,0.555
+	l2.932,0.525l3.022,0.51l3.127,0.465l3.188,0.435l3.278,0.39l3.323,0.375l3.383,0.33l3.413,0.285l6.992,0.465l3.549,0.165
+	l3.563,0.105l3.564,0.075l3.579,0.03l3.579-0.03l3.564-0.075l3.563-0.12l3.534-0.18l3.503-0.21l3.474-0.27l3.443-0.315l3.383-0.345
+	l3.323-0.375l3.263-0.435l3.188-0.465l3.112-0.48l3.022-0.54l2.947-0.555l2.827-0.585l2.736-0.615l2.617-0.645l2.496-0.66
+	l2.375-0.69l2.226-0.69l2.075-0.735l1.939-0.735l1.774-0.75l1.609-0.765l1.444-0.765l0.646-0.39l0.602-0.375l0.541-0.375l0.511-0.39
+	l0.451-0.36l0.391-0.375l0.346-0.36l0.286-0.33l0.241-0.345l0.195-0.33l0.15-0.285l0.105-0.3l0.06-0.285l0.03-0.42L246.001,248.46z
+	 M89.724,258.96l1.745-9.585l7.518,6.24c0.466,0.39,0.542,1.11,0.135,1.575c-0.391,0.48-1.113,0.555-1.579,0.15l-6.03-4.995
+	l1.834-0.675l-1.398,7.695c-0.12,0.615-0.707,1.02-1.308,0.9C90.025,260.16,89.619,259.575,89.724,258.96L89.724,258.96z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M432.922,75.3l0.182,22.35
+	l-2.256,0.015l-0.182-22.35L432.922,75.3z M436.848,91.425l-4.842,8.46l-4.992-8.37c-0.316-0.54-0.15-1.23,0.391-1.545
+	c0.541-0.315,1.232-0.135,1.549,0.39l4,6.72l-1.955,0.015l3.895-6.78c0.316-0.54,1.008-0.72,1.549-0.42
+	C436.967,90.21,437.162,90.9,436.848,91.425L436.848,91.425z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M265.398,167.955v37.455h-2.256
+	v-37.455H265.398z M269.188,199.23l-4.917,8.415l-4.932-8.415c-0.315-0.54-0.135-1.23,0.406-1.545
+	c0.541-0.315,1.233-0.135,1.549,0.405l3.939,6.75h-1.94l3.94-6.75c0.315-0.54,1.007-0.72,1.549-0.405
+	C269.323,198,269.503,198.69,269.188,199.23L269.188,199.23z"/>
 <g>
 	<defs>
-		<rect id="SVGID_12_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_22_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_69_">
-		<use xlink:href="#SVGID_12_"  overflow="visible"/>
+		<use xlink:href="#SVGID_22_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_69_)">
-		<text transform="matrix(1 0 0 1 552.6309 116.793)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="7.668" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="10.793" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="17.504" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="23.5" y="0" font-family="'Calibri'" font-size="13.92">k</tspan><tspan x="29.744" y="0" font-family="'Calibri'" font-size="13.92">li</tspan><tspan x="35.994" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="41.285" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="45.852" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="49.443" y="0" font-family="'Calibri'" font-size="13.92">w</tspan><tspan x="59.297" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="62.422" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="66.986" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="74.189" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 21.4468 28.2617)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9.96">C</tspan><tspan x="7.193" y="0" font-family="'ArialMT'" font-size="9.96">r</tspan><tspan x="10.549" y="0" font-family="'ArialMT'" font-size="9.96">ea</tspan><tspan x="21.608" y="0" font-family="'ArialMT'" font-size="9.96">t</tspan><tspan x="24.375" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan><tspan x="29.904" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="32.552" y="0" font-family="'ArialMT'" font-size="9.96">t</tspan><tspan x="35.319" y="0" font-family="'ArialMT'" font-size="9.96">he</tspan><tspan x="46.378" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="49.026" y="0" font-family="'ArialMT'" font-size="9.96">l</tspan><tspan x="51.189" y="0" font-family="'ArialMT'" font-size="9.96">o</tspan><tspan x="56.718" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="61.758" y="0" font-family="'ArialMT'" font-size="9.96">a</tspan><tspan x="67.287" y="0" font-family="'ArialMT'" font-size="9.96">l</tspan><tspan x="69.45" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_11_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_21_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_70_">
-		<use xlink:href="#SVGID_11_"  overflow="visible"/>
+		<use xlink:href="#SVGID_21_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_70_)">
-		<text transform="matrix(1 0 0 1 536.3105 133.5898)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="6.482" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="13.436" y="0" font-family="'Calibri'" font-size="13.92">nb</tspan><tspan x="27.84" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="34.549" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="41.752" y="0" font-family="'Calibri'" font-size="13.92">k</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 21.4468 40.2617)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9.96">CI</tspan><tspan x="9.96" y="0" font-family="'ArialMT'" font-size="9.96">T</tspan><tspan x="16.193" y="0" font-family="'ArialMT'" font-size="9.96">ES</tspan><tspan x="29.4" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="32.048" y="0" font-family="'ArialMT'" font-size="9.96">da</tspan><tspan x="43.106" y="0" font-family="'ArialMT'" font-size="9.96">t</tspan><tspan x="45.874" y="0" font-family="'ArialMT'" font-size="9.96">aba</tspan><tspan x="62.462" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan><tspan x="67.501" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_10_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_20_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_71_">
-		<use xlink:href="#SVGID_10_"  overflow="visible"/>
+		<use xlink:href="#SVGID_20_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_71_)">
-		<text transform="matrix(1 0 0 1 587.9121 133.5898)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="3.59" y="0" font-family="'Calibri'" font-size="13.92">D</tspan><tspan x="12.225" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="15.357" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="22.795" y="0" font-family="'Calibri'" font-size="13.92">f</tspan><tspan x="27.113" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="29.994" y="0" font-family="'Calibri'" font-size="13.92">mi</tspan><tspan x="44.17" y="0" font-family="'Calibri'" font-size="13.92">ss</tspan><tspan x="55.197" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 140.853 289.0117)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9.96">I</tspan><tspan x="2.767" y="0" font-family="'ArialMT'" font-size="9.96">f</tspan><tspan x="5.644" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="8.172" y="0" font-family="'ArialMT'" font-size="9.96">no</tspan><tspan x="19.231" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="21.879" y="0" font-family="'ArialMT'" font-size="9.96">ID</tspan><tspan x="31.839" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="34.715" y="0" font-family="'ArialMT'" font-size="9.96">i</tspan><tspan x="36.878" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan><tspan x="41.918" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="44.685" y="0" font-family="'ArialMT'" font-size="9.96">f</tspan><tspan x="47.562" y="0" font-family="'ArialMT'" font-size="9.96">oun</tspan><tspan x="64.15" y="0" font-family="'ArialMT'" font-size="9.96">d</tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_9_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_19_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_72_">
-		<use xlink:href="#SVGID_9_"  overflow="visible"/>
+		<use xlink:href="#SVGID_19_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_72_)">
-		<text transform="matrix(1 0 0 1 537.5137 150.3867)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="6.709" y="0" font-family="'Calibri'" font-size="13.92">nn</tspan><tspan x="21.113" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="28.551" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="32.879" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="39.367" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="43.695" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="50.648" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="57.852" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="61.93" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="66.492" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="73.445" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="79.443" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="86.881" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="91.441" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="98.643" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 592.5098 28.2617)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9.96">I</tspan><tspan x="2.767" y="0" font-family="'ArialMT'" font-size="9.96">den</tspan><tspan x="19.355" y="0" font-family="'ArialMT'" font-size="9.96">t</tspan><tspan x="22.122" y="0" font-family="'ArialMT'" font-size="9.96">i</tspan><tspan x="24.284" y="0" font-family="'ArialMT'" font-size="9.96">f</tspan><tspan x="27.162" y="0" font-family="'ArialMT'" font-size="9.96">y</tspan><tspan x="31.842" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="34.72" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan><tspan x="39.76" y="0" font-family="'ArialMT'" font-size="9.96">equen</tspan><tspan x="67.405" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="72.446" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan><tspan x="77.975" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan><tspan x="83.015" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="85.424" y="0" font-family="'ArialMT'" font-size="9.96">an</tspan><tspan x="96.483" y="0" font-family="'ArialMT'" font-size="9.96">d</tspan></text>
 	</g>
 </g>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M590.4,168.21l-46.621,44.34
-	l-1.559-1.65l46.648-44.34L590.4,168.21z M550.859,211.02l-9.479,2.25l2.729-9.36c0.15-0.6,0.781-0.93,1.381-0.78
-	c0.6,0.18,0.959,0.81,0.779,1.41l-2.189,7.5l-1.35-1.41l7.619-1.8c0.6-0.15,1.201,0.24,1.35,0.84
-	C551.85,210.27,551.461,210.87,550.859,211.02L550.859,211.02z"/>
-<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="411,338.011 411,396.271 620.881,396.271 620.881,338.011 
-	411,338.011 "/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M410.01,338.011
-	c0-0.541,0.451-0.99,0.99-0.99h209.881c0.568,0,1.02,0.449,1.02,0.99v58.26c0,0.539-0.451,0.99-1.02,0.99H411
-	c-0.539,0-0.99-0.451-0.99-0.99V338.011z M412.02,396.271l-1.02-1.021h209.881l-0.99,1.021v-58.26l0.99,0.988H411l1.02-0.988
-	V396.271z"/>
 <g>
 	<defs>
-		<rect id="SVGID_8_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_18_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_73_">
-		<use xlink:href="#SVGID_8_"  overflow="visible"/>
+		<use xlink:href="#SVGID_18_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_73_)">
-		<text transform="matrix(1 0 0 1 421.4902 354.918)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">6</tspan><tspan x="6.971" y="0" font-family="'Calibri'" font-size="13.92">.</tspan><tspan x="10.568" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="13.451" y="0" font-family="'Calibri'" font-size="13.92">F</tspan><tspan x="19.93" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="23.055" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="29.766" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="36.248" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="39.604" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="47.039" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="50.631" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="57.357" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="63.848" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="70.328" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="73.684" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="79.197" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="86.398" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="93.354" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="99.35" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="102.475" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="109.43" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="114.943" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="118.299" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="121.424" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="128.625" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="132.219" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="136.783" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="143.986" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="150.939" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="154.295" y="0" font-family="'Calibri'" font-size="13.92">B</tspan><tspan x="161.965" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="167.732" y="0" font-family="'Calibri'" font-size="13.92">A</tspan><tspan x="175.885" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="182.363" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="189.092" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 599.3691 40.2617)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="5.038" y="0" font-family="'ArialMT'" font-size="9.96">he</tspan><tspan x="16.097" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="21.138" y="0" font-family="'ArialMT'" font-size="9.96">k</tspan><tspan x="26.297" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="28.705" y="0" font-family="'ArialMT'" font-size="9.96">f</tspan><tspan x="31.583" y="0" font-family="'ArialMT'" font-size="9.96">o</tspan><tspan x="37.112" y="0" font-family="'ArialMT'" font-size="9.96">r</tspan><tspan x="40.467" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="42.996" y="0" font-family="'ArialMT'" font-size="9.96">p</tspan><tspan x="48.526" y="0" font-family="'ArialMT'" font-size="9.96">r</tspan><tspan x="51.883" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan><tspan x="57.412" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan><tspan x="62.451" y="0" font-family="'ArialMT'" font-size="9.96">en</tspan><tspan x="73.509" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="78.55" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan><tspan x="84.079" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="86.727" y="0" font-family="'ArialMT'" font-size="9.96">o</tspan><tspan x="92.257" y="0" font-family="'ArialMT'" font-size="9.96">f</tspan><tspan x="95.132" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_7_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_17_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_74_">
-		<use xlink:href="#SVGID_7_"  overflow="visible"/>
+		<use xlink:href="#SVGID_17_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_74_)">
-		<text transform="matrix(1 0 0 1 419.084 371.7148)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="7.201" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="10.326" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="14.893" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="20.406" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="23.762" y="0" font-family="'Calibri'" font-size="13.92">b</tspan><tspan x="30.963" y="0" font-family="'Calibri'" font-size="13.92">y</tspan><tspan x="37.209" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="40.564" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="46.563" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="54" y="0" font-family="'Calibri'" font-size="13.92">m</tspan><tspan x="65.049" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="72.252" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="78.961" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="83.773" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="86.896" y="0" font-family="'Calibri'" font-size="13.92">n</tspan><tspan x="94.1" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="100.582" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="104.174" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="108.74" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="115.941" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="122.896" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 584.4551 52.2539)"><tspan x="0" y="0" font-family="'ArialMT'" font-size="9.96">CI</tspan><tspan x="9.96" y="0" font-family="'ArialMT'" font-size="9.96">T</tspan><tspan x="16.193" y="0" font-family="'ArialMT'" font-size="9.96">ES</tspan><tspan x="29.399" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="32.047" y="0" font-family="'ArialMT'" font-size="9.96">p</tspan><tspan x="37.576" y="0" font-family="'ArialMT'" font-size="9.96">r</tspan><tspan x="40.933" y="0" font-family="'ArialMT'" font-size="9.96">o</tspan><tspan x="46.462" y="0" font-family="'ArialMT'" font-size="9.96">t</tspan><tspan x="49.229" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan><tspan x="54.759" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="59.799" y="0" font-family="'ArialMT'" font-size="9.96">t</tspan><tspan x="62.566" y="0" font-family="'ArialMT'" font-size="9.96">ed</tspan><tspan x="73.624" y="0" font-family="'ArialMT'" font-size="9.96"> </tspan><tspan x="76.153" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan><tspan x="81.192" y="0" font-family="'ArialMT'" font-size="9.96">pe</tspan><tspan x="92.251" y="0" font-family="'ArialMT'" font-size="9.96">c</tspan><tspan x="97.291" y="0" font-family="'ArialMT'" font-size="9.96">i</tspan><tspan x="99.454" y="0" font-family="'ArialMT'" font-size="9.96">e</tspan><tspan x="104.983" y="0" font-family="'ArialMT'" font-size="9.96">s</tspan></text>
 	</g>
 </g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M565.41,122.61h130.82v57.93c-65.41,0-65.41,22.08-130.82,9.54
+	V122.61z"/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M564.418,122.61
+	c0-0.57,0.451-1.02,0.992-1.02h130.82c0.572,0,1.023,0.45,1.023,1.02v57.93c0,0.54-0.451,0.99-0.994,0.99l-5.953,0.06l-5.564,0.21
+	l-5.232,0.27l-4.902,0.39l-4.631,0.48l-4.361,0.54l-4.119,0.63l-3.91,0.66l-3.729,0.72l-3.549,0.78l-3.428,0.78l-3.279,0.78
+	l-6.346,1.62l-6.164,1.53l-6.195,1.41l-6.406,1.17l-3.338,0.48l-3.459,0.39l-3.607,0.27l-3.76,0.18l-3.971,0.06l-4.18-0.09
+	l-4.42-0.21l-4.691-0.39l-4.963-0.51l-5.262-0.72l-5.625-0.87l-5.984-1.08c-0.451-0.09-0.813-0.51-0.813-0.99V122.61z
+	 M566.434,190.08l-0.842-0.99l5.924,1.08l5.564,0.87l5.232,0.69l4.902,0.54l4.631,0.36l4.361,0.21l4.119,0.09l3.879-0.06l3.73-0.18
+	l3.518-0.27l3.398-0.36l3.277-0.48l6.316-1.14l6.135-1.41l6.166-1.53l6.375-1.62l3.309-0.78l3.457-0.81l3.58-0.75l3.758-0.72
+	l3.971-0.69l4.18-0.63l4.391-0.54l4.691-0.51l4.963-0.39l5.262-0.27l5.594-0.18l5.955-0.06l-0.992,0.99v-57.93l0.992,0.99H565.41
+	l1.023-0.99V190.08z"/>
 <g>
 	<defs>
-		<rect id="SVGID_6_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_16_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_75_">
-		<use xlink:href="#SVGID_6_"  overflow="visible"/>
+		<use xlink:href="#SVGID_16_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_75_)">
-		<text transform="matrix(1 0 0 1 545.5684 371.7148)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="4.328" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="10.814" y="0" font-family="'Calibri'" font-size="13.92">x</tspan><tspan x="16.342" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="23.781" y="0" font-family="'Calibri'" font-size="13.92">n</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 593.4238 139.3242)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="7.678" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="10.915" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="17.64" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="23.521" y="0" font-family="'Calibri'" font-size="14.04">k</tspan><tspan x="29.89" y="0" font-family="'Calibri'" font-size="14.04">li</tspan><tspan x="36.362" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="41.769" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="46.457" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="49.463" y="0" font-family="'Calibri'" font-size="14.04">w</tspan><tspan x="59.542" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="62.778" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="67.466" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="74.786" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_5_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_15_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_76_">
-		<use xlink:href="#SVGID_5_"  overflow="visible"/>
+		<use xlink:href="#SVGID_15_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_76_)">
-		<text transform="matrix(1 0 0 1 580.3652 371.7148)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="3.59" y="0" font-family="'Calibri'" font-size="13.92">Ds</tspan><tspan x="17.738" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="20.621" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="24.949" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="32.387" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 577.1816 156.1211)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="6.482" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="13.453" y="0" font-family="'Calibri'" font-size="14.04">nb</tspan><tspan x="28.093" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="34.819" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="42.139" y="0" font-family="'Calibri'" font-size="14.04">k</tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_4_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_14_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_77_">
-		<use xlink:href="#SVGID_4_"  overflow="visible"/>
+		<use xlink:href="#SVGID_14_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_77_)">
-		<text transform="matrix(1 0 0 1 447.6465 388.5117)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="4.564" y="0" font-family="'Calibri'" font-size="13.92">h</tspan><tspan x="11.768" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="18.721" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="22.076" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="25.201" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="32.639" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="38.637" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="45.346" y="0" font-family="'Calibri'" font-size="13.92">l</tspan><tspan x="48.471" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="51.604" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="59.041" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="62.631" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="69.359" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="75.85" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="82.328" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="85.684" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="92.887" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="99.373" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="103.701" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="110.412" y="0" font-family="'Calibri'" font-size="13.92">b</tspan><tspan x="117.613" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="124.322" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="129.836" y="0" font-family="'Calibri'" font-size="13.92">e</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 629.0332 156.1211)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="3.482" y="0" font-family="'Calibri'" font-size="14.04">D</tspan><tspan x="12.119" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="15.25" y="0" font-family="'Calibri'" font-size="14.04">of</tspan><tspan x="26.994" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="30.001" y="0" font-family="'Calibri'" font-size="14.04">m</tspan><tspan x="41.175" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="44.411" y="0" font-family="'Calibri'" font-size="14.04">ss</tspan><tspan x="55.448" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
-<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M201.255,105.63h130.38v57.84c-65.19,0-65.19,22.035-130.38,9.525
-	V105.63z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M200.265,105.63
-	c0-0.54,0.45-0.99,0.99-0.99h130.38c0.555,0,1.005,0.45,1.005,0.99v57.84c0,0.555-0.45,1.005-0.99,1.005l-3.015,0.015l-2.91,0.045
-	l-5.535,0.18l-5.22,0.3l-4.89,0.375l-4.62,0.479l-4.35,0.555l-4.11,0.6l-3.885,0.675l-3.72,0.735l-3.54,0.75l-3.405,0.765
-	l-3.285,0.81l-3.21,0.795l-3.12,0.795l-6.135,1.545l-6.18,1.395l-3.165,0.615l-3.21,0.555l-3.33,0.465l-3.45,0.39l-3.6,0.285
-	L240,177.765l-3.96,0.045l-4.155-0.075l-4.41-0.225l-4.665-0.375l-4.95-0.525l-5.25-0.705l-5.595-0.9l-2.94-0.51l-3.015-0.57
-	c-0.465-0.09-0.81-0.51-0.81-0.99L200.265,105.63z M202.245,172.935l-0.81-0.975l2.985,0.57l2.91,0.51l5.535,0.87l5.22,0.705
-	l4.89,0.525l4.605,0.375l4.35,0.225l4.095,0.075l3.9-0.045l3.675-0.165l3.54-0.285l3.39-0.375l3.27-0.45l3.18-0.555l3.105-0.615
-	l6.12-1.365l6.135-1.545l3.135-0.795l3.225-0.795l3.315-0.825l3.435-0.78l3.57-0.75l3.75-0.735l3.945-0.675l4.14-0.63l4.41-0.555
-	l4.65-0.48l4.95-0.375l5.25-0.3l5.58-0.18l2.925-0.045l3.015-0.015l-0.99,0.99v-57.84l0.99,1.005h-130.38l1.005-1.005
-	L202.245,172.935z"/>
 <g>
 	<defs>
-		<rect id="SVGID_3_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_13_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_78_">
-		<use xlink:href="#SVGID_3_"  overflow="visible"/>
+		<use xlink:href="#SVGID_13_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_78_)">
-		<text transform="matrix(1 0 0 1 232.6069 122.5352)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">L</tspan><tspan x="5.769" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="8.894" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="14.185" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="18.75" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="22.105" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="29.543" y="0" font-family="'Calibri'" font-size="13.92">f</tspan><tspan x="33.861" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="36.994" y="0" font-family="'Calibri'" font-size="13.92">C</tspan><tspan x="44.431" y="0" font-family="'Calibri'" font-size="13.92">I</tspan><tspan x="48.021" y="0" font-family="'Calibri'" font-size="13.92">T</tspan><tspan x="54.749" y="0" font-family="'Calibri'" font-size="13.92">E</tspan><tspan x="61.239" y="0" font-family="'Calibri'" font-size="13.92">S</tspan><tspan x="67.719" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="71.074" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 578.5098 172.918)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="6.724" y="0" font-family="'Calibri'" font-size="14.04">nn</tspan><tspan x="21.366" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="28.797" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="33.36" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="39.972" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="44.535" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="51.507" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="58.827" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="62.057" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="66.741" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="73.714" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="79.481" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="86.914" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="91.598" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="98.918" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
 	</g>
 </g>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M566.162,159.57l-60.748,53.13
+	l-1.473-1.71l60.748-53.1L566.162,159.57z M512.572,211.47l-9.594,1.86l3.098-9.24c0.211-0.6,0.842-0.93,1.443-0.72
+	c0.572,0.21,0.902,0.84,0.691,1.41l-2.465,7.41l-1.295-1.44l7.699-1.5c0.602-0.12,1.203,0.27,1.324,0.9
+	C513.594,210.75,513.174,211.35,512.572,211.47L512.572,211.47z"/>
+<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="383.617,359.311 383.617,434.43 559.816,434.43 
+	559.816,359.311 383.617,359.311 "/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M382.625,359.311
+	c0-0.541,0.451-0.99,0.992-0.99h176.199c0.572,0,1.023,0.449,1.023,0.99v75.119c0,0.57-0.451,1.02-1.023,1.02H383.617
+	c-0.541,0-0.992-0.449-0.992-1.02V359.311z M384.639,434.43l-1.021-0.99h176.199l-0.992,0.99v-75.119l0.992,1.02H383.617l1.021-1.02
+	V434.43z"/>
 <g>
 	<defs>
-		<rect id="SVGID_2_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_12_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_79_">
-		<use xlink:href="#SVGID_2_"  overflow="visible"/>
+		<use xlink:href="#SVGID_12_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_79_)">
-		<text transform="matrix(1 0 0 1 216.5366 139.3477)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="7.202" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="11.763" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="19.201" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="23.529" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="30.483" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="36.48" y="0" font-family="'Calibri'" font-size="13.92">t</tspan><tspan x="40.809" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="47.763" y="0" font-family="'Calibri'" font-size="13.92">d</tspan><tspan x="54.965" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="58.794" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="64.308" y="0" font-family="'Calibri'" font-size="13.92">p</tspan><tspan x="71.51" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="78.464" y="0" font-family="'Calibri'" font-size="13.92">c</tspan><tspan x="84.461" y="0" font-family="'Calibri'" font-size="13.92">i</tspan><tspan x="87.586" y="0" font-family="'Calibri'" font-size="13.92">e</tspan><tspan x="94.54" y="0" font-family="'Calibri'" font-size="13.92">s</tspan><tspan x="100.054" y="0" font-family="'Calibri'" font-size="13.92"> </tspan></text>
+		<text transform="matrix(1.0024 0 0 1 396.0098 376.043)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">6</tspan><tspan x="7.088" y="0" font-family="'Calibri'" font-size="14.04">.</tspan><tspan x="10.673" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="13.679" y="0" font-family="'Calibri'" font-size="14.04">F</tspan><tspan x="20.158" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="23.394" y="0" font-family="'Calibri'" font-size="14.04">ag</tspan><tspan x="36.728" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="39.735" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="47.177" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="50.659" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="57.502" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="64.229" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="70.71" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="73.94" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="79.458" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="86.78" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="93.751" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="99.631" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="102.867" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="109.839" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="115.358" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="118.491" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="121.727" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="129.047" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="132.278" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="136.965" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="144.285" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="151.259" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
 	</g>
 </g>
 <g>
 	<defs>
-		<rect id="SVGID_1_" x="0.12" y="0.12" width="719.999" height="540"/>
+		<rect id="SVGID_11_" x="0.06" y="0.06" width="721.762" height="540"/>
 	</defs>
 	<clipPath id="SVGID_80_">
-		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+		<use xlink:href="#SVGID_11_"  overflow="visible"/>
 	</clipPath>
 	<g clip-path="url(#SVGID_80_)">
-		<text transform="matrix(1 0 0 1 235.0132 156.1445)"><tspan x="0" y="0" font-family="'Calibri'" font-size="13.92">a</tspan><tspan x="6.709" y="0" font-family="'Calibri'" font-size="13.92">nd</tspan><tspan x="21.114" y="0" font-family="'Calibri'" font-size="13.92"> </tspan><tspan x="24.469" y="0" font-family="'Calibri'" font-size="13.92">g</tspan><tspan x="30.952" y="0" font-family="'Calibri'" font-size="13.92">r</tspan><tspan x="35.513" y="0" font-family="'Calibri'" font-size="13.92">o</tspan><tspan x="42.951" y="0" font-family="'Calibri'" font-size="13.92">up</tspan><tspan x="57.355" y="0" font-family="'Calibri'" font-size="13.92">s</tspan></text>
+		<text transform="matrix(1.0024 0 0 1 402.0254 392.8398)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">B</tspan><tspan x="7.678" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="13.566" y="0" font-family="'Calibri'" font-size="14.04">A</tspan><tspan x="21.718" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="28.086" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="34.928" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="37.821" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="45.141" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="48.378" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="53.065" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="58.585" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="61.815" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="69.024" y="0" font-family="'Calibri'" font-size="14.04">y</tspan><tspan x="75.378" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="78.608" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="84.377" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="91.808" y="0" font-family="'Calibri'" font-size="14.04">m</tspan><tspan x="102.982" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="110.302" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="117.028" y="0" font-family="'Calibri'" font-size="14.04">ri</tspan><tspan x="125.172" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="132.494" y="0" font-family="'Calibri'" font-size="14.04">g </tspan></text>
 	</g>
 </g>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M517.02,307.771v28.02h-2.25v-28.02
-	H517.02z M520.801,329.61l-4.92,8.4l-4.891-8.4c-0.33-0.541-0.15-1.23,0.391-1.561c0.539-0.301,1.229-0.119,1.529,0.42l3.959,6.75
-	h-1.949l3.93-6.75c0.33-0.539,1.02-0.721,1.531-0.42C520.92,328.38,521.1,329.069,520.801,329.61L520.801,329.61z"/>
-<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M517.02,396.271v41.639h-2.25
-	v-41.639H517.02z M520.801,431.729l-4.92,8.4l-4.891-8.4c-0.33-0.539-0.15-1.23,0.391-1.529c0.539-0.33,1.229-0.15,1.529,0.391
-	l3.959,6.75h-1.949l3.93-6.75c0.33-0.541,1.02-0.721,1.531-0.391C520.92,430.499,521.1,431.19,520.801,431.729L520.801,431.729z"/>
-<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M337.365,367.38l71.401-1.336
-	l0.029,2.25l-71.385,1.336L337.365,367.38z M402.51,362.386l8.506,4.738l-8.326,5.07c-0.525,0.33-1.229,0.15-1.545-0.375
-	c-0.33-0.525-0.15-1.215,0.375-1.545l6.676-4.064l0.029,1.949l-6.811-3.809c-0.555-0.316-0.75-0.99-0.434-1.531
-	C401.279,362.265,401.971,362.085,402.51,362.386L402.51,362.386z"/>
+<g>
+	<defs>
+		<rect id="SVGID_10_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_81_">
+		<use xlink:href="#SVGID_10_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_81_)">
+		<text transform="matrix(1.0024 0 0 1 400.8145 409.6367)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="4.688" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="12.008" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="18.981" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_9_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_82_">
+		<use xlink:href="#SVGID_9_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_82_)">
+		<text transform="matrix(1.0024 0 0 1 422.9551 409.6367)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="4.561" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="11.176" y="0" font-family="'Calibri'" font-size="14.04">x</tspan><tspan x="16.947" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="24.378" y="0" font-family="'Calibri'" font-size="14.04">n</tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_8_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_83_">
+		<use xlink:href="#SVGID_8_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_83_)">
+		<text transform="matrix(1.0024 0 0 1 457.9551 409.6367)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="3.482" y="0" font-family="'Calibri'" font-size="14.04">D</tspan><tspan x="12.119" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="17.638" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="20.769" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="25.333" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="32.764" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="35.77" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="40.46" y="0" font-family="'Calibri'" font-size="14.04">h</tspan><tspan x="47.78" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="54.751" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="58.108" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="61.344" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="68.775" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="74.544" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="81.27" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="84.506" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_7_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_84_">
+		<use xlink:href="#SVGID_7_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_84_)">
+		<text transform="matrix(1.0024 0 0 1 428.8379 426.4414)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="7.443" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="10.924" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="17.767" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="24.495" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="30.975" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="33.981" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="41.301" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="47.914" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="52.475" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="59.201" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="66.521" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="73.246" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="78.766" y="0" font-family="'Calibri'" font-size="14.04">e</tspan></text>
+	</g>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M190.41,105.63h130.699v57.84c-65.35,0-65.35,22.035-130.699,9.525
+	V105.63z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M189.403,105.63
+	c0-0.54,0.451-0.99,1.007-0.99h130.699c0.556,0,1.007,0.45,1.007,0.99v57.84c0,0.555-0.451,1.005-0.992,1.005l-5.939,0.06
+	l-5.564,0.195l-5.217,0.285l-4.917,0.375l-4.616,0.48l-4.36,0.555l-4.12,0.615l-3.91,0.675l-3.714,0.705l-3.564,0.765l-3.398,0.78
+	l-3.293,0.795l-6.345,1.605l-6.165,1.53l-6.18,1.395l-6.391,1.185l-3.353,0.465l-3.443,0.39l-3.609,0.285l-3.759,0.18l-3.97,0.045
+	l-4.18-0.075l-4.406-0.21l-4.676-0.375l-4.962-0.54l-5.278-0.69l-5.609-0.9l-5.954-1.065c-0.481-0.09-0.827-0.51-0.827-0.99V105.63z
+	 M191.417,172.995l-0.827-0.99l5.909,1.08l5.563,0.87l5.218,0.705l4.902,0.525l4.617,0.36l4.36,0.225l4.105,0.075l3.895-0.06
+	l3.714-0.165l3.534-0.285l3.398-0.375l3.263-0.465l6.315-1.155l6.135-1.38l6.15-1.545l6.36-1.59l3.323-0.81l3.443-0.795l3.579-0.75
+	l3.759-0.735l3.955-0.675l4.165-0.63l4.406-0.555l4.677-0.465l4.947-0.405l5.278-0.285l5.594-0.18l5.939-0.06l-0.992,0.99v-57.84
+	l1.007,1.005H190.41l1.007-1.005V172.995z"/>
+<g>
+	<defs>
+		<rect id="SVGID_6_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_85_">
+		<use xlink:href="#SVGID_6_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_85_)">
+		<text transform="matrix(1.0024 0 0 1 221.7827 122.3633)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">L</tspan><tspan x="5.888" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="9.125" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="14.532" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="19.221" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="22.226" y="0" font-family="'Calibri'" font-size="14.04">of</tspan><tspan x="33.971" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="36.976" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="44.421" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="47.902" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="54.743" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="61.473" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="67.951" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="71.083" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_5_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_86_">
+		<use xlink:href="#SVGID_5_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_86_)">
+		<text transform="matrix(1.0024 0 0 1 205.5405 139.168)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="7.32" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="12.004" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="19.436" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="23.999" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="30.971" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="36.851" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="41.414" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="48.385" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="55.706" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="58.838" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="64.357" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="71.677" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="78.649" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="84.529" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="87.766" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="94.737" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="100.257" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_4_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_87_">
+		<use xlink:href="#SVGID_4_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_87_)">
+		<text transform="matrix(1.0024 0 0 1 224.064 155.9648)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="6.725" y="0" font-family="'Calibri'" font-size="14.04">nd</tspan><tspan x="21.366" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="24.498" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="31.106" y="0" font-family="'Calibri'" font-size="14.04">r</tspan><tspan x="35.791" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="43.223" y="0" font-family="'Calibri'" font-size="14.04">u</tspan><tspan x="50.543" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="57.751" y="0" font-family="'Calibri'" font-size="14.04">s</tspan></text>
+	</g>
+</g>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M472.846,328.994v28.08h-2.256
+	v-28.08H472.846z M476.648,350.895l-4.932,8.416l-4.916-8.416c-0.316-0.539-0.137-1.23,0.406-1.529
+	c0.541-0.314,1.232-0.135,1.549,0.404l3.939,6.75h-1.941l3.941-6.75c0.314-0.539,1.006-0.719,1.549-0.404
+	C476.77,349.664,476.965,350.355,476.648,350.895L476.648,350.895z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M472.846,434.43v20.355h-2.256
+	V434.43H472.846z M476.648,448.605l-4.932,8.414l-4.916-8.414c-0.316-0.541-0.137-1.215,0.406-1.531
+	c0.541-0.314,1.232-0.135,1.549,0.406l3.939,6.75h-1.941l3.941-6.75c0.314-0.541,1.006-0.721,1.549-0.406
+	C476.77,447.375,476.965,448.064,476.648,448.605L476.648,448.605z"/>
+<path stroke="#000000" stroke-width="0.015" stroke-linejoin="round" stroke-miterlimit="10" d="M327.59,339.359L382.85,394.5
+	l-1.607,1.59l-55.246-55.141L327.59,339.359z M381.15,387.449l2.482,9.42l-9.443-2.475c-0.602-0.164-0.963-0.779-0.813-1.379
+	c0.166-0.602,0.781-0.961,1.383-0.795l7.58,1.994l-1.385,1.365l-2-7.561c-0.15-0.6,0.211-1.215,0.813-1.365
+	C380.369,386.49,380.986,386.85,381.15,387.449L381.15,387.449z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M559.816,277.17h142.098v57.93
+	c-71.033,0-71.033,22.051-142.098,9.51V277.17z"/>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M558.824,277.17
+	c0-0.539,0.451-0.99,0.992-0.99h142.098c0.572,0,1.023,0.451,1.023,0.99v57.93c0,0.541-0.451,0.99-0.992,0.99l-6.467,0.061
+	l-6.045,0.18l-5.684,0.301l-5.354,0.389l-5.021,0.48l-4.752,0.539l-4.48,0.602l-4.24,0.689l-4.031,0.721l-3.879,0.75l-3.699,0.779
+	l-3.607,0.811l-6.889,1.59l-6.705,1.559l-6.707,1.381l-6.947,1.199l-3.607,0.451l-3.76,0.391l-3.91,0.299l-4.09,0.18l-4.301,0.031
+	l-4.541-0.061l-4.811-0.211l-5.084-0.389l-5.383-0.541l-5.713-0.689l-6.105-0.9l-6.467-1.08c-0.48-0.061-0.842-0.48-0.842-0.99
+	V277.17z M560.84,344.609l-0.842-0.959l6.436,1.049l6.045,0.9l5.684,0.689l5.322,0.512l5.023,0.389l4.752,0.211l4.48,0.09
+	l4.24-0.061l4.029-0.18l3.85-0.27l3.699-0.391l3.549-0.449l6.857-1.17l6.676-1.381l6.707-1.529l6.916-1.621l3.609-0.809l3.729-0.781
+	l3.91-0.779l4.059-0.721l4.301-0.689l4.541-0.6l4.781-0.57l5.084-0.48l5.383-0.391l5.713-0.27l6.076-0.209l6.465-0.061l-0.992,1.02
+	v-57.93l0.992,0.99H559.816l1.023-0.99V344.609z"/>
+<g>
+	<defs>
+		<rect id="SVGID_3_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_88_">
+		<use xlink:href="#SVGID_3_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_88_)">
+		<text transform="matrix(1.0024 0 0 1 574.4863 293.8945)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">(</tspan><tspan x="4.201" y="0" font-family="'Calibri'" font-size="14.04">O</tspan><tspan x="13.455" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="20.775" y="0" font-family="'Calibri'" font-size="14.04">ti</tspan><tspan x="28.582" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="36.015" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="43.335" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="50.061" y="0" font-family="'Calibri'" font-size="14.04">l</tspan><tspan x="53.297" y="0" font-family="'Calibri'" font-size="14.04">)</tspan><tspan x="57.498" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="60.728" y="0" font-family="'Calibri'" font-size="14.04">d</tspan><tspan x="68.048" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="74.661" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="79.224" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="85.948" y="0" font-family="'Calibri'" font-size="14.04">b</tspan><tspan x="93.27" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="99.993" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="105.513" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="112.484" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_2_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_89_">
+		<use xlink:href="#SVGID_2_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_89_)">
+		<text transform="matrix(1.0024 0 0 1 573.1582 310.6914)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="5.767" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="13.2" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="20.407" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="24.97" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="31.696" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="34.932" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="42.252" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="45.488" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="52.808" y="0" font-family="'Calibri'" font-size="14.04">g</tspan><tspan x="59.417" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="62.647" y="0" font-family="'Calibri'" font-size="14.04">t</tspan><tspan x="67.21" y="0" font-family="'Calibri'" font-size="14.04">a</tspan><tspan x="73.823" y="0" font-family="'Calibri'" font-size="14.04">x</tspan><tspan x="79.594" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="87.027" y="0" font-family="'Calibri'" font-size="14.04">n</tspan><tspan x="94.347" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="97.478" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="100.96" y="0" font-family="'Calibri'" font-size="14.04">D</tspan><tspan x="109.597" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="115.117" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="0.06" y="0.06" width="721.762" height="540"/>
+	</defs>
+	<clipPath id="SVGID_90_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<g clip-path="url(#SVGID_90_)">
+		<text transform="matrix(1.0024 0 0 1 568.8301 327.4961)"><tspan x="0" y="0" font-family="'Calibri'" font-size="14.04">of</tspan><tspan x="11.745" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="14.638" y="0" font-family="'Calibri'" font-size="14.04">(n</tspan><tspan x="26.159" y="0" font-family="'Calibri'" font-size="14.04">o</tspan><tspan x="33.592" y="0" font-family="'Calibri'" font-size="14.04">n)</tspan><tspan x="45.112" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="48.343" y="0" font-family="'Calibri'" font-size="14.04">C</tspan><tspan x="55.787" y="0" font-family="'Calibri'" font-size="14.04">I</tspan><tspan x="59.267" y="0" font-family="'Calibri'" font-size="14.04">T</tspan><tspan x="66.11" y="0" font-family="'Calibri'" font-size="14.04">E</tspan><tspan x="72.839" y="0" font-family="'Calibri'" font-size="14.04">S</tspan><tspan x="79.318" y="0" font-family="'Calibri'" font-size="14.04"> </tspan><tspan x="82.451" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="87.968" y="0" font-family="'Calibri'" font-size="14.04">p</tspan><tspan x="95.29" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="102.261" y="0" font-family="'Calibri'" font-size="14.04">c</tspan><tspan x="108.142" y="0" font-family="'Calibri'" font-size="14.04">i</tspan><tspan x="111.378" y="0" font-family="'Calibri'" font-size="14.04">e</tspan><tspan x="118.349" y="0" font-family="'Calibri'" font-size="14.04">s</tspan><tspan x="123.869" y="0" font-family="'Calibri'" font-size="14.04"> </tspan></text>
+	</g>
+</g>
+<path stroke="#000000" stroke-width="0.03" stroke-linejoin="round" stroke-miterlimit="10" d="M631.543,345.51l-69.26,50.939
+	l-1.322-1.799l69.258-50.939L631.543,345.51z M569.531,395.85l-9.715,1.02l3.881-8.939c0.24-0.57,0.902-0.84,1.473-0.57
+	c0.572,0.24,0.842,0.9,0.602,1.471l-3.098,7.17l-1.172-1.561l7.789-0.84c0.631-0.061,1.172,0.391,1.232,0.99
+	C570.613,395.221,570.162,395.76,569.531,395.85L569.531,395.85z"/>
 </svg>
