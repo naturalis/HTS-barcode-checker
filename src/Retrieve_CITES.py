@@ -271,6 +271,7 @@ def write_csv (date, taxon_id_dic):
 	# write the CITES results to the database
 	
 	db = open(args.db, 'w')
+	db.write('#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
 	db.write('Date,' + date + ',\n')
 	for taxid in taxon_id_dic:
 		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')

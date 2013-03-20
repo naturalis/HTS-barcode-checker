@@ -118,13 +118,13 @@ def get_CITES ():
 def get_CITES_dic ():
 	
 	# open the local CITES database, return a dictionary
-	# containing the CITES information with the taxid's as keys
+	# containing the CITES information with the taxids as keys
 
 	CITES_dic = {}
 	
 	for line in open(args.cd, 'r'):
 		line = line.rstrip().split(',')
-		if line[0] != 'Date':
+		if line[0] != 'Date' and line[0][0] != '#':
 			CITES_dic[line[0]] = line[1:]
 
 	return CITES_dic
