@@ -97,7 +97,7 @@ def get_blacklist ():
 	# the blacklist follows the following format:
 	# genbank_id, description
 	try:
-		return [line.split(',')[0] for line in open(args.bl,'r')]
+		return [line.split(',')[0] for line in open(args.bl,'r') if line[0] != '#']
 	except:
 		return []
 
