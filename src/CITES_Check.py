@@ -33,7 +33,7 @@ parser.add_argument('-me', '--max_evalue', dest='me', type=float,
 parser.add_argument('-bl', '--blacklist', metavar='blacklist file', dest='bl', type=str,
 			help = 'File containing the blacklisted genbank id\'s', default='')
 parser.add_argument('-cd', '--CITES_db', metavar='CITES database file', dest='cd', type=str,
-			help = 'Path to the local copy of the CITES database')
+			help = 'Path to the local copy of the CITES database', nargs='+')
 parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
 			help = 'Force the update of the local CITES database')
 parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
@@ -121,16 +121,16 @@ def get_CITES_dic ():
 	# containing the CITES information with the taxids as keys
 
 	CITES_dic = {}
-	
-	for line in open(args.cd, 'r'):
-		line = line.rstrip().split(',')
-		if line[0] != 'Date' and line[0][0] != '#':
-			CITES_dic[line[0]] = line[1:]
+	for path in args.cd:
+		for line in open(path, 'r'):
+			line = line.rstrip().split(',')
+			if line[0] != 'Date' and line[0][0] != '#':
+				CITES_dic[line[0]] = line[1:]
 
 	return CITES_dic
 
 
-def parse_blast (blast_list, CITES_dic, blacklist, mode):
+def parse_blast (blast_list, CITES_dic, blacklist):
 	
 	# parse_through the blast results and remove
 	# results that do not meet the e-value, coverage,
@@ -156,7 +156,7 @@ def parse_blast (blast_list, CITES_dic, blacklist, mode):
 				# pass this list to the filter_hits function to
 				# filter and write the blast results
 				filter_hits([('\"' + blast_result.query + '\"'), ('\"' + alignment.title + '\"'), gb_num, str(identity),
-						str(blast_result.query_length), str(hsp.expect), str(hsp.bits)], CITES_dic, blacklist, mode)
+						str(blast_result.query_length), str(hsp.expect), str(hsp.bits)], CITES_dic, blacklist)
 
 
 def obtain_tax (code):
@@ -183,7 +183,7 @@ def obtain_tax (code):
 	return taxon
 
 
-def filter_hits (blast, CITES_dic, blacklist, mode):
+def filter_hits (blast, CITES_dic, blacklist):
 	
 	# filter the blast hits, based on the minimum
 	# identity, minimum coverage, e-value and the user blacklist
@@ -199,7 +199,7 @@ def filter_hits (blast, CITES_dic, blacklist, mode):
 				results += CITES_dic[taxon][1:]
 			
 			# write the results
-			write_results(','.join(results), mode)
+			write_results(','.join(results), 'a')
 			
 			
 
@@ -224,7 +224,6 @@ def main ():
 	blacklist = get_blacklist()
 
 	# create a blank result file and write the header
-	#header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,genbank record species,CITES species,CITES info,NCBI Taxonomy name,appendix'
 	header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,CITES info (numbers match the footnotes at the online CITES appendice),NCBI Taxonomy name,appendix'
 	write_results(header, 'w')
 
@@ -232,8 +231,8 @@ def main ():
 	blast_list = blast_bulk()
 
 	# parse through the results and write the blast hits + CITES info
-	parse_blast(blast_list, CITES_dic, blacklist, 'a')
-	
+	parse_blast(blast_list, CITES_dic, blacklist)
+
 
 if __name__ == "__main__":
     main()

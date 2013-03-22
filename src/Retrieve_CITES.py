@@ -11,7 +11,7 @@ import argparse
 parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
 
 parser.add_argument('-db', '--CITES_db', metavar='CITES database name', dest='db',type=str,
-			help='Name and path to the location for the CITES database')
+			help='Name and path to the location for the CITES database', nargs='+')
 parser.add_argument('-f', '--force', dest='f', action='store_true',
 			help='Force updating the CITES database')
 args = parser.parse_args()
@@ -32,8 +32,12 @@ def download_raw_CITES ():
 
 def CITES_date ():
 	
-	# open the local CITES database to retrieve the date
-	return open(args.db, 'r').readline().split(',')[1]
+	# open the local CITES database(s) to retrieve the date of the last update
+	for path in args.db:
+		for line in open(path, 'r'):
+			line = line.rstrip().split(',')
+			if line[0] == 'Date':
+				return line[1]
 
 	
 def clean_cell (cell):
@@ -209,7 +213,7 @@ def obtain_tax (taxid):
 		Entrez.email = "get_taxid@expand_CITES.com"
 		search = Entrez.efetch(db="taxonomy", id= taxid, retmode="xml")
 		record = Entrez.read(search)
-		organism = record[0]['ScientificName']
+		organism = '\"' + record[0]['ScientificName'] + '\"'
 		handle.close()
 	except:
 		pass
@@ -246,6 +250,11 @@ def combine_sets (CITES_dic, CITES_notes):
 				if len(TNRS_data) < 3 and len(TNRS_data[1]) > 0:
 					for name in TNRS_data[1]:
 						temp_taxon_list += get_taxid(name)
+					# print the synomyms for who a taxon id could be found					
+					if len(temp_taxon_list) > 0: 
+						print temp_name
+						print temp_taxon_list
+						print '\n'
 			
 			# expand the taxon_id_dic with the taxid's as
 			# keys and the CITES species / CITES cell and 
@@ -271,8 +280,7 @@ def write_csv (date, taxon_id_dic):
 	# write the CITES results to the database
 	
 	db = open(args.db, 'w')
-	db.write('#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
-	db.write('Date,' + date + ',\n')
+	db.write('#Date of last update:\nDate,' + date + ',\n#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
 	for taxid in taxon_id_dic:
 		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')
 	db.close()
