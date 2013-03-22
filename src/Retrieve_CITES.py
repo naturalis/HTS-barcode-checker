@@ -30,14 +30,20 @@ def download_raw_CITES ():
 	return CITES_php
 
 
-def CITES_date ():
+def local_CITES_data ():
 	
-	# open the local CITES database(s) to retrieve the date of the last update
+	# open the local CITES database(s) to retrieve the date and path of output file
+	results_dic = {}
 	for path in args.db:
-		for line in open(path, 'r'):
-			line = line.rstrip().split(',')
-			if line[0] == 'Date':
-				return line[1]
+		try:
+			for line in open(path, 'r'):
+				line = line.rstrip().split(',')
+				if line[0] == 'Date':
+					results_dic['Date'] = line[1]
+					results_dic['output'] = path
+		except:
+			results_dic['output'] = path
+	return results_dic
 
 	
 def clean_cell (cell):
@@ -275,11 +281,11 @@ def combine_sets (CITES_dic, CITES_notes):
 	return taxon_id_dic
 			
 
-def write_csv (date, taxon_id_dic):
+def write_csv (date, taxon_id_dic, file_path):
 
 	# write the CITES results to the database
 	
-	db = open(args.db, 'w')
+	db = open(file_path, 'w')
 	db.write('#Date of last update:\nDate,' + date + ',\n#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
 	for taxid in taxon_id_dic:
 		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')
@@ -296,8 +302,10 @@ def main ():
 	
 	# try to open the CITES database and check if the current version
 	# (if there is one) is up to date
+	file_data = local_CITES_data()
+	output_path = file_data['output']
 	try:
-		if CITES_info[0] == CITES_date() and args.f != True:
+		if CITES_info[0] == file_data['Date'] and args.f != True:
 			print 'Local CITES database is up to date'
 			return
 	except:
@@ -311,7 +319,7 @@ def main ():
 	taxon_id_dic = combine_sets(CITES_info[1], CITES_info[2])
 
 	# write the results to the output location
-	write_csv(CITES_info[0], taxon_id_dic)
+	write_csv(CITES_info[0], taxon_id_dic, output_path)
 	
 
 if __name__ == "__main__":

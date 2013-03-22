@@ -21,15 +21,15 @@ parser.add_argument('-ba', '--BLAST_algorithm', metavar='algorithm', dest='ba', 
 parser.add_argument('-bd', '--BLAST_database', metavar='database', dest='bd', type=str,
 			help = 'Enter the database BLAST wil use (default=nt)', default = 'nt')
 parser.add_argument('-hs', '--hitlist_size', dest='hs', type=int,
-			help = 'Enter the size of the hitlist BLAST wil return (default=1)', default = 1)
+			help = 'Enter the size of the hitlist BLAST wil return (default=10)', default = 10)
 parser.add_argument('-mb', '--megablast', dest='mb', action='store_true', 
 			help = 'Use megablast, can only be used in combination with blastn')
 parser.add_argument('-mi', '--min_identity', dest='mi', type=int, 
-			help = 'Enter the minimal identity for BLAST results', default = 97)
+			help = 'Enter the minimal percentage of identity for BLAST results (default=97)', default = 97)
 parser.add_argument('-mc', '--min_coverage', dest='mc', type=int, 
-			help = 'Enter the minimal coverage for BLAST results', default = 100)
+			help = 'Enter the minimal coverage for BLAST results in number of bases (default=100)', default = 100)
 parser.add_argument('-me', '--max_evalue', dest='me', type=float, 
-			help = 'Enter the minimal E-value for BLAST results', default = 0.05)
+			help = 'Enter the minimal E-value for BLAST results (default=0.05)', default = 0.05)
 parser.add_argument('-bl', '--blacklist', metavar='blacklist file', dest='bl', type=str,
 			help = 'File containing the blacklisted genbank id\'s', default='')
 parser.add_argument('-cd', '--CITES_db', metavar='CITES database file', dest='cd', type=str,
