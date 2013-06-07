@@ -41,55 +41,6 @@ parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
 
 args = parser.parse_args()
 
-def blast_bulk ():
-
-	# The blast modules are imported from biopython
-	from Bio.Blast import NCBIWWW, NCBIXML
-	from Bio import SeqIO
-	import os
-	
-	# parse the fasta file and get a list of sequences
-	seq_list = [seq for seq in SeqIO.parse(args.i, 'fasta')]
-
-	# grap the file path to the input file, here the temporary fasta files will be created
-	dir, file = os.path.split(args.i)
-
-	# create the list where all the blast results are stored in
-	blast_list = []
-
-	# while there are still sequences left unblasted: create a file of these
-	# sequences and blast them
-	while len(seq_list) > 0:
-	
-		# create the temporary file
-		temp_file_path = os.path.join(dir, 'temp.fasta')
-		temp_file = open(temp_file_path, 'w')
-
-		# fill the temp file with a max set of 50 sequences
-		# these sequences are removed from the sequence list
-		if len(seq_list) >= 50:
-			SeqIO.write(seq_list[:50], temp_file, 'fasta')
-			seq_list = seq_list[50:]
-		else:
-			SeqIO.write(seq_list, temp_file, 'fasta')
-			seq_list = []
-		temp_file.close()
-
-		# read the temp fasta file
-		temp_fasta_file = open(temp_file_path, 'r')
-		fasta_handle = temp_fasta_file.read()
-
-		# blast the temporary file, and save the blasthits in the blast_list
-		result_handle = NCBIWWW.qblast(args.ba, args.bd, fasta_handle, megablast=args.me, hitlist_size=args.hs)
-		#result_handle = NCBIWWW.qblast(args.ba, args.bd, temp_file_path, megablast=args.me, hitlist_size=args.hs)
-		blast_list += [item for item in NCBIXML.parse(result_handle)]
-
-		# remove the temporary file		
-		os.remove(temp_file_path)
-
-	# return the filled blast hit
-	return blast_list
-
 
 def get_blacklist ():
 	
@@ -107,11 +58,15 @@ def get_CITES ():
 	# import the subporcess module to run the 
 	# Retieve_CITES script from the shell
 	from subprocess import call
+	import sys, os
+
+	dir, file = os.path.split(sys.argv[0])
+	CITES_path = dir+'/Retrieve_CITES.py'
 	
 	if args.fd == True:
-		path = call(['./Retrieve_CITES.py', '-db', args.cd, '-f'])
+		path = call([CITES_path, '-db'] + args.cd + ['-f'])
 	else:
-		path = call(['./Retrieve_CITES.py', '-db', args.cd])
+		path = call([CITES_path, '-db'] + args.cd)
 
 
 
@@ -130,14 +85,64 @@ def get_CITES_dic ():
 	return CITES_dic
 
 
-def parse_blast (blast_list, CITES_dic, blacklist):
-	
-	# parse_through the blast results and remove
-	# results that do not meet the e-value, coverage,
-	# identity and blacklist critera
+def blast_bulk (sequences, thread_number):
 
+	# The blast modules are imported from biopython
 	from Bio.Blast import NCBIWWW, NCBIXML
+	from Bio import SeqIO
+	import os
 
+	# grap the file path to the input file, here the temporary fasta files will be created
+	dir, file = os.path.split(args.i)
+
+	# create the list where all the blast results are stored in
+	blast_list = []
+
+	# create the temporary file
+	temp_file_path = os.path.join(dir, (str(thread_number) + 'temp.fasta'))
+	temp_file = open(temp_file_path, 'w')
+
+	# fill the temp file with sequences
+	SeqIO.write(sequences, temp_file, 'fasta')
+	temp_file.close()
+
+	# read the temp fasta file
+	temp_fasta_file = open(temp_file_path, 'r')
+	fasta_handle = temp_fasta_file.read()
+
+	# blast the temporary file, and save the blasthits in the blast_list
+	try:	
+		result_handle = NCBIWWW.qblast(args.ba, args.bd, fasta_handle, megablast=args.me, hitlist_size=args.hs)
+
+		blast_list += [item for item in NCBIXML.parse(result_handle)]
+	except:
+		return 'failed'
+
+	# remove the temporary file		
+	os.remove(temp_file_path)
+
+	# return the filled blast hit
+	return blast_list
+
+
+def parse_blast_align (sequences, thread, CITES_dic, blacklist):
+	# import the biopython module to deal with fasta parsing
+	from Bio import SeqIO
+	
+	blast_count, blast_list = 0, 'failed'
+	while blast_list == 'failed' and blast_count < 3:
+		if blast_count > 0: print '\nblast thread: ' + str(thread) + ' failed, retrying attempt: '+ str(blast_count)
+		blast_list = blast_bulk(sequences, thread)
+		blast_count += 1
+
+	if blast_list == 'failed':
+		for seq in sequences:
+			write_results(seq.id + ',' + 'failed', 'a')
+		return
+
+	count = 1	
+
+	# parse though the blast hits
 	for blast_result in blast_list:
 		for alignment in blast_result.alignments:
 			for hsp in alignment.hsps:
@@ -147,7 +152,7 @@ def parse_blast (blast_list, CITES_dic, blacklist):
 
 				# grab the genbank number
 				gb_num = alignment.title.split('|')[1]
-				
+
 				# an alignment needs to meet 3 criteria before 
 				# it is an acceptable result: above the minimum 
 				# identity, minimum coverage and E-value
@@ -157,8 +162,27 @@ def parse_blast (blast_list, CITES_dic, blacklist):
 				# filter and write the blast results
 				filter_hits([('\"' + blast_result.query + '\"'), ('\"' + alignment.title + '\"'), gb_num, str(identity),
 						str(blast_result.query_length), str(hsp.expect), str(hsp.bits)], CITES_dic, blacklist)
+				count += 1
 
 
+def filter_hits (blast, CITES_dic, blacklist):
+	
+	# filter the blast hits, based on the minimum
+	# identity, minimum coverage, e-value and the user blacklist
+	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
+		if blast[2] not in blacklist:
+			taxon = obtain_tax(blast[2])
+			results = blast+taxon
+
+			# check if the taxon id of the blast hit
+			# is present in the CITES_dic
+			if taxon[0] in CITES_dic:
+				results += CITES_dic[taxon[0]][1:]
+			
+			# write the results
+			write_results(','.join(results), 'a')
+
+	
 def obtain_tax (code):
 	
 	# a module from Biopython is imported to connect to the Entrez database
@@ -176,32 +200,13 @@ def obtain_tax (code):
 		# parse through the features and grap the taxon_id
 		sub = record.features
 		taxon = sub[0].qualifiers['db_xref'][0].split(':')[1]
+		species = sub[0].qualifiers['organism'][0]
 
 	except:
 		pass
 
-	return taxon
+	return [taxon, species]
 
-
-def filter_hits (blast, CITES_dic, blacklist):
-	
-	# filter the blast hits, based on the minimum
-	# identity, minimum coverage, e-value and the user blacklist
-	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
-		if blast[2] not in blacklist:
-			taxon = obtain_tax(blast[2])
-			results = blast+[taxon]
-
-			# check if the taxon id of the blast hit
-			# is present in the CITES_dic
-			if taxon in CITES_dic:
-				#results += CITES_dic[taxon[0]]
-				results += CITES_dic[taxon][1:]
-			
-			# write the results
-			write_results(','.join(results), 'a')
-			
-			
 
 def write_results (result, mode):
 	
@@ -209,6 +214,57 @@ def write_results (result, mode):
 	out_file = open(args.o, mode)
 	out_file.write(result + '\n')
 	out_file.close()
+
+
+def parse_seq_file (CITES_dic, blacklist):
+	# import the biopython module to deal with fasta parsing
+	# and the multiprocessing module to run multiple blast threads
+	from Bio import SeqIO
+	import multiprocessing
+	import time
+	import sys
+	
+	# parse the fasta file
+	seq_list, sub_list = [seq for seq in SeqIO.parse(args.i, 'fasta')], []
+	
+	# blast each sequence in the seq_list list
+	procs, count, threads = [], 1, 10
+	print 'Blasting sequences\n' + str(len(seq_list))
+	while len(seq_list) > 0 or len(procs) > 0:
+		# start the maximum number of threads
+		while len(procs) < threads and len(seq_list) > 0:
+			if len(seq_list) >= 50:
+				sub_list = seq_list[:50]
+				seq_list = seq_list[50:]
+			else:
+				sub_list = seq_list
+				seq_list = []
+			try:
+				p = multiprocessing.Process(target=parse_blast_align, args=(sub_list, count, CITES_dic, blacklist,)) 
+				procs.append([p, time.time()])
+				p.start()
+				count+=1
+				sys.stdout.write('\r' + str(len(seq_list)))
+				sys.stdout.flush()
+			except:
+				break
+
+		# check when a thread is done, remove from the thread list and start
+		# a new thread
+		while len(procs) > 0:
+			for p in procs:
+				if p[0].is_alive() == False: 
+					p[0].join()
+					procs.remove(p)
+				# time-out after 30 minutes
+				elif time.time() - p[1] > 10800:
+					try:
+						print '\ntimeout proc: ' + str(p[0])
+					except:
+						pass
+					p[0].terminate()
+					procs.remove(p)
+			break
 
 
 def main ():
@@ -224,14 +280,11 @@ def main ():
 	blacklist = get_blacklist()
 
 	# create a blank result file and write the header
-	header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,CITES info (numbers match the footnotes at the online CITES appendice),NCBI Taxonomy name,appendix'
+	header = 'query,hit,accession,identity,hit length,e-value,bit-score,taxon id,species,CITES info (numbers match the footnotes at the online CITES appendice),NCBI Taxonomy name,appendix'
 	write_results(header, 'w')
 
-	# blast the fasta file
-	blast_list = blast_bulk()
-
-	# parse through the results and write the blast hits + CITES info
-	parse_blast(blast_list, CITES_dic, blacklist)
+	# parse through the sequence file, blast all sequences and write the blast hits + CITES info
+	parse_seq_file(CITES_dic, blacklist)
 
 
 if __name__ == "__main__":
