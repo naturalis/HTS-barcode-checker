@@ -102,7 +102,6 @@ def parse_php (php_file):
 			cleaned = clean_cell(td.find('b'))
 			# if the cell is filled, retrieve the
 			# species name and add it to the dictionary
-			#if cell != None and cell != ' ' and cell != '':
 			if cleaned != '':			
 				if ';' in cleaned: cleaned = cleaned.split(';')[1]
 				CITES_dict[count].append([cleaned,clean_cell(td),[clean_cell(note) for note in td.findAll('a')]])
@@ -181,7 +180,6 @@ def get_taxid (species):
 
 	# import Entrez module from biopython to connect to the genbank servers
 	from Bio import Entrez
-	#import time
 
 	# correct species name for parsing and set temp email
 	Entrez.email = 'jaep.halgif@gmail.com'#"get_taxid@expand_CITES.com"
@@ -335,12 +333,12 @@ def main ():
 	output_path = file_data['output']
 	try:
 		if CITES_info[0] == file_data['Date'] and args.f != True:
-			if args.v == True: print 'Local CITES database is up to date'
+			print 'Local CITES database is up to date'
 			return
 	except:
 		pass
 
-	if args.v == True: print 'Downloading new local copy of the CITES database'
+	print 'Local CITES database either not present or outdated.\nDownloading new local copy of the CITES database'
 
 	# use TNRS to grab the species synonyms and
 	# taxid if available. Expand the taxids with 
