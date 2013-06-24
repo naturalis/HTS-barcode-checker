@@ -18,18 +18,24 @@ General usage
 -------------
 
 The basic command for the CITES checker is:
+
     CITES_Check.py -i fasta_file(s) -o output_file -cd CITES_database_file
+
 This command will check if the CITES database file (copy of the database is located in the data folder) is up-to-date,
 it will download a new copy if it is outdated. It will continue by blasting the fasta sequences against the NCBI nucleotide
 database (default) and check if the blast results contain CITES listed species. It will write the output to the
 user specified output file in a comma separated format.
 
 In order to avoid certain genbank accessions a user specified blacklist can be provided with:
+
     CITES_Check.py -i fasta_file(s) -o output_file -cd CITES_database_file -bl blacklist_file
+
 An example blacklist file is present in the data folder
 
 To account for synonyms a local database of reconciled CITES names can be provided with the -cd command:
+
     CITES_Check.py -i fasta_file(s) -o output_file -cd CITES_database_file reconciled_names_file
+
 Any number of additional custom CITES files may be provided, though if the default CITES dataset is absent a new
 copy will be downloaded.
 
