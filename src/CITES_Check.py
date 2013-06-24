@@ -13,9 +13,9 @@ import argparse
 parser = argparse.ArgumentParser(description = ('Identify a set of sequences and check if there are CITES species present'))
 
 parser.add_argument('-i', '--input_file', metavar='fasta file', dest='i', type=str, 
-			help='enter the fasta file')
+			help='enter the fasta file', default='')
 parser.add_argument('-o', '--output_file', metavar='output file', dest='o', type=str, 
-			help='enter the output file')
+			help='enter the output file', default='')
 parser.add_argument('-ba', '--BLAST_algorithm', metavar='algorithm', dest='ba', type=str, 
 			help='Enter the algorithm BLAST wil use (default=blastn)', default='blastn')
 parser.add_argument('-bd', '--BLAST_database', metavar='database', dest='bd', type=str,
@@ -38,6 +38,8 @@ parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
 			help = 'Force the update of the local CITES database')
 parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
 			help = 'Avoid updating the local CITES database')
+parser.add_argument('-v', '--verbose', dest='v', action='store_true',
+			help = 'Verbose: The scripts prints detailed information on what it is doing for logging')
 
 args = parser.parse_args()
 
@@ -63,8 +65,12 @@ def get_CITES ():
 	dir, file = os.path.split(sys.argv[0])
 	CITES_path = dir+'/Retrieve_CITES.py'
 	
-	if args.fd == True:
-		path = call([CITES_path, '-db'] + args.cd + ['-f'])
+	if args.fd == True and args.v == True:
+		path = call([CITES_path, '-db'] + args.cd + ['-f', '-v'])
+	elif args.fd == True:
+		path = call([CITES_path, '-db'] + args.cd + ['-f'])		
+	elif args.v == True:
+		path = call([CITES_path, '-db'] + args.cd + ['-v'])	
 	else:
 		path = call([CITES_path, '-db'] + args.cd)
 
@@ -229,7 +235,7 @@ def parse_seq_file (CITES_dic, blacklist):
 	
 	# blast each sequence in the seq_list list
 	procs, count, threads = [], 1, 10
-	print 'Blasting sequences\n' + str(len(seq_list))
+	if args.v == True: print 'Blasting sequences\n' + str(len(seq_list))
 	while len(seq_list) > 0 or len(procs) > 0:
 		# start the maximum number of threads
 		while len(procs) < threads and len(seq_list) > 0:
@@ -244,8 +250,8 @@ def parse_seq_file (CITES_dic, blacklist):
 				procs.append([p, time.time()])
 				p.start()
 				count+=1
-				sys.stdout.write('\r' + str(len(seq_list)))
-				sys.stdout.flush()
+				if args.v == True: sys.stdout.write('\r' + str(len(seq_list)))
+				if args.v == True: sys.stdout.flush()
 			except:
 				break
 
@@ -259,7 +265,7 @@ def parse_seq_file (CITES_dic, blacklist):
 				# time-out after 30 minutes
 				elif time.time() - p[1] > 10800:
 					try:
-						print '\ntimeout proc: ' + str(p[0])
+						if args.v == True: print '\ntimeout proc: ' + str(p[0]) + '\n'
 					except:
 						pass
 					p[0].terminate()
@@ -269,14 +275,22 @@ def parse_seq_file (CITES_dic, blacklist):
 
 def main ():
 
+	# Check if input fasta file and output file are provided
+	if args.i == '' or args.o == '':
+		print 'No fasta file or output file provided, see -help for details'
+		return
+
 	# Check if there is a more recent CITES list online
 	if args.ad != True:
+		if args.v == True: print 'Checking the status of the current CITES database'
 		get_CITES()
 
 	# create a dictionary containing the local CITES set	
+	if args.v == True: print 'Reading the CITES database'
 	CITES_dic = get_CITES_dic()
 
 	# create a list with the blacklisted genbank ids
+	if args.v == True: print 'Reading the user Taxon ID blacklist'
 	blacklist = get_blacklist()
 
 	# create a blank result file and write the header
@@ -284,7 +298,10 @@ def main ():
 	write_results(header, 'w')
 
 	# parse through the sequence file, blast all sequences and write the blast hits + CITES info
+	if args.v == True: print 'Processing the sequence file'
 	parse_seq_file(CITES_dic, blacklist)
+
+	if args.v == True: print 'Done\nResults are written to the: ' + args.o + ' output file'
 
 
 if __name__ == "__main__":

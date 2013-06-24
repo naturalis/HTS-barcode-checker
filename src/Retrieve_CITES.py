@@ -14,6 +14,9 @@ parser.add_argument('-db', '--CITES_db', metavar='CITES database name', dest='db
 			help='Name and path to the location for the CITES database', nargs='+')
 parser.add_argument('-f', '--force', dest='f', action='store_true',
 			help='Force updating the CITES database')
+parser.add_argument('-v', '--verbose', dest='v', action='store_true',
+			help = 'Verbose: The scripts prints detailed information on what it is doing for logging')
+
 args = parser.parse_args()
 
 
@@ -168,7 +171,7 @@ def TNRS (name):
 		time.sleep(5)
 		time_count += 5
 
-	print('Timeout for species %s' % name)
+	if args.v == True: print ('\nTimeout for species %s\n' % name)
 	return [name,[]]
 
 
@@ -181,7 +184,7 @@ def get_taxid (species):
 	#import time
 
 	# correct species name for parsing and set temp email
-	Entrez.email = "get_taxid@expand_CITES.com"
+	Entrez.email = 'jaep.halgif@gmail.com'#"get_taxid@expand_CITES.com"
 	species = species.replace(' ', '+').strip()
 	
 	# Do a taxonomy search to determine the number of subtaxa
@@ -202,15 +205,15 @@ def get_taxid (species):
 	
 			return record['IdList']
 	except:
-		print('failed to obtain hit for %s' % species)
+		pass
 
-	return []
+	return ['empty']
 
 
 def obtain_tax (taxid):
+
 	# a module from Biopython is imported to connect to the Entrez database
 	from Bio import Entrez
-	#import time
 		
 	organism = ''
 
@@ -228,40 +231,59 @@ def obtain_tax (taxid):
 
 
 def combine_sets (CITES_dic, CITES_notes):
-	
+
 	# Expand the CITES information with TNRS synonyms and Taxonomic IDs
+	import sys
 
 	# parse through the different CITES appendixes and
 	# and try to retrieve the TNRS synonyms and NCBI Taxonomic IDs
 	# for each species
 
-	taxon_id_dic = {}
+	taxon_id_dic, CITES_length, failed = {}, sum([len(CITES_dic[appendix]) for appendix in CITES_dic]), 0
+	total = CITES_length
+
+	if args.v == True: print 'Total number of CITES entries: ' + str(CITES_length) + '\n'
 
 	for appendix in CITES_dic:
 		for cell in CITES_dic[appendix]:
 			# create a list of all lower taxon id's
-			temp_name = cell[0].replace(' spp.','')
+			temp_name, temp_taxon_list, count = cell[0].replace(' spp.',''), ['empty'], 0
 			
 			# break when a cell turns out to be empty			
-			if temp_name == '' or temp_name == ' ': continue			
+			if temp_name == '' or temp_name == ' ': 
+				failed += 1
+				continue			
 
 			# grab the TAXON IDs for the species name
-			temp_taxon_list = get_taxid(temp_name)
+			while temp_taxon_list[0] == 'empty' and count <= 20:
+				temp_taxon_list = get_taxid(temp_name)
+				count += 1
+
+			if args.v == True and temp_taxon_list[0] == 'empty': 
+				print ('\nNo taxon ID found for: %s\nSearching for synonym\n' % temp_name)
+				failed += 1
 
 			# if no TAXON ID was found for the name
 			# check if taxon IDs can be obtained for
 			# the species synonyms
-			if temp_taxon_list == []:
+			if temp_taxon_list[0] == 'empty':
+				temp_taxon_list = []
 				TNRS_data = TNRS(temp_name)
 				if len(TNRS_data) < 3 and len(TNRS_data[1]) > 0:
 					for name in TNRS_data[1]:
-						temp_taxon_list += get_taxid(name)
+						count, temp_tnrs = 0, ['empty']
+						while temp_tnrs[0] == 'empty' and count <= 20:						
+							temp_tnrs = get_taxid(name)
+							count += 1
+						if temp_tnrs[0] != 'empty': temp_taxon_list += temp_tnrs
 					# print the synomyms for who a taxon id could be found					
 					if len(temp_taxon_list) > 0: 
-						print temp_name
-						print temp_taxon_list
-						print '\n'
+						if args.v == True: print ('Synonym found for %s, taxon ID(s) = %s\n' % (temp_name, ' '.join(temp_taxon_list)))
 			
+			if args.v == True and temp_taxon_list == []: 
+				print ('No synonym found for: %s\n' % temp_name)
+				failed += 1
+
 			# expand the taxon_id_dic with the taxid's as
 			# keys and the CITES species / CITES cell and 
 			# taxid linked species as values
@@ -277,6 +299,14 @@ def combine_sets (CITES_dic, CITES_notes):
 							CITES_info += (' %s: %s' % (item, CITES_notes[item]))
 	
 				taxon_id_dic[taxid] = [cell[0],'\"' + CITES_info + '\"',obtain_tax(taxid),str(appendix)]
+
+			# print the number of remaining CITES entries to process
+			CITES_length -= 1
+			if args.v == True: sys.stdout.write('\r' + str(CITES_length) + ' CITES entries remaining')
+			if args.v == True: sys.stdout.flush()
+			
+	
+	if args.v == True: print ('\nNo taxon ID found for %i out of the %i species' % (failed, total))	
 	
 	return taxon_id_dic
 			
@@ -284,7 +314,6 @@ def combine_sets (CITES_dic, CITES_notes):
 def write_csv (date, taxon_id_dic, file_path):
 
 	# write the CITES results to the database
-	
 	db = open(file_path, 'w')
 	db.write('#Date of last update:\nDate,' + date + ',\n#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
 	for taxid in taxon_id_dic:
@@ -306,12 +335,12 @@ def main ():
 	output_path = file_data['output']
 	try:
 		if CITES_info[0] == file_data['Date'] and args.f != True:
-			print 'Local CITES database is up to date'
+			if args.v == True: print 'Local CITES database is up to date'
 			return
 	except:
 		pass
 
-	print 'Downloading new local copy of the CITES database'
+	if args.v == True: print 'Downloading new local copy of the CITES database'
 
 	# use TNRS to grab the species synonyms and
 	# taxid if available. Expand the taxids with 
@@ -319,6 +348,7 @@ def main ():
 	taxon_id_dic = combine_sets(CITES_info[1], CITES_info[2])
 
 	# write the results to the output location
+	if args.v == True: print 'Downloading and formating of the CITES database completed, writing the new database to: ' + output_path
 	write_csv(CITES_info[0], taxon_id_dic, output_path)
 	
 
