@@ -7,7 +7,8 @@
 # are avoided
 
 # import the argparse module to handle the input commands
-import argparse
+# and the logging module to track log messages
+import argparse, logging, os
 
 # get the commandline arguments that specify the input fastafile and the output file
 parser = argparse.ArgumentParser(description = ('Identify a set of sequences and check if there are CITES species present'))
@@ -38,8 +39,8 @@ parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
 			help = 'Force the update of the local CITES database')
 parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
 			help = 'Avoid updating the local CITES database')
-parser.add_argument('-v', '--verbose', dest='v', action='store_true',
-			help = 'Verbose: The scripts prints detailed information on what it is doing for logging')
+parser.add_argument('-l', '--logging', metavar='log level', dest='l', type=str,
+			help = 'Set log level to: debug, info, warning (default) or critical see readme for more details.\nlog written to -output_file + \'.log\'', default='warning')
 
 args = parser.parse_args()
 
@@ -49,6 +50,7 @@ def get_blacklist ():
 	# return a list containing the blacklisted genbank id's
 	# the blacklist follows the following format:
 	# genbank_id, description
+	logging.debug('Trying to obtain genbank IDs from blacklist file: %s.' % args.bl)
 	try:
 		return [line.split(',')[0] for line in open(args.bl,'r') if line[0] != '#']
 	except:
@@ -62,17 +64,15 @@ def get_CITES ():
 	from subprocess import call
 	import sys, os
 
+	logging.debug('Getting path to Retrieve_CITES.py script.')
 	dir, file = os.path.split(sys.argv[0])
 	CITES_path = dir+'/Retrieve_CITES.py'
+	logging.debug('Retrieve_CITES.py path set to: %s.' % CITES_path)
 	
-	if args.fd == True and args.v == True:
-		path = call([CITES_path, '-db'] + args.cd + ['-f', '-v'])
-	elif args.fd == True:
-		path = call([CITES_path, '-db'] + args.cd + ['-f'])		
-	elif args.v == True:
-		path = call([CITES_path, '-db'] + args.cd + ['-v'])	
+	if args.fd == True:
+		path = call([CITES_path, '-db'] + args.cd + ['-f', '-l', args.l, '-lf', args.o])
 	else:
-		path = call([CITES_path, '-db'] + args.cd)
+		path = call([CITES_path, '-db'] + args.cd + ['-l', args.l, '-lf', args.o])
 
 
 
@@ -80,9 +80,12 @@ def get_CITES_dic ():
 	
 	# open the local CITES database, return a dictionary
 	# containing the CITES information with the taxids as keys
+	
+	logging.debug('Parsing through list of CITES dictionaries.')
 
 	CITES_dic = {}
 	for path in args.cd:
+		logging.debug('Reading CITES information from file: %s.' % path)
 		for line in open(path, 'r'):
 			line = line.rstrip().split(',')
 			if line[0] != 'Date' and line[0][0] != '#':
@@ -107,21 +110,26 @@ def blast_bulk (sequences, thread_number):
 	# create the temporary file
 	temp_file_path = os.path.join(dir, (str(thread_number) + 'temp.fasta'))
 	temp_file = open(temp_file_path, 'w')
+	logging.debug('Creating temporary fasta file for blasting: %s.' % temp_file)
 
 	# fill the temp file with sequences
+	logging.debug('Writing fasta sequences to temporary file.')
 	SeqIO.write(sequences, temp_file, 'fasta')
 	temp_file.close()
 
 	# read the temp fasta file
+	logging.debug('Reading fasta sequences from temporary file.')
 	temp_fasta_file = open(temp_file_path, 'r')
 	fasta_handle = temp_fasta_file.read()
 
 	# blast the temporary file, and save the blasthits in the blast_list
+	logging.debug('Blasting fasta sequences.')
 	try:	
 		result_handle = NCBIWWW.qblast(args.ba, args.bd, fasta_handle, megablast=args.me, hitlist_size=args.hs)
-
+		logging.debug('Parsing blast result XML file.')
 		blast_list += [item for item in NCBIXML.parse(result_handle)]
 	except:
+		logging.warning('Failed to obtain blast results.')		
 		return 'failed'
 
 	# remove the temporary file		
@@ -137,11 +145,12 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 	
 	blast_count, blast_list = 0, 'failed'
 	while blast_list == 'failed' and blast_count < 3:
-		if blast_count > 0: print '\nblast thread: ' + str(thread) + ' failed, retrying attempt: '+ str(blast_count)
 		blast_list = blast_bulk(sequences, thread)
 		blast_count += 1
+		logging.info('Blast thread: %i failed, retrying attempt %i.' % (thread, blast_count))
 
 	if blast_list == 'failed':
+		logging.debug('Could not obtain blast hits for set of sequences, written to output file as \"failed\".')
 		for seq in sequences:
 			write_results(seq.id + ',' + 'failed', 'a')
 		return
@@ -149,6 +158,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 	count = 1	
 
 	# parse though the blast hits
+	logging.debug('Parsing through blast XML results.')
 	for blast_result in blast_list:
 		for alignment in blast_result.alignments:
 			for hsp in alignment.hsps:
@@ -183,6 +193,7 @@ def filter_hits (blast, CITES_dic, blacklist):
 			# check if the taxon id of the blast hit
 			# is present in the CITES_dic
 			if taxon[0] in CITES_dic:
+				logging.debug('Appending CITES info to blast hit.')
 				results += CITES_dic[taxon[0]][1:]
 			
 			# write the results
@@ -199,7 +210,7 @@ def obtain_tax (code):
 
 	try:
 		# based on the genbank id the taxon id is retrieved from genbank
-		Entrez.email = "quick@test.com"
+		Entrez.email = "CITES_check@gmail.com"
 		handle = Entrez.efetch(db="nucleotide", id= code, rettype="gb",retmode="text")
 		record = SeqIO.read(handle, "gb")
 
@@ -209,6 +220,7 @@ def obtain_tax (code):
 		species = sub[0].qualifiers['organism'][0]
 
 	except:
+		logging.warning('Could not obtain a taxon info for taxon ID: %s.' % code)
 		pass
 
 	return [taxon, species]
@@ -231,11 +243,14 @@ def parse_seq_file (CITES_dic, blacklist):
 	import sys
 	
 	# parse the fasta file
+	logging.info('Reading user provided fasta file: %s.' % args.i)
 	seq_list, sub_list = [seq for seq in SeqIO.parse(args.i, 'fasta')], []
 	
 	# blast each sequence in the seq_list list
 	procs, count, threads = [], 1, 10
-	if args.v == True: print 'Blasting sequences\n' + str(len(seq_list))
+	logging.info('Blasting sequences, total: %i.' % len(seq_list))
+	print('Blasting sequences, total sequences: %i.' % len(seq_list))
+	logging.debug('Start multithreaded blast search.')
 	while len(seq_list) > 0 or len(procs) > 0:
 		# start the maximum number of threads
 		while len(procs) < threads and len(seq_list) > 0:
@@ -245,29 +260,34 @@ def parse_seq_file (CITES_dic, blacklist):
 			else:
 				sub_list = seq_list
 				seq_list = []
+			logging.debug('Try to open a blast thread.')
 			try:
+				logging.debug('Opening thread number: %i, total number %i.' % (len(procs), count))
 				p = multiprocessing.Process(target=parse_blast_align, args=(sub_list, count, CITES_dic, blacklist,)) 
 				procs.append([p, time.time()])
 				p.start()
 				count+=1
-				if args.v == True: sys.stdout.write('\r' + str(len(seq_list)))
-				if args.v == True: sys.stdout.flush()
+				sys.stdout.write('\r' + str(len(seq_list)))
+				sys.stdout.flush()
 			except:
+				logging.warning('Failed to open thread number: %i, total number %i.' % (len(procs), count))
 				break
 
 		# check when a thread is done, remove from the thread list and start
 		# a new thread
 		while len(procs) > 0:
 			for p in procs:
-				if p[0].is_alive() == False: 
+				if p[0].is_alive() == False:
+					logging.debug('Process %s finished.' % str(p[0]))
 					p[0].join()
 					procs.remove(p)
 				# time-out after 30 minutes
 				elif time.time() - p[1] > 10800:
 					try:
-						if args.v == True: print '\ntimeout proc: ' + str(p[0]) + '\n'
+						logging.warning('Timeout for process %s.' % str(p[0]))
 					except:
 						pass
+					logging.debug('Terminating and removing process %s.' % str(p[0]))
 					p[0].terminate()
 					procs.remove(p)
 			break
@@ -275,22 +295,30 @@ def parse_seq_file (CITES_dic, blacklist):
 
 def main ():
 
+	# set log level
+	log_level = getattr(logging, args.l.upper(), None)
+	if not isinstance(log_level, int):
+		raise ValueError('Invalid log level: %s' % loglevel)
+		return
+	logging.basicConfig(filename=os.path.splitext(args.o)[0]+'.log', filemode='w', format='%(asctime)s - %(levelname)s: %(message)s', level=log_level)
+
 	# Check if input fasta file and output file are provided
 	if args.i == '' or args.o == '':
-		print 'No fasta file or output file provided, see -help for details'
+		logging.critical('No fasta file or output file provided, see -help for details.')
+		print 'No fasta file or output file provided, see --help for details.'
 		return
 
 	# Check if there is a more recent CITES list online
 	if args.ad != True:
-		if args.v == True: print 'Checking the status of the current CITES database'
+		logging.info('Checking the status of the current CITES database.')
 		get_CITES()
 
 	# create a dictionary containing the local CITES set	
-	if args.v == True: print 'Reading the CITES database'
+	logging.info('Reading the CITES database.')
 	CITES_dic = get_CITES_dic()
 
 	# create a list with the blacklisted genbank ids
-	if args.v == True: print 'Reading the user Taxon ID blacklist'
+	logging.info('Reading the user Taxon ID blacklist.')
 	blacklist = get_blacklist()
 
 	# create a blank result file and write the header
@@ -298,10 +326,10 @@ def main ():
 	write_results(header, 'w')
 
 	# parse through the sequence file, blast all sequences and write the blast hits + CITES info
-	if args.v == True: print 'Processing the sequence file'
+	logging.info('Processing the sequence file.')
 	parse_seq_file(CITES_dic, blacklist)
 
-	if args.v == True: print 'Done\nResults are written to the: ' + args.o + ' output file'
+	print '\nDone\nResults are written to the: ' + args.o + ' output file'
 
 
 if __name__ == "__main__":

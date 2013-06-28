@@ -6,7 +6,8 @@
 
 
 # import the argparse module to handle the input commands
-import argparse
+# and the logging module to track log messages
+import argparse, logging, os
 
 parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
 
@@ -14,8 +15,10 @@ parser.add_argument('-db', '--CITES_db', metavar='CITES database name', dest='db
 			help='Name and path to the location for the CITES database', nargs='+')
 parser.add_argument('-f', '--force', dest='f', action='store_true',
 			help='Force updating the CITES database')
-parser.add_argument('-v', '--verbose', dest='v', action='store_true',
-			help = 'Verbose: The scripts prints detailed information on what it is doing for logging')
+parser.add_argument('-l', '--logging', metavar='log level', dest='l', type=str,
+			help = 'Set log level to: debug, info, warning (default) or critical see readme for more details.', default='warning')
+parser.add_argument('-lf', '--log_file', metavar='log file', dest='lf', type=str,
+			help = 'Path to the log file')
 
 args = parser.parse_args()
 
@@ -26,6 +29,7 @@ def download_raw_CITES ():
 	import urllib2
 
 	# open the url and read the .php webpage
+	logging.debug('Downloading CITES appendix webpage.')	
 	CITES_url = urllib2.urlopen('http://www.cites.org/eng/app/appendices.php')
 	CITES_php = CITES_url.read()
 
@@ -37,7 +41,9 @@ def local_CITES_data ():
 	
 	# open the local CITES database(s) to retrieve the date and path of output file
 	results_dic = {}
+	logging.debug('Trying to open the CITES databases provided by the user.')
 	for path in args.db:
+		logging.debug('Trying to open CITES database %s.' % path)
 		try:
 			for line in open(path, 'r'):
 				line = line.rstrip().split(',')
@@ -45,6 +51,7 @@ def local_CITES_data ():
 					results_dic['Date'] = line[1]
 					results_dic['output'] = path
 		except:
+			logging.debug('Could not open CITES database %s, new CITES copy will be writen to this location.' % path)
 			results_dic['output'] = path
 	return results_dic
 
@@ -84,7 +91,8 @@ def parse_php (php_file):
 	# create a dictionary for the CITES footnotes
 	CITES_notes = {}
 
-	# read the CITES web page	
+	# read the CITES web page
+	logging.debug('Parsing the CITES html page.')
 	CITES_page = BeautifulSoup(php_file)
 	
 	data = clean_cell(CITES_page.find('strong'))
@@ -110,6 +118,7 @@ def parse_php (php_file):
 
 	# parse through the footnotes and create
 	# a dictionary for each one of the notes
+	logging.debug('Parsing the CITES appendix footnotes.')
 	rows = tables[2].findAll('tr')
 	for tr in rows:
 		notes = tr.findAll('td')
@@ -128,6 +137,7 @@ def TNRS (name):
 	import requests, time
 
 	# Send the TNRS request
+	logging.debug('Send TNRS request to server.')
 	TNRS_req = requests.get('http://api.phylotastic.org/tnrs/submit',
 		params={'query':name}, allow_redirects=True)
 
@@ -135,22 +145,30 @@ def TNRS (name):
 
 	# send retrieve requests at 5 second intervals till
 	# the api returns the JSON object with the results
-	while redirect_url and time_count < 15:
-		retrieve_response = requests.get(redirect_url)
-		retrieve_results = retrieve_response.json()
+	while redirect_url and time_count < 10:
+
+		# Try to Download the JSON object with the TNRS results.
+		try:
+			retrieve_response = requests.get(redirect_url)
+			retrieve_results = retrieve_response.json()
+		except:
+			retieve_results = []
 		
 		# if the results contains the JSON object
 		# retrieve all accepted names for the species
 		# and return these
 		if u'names' in retrieve_results:
+			logging.debug('Parsing TNRS results.')
 			name_list = [name,[]]
 			names = retrieve_results.get(u'names')
 			try:
+				# grab the synonym names if present
 				for item in names[0]['matches']:
 					if item['sourceId'] == 'NCBI':
 						name_list.append(str(item['uri']).split('/')[-1])
 					synonym = item['acceptedName']
 					
+					# check if the synonym isnt the species / genus name of the query
 					if synonym not in name and synonym != '':
 						if ' ' in name:
 							if len(synonym.split(' ')) >= len(name.split(' ')):
@@ -170,7 +188,7 @@ def TNRS (name):
 		time.sleep(5)
 		time_count += 5
 
-	if args.v == True: print ('\nTimeout for species %s\n' % name)
+	logging.warning('Timeout for species %s.' % name)
 	return [name,[]]
 
 
@@ -182,7 +200,7 @@ def get_taxid (species):
 	from Bio import Entrez
 
 	# correct species name for parsing and set temp email
-	Entrez.email = 'jaep.halgif@gmail.com'#"get_taxid@expand_CITES.com"
+	Entrez.email = "CITES_check@gmail.com"
 	species = species.replace(' ', '+').strip()
 	
 	# Do a taxonomy search to determine the number of subtaxa
@@ -190,17 +208,18 @@ def get_taxid (species):
 	# do a second search with the retmax parameter set to the 
 	# expected number of taxa.
 	try:
+		# Connect to Entrez to obtain subtree size
 		search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml")
 		record = Entrez.read(search)
 		count = record['Count']
-
-		if count > 20:
 	
+		# is subtree size exceeds 20 the entire tree needs to be redownloaded
+		if count > 20:
 			search = Entrez.esearch(term = (species + ' [subtree]'), db = "taxonomy", retmode = "xml", retmax = count)
 			record = Entrez.read(search)
 
-		if record['IdList'] != []:
-	
+		# if the tree isnt empty, return the taxon ID list.
+		if record['IdList'] != []:	
 			return record['IdList']
 	except:
 		pass
@@ -217,7 +236,7 @@ def obtain_tax (taxid):
 
 	# based on the taxid the species and taxonomy are retrieved from the Entrez database
 	try:
-		Entrez.email = "get_taxid@expand_CITES.com"
+		Entrez.email = "CITES_check@gmail.com"
 		search = Entrez.efetch(db="taxonomy", id= taxid, retmode="xml")
 		record = Entrez.read(search)
 		organism = '\"' + record[0]['ScientificName'] + '\"'
@@ -240,9 +259,12 @@ def combine_sets (CITES_dic, CITES_notes):
 	taxon_id_dic, CITES_length, failed = {}, sum([len(CITES_dic[appendix]) for appendix in CITES_dic]), 0
 	total = CITES_length
 
-	if args.v == True: print 'Total number of CITES entries: ' + str(CITES_length) + '\n'
+	print('Total number of CITES entries: %i' % CITES_length)
+	logging.info('Total number of CITES entries: %i.' % CITES_length)
 
+	logging.debug('Parse through the CITES species found per appendix.')
 	for appendix in CITES_dic:
+		logging.debug('Parsing through species found in appendix: %s.' % str(appendix))
 		for cell in CITES_dic[appendix]:
 			# create a list of all lower taxon id's
 			temp_name, temp_taxon_list, count = cell[0].replace(' spp.',''), ['empty'], 0
@@ -257,14 +279,15 @@ def combine_sets (CITES_dic, CITES_notes):
 				temp_taxon_list = get_taxid(temp_name)
 				count += 1
 
-			if args.v == True and temp_taxon_list[0] == 'empty': 
-				print ('\nNo taxon ID found for: %s\nSearching for synonym\n' % temp_name)
+			if temp_taxon_list[0] == 'empty': 
+				logging.warning('No taxon ID found for: %s.' % temp_name)
 				failed += 1
 
 			# if no TAXON ID was found for the name
 			# check if taxon IDs can be obtained for
 			# the species synonyms
 			if temp_taxon_list[0] == 'empty':
+				logging.debug('Looking for synonym species: %s.' % temp_name)
 				temp_taxon_list = []
 				TNRS_data = TNRS(temp_name)
 				if len(TNRS_data) < 3 and len(TNRS_data[1]) > 0:
@@ -276,10 +299,10 @@ def combine_sets (CITES_dic, CITES_notes):
 						if temp_tnrs[0] != 'empty': temp_taxon_list += temp_tnrs
 					# print the synomyms for who a taxon id could be found					
 					if len(temp_taxon_list) > 0: 
-						if args.v == True: print ('Synonym found for %s, taxon ID(s) = %s\n' % (temp_name, ' '.join(temp_taxon_list)))
+						logging.debug('Synonym found for %s, taxon ID(s) = %s.' % (temp_name, ' '.join(temp_taxon_list)))
 			
-			if args.v == True and temp_taxon_list == []: 
-				print ('No synonym found for: %s\n' % temp_name)
+			if temp_taxon_list == []: 
+				logging.warning('No synonym found for: %s.' % temp_name)
 				failed += 1
 
 			# expand the taxon_id_dic with the taxid's as
@@ -300,11 +323,11 @@ def combine_sets (CITES_dic, CITES_notes):
 
 			# print the number of remaining CITES entries to process
 			CITES_length -= 1
-			if args.v == True: sys.stdout.write('\r' + str(CITES_length) + ' CITES entries remaining')
-			if args.v == True: sys.stdout.flush()
+			sys.stdout.write('\r' + str(CITES_length) + ' CITES entries remaining')
+			sys.stdout.flush()
 			
 	
-	if args.v == True: print ('\nNo taxon ID found for %i out of the %i species' % (failed, total))	
+	logging.info('No taxon ID found for %i out of the %i species' % (failed, total))	
 	
 	return taxon_id_dic
 			
@@ -312,6 +335,7 @@ def combine_sets (CITES_dic, CITES_notes):
 def write_csv (date, taxon_id_dic, file_path):
 
 	# write the CITES results to the database
+	logging.debug('Writing CITES results to %s.' % file_path)
 	db = open(file_path, 'w')
 	db.write('#Date of last update:\nDate,' + date + ',\n#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
 	for taxid in taxon_id_dic:
@@ -320,33 +344,48 @@ def write_csv (date, taxon_id_dic, file_path):
 			
 
 def main ():	
+
+	# set log level
+	log_level = getattr(logging, args.l.upper(), None)
+	if not isinstance(log_level, int):
+		raise ValueError('Invalid log level: %s' % loglevel)
+		return
+	logging.basicConfig(filename=os.path.splitext(args.lf)[0]+'.log', format='%(asctime)s - %(levelname)s: %(message)s', level=log_level)
+
 	# retrieve the raw CITES appendix page
+	logging.info('Downloading CITES appendix.')
 	CITES_php = download_raw_CITES()
 
 	# parse through the CITES page and retrieve the
 	# species names
+	logging.info('Parsing CITES entries.')
 	CITES_info = parse_php(CITES_php)
 	
 	# try to open the CITES database and check if the current version
 	# (if there is one) is up to date
 	file_data = local_CITES_data()
 	output_path = file_data['output']
+	logging.debug('Test if the current version of the CITES database is up to date.')
 	try:
 		if CITES_info[0] == file_data['Date'] and args.f != True:
-			print 'Local CITES database is up to date'
+			logging.info('Local CITES database is up to data.')
+			print('Local CITES database is up to date')
 			return
 	except:
 		pass
 
-	print 'Local CITES database either not present or outdated.\nDownloading new local copy of the CITES database'
+	logging.info('Downloading new copy of CITES database.')
+	print('Local CITES database either not present or outdated.\nDownloading new local copy of the CITES database')
 
 	# use TNRS to grab the species synonyms and
 	# taxid if available. Expand the taxids with 
 	# taxids from lower ranked records
+	logging.debug('Get taxon IDs for CITES species.')
 	taxon_id_dic = combine_sets(CITES_info[1], CITES_info[2])
 
 	# write the results to the output location
-	if args.v == True: print 'Downloading and formating of the CITES database completed, writing the new database to: ' + output_path
+	print('\nDownloading and formating of the CITES database completed, writing the new database to: %s' % output_path)
+	logging.debug('Write CITES info to output file %s.' % output_path)
 	write_csv(CITES_info[0], taxon_id_dic, output_path)
 	
 
