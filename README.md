@@ -1,12 +1,40 @@
 HTS-barcode-checker
 ===================
 
-An automated pipeline for checking high-throughput DNA barcodes for CITES-listed species.
+The correct taxonomic identification of internationally traded biological materials is 
+crucial for the effective enforcement of the Convention on International Trade in 
+Endangered Species of Wild Fauna and Flora (CITES). This project provides a pipeline that
+automates the putative taxonomic identification of DNA barcodes (e.g. as generated from
+confiscated materials) by chaining together the steps of DNA sequence similarity searching 
+in public databases and taxonomic name reconciliation of the names associated with 
+returned, similar sequences and the names listed in the CITES "appendices" (which itemize 
+species and higher taxa in which international trade is restricted).
+
+Disclaimer
+----------
+
+Although the authors of this pipeline have taken care to consider exceptions such as 
+incorrectly annotated sequence records in public databases, taxonomic synonyms and 
+ambiguities in the CITES appendices themselves, the user is advised that the results of 
+this pipeline can in no way be construed as conclusive evidence for either positive or
+negative taxonomic identification of the contents of biological materials. To emphasize
+this point, we reproduce the disclaimer of the license under which this pipeline is 
+released verbatim, below:
+
+**THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR 
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**
 
 General usage
 -------------
 
-The basic command for the to run the pipeline is:
+The basic command to run the pipeline is:
 
 `CITES_Check.py --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv>`
 
@@ -47,7 +75,7 @@ the basic steps of the pipeline and any recoverable issues that might occur (sim
 WARNING). DEBUG logs everything the pipeline does and is of limited use to the end-user.
 
 
-Full Command information
+Full command information
 ------------------------
 
 Command line arguments:
