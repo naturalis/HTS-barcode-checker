@@ -125,7 +125,7 @@ below:
 		input data in FASTA format
 		
 	-o <output file>, --output_file <output file>
-		results file in CSV format
+		results file in CSV format. if '-' is provided, output is to STDOUT
 		
 	-cd <db file> [<db file> ...], --CITES_db <db file> [<db file> ...]
 		one or more database (CSV) files with CITES-listed taxon identifiers		
@@ -161,8 +161,11 @@ below:
 		avoid updating the local CITES database (optional)
 
 	-l <verbosity>, --logging <verbosity>
-		set log level to: debug, info, warning (default) or critical. log written to
-		-output_file + '.log' (optional)
+		set log level to: debug, info, warning (default) or critical
+
+	-lf <log file>, --log_file <log file>
+		specifies a file to log to. if unset, logging is to STDERR
+
 
 License
 -------
