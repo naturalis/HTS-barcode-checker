@@ -6,7 +6,7 @@ An automated pipeline for checking high-throughput DNA barcodes for CITES-listed
 General usage
 -------------
 
-The basic command for the CITES checker is:
+The basic command for the to run the pipeline is:
 
 `CITES_Check.py --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv>`
 
@@ -19,30 +19,28 @@ the output file, a CSV spreadsheet, which needs to be evaluated further by the u
 Important options
 -----------------
 
-* Blacklisted GenBank accessions
-Some GenBank accessions are known to have incorrect taxon IDs, which can cause both Type I
-and Type II errors in this pipeline. To avoid such known, problematic, GenBank accessions, 
-the command line argument `--blacklist <list.csv>` can be provided. An example of what 
-such a file should look like is provided in the data folder.
+* *Blacklisted GenBank accessions* Some GenBank accessions are known to have incorrect 
+taxon IDs, which can cause both Type I and Type II errors in this pipeline. To avoid such 
+known, problematic, GenBank accessions, the command line argument `--blacklist <list.csv>` 
+can be provided. An example of what such a file should look like is provided in the data 
+folder as _Blacklist.csv_.
 
-* Synonyms
-Some nodes in the NCBI taxonomy are considered to be synonyms of other such nodes. This,
-too, has the potential to cause Type I and Type II errors. For known nodes where this is
-the case, (an) additional CSV spreadsheet(s) can be provided that identifies NCBI synonyms
-that are also CITES-listed.
+* *Synonyms* Some nodes in the NCBI taxonomy are considered to be synonyms of other such 
+nodes. This, too, has the potential to cause Type I and Type II errors. For known nodes 
+where this is the case, (an) additional CSV spreadsheet(s) can be provided that identifies 
+NCBI synonyms that are also CITES-listed. An example of such an additional file is 
+provided in the data folder as _Reconciled\_names\_db.csv_.
 
-* Local database updates
-Periodically, CITES releases new appendices with new lists of names. In order to stay up 
-to date, this pipeline checks whether such new update are available and downloads and 
-processes the new data if this is the case. This behavior can be influenced by either
-forcing the download (with `--force_update`) or omitting it (with `--avoid_update`) 
-regardless.
+* *Local database updates* Periodically, CITES releases new appendices with new lists of 
+names. In order to stay up to date, this pipeline checks whether such new update are 
+available and downloads and processes the new data if this is the case. This behavior can 
+be influenced by either forcing the download (with `--force_update`) or omitting it (with 
+`--avoid_update`) regardless.
 
-* Verbosity
-The script keeps a log of the different processes in the script. The log file is named 
-similar to the file specified with the `--output_file` parameter, but with the .log 
-extension. With the `--logging parameter` the amount of information written to the log 
-file can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. 
+* *Verbosity* The script keeps a log of the different processes in the script. The log 
+file is named similar to the file specified with the `--output_file` parameter, but with 
+the .log extension. With the `--logging parameter` the amount of information written to 
+the log file can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. 
 WARNING logs only the  messages generated when something is amiss with either blasting 
 sequences or updating the CITES database. This verbosity level is the default. INFO logs 
 the basic steps of the pipeline and any recoverable issues that might occur (similar to 
@@ -54,51 +52,59 @@ Full Command information
 
 Command line arguments:
 
-    CITES_Check.py [-h] [-i fasta file] [-o output file] [-ba algorithm]
-    [-bd database] [-hs HS] [-mb] [-mi MI] [-mc MC] [-me ME]
-    [-bl blacklist file] [-cd CITES database file [CITES database file ...]]
-    [-fd] [-ad] [-l log level]
+	CITES_Check.py [-h] [-i fasta file] [-o output file] [-ba algorithm]
+	[-bd database] [-hs HS] [-mb] [-mi MI] [-mc MC] [-me ME]
+	[-bl blacklist file] [-cd CITES database file [CITES database file ...]]
+	[-fd] [-ad] [-l log level]
 
-Help options:
+All command line arguments and options can be provided in short of long form, as listed
+below:
 
-    Identify a set of sequences and check if there are CITES species present
+	-h, --help            
+		show help message and exit
+  
+	-i <fasta file>, --input_file <fasta file>
+		input data in FASTA format
+		
+	-o <output file>, --output_file <output file>
+		results file in CSV format
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -i fasta file, --input_file fasta file
-                            enter the fasta file
-      -o output file, --output_file output file
-                            enter the output file
-      -ba algorithm, --BLAST_algorithm algorithm
-                            Enter the algorithm BLAST wil use (default=blastn)
-      -bd database, --BLAST_database database
-                            Enter the database BLAST wil use (default=nt)
-      -hs HS, --hitlist_size HS
-                            Enter the size of the hitlist BLAST wil return
-                            (default=10)
-      -mb, --megablast      Use megablast, can only be used in combination with
-                            blastn
-      -mi MI, --min_identity MI
-                            Enter the minimal percentage of identity for BLAST
-                            results (default=97)
-      -mc MC, --min_coverage MC
-                            Enter the minimal coverage for BLAST results in number
-                            of bases (default=100)
-      -me ME, --max_evalue ME
-                            Enter the minimal E-value for BLAST results
-                            (default=0.05)
-      -bl blacklist file, --blacklist blacklist file
-                            File containing the blacklisted genbank id's
-      -cd CITES database file [CITES database file ...], --CITES_db CITES database file [CITES database file ...]
-                            Path to the local copy of the CITES database
-      -fd, --force_download
-                            Force the update of the local CITES database
-      -ad, --avoid_download
-                            Avoid updating the local CITES database
-      -l log level, --logging log level
-                            Set log level to: debug, info, warning (default) or
-                            critical see readme for more details. log written to
-                            -output_file + '.log'
+	-ba <algorithm>, --BLAST_algorithm <algorithm>
+		BLAST algorithm to use (default=blastn)
+		
+	-bd <database>, --BLAST_database <database>
+		BLAST database to use (default=nt)
+
+	-mb, --megablast      
+		use megablast, can only be used in combination with blastn
+		
+	-hs <size>, --hitlist_size <size>
+		number of results BLAST wil return (default=10)
+		
+	-mi <identity>, --min_identity <identity>
+		lowest percentage identity for BLAST results to consider (default=97)
+		
+	-mc <coverage>, --min_coverage <coverage>
+		minimal coverage for BLAST results in number of bases (default=100)
+		
+	-me <e-value>, --max_evalue  <e-value>
+		threshold E-value for BLAST results (default=0.05)
+		
+	-bl <blacklist file>, --blacklist <blacklist file>
+		CSV file containing blacklisted genbank accession numbers
+						
+	-cd <db file> [<db file> ...], --CITES_db <db file> [<db file> ...]
+		one or more database (CSV) files with CITES-listed taxon identifiers
+						
+	-fd, --force_download
+		force update of the local CITES database
+
+	-ad, --avoid_download
+		avoid updating the local CITES database
+
+	-l <verbosity>, --logging <verbosity>
+		set log level to: debug, info, warning (default) or critical. log written to
+		-output_file + '.log'
 
 Dependencies
 ------------
