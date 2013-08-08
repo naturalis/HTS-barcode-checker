@@ -3,7 +3,7 @@ HTS-barcode-checker
 
 The correct taxonomic identification of internationally traded biological materials is 
 crucial for the effective enforcement of the Convention on International Trade in 
-Endangered Species of Wild Fauna and Flora (CITES) [http://cites.org/]. This project 
+Endangered Species of Wild Fauna and Flora [CITES](http://cites.org/). This project 
 provides a pipeline that automates the putative taxonomic identification of DNA barcodes 
 (e.g. as generated from confiscated materials) by chaining together the steps of DNA 
 sequence similarity searching in public databases and taxonomic name reconciliation of the 
