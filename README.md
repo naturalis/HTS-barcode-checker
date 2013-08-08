@@ -3,12 +3,13 @@ HTS-barcode-checker
 
 The correct taxonomic identification of internationally traded biological materials is 
 crucial for the effective enforcement of the Convention on International Trade in 
-Endangered Species of Wild Fauna and Flora (CITES). This project provides a pipeline that
-automates the putative taxonomic identification of DNA barcodes (e.g. as generated from
-confiscated materials) by chaining together the steps of DNA sequence similarity searching 
-in public databases and taxonomic name reconciliation of the names associated with 
-returned, similar sequences and the names listed in the CITES "appendices" (which itemize 
-species and higher taxa in which international trade is restricted).
+Endangered Species of Wild Fauna and Flora (CITES) [http://cites.org/]. This project 
+provides a pipeline that automates the putative taxonomic identification of DNA barcodes 
+(e.g. as generated from confiscated materials) by chaining together the steps of DNA 
+sequence similarity searching in public databases and taxonomic name reconciliation of the 
+names associated with returned, similar sequences and the names listed in the CITES 
+"appendices" (which itemize species and higher taxa in which international trade is 
+restricted).
 
 Disclaimer
 ----------
@@ -17,7 +18,8 @@ Although the authors of this pipeline have taken care to consider exceptions suc
 incorrectly annotated sequence records in public databases, taxonomic synonyms and 
 ambiguities in the CITES appendices themselves, the user is advised that the results of 
 this pipeline can in no way be construed as conclusive evidence for either positive or
-negative taxonomic identification of the contents of biological materials. To emphasize
+negative taxonomic identification of the contents of biological materials. The pipeline
+and the results it produces are provided for informational purposes only. To emphasize
 this point, we reproduce the disclaimer of the license under which this pipeline is 
 released verbatim, below:
 
