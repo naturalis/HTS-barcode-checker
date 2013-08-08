@@ -1,56 +1,56 @@
-CITES-checker
-=============
+HTS-barcode-checker
+===================
 
-Pipeline for cross referencing DNA barcoding data with CITES appendices
-
-Dependencies
-------------
-* python2.7 or 3
-* bio-python
-* beautiful-soup
-* requests
-
-License
--------
-* BSD-3
+An automated pipeline for checking high-throughput DNA barcodes for CITES-listed species.
 
 General usage
 -------------
 
 The basic command for the CITES checker is:
 
-    CITES_Check.py -i fasta_file(s) -o output_file -cd CITES_database_file
+`CITES_Check.py --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv>`
 
-This command will check if the CITES database file (copy of the database is located in the data folder) is up-to-date,
-it will download a new copy if it is outdated. It will continue by blasting the fasta sequences against the NCBI nucleotide
-database (default) and check if the blast results contain CITES listed species. It will write the output to the
-user specified output file in a comma separated format.
+This command will run BLAST searches of the provided input FASTA file(s) against the NCBI
+nucleotide database (by default), then cross-reference the returned taxon IDs with local
+databases of taxon IDs that were obtained by taxonomic name reconciliation of the names 
+listed in CITES appendices with the NCBI taxonomy. Any putative matches are recorded in 
+the output file, a CSV spreadsheet, which needs to be evaluated further by the user.
 
-In order to avoid certain genbank accessions a user specified blacklist can be provided with:
+Important options
+-----------------
 
-    CITES_Check.py -i fasta_file(s) -o output_file -cd CITES_database_file -bl blacklist_file
+* Blacklisted GenBank accessions
+Some GenBank accessions are known to have incorrect taxon IDs, which can cause both Type I
+and Type II errors in this pipeline. To avoid such known, problematic, GenBank accessions, 
+the command line argument `--blacklist <list.csv>` can be provided. An example of what 
+such a file should look like is provided in the data folder.
 
-An example blacklist file is present in the data folder
+* Synonyms
+Some nodes in the NCBI taxonomy are considered to be synonyms of other such nodes. This,
+too, has the potential to cause Type I and Type II errors. For known nodes where this is
+the case, (an) additional CSV spreadsheet(s) can be provided that identifies NCBI synonyms
+that are also CITES-listed.
 
-To account for synonyms a local database of reconciled CITES names can be provided with the -cd command:
+* Local database updates
+Periodically, CITES releases new appendices with new lists of names. In order to stay up 
+to date, this pipeline checks whether such new update are available and downloads and 
+processes the new data if this is the case. This behavior can be influenced by either
+forcing the download (with `--force_update`) or omitting it (with `--avoid_update`) 
+regardless.
 
-    CITES_Check.py -i fasta_file(s) -o output_file -cd CITES_database_file reconciled_names_file
-
-Any number of additional custom CITES files may be provided, though if the default CITES dataset is absent a new
-copy will be downloaded.
-
-To force or avoid updating the local database, add the --force_update or --avoid_update to the command
-
-The script keeps a log of the different processes in the script. The log file is named similar to the output_file specified
-with the -o parameter, but with the .log extension.  With the --logging parameter the amount of information written to the log file
-can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. WARNING logs only the error messages generated
-when something is amiss with either blasting sequences or updating the CITES database, this is the default. INFO logs the basic
-steps of the pipeline and any errors that might occur (similar to WARNING). DEBUG logs everything the pipeline does and is of
-limited use to the end-user.
+* Verbosity
+The script keeps a log of the different processes in the script. The log file is named 
+similar to the file specified with the `--output_file` parameter, but with the .log 
+extension. With the `--logging parameter` the amount of information written to the log 
+file can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. 
+WARNING logs only the  messages generated when something is amiss with either blasting 
+sequences or updating the CITES database. This verbosity level is the default. INFO logs 
+the basic steps of the pipeline and any recoverable issues that might occur (similar to 
+WARNING). DEBUG logs everything the pipeline does and is of limited use to the end-user.
 
 
 Full Command information
------
+------------------------
 
 Command line arguments:
 
@@ -99,4 +99,15 @@ Help options:
                             Set log level to: debug, info, warning (default) or
                             critical see readme for more details. log written to
                             -output_file + '.log'
+
+Dependencies
+------------
+* python2.7 or 3
+* bio-python
+* beautiful-soup
+* requests
+
+License
+-------
+* BSD-3
 
