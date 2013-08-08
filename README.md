@@ -19,25 +19,25 @@ the output file, a CSV spreadsheet, which needs to be evaluated further by the u
 Important options
 -----------------
 
-* *Blacklisted GenBank accessions* Some GenBank accessions are known to have incorrect 
+* **Blacklisted GenBank accessions** Some GenBank accessions are known to have incorrect 
 taxon IDs, which can cause both Type I and Type II errors in this pipeline. To avoid such 
 known, problematic, GenBank accessions, the command line argument `--blacklist <list.csv>` 
 can be provided. An example of what such a file should look like is provided in the data 
 folder as _Blacklist.csv_.
 
-* *Synonyms* Some nodes in the NCBI taxonomy are considered to be synonyms of other such 
+* **Synonyms** Some nodes in the NCBI taxonomy are considered to be synonyms of other such 
 nodes. This, too, has the potential to cause Type I and Type II errors. For known nodes 
 where this is the case, (an) additional CSV spreadsheet(s) can be provided that identifies 
 NCBI synonyms that are also CITES-listed. An example of such an additional file is 
 provided in the data folder as _Reconciled\_names\_db.csv_.
 
-* *Local database updates* Periodically, CITES releases new appendices with new lists of 
+* **Local database updates** Periodically, CITES releases new appendices with new lists of 
 names. In order to stay up to date, this pipeline checks whether such new update are 
 available and downloads and processes the new data if this is the case. This behavior can 
 be influenced by either forcing the download (with `--force_update`) or omitting it (with 
 `--avoid_update`) regardless.
 
-* *Verbosity* The script keeps a log of the different processes in the script. The log 
+* **Verbosity** The script keeps a log of the different processes in the script. The log 
 file is named similar to the file specified with the `--output_file` parameter, but with 
 the .log extension. With the `--logging parameter` the amount of information written to 
 the log file can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. 
