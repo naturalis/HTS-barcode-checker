@@ -33,18 +33,46 @@ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABI
 TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**
 
+Installation instructions
+-------------------------
+
+For command-line usage, the Python script _HTS-barcode-checker_ is provided in the src
+folder. Assuming the dependencies (listed below) are satisfied, there are no installation
+steps, the script can simply be run 'as is'.
+
+To install the pipeline as a locally-hosted web application, in addition to satisfying the
+dependencies listed below, the Perl script _HTS-barcode-checker.cgi_ must be placed in a 
+location where it is executable as a CGI script. Given the number of different web server
+configurations that exist it is best to consult your local system administrator if you
+don't know how to do this.
+
+Dependencies
+------------
+
+* python2.7 or 3
+* bio-python
+* beautiful-soup
+* requests
+
 General usage
 -------------
 
 The basic command to run the pipeline is:
 
-`CITES_Check.py --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv>`
+`HTS-barcode-checker --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv>`
 
 This command will run BLAST searches of the provided input FASTA file(s) against the NCBI
 nucleotide database (by default), then cross-reference the returned taxon IDs with local
 databases of taxon IDs that were obtained by taxonomic name reconciliation of the names 
 listed in CITES appendices with the NCBI taxonomy. Any putative matches are recorded in 
 the output file, a CSV spreadsheet, which needs to be evaluated further by the user.
+
+In a typical use case the input file contains high-throughput DNA sequencing reads for a 
+locus commonly used in DNA barcoding (e.g. COI, matK, rbcL). To limit data volumes the 
+user is advised to consider filtering out duplicate and poor quality reads as well as, 
+possibly, clustering the reads a priori (e.g. using octopus) and picking an exemplar or 
+computing a consensus for each cluster. An example file is provided in the data folder as
+_Test\_data.fasta_.
 
 Important options
 -----------------
@@ -82,10 +110,10 @@ Full command information
 
 Command line arguments:
 
-	CITES_Check.py [-h] [-i fasta file] [-o output file] [-ba algorithm]
-	[-bd database] [-hs HS] [-mb] [-mi MI] [-mc MC] [-me ME]
-	[-bl blacklist file] [-cd CITES database file [CITES database file ...]]
-	[-fd] [-ad] [-l log level]
+	HTS-barcode-checker [-h] [-i fasta file] [-o output file] [-ba algorithm]
+		[-bd database] [-hs HS] [-mb] [-mi MI] [-mc MC] [-me ME]
+		[-bl blacklist file] [-cd CITES database file [CITES database file ...]]
+		[-fd] [-ad] [-l log level]
 
 All command line arguments and options can be provided in short of long form, as listed
 below:
@@ -98,52 +126,47 @@ below:
 		
 	-o <output file>, --output_file <output file>
 		results file in CSV format
+		
+	-cd <db file> [<db file> ...], --CITES_db <db file> [<db file> ...]
+		one or more database (CSV) files with CITES-listed taxon identifiers		
 
 	-ba <algorithm>, --BLAST_algorithm <algorithm>
-		BLAST algorithm to use (default=blastn)
+		BLAST algorithm to use (optional, default=blastn)
 		
 	-bd <database>, --BLAST_database <database>
-		BLAST database to use (default=nt)
+		BLAST database to use (optional, default=nt)
 
 	-mb, --megablast      
-		use megablast, can only be used in combination with blastn
+		use megablast, can only be used in combination with blastn (optional)
 		
 	-hs <size>, --hitlist_size <size>
-		number of results BLAST wil return (default=10)
+		number of results BLAST wil return (optional, default=10)
 		
 	-mi <identity>, --min_identity <identity>
-		lowest percentage identity for BLAST results to consider (default=97)
+		lowest percentage identity for BLAST results to consider (optional, default=97)
 		
 	-mc <coverage>, --min_coverage <coverage>
-		minimal coverage for BLAST results in number of bases (default=100)
+		minimal coverage for BLAST results in number of bases (optional, default=100)
 		
 	-me <e-value>, --max_evalue  <e-value>
-		threshold E-value for BLAST results (default=0.05)
+		threshold E-value for BLAST results (optional, default=0.05)
 		
 	-bl <blacklist file>, --blacklist <blacklist file>
-		CSV file containing blacklisted genbank accession numbers
-						
-	-cd <db file> [<db file> ...], --CITES_db <db file> [<db file> ...]
-		one or more database (CSV) files with CITES-listed taxon identifiers
+		CSV file containing blacklisted genbank accession numbers (optional)					
 						
 	-fd, --force_download
-		force update of the local CITES database
+		force update of the local CITES database (optional)
 
 	-ad, --avoid_download
-		avoid updating the local CITES database
+		avoid updating the local CITES database (optional)
 
 	-l <verbosity>, --logging <verbosity>
 		set log level to: debug, info, warning (default) or critical. log written to
-		-output_file + '.log'
-
-Dependencies
-------------
-* python2.7 or 3
-* bio-python
-* beautiful-soup
-* requests
+		-output_file + '.log' (optional)
 
 License
 -------
-* BSD-3
+
+This software is released under a BSD-3 license, which is provided as the LICENSE file
+included with this project.
 
