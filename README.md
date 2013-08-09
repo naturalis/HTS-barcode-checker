@@ -7,7 +7,7 @@ Endangered Species of Wild Fauna and Flora [CITES](http://cites.org/). This proj
 provides a pipeline that automates the putative taxonomic identification of DNA barcodes 
 (e.g. as generated from confiscated materials) by chaining together the steps of DNA 
 sequence similarity searching in public databases and taxonomic name reconciliation of the 
-names associated with returned, similar sequences and the names listed in the CITES 
+names associated with returned, similar sequences with the names listed in the CITES 
 "appendices" (which itemize species and higher taxa in which international trade is 
 restricted).
 
@@ -15,7 +15,7 @@ Disclaimer
 ----------
 
 Although the authors of this pipeline have taken care to consider exceptions such as 
-incorrectly annotated sequence records in public databases, taxonomic synonyms and 
+incorrectly annotated sequence records in public databases, taxonomic synonyms, and 
 ambiguities in the CITES appendices themselves, the user is advised that the results of 
 this pipeline can in no way be construed as conclusive evidence for either positive or
 negative taxonomic identification of the contents of biological materials. The pipeline
@@ -38,7 +38,8 @@ Installation instructions
 
 **Simple:** For command-line usage, the Python script _HTS-barcode-checker_ is provided in 
 the src folder. Assuming the dependencies (listed below) are satisfied, there are no 
-installation steps, the script can simply be run 'as is'.
+installation steps, the script can simply be run 'as is' with command-line arguments 
+described below.
 
 **Advanced:** To install the pipeline as a locally-hosted web application, in addition to 
 satisfying the dependencies listed below, the following steps must be taken:
@@ -70,10 +71,23 @@ The basic command to run the pipeline is:
 `HTS-barcode-checker --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv>`
 
 This command will run BLAST searches of the provided input FASTA file(s) against the NCBI
-nucleotide database (by default), then cross-reference the returned taxon IDs with local
+nucleotide database (by default), then cross-references the returned taxon IDs with local
 databases of taxon IDs that were obtained by taxonomic name reconciliation of the names 
-listed in CITES appendices with the NCBI taxonomy. Any putative matches are recorded in 
-the output file, a CSV spreadsheet, which needs to be evaluated further by the user.
+listed in CITES appendices with the NCBI taxonomy. Any matches are recorded in the output 
+file, a CSV spreadsheet, which needs to be evaluated further by the user.
+
+The pipeline flags critical issues that need to be investigated. In particular, in cases 
+of taxonomic heterogeneity including CITES-listed species (i.e. multiple distinct species
+matching the same sequence) the pipeline warns about this by emitting a message such as:
+
+`CRITICAL: X out of a total of Y distinct taxa for "query" are CITES-listed`
+
+Where X and Y are counts of distinct taxa and "query" is the input sequence identifier 
+that yielded this result. Care must be taken in the interpretation of such results, as
+they can be a source of both Type I and Type II errors.
+
+Input data
+----------
 
 In a typical use case the input file contains high-throughput DNA sequencing reads for a 
 locus commonly used in DNA barcoding (e.g. COI, matK, rbcL). To limit data volumes the 
@@ -81,37 +95,6 @@ user is advised to consider filtering out duplicate and poor quality reads as we
 possibly, clustering the reads a priori (e.g. using octopus) and picking an exemplar or 
 computing a consensus for each cluster. An example file is provided in the data folder as
 _Test\_data.fasta_.
-
-Important options
------------------
-
-* **Blacklisted GenBank accessions** Some GenBank accessions are known to have incorrect 
-taxon IDs, which can cause both Type I and Type II errors in this pipeline. To avoid such 
-known, problematic, GenBank accessions, the command line argument `--blacklist <list.csv>` 
-can be provided. An example of what such a file should look like is provided in the data 
-folder as _Blacklist.csv_.
-
-* **Synonyms** Some nodes in the NCBI taxonomy are considered to be synonyms of other such 
-nodes. This, too, has the potential to cause Type I and Type II errors. For known nodes 
-where this is the case, (an) additional CSV spreadsheet(s) can be provided that identifies 
-NCBI synonyms that are also CITES-listed. An example of such an additional file is 
-provided in the data folder as _Reconciled\_names\_db.csv_.
-
-* **Local database updates** Periodically, CITES releases new appendices with new lists of 
-names. In order to stay up to date, this pipeline checks whether such new update are 
-available and downloads and processes the new data if this is the case. This behavior can 
-be influenced by either forcing the download (with `--force_update`) or omitting it (with 
-`--avoid_update`) regardless.
-
-* **Verbosity** The script keeps a log of the different processes in the script. The log 
-file is named similar to the file specified with the `--output_file` parameter, but with 
-the .log extension. With the `--logging parameter` the amount of information written to 
-the log file can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. 
-WARNING logs only the  messages generated when something is amiss with either blasting 
-sequences or updating the CITES database. This verbosity level is the default. INFO logs 
-the basic steps of the pipeline and any recoverable issues that might occur (similar to 
-WARNING). DEBUG logs everything the pipeline does and is of limited use to the end-user.
-
 
 Full command information
 ------------------------
@@ -123,7 +106,7 @@ Command line arguments:
 		[-bl blacklist file] [-cd CITES database file [CITES database file ...]]
 		[-fd] [-ad] [-l log level]
 
-All command line arguments and options can be provided in short of long form, as listed
+All command line arguments and options can be provided in short or long form, as listed
 below:
 
 	-h, --help            
@@ -174,6 +157,38 @@ below:
 	-lf <log file>, --log_file <log file>
 		specifies a file to log to. if unset, logging is to STDERR
 
+
+Important options
+-----------------
+
+* **Blacklisted GenBank accessions** Some GenBank accessions are known to have incorrect 
+taxon IDs, which can cause both Type I and Type II errors in this pipeline. To avoid such 
+known, problematic, GenBank accessions, the command line argument `--blacklist <list.csv>` 
+can be provided. An example of what such a file should look like is provided in the data 
+folder as _Blacklist.csv_.
+
+* **Synonyms** Some nodes in the NCBI taxonomy are considered to be synonyms of other such 
+nodes. This, too, has the potential to cause Type I and Type II errors. For known nodes 
+where this is the case, (an) additional CSV spreadsheet(s) can be provided that identifies 
+NCBI synonyms that are also CITES-listed. An example of such an additional file is 
+provided in the data folder as _Reconciled\_names\_db.csv_.
+
+* **Local database updates** Periodically, CITES releases new appendices with new lists of 
+names. In order to stay up to date, this pipeline checks whether such new update are 
+available and downloads and processes the new data if this is the case. This behavior can 
+be influenced by either forcing the download (with `--force_update`) or omitting it (with 
+`--avoid_update`) regardless. Downloading the CITES appendices and updating the local 
+database with their contents is done by the _Retrieve\_CITES.py_ script, which is called
+by the main script and consequently meant for internal use only.
+
+* **Verbosity** The script keeps a log of the different processes in the script. The log 
+file is named similar to the file specified with the `--output_file` parameter, but with 
+the .log extension. With the `--logging parameter` the amount of information written to 
+the log file can be altered. The parameter can be set to: WARNING (default), INFO or DEBUG. 
+WARNING logs only the  messages generated when something is amiss with either blasting 
+sequences or updating the CITES database. This verbosity level is the default. INFO logs 
+the basic steps of the pipeline and any recoverable issues that might occur (similar to 
+WARNING). DEBUG logs everything the pipeline does and is of limited use to the end-user.
 
 License
 -------
