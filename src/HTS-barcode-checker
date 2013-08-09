@@ -41,6 +41,8 @@ parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
 			help = 'Avoid updating the local CITES database')
 parser.add_argument('-l', '--logging', metavar='log level', dest='l', type=str,
 			help = 'Set log level to: debug, info, warning (default) or critical see readme for more details.\nlog written to -output_file + \'.log\'', default='warning')
+parser.add_argument('-lf', '--log_file', metavar='log file', dest='lf', type=str,
+			help = 'Set log file. If unset, logs to STDERR', default='')
 
 args = parser.parse_args()
 
@@ -227,11 +229,18 @@ def obtain_tax (code):
 
 
 def write_results (result, mode):
+	# ignore empty strings!
+	if result != '':
 	
-	# write the results to the output file
-	out_file = open(args.o, mode)
-	out_file.write(result + '\n')
-	out_file.close()
+		# write the results to stdout
+		if args.o == '-':
+			print(result + '\n')
+	
+		# write the results to the output file
+		else:
+			out_file = open(args.o, mode)
+			out_file.write(result + '\n')
+			out_file.close()
 
 
 def parse_seq_file (CITES_dic, blacklist):
@@ -249,7 +258,6 @@ def parse_seq_file (CITES_dic, blacklist):
 	# blast each sequence in the seq_list list
 	procs, count, threads = [], 1, 10
 	logging.info('Blasting sequences, total: %i.' % len(seq_list))
-	print('Blasting sequences, total sequences: %i.' % len(seq_list))
 	logging.debug('Start multithreaded blast search.')
 	while len(seq_list) > 0 or len(procs) > 0:
 		# start the maximum number of threads
@@ -267,8 +275,6 @@ def parse_seq_file (CITES_dic, blacklist):
 				procs.append([p, time.time()])
 				p.start()
 				count+=1
-				sys.stdout.write('\r' + str(len(seq_list)))
-				sys.stdout.flush()
 			except:
 				logging.warning('Failed to open thread number: %i, total number %i.' % (len(procs), count))
 				break
@@ -300,12 +306,15 @@ def main ():
 	if not isinstance(log_level, int):
 		raise ValueError('Invalid log level: %s' % loglevel)
 		return
-	logging.basicConfig(filename=os.path.splitext(args.o)[0]+'.log', filemode='w', format='%(asctime)s - %(levelname)s: %(message)s', level=log_level)
+	
+	if args.lf == '':
+		logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', level=log_level)
+	else:
+		logging.basicConfig(filename=os.path.splitext(args.o)[0]+'.log', filemode='w', format='%(asctime)s - %(levelname)s: %(message)s', level=log_level)
 
 	# Check if input fasta file and output file are provided
 	if args.i == '' or args.o == '':
 		logging.critical('No fasta file or output file provided, see -help for details.')
-		print 'No fasta file or output file provided, see --help for details.'
 		return
 
 	# Check if there is a more recent CITES list online
@@ -329,7 +338,7 @@ def main ():
 	logging.info('Processing the sequence file.')
 	parse_seq_file(CITES_dic, blacklist)
 
-	print '\nDone\nResults are written to the: ' + args.o + ' output file'
+	logging.info('Done. Results are written to the: ' + args.o + ' output file')
 
 
 if __name__ == "__main__":
