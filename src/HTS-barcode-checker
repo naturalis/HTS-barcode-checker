@@ -8,41 +8,41 @@
 
 # import the argparse module to handle the input commands
 # and the logging module to track log messages
-import argparse, logging, os
+import argparse, logging, os, sys
 
 # get the commandline arguments that specify the input fastafile and the output file
 parser = argparse.ArgumentParser(description = ('Identify a set of sequences and check if there are CITES species present'))
 
 parser.add_argument('-i', '--input_file', metavar='fasta file', dest='i', type=str, 
-			help='enter the fasta file', default='')
+			help='input data in FASTA format', default='', required=True)
 parser.add_argument('-o', '--output_file', metavar='output file', dest='o', type=str, 
-			help='enter the output file', default='')
+			help='results file in CSV format. if "-" is provided, output is to STDOUT', default='-')
 parser.add_argument('-ba', '--BLAST_algorithm', metavar='algorithm', dest='ba', type=str, 
-			help='Enter the algorithm BLAST wil use (default=blastn)', default='blastn')
+			help='BLAST algorithm to use (optional, default=blastn)', default='blastn')
 parser.add_argument('-bd', '--BLAST_database', metavar='database', dest='bd', type=str,
-			help = 'Enter the database BLAST wil use (default=nt)', default = 'nt')
+			help = 'BLAST database to use (optional, default=nt)', default = 'nt')
 parser.add_argument('-hs', '--hitlist_size', dest='hs', type=int,
-			help = 'Enter the size of the hitlist BLAST wil return (default=10)', default = 10)
+			help = 'number of results BLAST wil return (optional, default=10)', default = 10)
 parser.add_argument('-mb', '--megablast', dest='mb', action='store_true', 
-			help = 'Use megablast, can only be used in combination with blastn')
+			help = 'use megablast, can only be used in combination with blastn (optional)')
 parser.add_argument('-mi', '--min_identity', dest='mi', type=int, 
-			help = 'Enter the minimal percentage of identity for BLAST results (default=97)', default = 97)
+			help = 'lowest percentage identity for BLAST results to consider (optional, default=97)', default = 97)
 parser.add_argument('-mc', '--min_coverage', dest='mc', type=int, 
-			help = 'Enter the minimal coverage for BLAST results in number of bases (default=100)', default = 100)
+			help = 'minimal coverage for BLAST results in number of bases (optional, default=100)', default = 100)
 parser.add_argument('-me', '--max_evalue', dest='me', type=float, 
-			help = 'Enter the minimal E-value for BLAST results (default=0.05)', default = 0.05)
+			help = 'threshold E-value for BLAST results (optional, default=0.05)', default = 0.05)
 parser.add_argument('-bl', '--blacklist', metavar='blacklist file', dest='bl', type=str,
-			help = 'File containing the blacklisted genbank id\'s', default='')
+			help = 'CSV file containing blacklisted genbank accession numbers (optional)', default='')
 parser.add_argument('-cd', '--CITES_db', metavar='CITES database file', dest='cd', type=str,
-			help = 'Path to the local copy of the CITES database', nargs='+')
+			help = 'one or more database (CSV) files with CITES-listed taxon identifiers', nargs='+',required=True)
 parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
-			help = 'Force the update of the local CITES database')
+			help = 'force update of the local CITES database (optional)')
 parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
-			help = 'Avoid updating the local CITES database')
+			help = 'avoid updating the local CITES database (optional)')
 parser.add_argument('-l', '--logging', metavar='log level', dest='l', type=str,
-			help = 'Set log level to: debug, info, warning (default) or critical see readme for more details.\nlog written to -output_file + \'.log\'', default='warning')
+			help = 'set log level to: debug, info, warning (default) or critical', default='warning')
 parser.add_argument('-lf', '--log_file', metavar='log file', dest='lf', type=str,
-			help = 'Set log file. If unset, logs to STDERR', default='')
+			help = 'specifies a file to log to. if unset, logging is to STDERR', default='')
 
 args = parser.parse_args()
 
@@ -135,7 +135,10 @@ def blast_bulk (sequences, thread_number):
 		return 'failed'
 
 	# remove the temporary file		
-	os.remove(temp_file_path)
+	try:
+		os.remove(temp_file_path)
+	except:
+		logging.debug(temp_file_path + ' already removed')
 
 	# return the filled blast hit
 	return blast_list
@@ -158,6 +161,8 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 		return
 
 	count = 1	
+	taxa_for_query = {}
+	cites_for_query = {}
 
 	# parse though the blast hits
 	logging.debug('Parsing through blast XML results.')
@@ -179,11 +184,18 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 				# pass this list to the filter_hits function to
 				# filter and write the blast results
 				filter_hits([('\"' + blast_result.query + '\"'), ('\"' + alignment.title + '\"'), gb_num, str(identity),
-						str(blast_result.query_length), str(hsp.expect), str(hsp.bits)], CITES_dic, blacklist)
+						str(blast_result.query_length), str(hsp.expect), str(hsp.bits)], CITES_dic, blacklist, taxa_for_query,cites_for_query)
 				count += 1
+	
+	# here we report whether a sequence has multiple taxa
+	for sequence in taxa_for_query.keys():
+		totalN = len(taxa_for_query[sequence])
+		citesN = len(cites_for_query[sequence])
+		if totalN > 1 and citesN > 1:
+			logging.critical('{} out of a total of {} distinct taxa for {} are CITES-listed'.format(citesN,totalN,sequence))
 
 
-def filter_hits (blast, CITES_dic, blacklist):
+def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
 	
 	# filter the blast hits, based on the minimum
 	# identity, minimum coverage, e-value and the user blacklist
@@ -192,11 +204,20 @@ def filter_hits (blast, CITES_dic, blacklist):
 			taxon = obtain_tax(blast[2])
 			results = blast+taxon
 
+			# grow the list of taxa associated with a single sequence
+			if blast[0] not in taxa_for_query:
+				taxa_for_query[blast[0]] = set()
+			taxa_for_query[blast[0]].add(taxon[0])
+			
+			if blast[0] not in cites_for_query:
+				cites_for_query[blast[0]] = set()
+
 			# check if the taxon id of the blast hit
 			# is present in the CITES_dic
 			if taxon[0] in CITES_dic:
 				logging.debug('Appending CITES info to blast hit.')
-				results += CITES_dic[taxon[0]][1:]
+				results += CITES_dic[taxon[0]][1:]				
+				cites_for_query[blast[0]].add(taxon[0])
 			
 			# write the results
 			write_results(','.join(results), 'a')
@@ -301,12 +322,16 @@ def parse_seq_file (CITES_dic, blacklist):
 
 def main ():
 
-	# set log level
+	# no command line arguments provided
+	if len(sys.argv) == 1:
+		parser.print_help()
+		sys.exit()
+
+	# configure logging
 	log_level = getattr(logging, args.l.upper(), None)
 	if not isinstance(log_level, int):
 		raise ValueError('Invalid log level: %s' % loglevel)
-		return
-	
+		return	
 	if args.lf == '':
 		logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', level=log_level)
 	else:
