@@ -36,15 +36,23 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**
 Installation instructions
 -------------------------
 
-For command-line usage, the Python script _HTS-barcode-checker_ is provided in the src
-folder. Assuming the dependencies (listed below) are satisfied, there are no installation
-steps, the script can simply be run 'as is'.
+**Simple:** For command-line usage, the Python script _HTS-barcode-checker_ is provided in 
+the src folder. Assuming the dependencies (listed below) are satisfied, there are no 
+installation steps, the script can simply be run 'as is'.
 
-To install the pipeline as a locally-hosted web application, in addition to satisfying the
-dependencies listed below, the Perl script _HTS-barcode-checker.cgi_ must be placed in a 
-location where it is executable as a CGI script. Given the number of different web server
-configurations that exist it is best to consult your local system administrator if you
-don't know how to do this.
+**Advanced:** To install the pipeline as a locally-hosted web application, in addition to 
+satisfying the dependencies listed below, the following steps must be taken:
+
+* Install the CPAN module Text::CSV.
+* Place the Perl script _HTS-barcode-checker.cgi_ in a location where it is executable as
+a CGI script.
+* Place the Python script _HTS-barcode-checker_ in a location where it can be executed by
+the web server process.
+* Place the default CITES CSV database _data/CITES\_db.csv_ in a location where it is 
+readable by the web server process.
+
+Given the number of different web server configurations that exist it is best to consult 
+your local system administrator if you don't know how to do this.
 
 Dependencies
 ------------
