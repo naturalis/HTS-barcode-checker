@@ -22,11 +22,30 @@
 		tr.cites {
 			background-color: yellow
 		}
+		.waiting {
+			width: 220px;
+			text-align: center;
+			left: 50%;
+			width: 220px;
+			margin-top: 35px;
+			margin-left: -110px;				
+			position: absolute;
+			z-index: 1
+		}		
 	</style>
 	<script 
 		type="text/javascript" 
 		src="http://naturalis.github.com/HTS-barcode-checker/resources/sorttable.js">
 	</script>	
+	<script type="text/javascript">
+		function finalize() {
+			var img = document.getElementById('waiting');
+			var table = document.getElementById('sortable');
+			img.style.display = 'none';
+			table.style.display = 'block';
+		}
+	</script>
 	<head>
-	<body>
-		<table class="sortable">
+	<body onload="finalize();">
+		<img class="waiting" id="waiting" src="http://naturalis.github.com/HTS-barcode-checker/resources/wait.gif" />	
+		<table class="sortable" id="sortable" style="display:none">
