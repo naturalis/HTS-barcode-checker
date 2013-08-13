@@ -316,6 +316,8 @@ def write_results (result, mode, tag, flag_cites):
 		# format the result, either as html table row or as CSV row
 		formatted = ''
 		if args.ah:
+		
+			# create HTML table row
 			formatted = '\t\t\t<tr'
 			if flag_cites:
 				formatted += ' class="cites"'
@@ -333,23 +335,25 @@ def write_results (result, mode, tag, flag_cites):
 				template = '\t\t\t\t<{} class="col{}">{}</{}>\n'
 				formatted += template.format(tag,i,item,tag)
 			formatted += '\t\t\t</tr>\n'
-		else:
-			temp = StringIO.StringIO()
-			with temp as csvfile:
-			    writer = csv.writer(csvfile)
-			    writer.writerow(result)
-			temp.seek(0,0)
-			formatted = temp.read()
+			
+			# write the results to stdout
+			if args.o == '-':
+				print(formatted + '\n')
 	
-		# write the results to stdout
-		if args.o == '-':
-			print(formatted + '\n')
-	
-		# write the results to the output file
+			# write the results to the output file
+			else:
+				out_file = open(args.o, mode)
+				out_file.write(formatted + '\n')
+				out_file.close()			
+			
 		else:
-			out_file = open(args.o, mode)
-			out_file.write(formatted + '\n')
-			out_file.close()
+			csvfile = sys.stdout
+			if args.o != '-':
+				csvfile = open(args.o, mode)
+			writer = csv.writer(csvfile)
+			writer.writerow(result)
+	
+
 
 
 def parse_seq_file (CITES_dic, blacklist):
@@ -442,7 +446,20 @@ def main ():
 	# create a blank result file and write the header
 	if args.ah:
 		print_file_contents(resources + '/header.html',True)
-	header = [ 'query','hit','accession','identity','hit length','e-value','bit-score','taxon id','species','CITES info (numbers match the footnotes at the online CITES appendice)','NCBI Taxonomy name','appendix' ]
+	header = [ 
+		'Query ID',
+		'Hit description',
+		'GI',
+		'% identity',
+		'Hit length',
+		'E-value',
+		'Bit score',
+		'Taxon ID',
+		'Species name',
+		'CITES info (numbers match the footnotes at the online CITES appendice)',
+		'NCBI taxon name',
+		'CITES appendix' 
+	]
 	write_results(header, 'w', 'th', False)
 
 	# parse through the sequence file, blast all sequences and write the blast hits + CITES info
