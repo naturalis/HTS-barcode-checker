@@ -1,0 +1,9 @@
+# This blacklist contains the Genbank IDs of species that are incorrectly annotated.
+# The blacklist is in .csv format, the first column contains the Genbank IDs the second
+# column can contain comments.
+EF090607, Nyctaginaceae
+EU135607, Nyctaginaceae
+EF090905, Agormycetes
+EU135906, Saccharomycetales
+EU135908, Saccharomycetales
+EU135909, Saccharomycetales
