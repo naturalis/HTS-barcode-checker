@@ -259,7 +259,6 @@ def combine_sets (CITES_dic, CITES_notes):
 	taxon_id_dic, CITES_length, failed = {}, sum([len(CITES_dic[appendix]) for appendix in CITES_dic]), 0
 	total = CITES_length
 
-	print('Total number of CITES entries: %i' % CITES_length)
 	logging.info('Total number of CITES entries: %i.' % CITES_length)
 
 	logging.debug('Parse through the CITES species found per appendix.')
@@ -369,13 +368,11 @@ def main ():
 	try:
 		if CITES_info[0] == file_data['Date'] and args.f != True:
 			logging.info('Local CITES database is up to data.')
-			print('Local CITES database is up to date')
 			return
 	except:
 		pass
 
 	logging.info('Downloading new copy of CITES database.')
-	print('Local CITES database either not present or outdated.\nDownloading new local copy of the CITES database')
 
 	# use TNRS to grab the species synonyms and
 	# taxid if available. Expand the taxids with 
@@ -384,7 +381,6 @@ def main ():
 	taxon_id_dic = combine_sets(CITES_info[1], CITES_info[2])
 
 	# write the results to the output location
-	print('\nDownloading and formating of the CITES database completed, writing the new database to: %s' % output_path)
 	logging.debug('Write CITES info to output file %s.' % output_path)
 	write_csv(CITES_info[0], taxon_id_dic, output_path)
 	
