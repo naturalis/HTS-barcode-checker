@@ -139,14 +139,14 @@ def get_CITES ():
 	import sys, os
 
 	logging.debug('Getting path to Retrieve_CITES.py script.')
-	dir, file = os.path.split(sys.argv[0])
-	CITES_path = dir+'/Retrieve_CITES.py'
+	dir, file = os.path.split(os.path.realpath(sys.argv[0]))
+	CITES_path = dir + '/Retrieve_CITES.py'
 	logging.debug('Retrieve_CITES.py path set to: %s.' % CITES_path)
 	
 	if args.fd == True:
-		path = call([CITES_path, '-db'] + args.cd + ['-f', '-l', args.l, '-lf', args.o])
+		path = call([CITES_path, '-db'] + args.cd + ['-f', '-l', args.l, '-lf', args.lf])
 	else:
-		path = call([CITES_path, '-db'] + args.cd + ['-l', args.l, '-lf', args.o])
+		path = call([CITES_path, '-db'] + args.cd + ['-l', args.l, '-lf', args.lf])
 
 
 def get_CITES_dic ():
