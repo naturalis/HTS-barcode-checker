@@ -248,7 +248,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 		totalN = len(taxa_for_query[sequence])
 		citesN = len(cites_for_query[sequence])
 		if totalN > 1 and citesN > 1:
-			logging.critical('{} out of a total of {} distinct taxa for {} are CITES-listed'.format(citesN,totalN,sequence))
+			logging.warning('{} out of a total of {} distinct taxa for {} are CITES-listed'.format(citesN,totalN,sequence))
 
 
 def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
@@ -304,7 +304,7 @@ def obtain_tax (code):
 
 	except:
 		logging.warning('Could not obtain a taxon info for taxon ID: %s.' % code)
-		pass
+		taxon, species = 'unknown ID', 'unknown species'
 
 	return [taxon, species]
 
