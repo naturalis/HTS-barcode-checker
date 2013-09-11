@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<tool id="HTS-barcode-checker" name="HTS barcode-checker" version="1.2.0" force_history_refresh="True">
+  <description>Scan a fasta file for CITES species</description>
+
+  <!-- collect the parameters and provide these to the wrapper script -->
+  <command interpreter="python">
+    HTS-barcode-checker.py
+    --input_file $input
+    --output_file $output
+    #if $local_cites.CITES_loc == "local"
+    --CITES_db $local_cites.CITES_db
+      #if $local_cites.update.cites_update == "force"
+      --force_update
+      #elif $local_cites.update.cites_update == "avoid"
+      --avoid_update
+      #else
+        #pass
+      #end if
+    #else
+    -new $output.id $__new_file_path__
+    #end if
+    #for $add_cites_db in $add_cites_dbs
+    --CITES_db "${add_cites_db.add_cites_db}"
+    #end for
+    --log_file $log_file
+    --BLAST_algorithm $blast_database.blast_al
+    --BLAST_database $blast_database.blast_db
+    --hitlist_size $hitlist
+    --min_identity $min_iden
+    --min_coverage $min_cov
+    --max_evalue $max_e
+    #for $blacklist in $blacklists
+    --blacklist "${blacklist.blacklist}"
+    #end for
+    --logging $logging
+  </command>
+
+  <!-- Two macros containing the various NCBI databases that can be blasted against -->
+  <macros>
+    <macro name="nucleotide">
+      <param name="blast_db" type="select" label="Blast nucleotide database">
+        <option value="nr" selected="true">Non-redundant sequences (nr)</option>
+        <option value="refseq_mrna">mRNA reference sequences</option>
+        <option value="refseq_genomic">Genomic reference sequences</option>
+        <option value="est">Genbank EST database</option>
+        <option value="env_nt">Environmental sequences</option>
+      </param>
+    </macro>
+    <macro name="protein">
+      <param name="blast_db" type="select" label="Blast protein database">
+        <option value="nr" selected="true">Non-redundant CDS sequences (nr)</option>
+        <option value="refseq">Reference protein sequences</option>
+        <option value="swissprot">Last release of the swissprot protein database</option>
+        <option value="pdb">Sequences derived from the 3d structure records of the protein data bank</option>
+        <option value="env_nr">Non-redundant CDS sequence from environmental entries</option>
+      </param>
+    </macro>
+  </macros>
+ 
+  <inputs>
+    <param format="fasta" name="input" type="data" label="(nucleotide) Fasta file"/>
+
+    <conditional name="local_cites">
+      <param name="CITES_loc" type="select" label="CITES database">
+        <option value="none">No local CITES database, will download a new copy</option>
+        <option value="local" selected="true">Local copy</option>
+      </param>
+      <when value="local">
+        <param format="txt" name="CITES_db" type="data" label="CITES database"/>
+        <conditional name="update">
+          <param name="cites_update" type="select" label="Update CITES database">
+            <option value="check" selected="true">Update if outdated</option>
+            <option value="force">Force update</option>
+            <option value="avoid">Avoid update</option>
+          </param>
+        </conditional>
+      </when>
+    </conditional>
+
+    <repeat name="add_cites_dbs" title="Additional CITES databases">
+      <param format="txt" name="add_cites_db" type="data" label="CITES set"/>
+    </repeat>
+
+    <conditional name="blast_database">
+      <param name="blast_al" type="select" label="Blast algorithm">
+        <option value="blastn" selected="true">blastn</option>
+        <option value="blastp">blastp</option>
+        <option value="blastx">blastx</option>
+        <option value="tblast">tblast</option>
+        <option value="tblastx">tblastx</option>
+      </param>
+      <when value="blastn">
+        <expand macro="nucleotide"/>
+      </when>
+      <when value="blastp">
+        <expand macro="protein"/>
+      </when>
+      <when value="blastx">
+        <expand macro="protein"/>
+      </when>
+      <when value="tblastn">
+        <expand macro="nucleotide"/>
+      </when>
+      <when value="tblastx">
+        <expand macro="nucleotide"/>
+      </when>
+    </conditional>
+
+
+    <param name="hitlist" type="integer" label="Maximum number of blast hits per sequence" value="10" min="1"/>
+    <param name="min_iden" type="integer" label="Minimum Blast hit identity"  value="97" min="1" max="100"/>
+    <param name="min_cov" type="integer" label="Minimum Blast hit coverage" value="100" min="1"/>
+    <param name="max_e" type="float" label="Maximum e-value" value="0.05" max="1.00"/>
+
+    <repeat name="blacklists" title="Select blacklist files">
+      <param format="txt" name="blacklist" type="data" label="Blacklist file"/>
+    </repeat>
+
+    <param name="logging" type="select" label="Logging">
+      <option value="debug">debug</option>
+      <option value="info">info</option>
+      <option value="warning" selected="true">warning</option>
+      <option value="critical">critical</option>
+    </param>
+    
+  </inputs>
+
+  <outputs>
+    <data format="txt" name="output" label="CITES results"/>
+    <data format="txt" name="log_file" label="Log file"/>
+  </outputs>
+
+  <tests>
+  </tests>
+
+  <help>
+
+HTS-barcode-checker
+
+The HTS-barcode-checker takes a fasta file and BLASTs the sequence against a reference database. The tool checks the blast results for CITES protected species and reports these to the user.
+
+.. class:: warningmark
+
+The tool will BLAST each sequence against through the NCBI servers, try to limit the number of fasta sequences by clustering or filtering (Ideally sets should contain no more then a 1000 sequences).
+
+Additional files are CITES databases (if non provided the tools will download a new copy, however this can take some time) and blacklist files (genbank IDs that are incorrectly annotated), both these files can be uploaded with the default galaxy "get data" function (datatype can be set to "txt").
+
+  </help>
+
+</tool>

@@ -28,7 +28,13 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # these are all part of the standard library
-import argparse, logging, os, sys, cgi, cgitb, StringIO, csv
+import argparse, logging, os, sys, cgi, cgitb, StringIO, csv, time, multiprocessing
+from subprocess import call
+
+# The following modules are imported from BioPython
+from Bio.Blast import NCBIWWW, NCBIXML
+from Bio import SeqIO
+from Bio import Entrez
 
 # CHANGE ME:
 # this location contains resources used both in command line and CGI mode:
@@ -102,10 +108,10 @@ else:
 				help = 'minimal coverage for BLAST results in number of bases (optional, default=100)', default = 100)
 	parser.add_argument('-me', '--max_evalue', dest='me', type=float, 
 				help = 'threshold E-value for BLAST results (optional, default=0.05)', default = 0.05)
-	parser.add_argument('-bl', '--blacklist', metavar='blacklist file', dest='bl', type=str,
-				help = 'CSV file containing blacklisted genbank accession numbers (optional)', default='')
-	parser.add_argument('-cd', '--CITES_db', metavar='CITES database file', dest='cd', type=str,
-				help = 'one or more database (CSV) files with CITES-listed taxon identifiers', nargs='+',required=True)
+	parser.add_argument('-bl', '--blacklist', metavar='blacklist file', dest='bl', type=str, action='append',
+				help = 'CSV file containing blacklisted genbank accession numbers (optional)', nargs='+') 
+	parser.add_argument('-cd', '--CITES_db', metavar='CITES database file', dest='cd', type=str, action='append',
+				help = 'one or more database (CSV) files with CITES-listed taxon identifiers', required=True, nargs='+')
 	parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
 				help = 'force update of the local CITES database (optional)')
 	parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
@@ -119,6 +125,18 @@ else:
 	args = parser.parse_args()
 
 
+def sanitize_multiple_inputs(input_list):
+
+	# remove list nesting on multiple input files
+	if type(input_list[0]) == list:
+		if len(input_list) > 1:
+			return [item[0] for item in input_list]
+		else:
+			return input_list[0]
+	else:
+		return input_list
+
+
 def get_blacklist ():
 	
 	# return a list containing the blacklisted genbank id's
@@ -126,23 +144,24 @@ def get_blacklist ():
 	# genbank_id, description
 	logging.debug('Trying to obtain genbank IDs from blacklist file: %s.' % args.bl)
 	try:
-		return [line.split(',')[0] for line in open(args.bl,'r') if line[0] != '#']
+		final_blacklist = []
+		for blacklist_file in args.bl:		
+			final_blacklist += [line.split(',')[0] for line in open(blacklist_file,'r') if line[0] != '#']
+		return list(set(final_blacklist))
 	except:
 		return []
 
 
 def get_CITES ():
 	
-	# import the subporcess module to run the 
-	# Retieve_CITES script from the shell
-	from subprocess import call
-	import sys, os
+	# Open the Retrieve_CITES.py script to either check the status of the
+	# user provided CITES database or obtain a new copy of the database
 
 	logging.debug('Getting path to Retrieve_CITES.py script.')
 	dir, file = os.path.split(os.path.realpath(sys.argv[0]))
 	CITES_path = dir + '/Retrieve_CITES.py'
 	logging.debug('Retrieve_CITES.py path set to: %s.' % CITES_path)
-	
+
 	if args.fd == True:
 		path = call([CITES_path, '-db'] + args.cd + ['-f', '-l', args.l, '-lf', args.lf])
 	else:
@@ -170,11 +189,6 @@ def get_CITES_dic ():
 
 def blast_bulk (sequences, thread_number):
 
-	# blast modules are imported from biopython
-	from Bio.Blast import NCBIWWW, NCBIXML
-	from Bio import SeqIO
-	import os
-
 	# create the list where all the blast results are stored in
 	blast_list = []
 
@@ -200,9 +214,8 @@ def blast_bulk (sequences, thread_number):
 
 def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 
-	# import the biopython module to deal with fasta parsing
-	from Bio import SeqIO
-	
+	# try to blast the sequences and obtain the results
+
 	blast_count, blast_list = 0, 'failed'
 	while blast_list == 'failed' and blast_count < 3:
 		blast_list = blast_bulk(sequences, thread)
@@ -215,9 +228,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 			write_results([seq.description, 'failed'], 'a', 'td', False)
 		return
 
-	count = 1	
-	taxa_for_query = {}
-	cites_for_query = {}
+	count, taxa_for_query, cites_for_query = 1, {}, {}
 
 	# parse though the blast hits
 	logging.debug('Parsing through blast XML results.')
@@ -248,7 +259,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 		totalN = len(taxa_for_query[sequence])
 		citesN = len(cites_for_query[sequence])
 		if totalN > 1 and citesN > 1:
-			logging.warning('{} out of a total of {} distinct taxa for {} are CITES-listed'.format(citesN,totalN,sequence))
+			logging.critical('{} out of a total of {} distinct taxa for {} are CITES-listed'.format(citesN,totalN,sequence))
 
 
 def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
@@ -258,8 +269,7 @@ def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
 	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
 		if blast[2] not in blacklist:
 			taxon      = obtain_tax(blast[2])
-			results    = blast+taxon
-			flag_cites = False
+			results, flag_cites = blast+taxon, False
 
 			# grow the list of taxa associated with a single sequence
 			if blast[0] not in taxa_for_query:
@@ -285,15 +295,12 @@ def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
 	
 def obtain_tax (code):
 	
-	# a module from Biopython is imported to connect to the Entrez database
-	from Bio import Entrez
-	from Bio import SeqIO
-
+	# try to obtain the taxon id
 	taxon = ''
 
 	try:
 		# based on the genbank id the taxon id is retrieved from genbank
-		Entrez.email = "CITES_check@gmail.com"
+		Entrez.email = "HTS-barcode-checker@gmail.com"
 		handle = Entrez.efetch(db="nucleotide", id= code, rettype="gb",retmode="text")
 		record = SeqIO.read(handle, "gb")
 
@@ -310,6 +317,7 @@ def obtain_tax (code):
 
 
 def write_results (result, mode, tag, flag_cites):
+
 	# ignore empty strings!
 	if result != '':
 	
@@ -357,13 +365,7 @@ def write_results (result, mode, tag, flag_cites):
 
 
 def parse_seq_file (CITES_dic, blacklist):
-	# import the biopython module to deal with fasta parsing
-	# and the multiprocessing module to run multiple blast threads
-	from Bio import SeqIO
-	import multiprocessing
-	import time
-	import sys
-	
+
 	# parse the fasta file
 	logging.info('Reading user provided fasta file: %s.' % args.i)
 	seq_list, sub_list = [seq for seq in SeqIO.parse(args.i, 'fasta')], []
@@ -423,8 +425,21 @@ def main ():
 	if args.lf == '':
 		logging.basicConfig(format=log_format, level=log_level)
 	else:
-		logging.basicConfig(filename=args.lf, filemode='w', format=log_format, level=log_level)
+		logging.basicConfig(filename=args.lf, filemode='a', format=log_format, level=log_level)
 
+	# Write input commands to log
+	logging.debug(' '.join(sys.argv))
+
+	# clean CITES lists and blacklist if applicable
+	print args.cd
+	print args.bl
+	args.cd = sanitize_multiple_inputs(args.cd)
+	if args.bl != None:
+		args.bl = sanitize_multiple_inputs(args.bl)
+
+	print args.cd
+	print args.bl
+	
 	# Check if input fasta file and output file are provided
 	if args.i == '':
 		logging.critical('No fasta file or output file provided, see -help for details.')
