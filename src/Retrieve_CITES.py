@@ -95,7 +95,7 @@ def parse_php (php_file):
 
 	# parse through the table and find all cites species
 	# (in bold / italic) and under which category they fit
-	rows = tables[0].findAll('tr')
+	rows = tables[1].findAll('tr')
 	for tr in rows[2:]:
 		cols = tr.findAll('td')
 		count = 1
@@ -112,7 +112,7 @@ def parse_php (php_file):
 	# parse through the footnotes and create
 	# a dictionary for each one of the notes
 	logging.debug('Parsing the CITES appendix footnotes.')
-	rows = tables[1].findAll('tr')
+	rows = tables[2].findAll('tr')
 	for tr in rows:
 		notes = tr.findAll('td')
 		CITES_notes[clean_cell(notes[0])] = clean_cell(notes[1])

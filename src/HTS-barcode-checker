@@ -431,14 +431,9 @@ def main ():
 	logging.debug(' '.join(sys.argv))
 
 	# clean CITES lists and blacklist if applicable
-	print args.cd
-	print args.bl
 	args.cd = sanitize_multiple_inputs(args.cd)
 	if args.bl != None:
 		args.bl = sanitize_multiple_inputs(args.bl)
-
-	print args.cd
-	print args.bl
 	
 	# Check if input fasta file and output file are provided
 	if args.i == '':
