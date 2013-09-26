@@ -146,7 +146,7 @@ def get_blacklist ():
 	try:
 		final_blacklist = []
 		for blacklist_file in args.bl:		
-			final_blacklist += [line.split(',')[0] for line in open(blacklist_file,'r') if line[0] != '#']
+			final_blacklist += [line.split(',')[0].split('.')[0] for line in open(blacklist_file,'r') if line[0] != '#']
 		return list(set(final_blacklist))
 	except:
 		return []
@@ -240,7 +240,8 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 				identity = float(hsp.identities/(len(hsp.match)*0.01))
 
 				# grab the genbank number
-				gb_num = alignment.title.split('|')[1]
+				gb_num = alignment.title.split('|')[1:4:2]
+				gb_num[1] = gb_num[1].split('.')[0]
 
 				# an alignment needs to meet 3 criteria before 
 				# it is an acceptable result: above the minimum 
@@ -267,8 +268,9 @@ def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
 	# filter the blast hits, based on the minimum
 	# identity, minimum coverage, e-value and the user blacklist
 	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
-		if blast[2] not in blacklist:
-			taxon      = obtain_tax(blast[2])
+		if blast[2][0] not in blacklist and blast[2][1] not in blacklist:
+			taxon = obtain_tax(blast[2][0])
+			blast[2] = blast[2][0]
 			results, flag_cites = blast+taxon, False
 
 			# grow the list of taxa associated with a single sequence
