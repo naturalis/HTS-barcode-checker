@@ -35,6 +35,8 @@ from subprocess import call
 from Bio.Blast import NCBIWWW, NCBIXML
 from Bio import SeqIO
 from Bio import Entrez
+#from Bio.Blast.Applications import NcbiblastnCommandline
+import Bio.Blast.Applications
 
 # CHANGE ME:
 # this location contains resources used both in command line and CGI mode:
@@ -77,6 +79,7 @@ if os.environ.get('GATEWAY_INTERFACE') is not None:
 		args.ba = form.getvalue('BLAST_algorithm')
 		args.bd = form.getvalue('BLAST_database')
 		args.hs = int(form.getvalue('hitlist_size'))
+		args.lb = ( form.getvalue('localb') is not None )
 		args.mb = ( form.getvalue('megablast') is not None )
 		args.mi = int(form.getvalue('min_identity'))
 		args.mc = int(form.getvalue('min_coverage'))
@@ -98,6 +101,8 @@ else:
 				help='BLAST algorithm to use (optional, default=blastn)', default='blastn')
 	parser.add_argument('-bd', '--BLAST_database', metavar='database', dest='bd', type=str,
 				help = 'BLAST database to use (optional, default=nt)', default = 'nt')
+	parser.add_argument('-lb', '--local_blast', dest='lb', action='store_true', 
+				help = 'blast using a local database (uses the ncbi-blast+ tool, this needs to installed separately)')
 	parser.add_argument('-hs', '--hitlist_size', dest='hs', type=int,
 				help = 'number of results BLAST wil return (optional, default=10)', default = 10)
 	parser.add_argument('-mb', '--megablast', dest='mb', action='store_true', 
@@ -186,6 +191,39 @@ def get_CITES_dic ():
 
 	return CITES_dic
 
+def ncbi_blast (temp):
+
+	# BLAST the sequences online against a NCBI database
+	logging.debug('BLASTING sequences agaist NCBI')
+	result_handle = NCBIWWW.qblast(args.ba, args.bd, temp.read(), megablast=args.mb, hitlist_size=args.hs)
+
+	# return the results handle with the blast results
+	return result_handle
+
+
+def local_blast (temp):
+
+	# BLAST the sequences against a local database using the ncbi-blast+ sofware package
+	logging.debug('Starting local BLAST')
+
+	# Use the selected BLAST algorithm
+	if args.ba == 'blastn':
+		BLAST_handle = Bio.Blast.Applications.NcbiblastnCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
+	elif args.ba == 'blastp':
+		BLAST_handle = Bio.Blast.Applications.NcbiblastpCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
+	elif args.ba == 'blastx':
+		BLAST_handle = Bio.Blast.Applications.NcbiblastxCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
+	elif args.ba == 'tblastn':
+		BLAST_handle = Bio.Blast.Applications.NcbitblastnCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
+	elif args.ba == 'tblastx':
+		BLAST_handle = Bio.Blast.Applications.NcbitblastxCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
+
+	result_handle = StringIO.StringIO(BLAST_handle(stdin=temp.read())[0])
+	result_handle.seek(0)
+
+	# return the result handle with the blast results
+	return result_handle
+
 
 def blast_bulk (sequences, thread_number):
 
@@ -199,9 +237,12 @@ def blast_bulk (sequences, thread_number):
 	temp.seek(0,0) # rewind so that read() starts at top
 
 	# blast the temporary file, and save the blasthits in the blast_list
-	logging.debug('Blasting fasta sequences.')
+	logging.debug('Selecting BLAST method')
 	try:	
-		result_handle = NCBIWWW.qblast(args.ba, args.bd, temp.read(), megablast=args.mb, hitlist_size=args.hs)
+		if args.lb == False:
+			result_handle = ncbi_blast(temp)
+		else:
+			result_handle = local_blast(temp)		
 		logging.debug('Parsing blast result XML file.')
 		blast_list += [item for item in NCBIXML.parse(result_handle)]
 	except:
@@ -360,7 +401,7 @@ def write_results (result, mode, tag, flag_cites):
 			csvfile = sys.stdout
 			if args.o != '-':
 				csvfile = open(args.o, mode)
-			writer = csv.writer(csvfile)
+			writer = csv.writer(csvfile, delimiter = '\t',  quoting=csv.QUOTE_NONNUMERIC)
 			writer.writerow(result)
 	
 
@@ -373,13 +414,13 @@ def parse_seq_file (CITES_dic, blacklist):
 	seq_list, sub_list = [seq for seq in SeqIO.parse(args.i, 'fasta')], []
 	
 	# blast each sequence in the seq_list list
-	procs, count, threads = [], 1, 10
+	procs, count, threads = [], 1, 2
 	logging.info('Blasting sequences, total: %i.' % len(seq_list))
 	logging.debug('Start multithreaded blast search.')
 	while len(seq_list) > 0 or len(procs) > 0:
 		# start the maximum number of threads
 		while len(procs) < threads and len(seq_list) > 0:
-			if len(seq_list) >= 50:
+			if len(seq_list) >= 50 and args.lb == False:
 				sub_list = seq_list[:50]
 				seq_list = seq_list[50:]
 			else:
@@ -392,6 +433,7 @@ def parse_seq_file (CITES_dic, blacklist):
 				procs.append([p, time.time()])
 				p.start()
 				count+=1
+				time.sleep(60)
 			except:
 				logging.warning('Failed to open thread number: %i, total number %i.' % (len(procs), count))
 				break

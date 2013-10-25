@@ -7,6 +7,9 @@
     HTS-barcode-checker.py
     --input_file $input
     --output_file $output
+    #if $BLAST.blast_loc == "local"
+    -lb
+    #end if
     #if $local_cites.CITES_loc == "local"
     --CITES_db $local_cites.CITES_db
       #if $local_cites.update.cites_update == "force"
@@ -59,6 +62,13 @@
  
   <inputs>
     <param format="fasta" name="input" type="data" label="(nucleotide) Fasta file"/>
+
+    <conditional name="BLAST">
+      <param name="blast_loc" type="select" label="NCBI / Local BLAST">
+        <option value="NCBI" selected="true">NCBI online BLAST</option>
+        <option value="local">Local BLAST</option>
+      </param>
+    </conditional>
 
     <conditional name="local_cites">
       <param name="CITES_loc" type="select" label="CITES database">

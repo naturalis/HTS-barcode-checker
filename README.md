@@ -55,6 +55,9 @@ readable by the web server process.
 Given the number of different web server configurations that exist it is best to consult 
 your local system administrator if you don't know how to do this.
 
+**Galaxy pipeline** To run the pipeline in Galaxy, follow the instructions in the readme
+file in the /galaxy sub-directory.
+
 Dependencies
 ------------
 
@@ -75,6 +78,20 @@ nucleotide database (by default), then cross-references the returned taxon IDs w
 databases of taxon IDs that were obtained by taxonomic name reconciliation of the names 
 listed in CITES appendices with the NCBI taxonomy. Any matches are recorded in the output 
 file, a CSV spreadsheet, which needs to be evaluated further by the user.
+
+By default the BLAST results are filtered according to the following criteria: a hit must
+have a minimum match percentage of 97%, a minimum match length of a 100 bp and a maximum
+e-value of 0.05. These settings can be altered if needed with the advanced command options
+listed below.
+
+By default identification is done by submitting the BLAST request to NCBI GenBank, this can
+be slow and impractical for larger datasets. A local BLAST run is a more practical method
+for larger sets. In order to run a local BLAST the NCBI BLAST+ tool needs to be installed
+and a local BLAST database (for example the nucleotide database) needs to be set up. For
+more info on installing the BLAST+ tool see resort to the [BLAST+](http://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download) webpage. When set up
+correctly a local BLAST run can be specified with the -lb parameter. The basic will be:
+
+`HTS-barcode-checker --input_file <in.fa> --output_file <out.csv> --CITES_db <db.csv> -lb`
 
 The pipeline flags critical issues that need to be investigated. In particular, in cases 
 of taxonomic heterogeneity including CITES-listed species (i.e. multiple distinct species
@@ -102,9 +119,10 @@ Full command information
 Command line arguments:
 
 	HTS-barcode-checker [-h] [-i fasta file] [-o output file] [-ba algorithm]
-		[-bd database] [-hs HS] [-mb] [-mi MI] [-mc MC] [-me ME]
-		[-bl blacklist file] [-cd CITES database file [CITES database file ...]]
-		[-fd] [-ad] [-l log level]
+		[-bd database] [-lb] [-hs HS] [-mb] [-mi MI] [-mc MC] [-me ME]
+		[-bl blacklist file [blacklist file ...]] [-cd CITES
+		database file [CITES database file ...]] [-fd] [-ad]
+		[-ah] [-l log level] [-lf log file]
 
 All command line arguments and options can be provided in short or long form, as listed
 below:
@@ -127,6 +145,10 @@ below:
 	-bd <database>, --BLAST_database <database>
 		BLAST database to use (optional, default=nt)
 
+	-lb, --local_blast
+		blast using a local database (uses the ncbi-blast+
+                tool, this needs to installed separately)
+
 	-mb, --megablast      
 		use megablast, can only be used in combination with blastn (optional)
 		
@@ -143,7 +165,7 @@ below:
 		threshold E-value for BLAST results (optional, default=0.05)
 		
 	-bl <blacklist file>, --blacklist <blacklist file>
-		CSV file containing blacklisted genbank accession numbers (optional)					
+		one or more CSV files containing blacklisted genbank accession numbers (optional)					
 						
 	-fd, --force_download
 		force update of the local CITES database (optional)
