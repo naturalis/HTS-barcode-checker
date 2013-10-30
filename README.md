@@ -44,13 +44,12 @@ described below.
 **Advanced:** To install the pipeline as a locally-hosted web application, in addition to 
 satisfying the dependencies listed below, the following steps must be taken:
 
-* Install the CPAN module Text::CSV.
-* Place the Perl script _HTS-barcode-checker.cgi_ in a location where it is executable as
-a CGI script.
 * Place the Python script _HTS-barcode-checker_ in a location where it can be executed by
 the web server process.
 * Place the default CITES CSV database _data/CITES\_db.csv_ in a location where it is 
 readable by the web server process.
+* Edit line 44 in the _HTS-barcode-checker_ script, resources should point to the
+resource folder that comes with the git repository.
 
 Given the number of different web server configurations that exist it is best to consult 
 your local system administrator if you don't know how to do this.
@@ -153,7 +152,7 @@ below:
 		use megablast, can only be used in combination with blastn (optional)
 		
 	-hs <size>, --hitlist_size <size>
-		number of results BLAST wil return (optional, default=10)
+		number of results BLAST will return (optional, default=10)
 		
 	-mi <identity>, --min_identity <identity>
 		lowest percentage identity for BLAST results to consider (optional, default=97)

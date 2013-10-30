@@ -104,7 +104,7 @@ else:
 	parser.add_argument('-lb', '--local_blast', dest='lb', action='store_true', 
 				help = 'blast using a local database (uses the ncbi-blast+ tool, this needs to installed separately)')
 	parser.add_argument('-hs', '--hitlist_size', dest='hs', type=int,
-				help = 'number of results BLAST wil return (optional, default=10)', default = 10)
+				help = 'number of results BLAST will return (optional, default=10)', default = 10)
 	parser.add_argument('-mb', '--megablast', dest='mb', action='store_true', 
 				help = 'use megablast, can only be used in combination with blastn (optional)')
 	parser.add_argument('-mi', '--min_identity', dest='mi', type=int, 
@@ -401,7 +401,7 @@ def write_results (result, mode, tag, flag_cites):
 			csvfile = sys.stdout
 			if args.o != '-':
 				csvfile = open(args.o, mode)
-			writer = csv.writer(csvfile, delimiter = '\t',  quoting=csv.QUOTE_NONNUMERIC)
+			writer = csv.writer(csvfile, delimiter = '\t',  quoting=csv.QUOTE_NONE)
 			writer.writerow(result)
 	
 
