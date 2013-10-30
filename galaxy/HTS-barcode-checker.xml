@@ -13,9 +13,9 @@
     #if $local_cites.CITES_loc == "local"
     --CITES_db $local_cites.CITES_db
       #if $local_cites.update.cites_update == "force"
-      --force_update
+      --force_download
       #elif $local_cites.update.cites_update == "avoid"
-      --avoid_update
+      --avoid_download
       #else
         #pass
       #end if
