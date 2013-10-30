@@ -136,7 +136,7 @@
   </inputs>
 
   <outputs>
-    <data format="txt" name="output" label="CITES results"/>
+    <data format="tabular" name="output" label="CITES results"/>
     <data format="txt" name="log_file" label="Log file"/>
   </outputs>
 
