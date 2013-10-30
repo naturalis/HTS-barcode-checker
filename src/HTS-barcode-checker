@@ -301,7 +301,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 		totalN = len(taxa_for_query[sequence])
 		citesN = len(cites_for_query[sequence])
 		if totalN > 1 and citesN > 1:
-			logging.info('{} out of a total of {} distinct taxa for {} are CITES-listed'.format(citesN,totalN,sequence))
+			logging.info('{0} out of a total of {1} distinct taxa for {2} are CITES-listed'.format(citesN,totalN,sequence))
 
 
 def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
@@ -490,7 +490,7 @@ def main ():
 		get_CITES()
 
 	# create a dictionary containing the local CITES set	
-	logging.info('Reading the CITES database(s) from {}'.format(args.cd))
+	logging.info('Reading the CITES database(s) from {0}'.format(args.cd))
 	CITES_dic = get_CITES_dic()
 
 	# create a list with the blacklisted genbank ids
