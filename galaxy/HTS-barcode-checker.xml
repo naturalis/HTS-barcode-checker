@@ -76,7 +76,7 @@
         <option value="local" selected="true">Local copy</option>
       </param>
       <when value="local">
-        <param format="txt" name="CITES_db" type="data" label="CITES database"/>
+        <param format="csv" name="CITES_db" type="data" label="CITES database"/>
         <conditional name="update">
           <param name="cites_update" type="select" label="Update CITES database">
             <option value="check" selected="true">Update if outdated</option>
@@ -88,7 +88,7 @@
     </conditional>
 
     <repeat name="add_cites_dbs" title="Additional CITES databases">
-      <param format="txt" name="add_cites_db" type="data" label="CITES set"/>
+      <param format="csv" name="add_cites_db" type="data" label="CITES set"/>
     </repeat>
 
     <conditional name="blast_database">
@@ -123,7 +123,7 @@
     <param name="max_e" type="float" label="Maximum e-value" value="0.05" max="1.00"/>
 
     <repeat name="blacklists" title="Select blacklist files">
-      <param format="txt" name="blacklist" type="data" label="Blacklist file"/>
+      <param format="csv" name="blacklist" type="data" label="Blacklist file"/>
     </repeat>
 
     <param name="logging" type="select" label="Logging">
