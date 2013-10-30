@@ -133,7 +133,7 @@ below:
 		input data in FASTA format
 		
 	-o <output file>, --output_file <output file>
-		results file in CSV format. if '-' is provided, output is to STDOUT
+		results file in TSV format. if '-' is provided, output is to STDOUT
 		
 	-cd <db file> [<db file> ...], --CITES_db <db file> [<db file> ...]
 		one or more database (CSV) files with CITES-listed taxon identifiers		
