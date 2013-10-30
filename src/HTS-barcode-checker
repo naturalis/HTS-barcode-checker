@@ -96,7 +96,7 @@ else:
 	parser.add_argument('-i', '--input_file', metavar='fasta file', dest='i', type=str, 
 				help='input data in FASTA format', default='', required=True)
 	parser.add_argument('-o', '--output_file', metavar='output file', dest='o', type=str, 
-				help='results file in CSV format. if "-" is provided, output is to STDOUT', default='-')
+				help='results file in TSV format. if "-" is provided, output is to STDOUT', default='-')
 	parser.add_argument('-ba', '--BLAST_algorithm', metavar='algorithm', dest='ba', type=str, 
 				help='BLAST algorithm to use (optional, default=blastn)', default='blastn')
 	parser.add_argument('-bd', '--BLAST_database', metavar='database', dest='bd', type=str,
@@ -364,7 +364,7 @@ def write_results (result, mode, tag, flag_cites):
 	# ignore empty strings!
 	if result != '':
 	
-		# format the result, either as html table row or as CSV row
+		# format the result, either as html table row or as TSV row
 		formatted = ''
 		if args.ah:
 		
