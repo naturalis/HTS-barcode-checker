@@ -46,7 +46,7 @@ satisfying the dependencies listed below, the following steps must be taken:
 
 * Place the Python script _HTS-barcode-checker_ in a location where it can be executed by
 the web server process.
-* Place the default CITES CSV database _data/CITES\_db.csv_ in a location where it is 
+* Place the default CITES CSV database _data/CITES_db.csv_ in a location where it is 
 readable by the web server process.
 * Edit line 44 in the _HTS-barcode-checker_ script, resources should point to the
 resource folder that comes with the git repository.
@@ -110,7 +110,7 @@ locus commonly used in DNA barcoding (e.g. COI, matK, rbcL). To limit data volum
 user is advised to consider filtering out duplicate and poor quality reads as well as, 
 possibly, clustering the reads a priori (e.g. using octopus) and picking an exemplar or 
 computing a consensus for each cluster. An example file is provided in the data folder as
-_Test\_data.fasta_.
+_Test_data.fasta_.
 
 Full command information
 ------------------------
@@ -192,14 +192,14 @@ folder as _Blacklist.csv_.
 nodes. This, too, has the potential to cause Type I and Type II errors. For known nodes 
 where this is the case, (an) additional CSV spreadsheet(s) can be provided that identifies 
 NCBI synonyms that are also CITES-listed. An example of such an additional file is 
-provided in the data folder as _Reconciled\_names\_db.csv_.
+provided in the data folder as _Reconciled_names_db.csv_.
 
 * **Local database updates** Periodically, CITES releases new appendices with new lists of 
 names. In order to stay up to date, this pipeline checks whether such new update are 
 available and downloads and processes the new data if this is the case. This behavior can 
 be influenced by either forcing the download (with `--force_update`) or omitting it (with 
 `--avoid_update`) regardless. Downloading the CITES appendices and updating the local 
-database with their contents is done by the _Retrieve\_CITES.py_ script, which is called
+database with their contents is done by the _Retrieve_CITES.py_ script, which is called
 by the main script and consequently meant for internal use only.
 
 * **Verbosity** The script keeps a log of the different processes in the script. The log 
