@@ -292,7 +292,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 				# pass this list to the filter_hits function to
 				# filter and write the blast results
 				filter_hits([blast_result.query, alignment.title, gb_num, str(identity),
-					str(blast_result.query_length), str(hsp.expect), str(hsp.bits)], 
+					str(len(hsp.query)), str(hsp.expect), str(hsp.bits)], 
 					CITES_dic, blacklist, taxa_for_query, cites_for_query)
 				count += 1
 	
