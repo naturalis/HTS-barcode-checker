@@ -446,8 +446,8 @@ def parse_seq_file (CITES_dic, blacklist):
 					logging.debug('Process %s finished.' % str(p[0]))
 					p[0].join()
 					procs.remove(p)
-				# time-out after 30 minutes
-				elif time.time() - p[1] > 10800:
+				# time-out after 180 minutes when BLASTing online
+				elif time.time() - p[1] > 10800 and args.lb == False:
 					try:
 						logging.warning('Timeout for process %s.' % str(p[0]))
 					except:
