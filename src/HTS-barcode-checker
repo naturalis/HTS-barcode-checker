@@ -28,7 +28,7 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # these are all part of the standard library
-import argparse, logging, os, sys, cgi, cgitb, StringIO, csv, time, multiprocessing
+import argparse, logging, os, sys, cgi, cgitb, StringIO, csv, time
 from subprocess import call
 
 # The following modules are imported from BioPython
@@ -257,7 +257,7 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 
 	# try to blast the sequences and obtain the results
 
-	blast_count, blast_list = 0, 'failed'
+	blast_count, blast_list, GI_dic = 0, 'failed', {}
 	while blast_list == 'failed' and blast_count < 3:
 		blast_list = blast_bulk(sequences, thread)
 		blast_count += 1
@@ -291,11 +291,11 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 				# create containing the relevant blast results
 				# pass this list to the filter_hits function to
 				# filter and write the blast results
-				filter_hits([blast_result.query, alignment.title, gb_num, str(identity),
+				GI_dic = filter_hits([blast_result.query, alignment.title, gb_num, str(identity),
 					str(len(hsp.query)), str(hsp.expect), str(hsp.bits)], 
-					CITES_dic, blacklist, taxa_for_query, cites_for_query)
+					CITES_dic, blacklist, taxa_for_query, cites_for_query, GI_dic)
 				count += 1
-	
+
 	# here we report whether a sequence has multiple taxa
 	for sequence in taxa_for_query.keys():
 		totalN = len(taxa_for_query[sequence])
@@ -304,13 +304,32 @@ def parse_blast_align (sequences, thread, CITES_dic, blacklist):
 			logging.info('{0} out of a total of {1} distinct taxa for {2} are CITES-listed'.format(citesN,totalN,sequence))
 
 
-def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
+def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query, GI_dic):
 	
 	# filter the blast hits, based on the minimum
 	# identity, minimum coverage, e-value and the user blacklist
 	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
 		if blast[2][0] not in blacklist and blast[2][1] not in blacklist:
-			taxon = obtain_tax(blast[2][0])
+			count, taxon = 0, ['unknown ID','']
+
+			# if the gebank id isnt present in the identifier dictionary
+			if blast[2][0] not in GI_dic:
+				while taxon[0] == 'unknown ID':
+					
+					# get the taxon information
+					taxon = obtain_tax(blast[2][0])
+					count += 1
+					if count == 10:
+						logging.warning('Could not obtain a taxon info for taxon ID: %s.' % blast[2][0])
+						break
+
+					# if there is a timeout while retrieving taxon information
+					# sleep for 10 seconds and retry
+					if taxon[0] == 'unknown ID':
+						time.sleep(10)
+				GI_dic[blast[2][0]] = taxon
+			else:
+				taxon = GI_dic[blast[2][0]]
 			blast[2] = blast[2][0]
 			results, flag_cites = blast+taxon, False
 
@@ -335,6 +354,9 @@ def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query):
 			# write the results
 			write_results(results, 'a', 'td', flag_cites)
 
+	# return the dictionary with used taxon IDs
+	return GI_dic
+
 	
 def obtain_tax (code):
 	
@@ -353,7 +375,6 @@ def obtain_tax (code):
 		species = sub[0].qualifiers['organism'][0]
 
 	except:
-		logging.warning('Could not obtain a taxon info for taxon ID: %s.' % code)
 		taxon, species = 'unknown ID', 'unknown species'
 
 	return [taxon, species]
@@ -405,8 +426,6 @@ def write_results (result, mode, tag, flag_cites):
 			writer.writerow(result)
 	
 
-
-
 def parse_seq_file (CITES_dic, blacklist):
 
 	# parse the fasta file
@@ -426,36 +445,8 @@ def parse_seq_file (CITES_dic, blacklist):
 			else:
 				sub_list = seq_list
 				seq_list = []
-			logging.debug('Try to open a blast thread.')
-			try:
-				logging.debug('Opening thread number: %i, total number %i.' % (len(procs), count))
-				p = multiprocessing.Process(target=parse_blast_align, args=(sub_list, count, CITES_dic, blacklist,)) 
-				procs.append([p, time.time()])
-				p.start()
-				count+=1
-				time.sleep(60)
-			except:
-				logging.warning('Failed to open thread number: %i, total number %i.' % (len(procs), count))
-				break
-
-		# check when a thread is done, remove from the thread list and start
-		# a new thread
-		while len(procs) > 0:
-			for p in procs:
-				if p[0].is_alive() == False:
-					logging.debug('Process %s finished.' % str(p[0]))
-					p[0].join()
-					procs.remove(p)
-				# time-out after 180 minutes when BLASTing online
-				elif time.time() - p[1] > 10800 and args.lb == False:
-					try:
-						logging.warning('Timeout for process %s.' % str(p[0]))
-					except:
-						pass
-					logging.debug('Terminating and removing process %s.' % str(p[0]))
-					p[0].terminate()
-					procs.remove(p)
-			break
+			logging.debug('BLASTing batch of sequences.')
+			parse_blast_align(sub_list, count, CITES_dic, blacklist)
 
 
 def main ():
