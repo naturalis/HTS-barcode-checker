@@ -64,6 +64,7 @@ Dependencies
 * bio-python
 * beautiful-soup
 * requests
+* ncbi-blast+ 2.2.28 or higher when running local BLAST searches (recommended)
 
 General usage
 -------------
@@ -130,7 +131,8 @@ below:
 		show help message and exit
   
 	-i <fasta file>, --input_file <fasta file>
-		input data in FASTA format
+		input data in FASTA format. The HTS-barcode-checker is limited to
+		a set of a 100 sequences when running an online BLAST.
 		
 	-o <output file>, --output_file <output file>
 		results file in TSV format. if '-' is provided, output is to STDOUT
@@ -152,7 +154,8 @@ below:
 		use megablast, can only be used in combination with blastn (optional)
 		
 	-hs <size>, --hitlist_size <size>
-		number of results BLAST will return (optional, default=10)
+		number of results BLAST will return (optional, default=10), there is a maximum
+		of 20 hits when running an online BLAST search.
 		
 	-mi <identity>, --min_identity <identity>
 		lowest percentage identity for BLAST results to consider (optional, default=97)

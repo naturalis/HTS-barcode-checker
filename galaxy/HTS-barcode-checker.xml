@@ -42,7 +42,7 @@
   <macros>
     <macro name="nucleotide">
       <param name="blast_db" type="select" label="Blast nucleotide database">
-        <option value="nr" selected="true">Non-redundant sequences (nr)</option>
+        <option value="nt" selected="true">Non-redundant sequences (nt)</option>
         <option value="refseq_mrna">mRNA reference sequences</option>
         <option value="refseq_genomic">Genomic reference sequences</option>
         <option value="est">Genbank EST database</option>
@@ -51,7 +51,7 @@
     </macro>
     <macro name="protein">
       <param name="blast_db" type="select" label="Blast protein database">
-        <option value="nr" selected="true">Non-redundant CDS sequences (nr)</option>
+        <option value="nt" selected="true">Non-redundant CDS sequences (nt)</option>
         <option value="refseq">Reference protein sequences</option>
         <option value="swissprot">Last release of the swissprot protein database</option>
         <option value="pdb">Sequences derived from the 3d structure records of the protein data bank</option>
@@ -61,12 +61,12 @@
   </macros>
  
   <inputs>
-    <param format="fasta" name="input" type="data" label="(nucleotide) Fasta file"/>
+    <param format="fasta" name="input" type="data" label="(nucleotide) Fasta file (max 100 sequences for online blasting)"/>
 
     <conditional name="BLAST">
       <param name="blast_loc" type="select" label="NCBI / Local BLAST">
-        <option value="NCBI" selected="true">NCBI online BLAST</option>
-        <option value="local">Local BLAST</option>
+        <option value="NCBI">NCBI online BLAST</option>
+        <option value="local" selected="true">Local BLAST</option>
       </param>
     </conditional>
 
@@ -117,7 +117,7 @@
     </conditional>
 
 
-    <param name="hitlist" type="integer" label="Maximum number of blast hits per sequence" value="10" min="1"/>
+    <param name="hitlist" type="integer" label="Maximum number of blast hits per sequence (max 20 for online blasting)" value="10" min="1"/>
     <param name="min_iden" type="integer" label="Minimum Blast hit identity"  value="97" min="1" max="100"/>
     <param name="min_cov" type="integer" label="Minimum Blast hit coverage" value="100" min="1"/>
     <param name="max_e" type="float" label="Maximum e-value" value="0.05" max="1.00"/>

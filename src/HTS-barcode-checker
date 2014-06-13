@@ -28,15 +28,13 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # these are all part of the standard library
-import argparse, logging, os, sys, cgi, cgitb, StringIO, csv, time
-from subprocess import call
+import argparse, logging, os, sys, cgi, cgitb, StringIO, csv, time, collections, multiprocessing
+from subprocess import call, Popen, PIPE
 
 # The following modules are imported from BioPython
 from Bio.Blast import NCBIWWW, NCBIXML
 from Bio import SeqIO
 from Bio import Entrez
-#from Bio.Blast.Applications import NcbiblastnCommandline
-import Bio.Blast.Applications
 
 # CHANGE ME:
 # this location contains resources used both in command line and CGI mode:
@@ -94,7 +92,7 @@ else:
 	# get the commandline arguments that specify the input fastafile and the output file
 	parser = argparse.ArgumentParser(description = ('Identify a set of sequences and check if there are CITES species present'))
 	parser.add_argument('-i', '--input_file', metavar='fasta file', dest='i', type=str, 
-				help='input data in FASTA format', default='', required=True)
+				help='input data in FASTA format, the number of sequences is limited to a 100 when running online BLAST searches.', default='', required=True)
 	parser.add_argument('-o', '--output_file', metavar='output file', dest='o', type=str, 
 				help='results file in TSV format. if "-" is provided, output is to STDOUT', default='-')
 	parser.add_argument('-ba', '--BLAST_algorithm', metavar='algorithm', dest='ba', type=str, 
@@ -103,8 +101,10 @@ else:
 				help = 'BLAST database to use (optional, default=nt)', default = 'nt')
 	parser.add_argument('-lb', '--local_blast', dest='lb', action='store_true', 
 				help = 'blast using a local database (uses the ncbi-blast+ tool, this needs to installed separately)')
+	parser.add_argument('-tf', '--taxon_file', metavar='taxon file', dest='tf', type=str,
+				help = 'Taxon file containing the taxonid\'s + matching scientific names', default = '')
 	parser.add_argument('-hs', '--hitlist_size', dest='hs', type=int,
-				help = 'number of results BLAST will return (optional, default=10)', default = 10)
+				help = 'number of results BLAST will return (optional, default=10), the number of hits is limited to 20 when running online BLAST searches.', default = 10)
 	parser.add_argument('-mb', '--megablast', dest='mb', action='store_true', 
 				help = 'use megablast, can only be used in combination with blastn (optional)')
 	parser.add_argument('-mi', '--min_identity', dest='mi', type=int, 
@@ -142,6 +142,34 @@ def sanitize_multiple_inputs(input_list):
 		return input_list
 
 
+def blast_version ():
+	
+	# this function checks if the blast version available at the
+	# path is version 2.2.28 or higher
+	pipe = Popen(['blastn', '-version'], stdout=PIPE, stderr=PIPE)
+	version = pipe.communicate()[0]
+	try:
+		version = int(version.split('\n')[0].split(' ')[1].replace('+','').replace('.',''))
+		if version >= 2228:
+			return 'pass'
+		else:
+			return 'low'
+	except:
+		return 'error'
+
+
+def parse_taxon ():
+	
+	# open the taxonid file and return
+	# a dictionary with the taxonid's as key
+	# and the scientific names as values
+	taxon_dic = {}
+	for taxon in open(args.tf):
+		taxon = taxon.strip().split('\t')
+		taxon_dic[taxon[0]] = taxon[1]
+	return taxon_dic
+
+
 def get_blacklist ():
 	
 	# return a list containing the blacklisted genbank id's
@@ -161,7 +189,6 @@ def get_CITES ():
 	
 	# Open the Retrieve_CITES.py script to either check the status of the
 	# user provided CITES database or obtain a new copy of the database
-
 	logging.debug('Getting path to Retrieve_CITES.py script.')
 	dir, file = os.path.split(os.path.realpath(sys.argv[0]))
 	CITES_path = dir + '/Retrieve_CITES.py'
@@ -177,7 +204,6 @@ def get_CITES_dic ():
 	
 	# open the local CITES database, return a dictionary
 	# containing the CITES information with the taxids as keys
-	
 	logging.debug('Parsing through list of CITES dictionaries.')
 
 	CITES_dic = {}
@@ -191,193 +217,25 @@ def get_CITES_dic ():
 
 	return CITES_dic
 
-def ncbi_blast (temp):
-
-	# BLAST the sequences online against a NCBI database
-	logging.debug('BLASTING sequences agaist NCBI')
-	result_handle = NCBIWWW.qblast(args.ba, args.bd, temp.read(), megablast=args.mb, hitlist_size=args.hs)
-
-	# return the results handle with the blast results
-	return result_handle
-
-
-def local_blast (temp):
-
-	# BLAST the sequences against a local database using the ncbi-blast+ sofware package
-	logging.debug('Starting local BLAST')
-
-	# Use the selected BLAST algorithm
-	if args.ba == 'blastn':
-		BLAST_handle = Bio.Blast.Applications.NcbiblastnCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
-	elif args.ba == 'blastp':
-		BLAST_handle = Bio.Blast.Applications.NcbiblastpCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
-	elif args.ba == 'blastx':
-		BLAST_handle = Bio.Blast.Applications.NcbiblastxCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
-	elif args.ba == 'tblastn':
-		BLAST_handle = Bio.Blast.Applications.NcbitblastnCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
-	elif args.ba == 'tblastx':
-		BLAST_handle = Bio.Blast.Applications.NcbitblastxCommandline(query='-', db='nt', outfmt=5, max_target_seqs=args.hs)
-
-	result_handle = StringIO.StringIO(BLAST_handle(stdin=temp.read())[0])
-	result_handle.seek(0)
-
-	# return the result handle with the blast results
-	return result_handle
-
-
-def blast_bulk (sequences, thread_number):
-
-	# create the list where all the blast results are stored in
-	blast_list = []
-
-	# fill the temp file with sequences
-	logging.debug('Writing fasta sequences to temporary in-memory file.')
-	temp = StringIO.StringIO()
-	SeqIO.write(sequences, temp, 'fasta')	
-	temp.seek(0,0) # rewind so that read() starts at top
-
-	# blast the temporary file, and save the blasthits in the blast_list
-	logging.debug('Selecting BLAST method')
-	try:	
-		if args.lb == False:
-			result_handle = ncbi_blast(temp)
-		else:
-			result_handle = local_blast(temp)		
-		logging.debug('Parsing blast result XML file.')
-		blast_list += [item for item in NCBIXML.parse(result_handle)]
-	except:
-		logging.warning('Failed to obtain blast results.')		
-		return 'failed'
-
-	# return the filled blast hit
-	return blast_list
-
-
-def parse_blast_align (sequences, thread, CITES_dic, blacklist):
-
-	# try to blast the sequences and obtain the results
-
-	blast_count, blast_list, GI_dic = 0, 'failed', {}
-	while blast_list == 'failed' and blast_count < 3:
-		blast_list = blast_bulk(sequences, thread)
-		blast_count += 1
-		logging.info('Blast thread: %i failed, retrying attempt %i.' % (thread, blast_count))
-
-	if blast_list == 'failed':
-		logging.debug('Could not obtain blast hits for set of sequences, written to output file as \"failed\".')
-		for seq in sequences:
-			write_results([seq.description, 'failed'], 'a', 'td', False)
-		return
-
-	count, taxa_for_query, cites_for_query = 1, {}, {}
-
-	# parse though the blast hits
-	logging.debug('Parsing through blast XML results.')
-	for blast_result in blast_list:
-		for alignment in blast_result.alignments:
-			for hsp in alignment.hsps:
-				            		
-				# calculate the %identity
-				identity = float(hsp.identities/(len(hsp.match)*0.01))
-
-				# grab the genbank number
-				gb_num = alignment.title.split('|')[1:4:2]
-				gb_num[1] = gb_num[1].split('.')[0]
-
-				# an alignment needs to meet 3 criteria before 
-				# it is an acceptable result: above the minimum 
-				# identity, minimum coverage and E-value
-			
-				# create containing the relevant blast results
-				# pass this list to the filter_hits function to
-				# filter and write the blast results
-				GI_dic = filter_hits([blast_result.query, alignment.title, gb_num, str(identity),
-					str(len(hsp.query)), str(hsp.expect), str(hsp.bits)], 
-					CITES_dic, blacklist, taxa_for_query, cites_for_query, GI_dic)
-				count += 1
-
-	# here we report whether a sequence has multiple taxa
-	for sequence in taxa_for_query.keys():
-		totalN = len(taxa_for_query[sequence])
-		citesN = len(cites_for_query[sequence])
-		if totalN > 1 and citesN > 1:
-			logging.info('{0} out of a total of {1} distinct taxa for {2} are CITES-listed'.format(citesN,totalN,sequence))
-
-
-def filter_hits (blast, CITES_dic, blacklist, taxa_for_query, cites_for_query, GI_dic):
-	
-	# filter the blast hits, based on the minimum
-	# identity, minimum coverage, e-value and the user blacklist
-	if float(blast[3]) >= args.mi and int(blast[4]) >= args.mc and float(blast[5]) <= args.me:
-		if blast[2][0] not in blacklist and blast[2][1] not in blacklist:
-			count, taxon = 0, ['unknown ID','']
-
-			# if the gebank id isnt present in the identifier dictionary
-			if blast[2][0] not in GI_dic:
-				while taxon[0] == 'unknown ID':
-					
-					# get the taxon information
-					taxon = obtain_tax(blast[2][0])
-					count += 1
-					if count == 10:
-						logging.warning('Could not obtain a taxon info for taxon ID: %s.' % blast[2][0])
-						break
-
-					# if there is a timeout while retrieving taxon information
-					# sleep for 10 seconds and retry
-					if taxon[0] == 'unknown ID':
-						time.sleep(10)
-				GI_dic[blast[2][0]] = taxon
-			else:
-				taxon = GI_dic[blast[2][0]]
-			blast[2] = blast[2][0]
-			results, flag_cites = blast+taxon, False
-
-			# grow the list of taxa associated with a single sequence
-			if blast[0] not in taxa_for_query:
-				taxa_for_query[blast[0]] = set()
-			taxa_for_query[blast[0]].add(taxon[0])
-			
-			if blast[0] not in cites_for_query:
-				cites_for_query[blast[0]] = set()
-
-			# check if the taxon id of the blast hit
-			# is present in the CITES_dic
-			if taxon[0] in CITES_dic:
-				logging.debug('Appending CITES info to blast hit.')
-				results += CITES_dic[taxon[0]][1:]				
-				cites_for_query[blast[0]].add(taxon[0])
-				flag_cites = True
-			else:
-				results += ['','','']
-			
-			# write the results
-			write_results(results, 'a', 'td', flag_cites)
-
-	# return the dictionary with used taxon IDs
-	return GI_dic
-
 	
 def obtain_tax (code):
 	
 	# try to obtain the taxon id
-	taxon = ''
-
-	try:
-		# based on the genbank id the taxon id is retrieved from genbank
-		Entrez.email = "HTS-barcode-checker@gmail.com"
-		handle = Entrez.efetch(db="nucleotide", id= code, rettype="gb",retmode="text")
-		record = SeqIO.read(handle, "gb")
-
-		# parse through the features and grap the taxon_id
-		sub = record.features
-		taxon = sub[0].qualifiers['db_xref'][0].split(':')[1]
-		species = sub[0].qualifiers['organism'][0]
-
-	except:
-		taxon, species = 'unknown ID', 'unknown species'
-
-	return [taxon, species]
+	taxon, count = ['unknown ID', 'unknown species'], 0
+	while count < 3:
+		try:
+			# based on the genbank id the taxon id is retrieved from genbank
+			Entrez.email = "HTS-barcode-checker@gmail.com"
+			handle = Entrez.efetch(db="nucleotide", id= code, rettype="gb",retmode="text")
+			record = SeqIO.read(handle, "gb")
+	
+			# parse through the features and grap the taxon_id
+			sub = record.features
+			return [sub[0].qualifiers['db_xref'][0].split(':')[1],
+				sub[0].qualifiers['organism'][0]]
+		except:
+			count += 1
+	return taxon
 
 
 def write_results (result, mode, tag, flag_cites):
@@ -426,27 +284,168 @@ def write_results (result, mode, tag, flag_cites):
 			writer.writerow(result)
 	
 
+def local_blast ():
+
+	# BLAST the sequences against a local database using the ncbi-blast+ sofware package
+	logging.debug('Starting local BLAST')
+	temp_output = '{0}_temp-blast.tsv'.format(os.path.splitext(args.i)[0])
+	cores = multiprocessing.cpu_count()
+
+	# Use the selected BLAST algorithm
+	if args.ba == 'blastn':
+		BLAST_handle = Popen(['blastn', '-query', args.i, '-out', temp_output, '-db', args.bd,
+					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
+					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					stdout=PIPE, stderr=PIPE)
+	elif args.ba == 'blastp':
+		BLAST_handle = Popen(['blastp', '-query', args.i, '-out', temp_output, '-db', args.bd,
+					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
+					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					stdout=PIPE, stderr=PIPE)
+	elif args.ba == 'blastx':
+		BLAST_handle = Popen(['blastx', '-query', args.i, '-out', temp_output, '-db', args.bd,
+					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
+					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					stdout=PIPE, stderr=PIPE)
+	elif args.ba == 'tblastn':
+		BLAST_handle = Popen(['tblastn', '-query', args.i, '-out', temp_output, '-db', args.bd,
+					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
+					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					stdout=PIPE, stderr=PIPE)
+	elif args.ba == 'tblastx':
+		BLAST_handle = Popen(['tblastx', '-query', args.i, '-out', temp_output, '-db', args.bd,
+					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
+					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					stdout=PIPE, stderr=PIPE)
+	else:
+		logging.critical('Invalid blast algorithm selected')
+		sys.exit()
+
+	logging.debug('Waiting for the local blast run to finish')
+	logging.debug('BLAST message: {0}'.format(BLAST_handle.communicate()))
+
+	# return the blast output file
+	return temp_output
+	
+
+def parse_local_blast(CITES_dic, blacklist):
+
+	# obtain the blast results
+	temp_output = local_blast()
+	
+	# obtain the taxon dic if provided
+	if args.tf != '':
+		taxon_dic = parse_taxon()
+
+	# parse through the output and format the data for filtering
+	for line in open(temp_output):
+		line = line.strip().split('\t')
+		line[1:3] = [' '.join(line[1:3])]
+		
+		# try to add the taxon id
+		try:
+			line += [taxon_dic[line[-1]]]
+		except:
+			line += ['']
+
+		# send line away for filtering
+		filter_hits(line, CITES_dic, blacklist)
+
+	# remove the temp file
+	os.remove(temp_output)
+
+
+def online_blast (seq_list):
+
+	# convert the sequences to a sequence file (stored in the
+	# working memory)
+	temp = StringIO.StringIO()
+	SeqIO.write(seq_list, temp, 'fasta')	
+	temp.seek(0,0)
+
+	# BLAST the sequences online against a NCBI database
+	logging.debug('BLASTING sequences agaist NCBI')
+	result_handle = NCBIWWW.qblast(args.ba, args.bd, temp.read(), megablast=args.mb, hitlist_size=args.hs)
+
+	# return the results handle with the blast results
+	return result_handle
+
+
+def parse_online_blast (seq_list, CITES_dic, blacklist):
+
+	# get the result handle and set the taxon dic
+	blast_handle, taxon_dic = online_blast(seq_list), {}
+
+	# use the biopython xml parse module to get the results
+	logging.debug('Parsing blast result XML file.')
+	blast_list = [item for item in NCBIXML.parse(blast_handle)]
+
+	# walk through the blast results and prepare them for filtering
+	for blast_result in blast_list:
+		for alignment in blast_result.alignments:
+			for hsp in alignment.hsps:
+				            		
+				# calculate the %identity
+				identity = float(hsp.identities/(len(hsp.match)*0.01))
+
+				# grab the genbank number
+				gb_num = alignment.title.split('|')[1:4:2]
+				gb_num[1] = gb_num[1].split('.')[0]
+
+				# get the taxon id based on the genbank identifier
+				if gb_num[0] not in taxon_dic:
+					taxon = obtain_tax(gb_num[0])
+					taxon_dic[gb_num[0]] = taxon
+				else:
+					taxon = taxon_dic[gb_num[0]]
+
+				# pull all the results together and sent them to the filter function
+				filter_hits([str(blast_result.query), str(alignment.title), str(gb_num[0]),
+						str(gb_num[1]),	str(identity), str(len(hsp.query)), str(hsp.expect),
+						str(hsp.bits), taxon[0], taxon[1]], CITES_dic, blacklist)
+
+
+def filter_hits (blast, CITES_dic, blacklist):
+	
+	# filter the blast hits, based on the minimum
+	# identity, minimum coverage, e-value and the user blacklist
+	if float(blast[4]) >= args.mi and int(blast[5]) >= args.mc and float(blast[6]) <= args.me:
+		if blast[2] not in blacklist and blast[3] not in blacklist:
+			results, flag_cites = blast, False
+			del results[3]
+
+			# check if the taxon id of the blast hit
+			# is present in the CITES_dic
+			if blast[7] in CITES_dic:
+				logging.debug('Appending CITES info to blast hit.')
+				results += CITES_dic[blast[7]][1:]				
+				flag_cites = True
+			else:
+				results += ['','','']
+			
+			# write the results
+			write_results(results, 'a', 'td', flag_cites)
+
+
 def parse_seq_file (CITES_dic, blacklist):
 
-	# parse the fasta file
-	logging.info('Reading user provided fasta file: %s.' % args.i)
-	seq_list, sub_list = [seq for seq in SeqIO.parse(args.i, 'fasta')], []
+	# start the local or online blast
+	if args.lb == True:
+		logging.debug('Starting local blast functions.')
+		parse_local_blast(CITES_dic, blacklist)
+	else:
+		# parse the fasta file
+		logging.info('Reading user provided fasta file: %s.' % args.i)
+		seq_list = [seq for seq in SeqIO.parse(args.i, 'fasta')]
 	
-	# blast each sequence in the seq_list list
-	procs, count, threads = [], 1, 2
-	logging.info('Blasting sequences, total: %i.' % len(seq_list))
-	logging.debug('Start multithreaded blast search.')
-	while len(seq_list) > 0 or len(procs) > 0:
-		# start the maximum number of threads
-		while len(procs) < threads and len(seq_list) > 0:
-			if len(seq_list) >= 50 and args.lb == False:
-				sub_list = seq_list[:50]
-				seq_list = seq_list[50:]
-			else:
-				sub_list = seq_list
-				seq_list = []
-			logging.debug('BLASTing batch of sequences.')
-			parse_blast_align(sub_list, count, CITES_dic, blacklist)
+		# check # sequences exceeds the 100 limit for online blasting
+		if len(seq_list) > 100:
+			logging.critical('To many sequences for online blasting, try using a sequence set'+
+					' containing a maximum of a 100 sequences.')
+			return
+
+		logging.debug('Starting online blast functions.')
+		parse_online_blast(seq_list, CITES_dic, blacklist)
 
 
 def main ():
@@ -469,6 +468,25 @@ def main ():
 	args.cd = sanitize_multiple_inputs(args.cd)
 	if args.bl != None:
 		args.bl = sanitize_multiple_inputs(args.bl)
+
+	# if the users wants to run a local blast, check if the local blast version is high enough
+	if args.lb == True:
+		bv = blast_version()
+		if bv == 'pass': logging.info('Local blast version is 2.2.28 or higher')
+		elif bv == 'low':
+			logging.critical('The local blast version is 2.2.27 or lower, update the blast+ software to a more' +
+			' recent version or try using the online blast option.')
+			return
+		else:
+			logging.critical('No local blast version is detected, make sure blast+ is installed correctly and' + 
+			' available from the commandline.')
+			return
+
+	# check if the maximum number of blast hits exceeds 20 if the user wants
+	# to blast the sequences online
+	if args.lb == False and args.hs > 20:
+		logging.critical('Maximum of online blast hits exceeds the limit of 20. Please lower the number blast hits.')
+		return
 	
 	# Check if input fasta file and output file are provided
 	if args.i == '':
