@@ -6,7 +6,10 @@
 
 # import the modules used by this script
 import argparse, logging, os, sys, urllib2, re, unicodedata, requests, time
-from BeautifulSoup import BeautifulSoup
+try:
+	from BeautifulSoup import BeautifulSoup
+except:
+	from bs4 import BeautifulSoup
 from Bio import Entrez
 
 parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
