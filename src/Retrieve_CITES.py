@@ -67,7 +67,7 @@ def clean_cell (cell):
 
 	# Try to remove tags, if not possible return a blank
 	try:
-		cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
+		cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore')).replace('\n', ' ')
 		regex = re.compile(r'[\n\r\t]')
 		cell = regex.sub('', cell).strip().replace('&nbsp;',' ')
 		cell = re.sub(r'&(#?)(.+?);','',cell)
