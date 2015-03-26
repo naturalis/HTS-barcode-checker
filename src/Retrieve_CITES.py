@@ -6,7 +6,10 @@
 
 # import the modules used by this script
 import argparse, logging, os, sys, urllib2, re, unicodedata, requests, time
-from BeautifulSoup import BeautifulSoup
+try:
+	from BeautifulSoup import BeautifulSoup
+except:
+	from bs4 import BeautifulSoup
 from Bio import Entrez
 
 parser = argparse.ArgumentParser(description = 'Create a table containing the CITES species')
@@ -48,6 +51,9 @@ def local_CITES_data ():
 				if line[0] == 'Date':
 					results_dic['Date'] = line[1]
 					results_dic['output'] = path
+			if len(results_dic) == 0:
+				logging.debug('No date found in CITES database %s, new CITES copy will be writen to this location.' % path)
+				results_dic['output'] = path
 		except:
 			logging.debug('Could not open CITES database %s, new CITES copy will be writen to this location.' % path)
 			results_dic['output'] = path
@@ -87,15 +93,18 @@ def parse_php (php_file):
 	# read the CITES web page
 	logging.debug('Parsing the CITES html page.')
 	CITES_page = BeautifulSoup(php_file)
-	
-	data = clean_cell(CITES_page.find('strong'))
 
-	# extract the tables
-	tables = CITES_page.findAll('table')
+	data = clean_cell(CITES_page.b.find('strong'))
+
+	# extract the tables and search for the correct appendix table
+	tables, table, offset = CITES_page.findAll('table'), '', 0
+	while 'F A U N A' not in table:
+		table, offset = str(tables[offset]), offset + 1
+	tables = tables[offset-1:]
 
 	# parse through the table and find all cites species
 	# (in bold / italic) and under which category they fit
-	rows = tables[1].findAll('tr')
+	rows = tables[0].findAll('tr')
 	for tr in rows[2:]:
 		cols = tr.findAll('td')
 		count = 1
@@ -112,7 +121,7 @@ def parse_php (php_file):
 	# parse through the footnotes and create
 	# a dictionary for each one of the notes
 	logging.debug('Parsing the CITES appendix footnotes.')
-	rows = tables[2].findAll('tr')
+	rows = tables[1].findAll('tr')
 	for tr in rows:
 		notes = tr.findAll('td')
 		CITES_notes[clean_cell(notes[0])] = clean_cell(notes[1])
@@ -315,7 +324,7 @@ def write_csv (date, taxon_id_dic, file_path):
 	# write the CITES results to the database
 	logging.debug('Writing CITES results to %s.' % file_path)
 	db = open(file_path, 'w')
-	db.write('#Date of last update:\nDate,' + date + ',\n#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
+	db.write('#Date of last update:\nDate,' + date + '\n#taxon id,CITES species,CITES description,taxon species,CITES appendix\n')
 	for taxid in taxon_id_dic:
 		db.write(','.join([taxid] + taxon_id_dic[taxid]) + '\n')
 	db.close()
