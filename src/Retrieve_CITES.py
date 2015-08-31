@@ -51,6 +51,9 @@ def local_CITES_data ():
 				if line[0] == 'Date':
 					results_dic['Date'] = line[1]
 					results_dic['output'] = path
+			if len(results_dic) == 0:
+				logging.debug('No date found in CITES database %s, new CITES copy will be writen to this location.' % path)
+				results_dic['output'] = path
 		except:
 			logging.debug('Could not open CITES database %s, new CITES copy will be writen to this location.' % path)
 			results_dic['output'] = path
@@ -64,7 +67,7 @@ def clean_cell (cell):
 
 	# Try to remove tags, if not possible return a blank
 	try:
-		cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore'))
+		cell = str(''.join(cell.findAll(text=True)).encode('ascii','ignore')).replace('\n', ' ')
 		regex = re.compile(r'[\n\r\t]')
 		cell = regex.sub('', cell).strip().replace('&nbsp;',' ')
 		cell = re.sub(r'&(#?)(.+?);','',cell)

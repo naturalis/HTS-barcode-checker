@@ -231,8 +231,9 @@ def obtain_tax (code):
 	
 			# parse through the features and grap the taxon_id
 			sub = record.features
-			return [sub[0].qualifiers['db_xref'][0].split(':')[1],
-				sub[0].qualifiers['organism'][0]]
+			db_xref = [code.split(':')[1] for code in sub[0].qualifiers['db_xref'] if 'taxon' in code][0]
+			organism = sub[0].qualifiers['organism'][0]
+			return [db_xref, organism]
 		except:
 			count += 1
 	return taxon
@@ -280,7 +281,7 @@ def write_results (result, mode, tag, flag_cites):
 			csvfile = sys.stdout
 			if args.o != '-':
 				csvfile = open(args.o, mode)
-			writer = csv.writer(csvfile, delimiter = '\t',  quoting=csv.QUOTE_NONE)
+			writer = csv.writer(csvfile, delimiter = '\t',  quoting=csv.QUOTE_NONE, lineterminator='\n')
 			writer.writerow(result)
 	
 
@@ -295,27 +296,27 @@ def local_blast ():
 	if args.ba == 'blastn':
 		BLAST_handle = Popen(['blastn', '-query', args.i, '-out', temp_output, '-db', args.bd,
 					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
-					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					'6 qseqid sseqid stitle sgi sacc pident length qlen evalue bitscore staxids'],
 					stdout=PIPE, stderr=PIPE)
 	elif args.ba == 'blastp':
 		BLAST_handle = Popen(['blastp', '-query', args.i, '-out', temp_output, '-db', args.bd,
 					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
-					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					'6 qseqid sseqid stitle sgi sacc pident length qlen evalue bitscore staxids'],
 					stdout=PIPE, stderr=PIPE)
 	elif args.ba == 'blastx':
 		BLAST_handle = Popen(['blastx', '-query', args.i, '-out', temp_output, '-db', args.bd,
 					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
-					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					'6 qseqid sseqid stitle sgi sacc pident length qlen evalue bitscore staxids'],
 					stdout=PIPE, stderr=PIPE)
 	elif args.ba == 'tblastn':
 		BLAST_handle = Popen(['tblastn', '-query', args.i, '-out', temp_output, '-db', args.bd,
 					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
-					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					'6 qseqid sseqid stitle sgi sacc pident length qlen evalue bitscore staxids'],
 					stdout=PIPE, stderr=PIPE)
 	elif args.ba == 'tblastx':
 		BLAST_handle = Popen(['tblastx', '-query', args.i, '-out', temp_output, '-db', args.bd,
 					'-max_target_seqs', str(args.hs), '-num_threads', str(cores), '-outfmt',
-					'6 qseqid sseqid stitle sgi sacc pident length evalue bitscore staxids'],
+					'6 qseqid sseqid stitle sgi sacc pident length qlen evalue bitscore staxids'],
 					stdout=PIPE, stderr=PIPE)
 	else:
 		logging.critical('Invalid blast algorithm selected')
@@ -402,24 +403,25 @@ def parse_online_blast (seq_list, CITES_dic, blacklist):
 
 				# pull all the results together and sent them to the filter function
 				filter_hits([str(blast_result.query), str(alignment.title), str(gb_num[0]),
-						str(gb_num[1]),	str(identity), str(len(hsp.query)), str(hsp.expect),
-						str(hsp.bits), taxon[0], taxon[1]], CITES_dic, blacklist)
+						str(gb_num[1]),	str(identity), str(len(hsp.query)), str(blast_result.query_length),
+						str(hsp.expect), str(hsp.bits), taxon[0], taxon[1]], CITES_dic, blacklist)
 
 
 def filter_hits (blast, CITES_dic, blacklist):
 	
 	# filter the blast hits, based on the minimum
 	# identity, minimum coverage, e-value and the user blacklist
-	if float(blast[4]) >= args.mi and int(blast[5]) >= args.mc and float(blast[6]) <= args.me:
+	if float(blast[4]) >= args.mi and int(blast[5]) >= args.mc and float(blast[7]) <= args.me:
 		if blast[2] not in blacklist and blast[3] not in blacklist:
 			results, flag_cites = blast, False
+			blast[6] = round((float(blast[5])/float(blast[6]))*100, 2)
 			del results[3]
 
 			# check if the taxon id of the blast hit
 			# is present in the CITES_dic
-			if blast[7] in CITES_dic:
+			if blast[8] in CITES_dic:
 				logging.debug('Appending CITES info to blast hit.')
-				results += CITES_dic[blast[7]][1:]				
+				results += CITES_dic[blast[8]][1:]				
 				flag_cites = True
 			else:
 				results += ['','','']
@@ -516,6 +518,7 @@ def main ():
 		'GI',
 		'% identity',
 		'Hit length',
+		'Hit % length',
 		'E-value',
 		'Bit score',
 		'Taxon ID',
