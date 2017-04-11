@@ -65,8 +65,8 @@ satisfying the dependencies listed below, the following steps must be taken:
 
 * Place the Python script [HTS-barcode-checker](src/HTS-barcode-checker) in a location 
   where it can be executed by the web server process.
-* Place the default [CITES CSV database](data/CITES_db.csv) in a location where it is 
-  readable by the web server process.
+* Place the default [CITES CSV database](resources/CITES_db.csv) in a location where it 
+  is readable by the web server process.
 * Edit line 42 in the [HTS-barcode-checker](src/HTS-barcode-checker#L42) script: 
   `resources` should point to the resource folder that comes with the git repository.
 
