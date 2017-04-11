@@ -1,5 +1,3 @@
-# This blacklist contains the Genbank IDs of species that are incorrectly annotated.
-# The blacklist is in .csv format.
 # GenBankID, Current (erroneous) description, Correct description
 118422508, Gastrodia elata, Nyctaginaceae
 157326090, Gastrodia elate, Nyctaginaceae
