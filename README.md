@@ -156,43 +156,59 @@ Command line arguments:
 All command line arguments and options can be provided in short or long form, as listed
 below:
 
-* `-h`, `--help`            
-  Show help message and exit
-* `-i` <fasta file>, `--input_file` <fasta file>
-  Input data in FASTA format. The HTS-barcode-checker is limited to a set of a 100 
-  sequences when running an online BLAST.
-* `-o` <output file>, `--output_file` <output file>
-  Results file in TSV format. if '-' is provided, output is to STDOUT		
-* `-cd` <db file> [<db file> ...], `--CITES_db` <db file> [<db file> ...]
-  One or more database (CSV) files with CITES-listed taxon identifiers		
-* `-ba` <algorithm>, `--BLAST_algorithm` <algorithm>
-  BLAST algorithm to use (optional, default=blastn)		
-* `-bd` <database>, `--BLAST_database` <database>
-  BLAST database to use (optional, default=nt)
-* `-lb`, `--local_blast`
-  BLAST using a local database (uses the ncbi-blast+ tool, this needs to installed 
-  separately)
-* `-mb`, `--megablast`
-  Use megablast, can only be used in combination with blastn (optional)		
-* `-hs` <size>, `--hitlist_size` <size>
-  Number of results BLAST will return (optional, default=10), there is a maximum of 20 
-  hits when running an online BLAST search.		
-* `-mi` <identity>, `--min_identity` <identity>
-  Lowest percentage identity for BLAST results to consider (optional, default=97)		
-* `-mc` <coverage>, `--min_coverage` <coverage>
-  Minimal coverage for BLAST results in number of bases (optional, default=100)		
-* `-me` <e-value>, `--max_evalue`  <e-value>
-  Threshold E-value for BLAST results (optional, default=0.05)		
-* `-bl` <blacklist file>, `--blacklist` <blacklist file>
-  One or more CSV files containing blacklisted genbank accession numbers (optional)						
-* `-fd`, `--force_download`
-  Force update of the local CITES database (optional)
-* `-ad`, `--avoid_download`
-  Avoid updating the local CITES database (optional)
-* `-l` <verbosity>, `--logging` <verbosity>
-  Set log level to: debug, info, warning (default) or critical
-* `-lf` <log file>, `--log_file` <log file>
-  Specifies a file to log to. if unset, logging is to STDERR
+    -h, --help            
+    	Show help message and exit
+
+    -i <fasta file>, --input_file <fasta file>
+    	Input data in FASTA format. The HTS-barcode-checker is limited to a set of a 100 
+    	sequences when running an online BLAST.
+
+    -o <output file>, --output_file <output file>
+    	Results file in TSV format. if '-' is provided, output is to STDOUT
+
+    -cd <db file> [<db file> ...], --CITES_db <db file> [<db file> ...]
+    	One or more database (CSV) files with CITES-listed taxon identifiers
+
+    -ba <algorithm>, --BLAST_algorithm <algorithm>
+    	BLAST algorithm to use (optional, default=blastn)
+
+    -bd <database>, --BLAST_database <database>
+    	BLAST database to use (optional, default=nt)
+
+    -lb, --local_blast
+    	BLAST using a local database (uses the ncbi-blast+ tool, this needs to installed 
+    	separately)
+
+    -mb, --megablast
+    	Use megablast, can only be used in combination with blastn (optional)
+
+    -hs <size>, --hitlist_size <size>
+    	Number of results BLAST will return (optional, default=10), there is a maximum of
+    	20 hits when running an online BLAST search.
+
+    -mi <identity>, --min_identity <identity>
+    	Lowest percentage identity for BLAST results to consider (optional, default=97)
+
+    -mc <coverage>, --min_coverage <coverage>
+    	Minimal coverage for BLAST results in number of bases (optional, default=100)
+
+    -me <e-value>, --max_evalue  <e-value>
+    	Threshold E-value for BLAST results (optional, default=0.05)
+
+    -bl <blacklist file>, --blacklist <blacklist file>
+    	One or more CSV files containing blacklisted genbank accession numbers (optional)
+
+    -fd, --force_download
+    	Force update of the local CITES database (optional)
+
+    -ad, --avoid_download
+    	Avoid updating the local CITES database (optional)
+
+    -l <verbosity>, --logging <verbosity>
+    	Set log level to: debug, info, warning (default) or critical
+
+    -lf <log file>, --log_file <log file>
+    	Specifies a file to log to. if unset, logging is to STDERR
 
 Important options
 -----------------
