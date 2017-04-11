@@ -37,14 +37,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.**
 Installation instructions
 -------------------------
 
-### Simple
+### Dependencies
+
+Irrespective of how the tool is installed (that is, whether as a command-line tool,
+a standalone web application, or as a Galaxy tool), the following dependencies need
+to be satisfied:
+
+* python2.7 or 3
+* bio-python
+* beautiful-soup
+* requests
+* ncbi-blast+ 2.2.28 or higher when running local BLAST searches (recommended)
+
+### Command-line tool
 
 For command-line usage, the Python script [HTS-barcode-checker](src/HTS-barcode-checker) 
 is provided in the src folder. Assuming the dependencies (listed below) are satisfied, 
 there are no installation steps, the script can simply be run 'as is' with command-line 
-arguments described below.
+arguments described below. However, for both of the usages described below (i.e. as web 
+application or as Galaxy tool) it is recommended to have the command line tool installed
+"system-wide", i.e. such that any user can invoke the script from the `$PATH`.
 
-### Advanced
+### Standalone web application
 
 To install the pipeline as a locally-hosted web application, in addition to 
 satisfying the dependencies listed below, the following steps must be taken:
@@ -74,15 +88,6 @@ To run the pipeline in Galaxy:
   [wiki](http://wiki.galaxyproject.org/Admin/Tools/Adding_Tools) for details. 
 * Finally, in order for the tool to work, the actual script
   [HTS-barcode-checker](src/HTS-barcode-checker) needs to be added to the system `$PATH`.
-
-Dependencies
-------------
-
-* python2.7 or 3
-* bio-python
-* beautiful-soup
-* requests
-* ncbi-blast+ 2.2.28 or higher when running local BLAST searches (recommended)
 
 General usage
 -------------
