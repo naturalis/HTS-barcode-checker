@@ -43,11 +43,11 @@ Irrespective of how the tool is installed (that is, whether as a command-line to
 a standalone web application, or as a Galaxy tool), the following dependencies need
 to be satisfied:
 
-* python2.7 or 3
-* bio-python
-* beautiful-soup
-* requests
-* ncbi-blast+ 2.2.28 or higher when running local BLAST searches (recommended)
+* **python**, version 2.7 or 3 - **Note**: make sure python isn't already installed. 
+* **bio-python** - for example `sudo pip install biopython`
+* **beautiful-soup** - for example `sudo pip install BeautifulSoup`
+* **requests** - for example `sudo pip install requests`
+* **ncbi-blast+ 2.2.28** or higher when running local BLAST searches (recommended)
 
 ### Command-line tool
 
