@@ -7,10 +7,10 @@ Endangered Species of Wild Fauna and Flora](http://cites.org/). This project
 provides a pipeline that automates the putative taxonomic identification of DNA barcodes 
 (e.g. as generated from confiscated materials) by chaining together the steps of: 
 
-1. DNA sequence similarity searching in public databases 
-2. taxonomic name reconciliation of names associated with returned, matching sequences 
-   with the names listed in the CITES "appendices" (which itemize species and higher taxa 
-   in which international trade is restricted).
+1. DNA sequence similarity searching in public databases using BLAST 
+2. Taxonomic name reconciliation of the taxon names of returned, matching sequences with 
+   the names listed in the CITES "appendices" (which itemize species and higher taxa in 
+   which international trade is restricted).
 
 Disclaimer
 ----------
