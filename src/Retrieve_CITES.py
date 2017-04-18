@@ -1,8 +1,24 @@
 #!/usr/bin/env python
 
-# Create a local database containing the CITES appendices
-# Database contains the CITES species names and synonymes based on:
-# and the species ncbi species taxon identifier
+# This script creates a local CSV database that maps between taxa (could be higher 
+# taxonomic levels than species) in the CITES appendices and those that the NCBI taxonomy
+# uses to annotate sequences. The CSV database has the following header; note the 
+# timestamp that is used, potentially, to trigger an update of the database:
+
+# #Date of last update:
+# Date,24 June 2014
+# #taxon id,CITES species,CITES description,taxon species,CITES appendix
+
+# The columns are as follows:
+# - 'taxon id': the NCBI taxon id, an integer
+# - 'CITES species': the taxon name used in the CITES appendix
+# - 'CITES description': the CITES taxon name, potentially with further clarification
+# - 'taxon species': the NBCI taxon name
+# - 'CITES appendix': an integer for the CITES appendix in which the taxon occurs
+
+# This database is created by accessing the online (web page) version of the CITES 
+# appendices, parsing the HTML, and checking the encountered names against a taxonomic
+# name resolution service.
 
 # import the modules used by this script
 import argparse, logging, os, sys, urllib2, re, unicodedata, requests, time
@@ -84,44 +100,56 @@ def clean_cell (cell):
 def parse_php (php_file):
 
 	# fill this dictionary with all species for the 3
-	# CITES categories
+	# CITES categories. Each value will consist of an array whose first element is the
+	# taxon name, second element is name + description, third element is an array of
+	# footnote ID references
 	CITES_dict = {1:[],2:[],3:[]}
 	
 	# create a dictionary for the CITES footnotes
 	CITES_notes = {}
 
-	# read the CITES web page
+	# read the CITES web page as BeautifulSoup object hierarchy
 	logging.debug('Parsing the CITES html page.')
 	CITES_page = BeautifulSoup(php_file)
 
+	# TODO: is this the time stamp?
 	data = clean_cell(CITES_page.b.find('strong'))
-
-	# extract the tables and search for the correct appendix table
-	tables, table, offset = CITES_page.findAll('table'), '', 0
-	while 'F A U N A' not in table:
-		table, offset = str(tables[offset]), offset + 1
-	tables = tables[offset-1:]
-
-	# parse through the table and find all cites species
-	# (in bold / italic) and under which category they fit
-	rows = tables[0].findAll('tr')
-	for tr in rows[2:]:
-		cols = tr.findAll('td')
-		count = 1
-		for td in cols:
-			cleaned = clean_cell(td.find('b'))
-			# if the cell is filled, retrieve the
-			# species name and add it to the dictionary
-			if cleaned != '':			
-				if ';' in cleaned: cleaned = cleaned.split(';')[1]
-				CITES_dict[count].append([cleaned,clean_cell(td),[clean_cell(note) for note in td.findAll('a')]])
-
-			count += 1
-
+	
+	# table rows with the c10 class as well as having 4 cells in them are name records
+	# in the CITES appendices. The cell/column number is the appendix number.
+	trs = CITES_page.findAll('tr', { 'class' : 'c10' } )
+	for tr in trs:
+		tds = tr.findAll('td')
+		
+		# fewer columns would mean this is a header row
+		if len(tds) == 4:
+			for i in range(1,4):
+				text = clean_cell(tds[i])
+				if re.match('\w', text):
+					words = []
+					
+					# until a word starts with one of these special characters [({
+					# the words are part of the taxon name
+					for word in text:
+						if re.match('[\(\{\[#]', word):
+							break
+						else:
+							words.append(word)
+					
+					# concatenate words, strip out footnote ID references
+					taxon = ''.join(words)
+					taxon = re.sub(r'#*\d+','',taxon)
+					logging.debug('CITES appendix %d taxon %s' % ( i, taxon ) )
+					
+					# collect the footnote ID references by their link tags
+					footnotes = [ clean_cell(note) for note in tds[i].findAll('a') ]
+					CITES_dict[i].append([ taxon, clean_cell(tds[i]), footnotes ])
+	
 	# parse through the footnotes and create
 	# a dictionary for each one of the notes
 	logging.debug('Parsing the CITES appendix footnotes.')
-	rows = tables[1].findAll('tr')
+	fntable = CITES_page.findAll( 'table', { 'border' : 2 } )
+	rows = fntable[0].findAll('tr')
 	for tr in rows:
 		notes = tr.findAll('td')
 		CITES_notes[clean_cell(notes[0])] = clean_cell(notes[1])
@@ -134,10 +162,10 @@ def parse_php (php_file):
 def TNRS (name):
 	
 	# Send the TNRS request
-	logging.debug('Send TNRS request to server.')
-	TNRS_req = requests.get('http://api.phylotastic.org/tnrs/submit',
-		params={'query':name}, allow_redirects=True)
-
+	logging.debug('Send TNRS request to server. %s' % name)
+	url = 'http://resolver.globalnames.org/name_resolvers.json'
+	TNRS_req = requests.get( url, params = { 'names' : name }, allow_redirects = True )
+	logging.debug('url: %s' % TNRS_req.url)		# Fout kan ook in de .url zitten
 	redirect_url, time_count = TNRS_req.url, 0
 
 	# send retrieve requests at 5 second intervals till
@@ -154,25 +182,24 @@ def TNRS (name):
 		# if the results contains the JSON object
 		# retrieve all accepted names for the species
 		# and return these
-		if u'names' in retrieve_results:
+		if u'name_string' in retrieve_results[u'data'][0][u'results'][0].keys():
 			logging.debug('Parsing TNRS results.')
 			name_list = [name,[]]
-			names = retrieve_results.get(u'names')
 			try:
-				# grab the synonym names if present
-				for item in names[0]['matches']:
-					if item['sourceId'] == 'NCBI':
-						name_list.append(str(item['uri']).split('/')[-1])
-					synonym = item['acceptedName']
-					
-					# check if the synonym isnt the species / genus name of the query
-					if synonym not in name and synonym != '':
-						if ' ' in name:
-							if len(synonym.split(' ')) >= len(name.split(' ')):
-								name_list[1].append(str(item['acceptedName']))
-						else:
-							if ' ' not in synonym:
-								name_list[1].append(str(item['acceptedName']))						
+				logging.debug(retrieve_results[u'data'])
+				for lijst in retrieve_results[u'data']:
+					for lijst_2 in lijst[u'results']:
+						if lijst_2[u'data_source_title'] == 'NCBI':
+							name_list.append(lijst_2[u'taxon_id'])
+							synonym = lijst_2[u'name_string']
+							logging.debug('Synoniem gevonden: %s' % synonym)
+							if synonym not in name and synonym != '':
+								if ' ' in name:
+									if len(synonym.split(' ')) >= len(name.split(' ')):
+										name_list[1].append(str(synonym))
+								else:
+									if ' ' not in synonym:
+										name_list[1].append(str(synonym))					
 			except:
 				pass
 
@@ -187,7 +214,6 @@ def TNRS (name):
 
 	logging.warning('Timeout for species %s.' % name)
 	return [name,[]]
-
 
 def get_taxid (species):
 	
