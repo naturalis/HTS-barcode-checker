@@ -117,10 +117,10 @@ else:
 				help = 'CSV file containing blacklisted genbank accession numbers (optional)', nargs='+') 
 	parser.add_argument('-cd', '--CITES_db', metavar='CITES database file', dest='cd', type=str, action='append',
 				help = 'one or more database (CSV) files with CITES-listed taxon identifiers', required=True, nargs='+')
-	parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
-				help = 'force update of the local CITES database (optional)')
-	parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
-				help = 'avoid updating the local CITES database (optional)')
+#	parser.add_argument('-fd', '--force_download', dest='fd', action='store_true',
+#				help = 'force update of the local CITES database (optional)')
+#	parser.add_argument('-ad', '--avoid_download', dest='ad', action='store_true',
+#				help = 'avoid updating the local CITES database (optional)')
 	parser.add_argument('-ah', '--as_html', dest='ah', action='store_true', default = False,
 				help = 'format output as HTML')
 	parser.add_argument('-l', '--logging', metavar='log level', dest='l', type=str,
@@ -185,19 +185,19 @@ def get_blacklist ():
 		return []
 
 
-def get_CITES ():
-	
-	# Open the Retrieve_CITES.py script to either check the status of the
-	# user provided CITES database or obtain a new copy of the database
-	logging.debug('Getting path to Retrieve_CITES.py script.')
-	dir, file = os.path.split(os.path.realpath(sys.argv[0]))
-	CITES_path = dir + '/Retrieve_CITES.py'
-	logging.debug('Retrieve_CITES.py path set to: %s.' % CITES_path)
-
-	if args.fd == True:
-		path = call([CITES_path, '-db'] + args.cd + ['-f', '-l', args.l, '-lf', args.lf])
-	else:
-		path = call([CITES_path, '-db'] + args.cd + ['-l', args.l, '-lf', args.lf])
+#def get_CITES ():
+#	
+#	# Open the Retrieve_CITES.py script to either check the status of the
+#	# user provided CITES database or obtain a new copy of the database
+#	logging.debug('Getting path to Retrieve_CITES.py script.')
+#	dir, file = os.path.split(os.path.realpath(sys.argv[0]))
+#	CITES_path = dir + '/Retrieve_CITES.py'
+#	logging.debug('Retrieve_CITES.py path set to: %s.' % CITES_path)
+#
+#	if args.fd == True:
+#		path = call([CITES_path, '-db'] + args.cd + ['-f', '-l', args.l, '-lf', args.lf])
+#	else:
+#		path = call([CITES_path, '-db'] + args.cd + ['-l', args.l, '-lf', args.lf])
 
 
 def get_CITES_dic ():
@@ -497,9 +497,9 @@ def main ():
 		return
 
 	# Check if there is a more recent CITES list online
-	if args.ad != True:
-		logging.info('Checking the status of the current CITES database.')
-		get_CITES()
+#	if args.ad != True:
+#		logging.info('Checking the status of the current CITES database.')
+#		get_CITES()
 
 	# create a dictionary containing the local CITES set	
 	logging.info('Reading the CITES database(s) from {0}'.format(args.cd))
