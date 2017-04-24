@@ -332,5 +332,7 @@ class TaxonDB(object):
 		result = result + 'Date,' + self.date + "\n"
 		result = result + '#taxon id,CITES species,CITES description,taxon species,CITES appendix' + "\n"
 		for taxon in self.taxa:
-			result = result + taxon.to_csv() + "\n"
+			tcsv = taxon.to_csv()
+			if tcsv:
+				result = result + tcsv + "\n"
 		return result;
