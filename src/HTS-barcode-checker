@@ -82,7 +82,7 @@ if os.environ.get('GATEWAY_INTERFACE') is not None:
 		args.mi = int(form.getvalue('min_identity'))
 		args.mc = int(form.getvalue('min_coverage'))
 		args.me = float(form.getvalue('max_evalue'))
-		args.cd = [ resources + '/CITES_db.csv' ]
+		args.cd = [ resources + '/CITES_db_2017.csv' ]
 		args.bl = resources + '/Blacklist.csv'
 		args.i  = form['input_file'].file # handle to uploaded file		
 		args.l  = 'critical' # be quiet	or we flood the server's error log
@@ -214,7 +214,8 @@ def get_CITES_dic ():
 			for line in reader:
 				if line[0] != 'Date' and line[0][0] != '#':
 					CITES_dic[line[0]] = line[1:]
-
+				elif line[0] == 'Date':
+					logging.debug('Date "%s" detected for file "%s"' % ( line[1], path ) ) 
 	return CITES_dic
 
 	
@@ -289,6 +290,7 @@ def local_blast ():
 
 	# BLAST the sequences against a local database using the ncbi-blast+ sofware package
 	logging.debug('Starting local BLAST')
+	logging.debug('{0} -query {1} -db {2} -max_target_seqs {3}'.format(args.ba,args.i,args.bd,str(args.hs)))
 	temp_output = '{0}_temp-blast.tsv'.format(os.path.splitext(args.i)[0])
 	cores = multiprocessing.cpu_count()
 
@@ -337,6 +339,7 @@ def parse_local_blast(CITES_dic, blacklist):
 	# obtain the taxon dic if provided
 	if args.tf != '':
 		taxon_dic = parse_taxon()
+		logging.debug('Read {0} records from taxon lookup table'.format(len(taxon_dic.keys())))
 
 	# parse through the output and format the data for filtering
 	for line in open(temp_output):
@@ -420,12 +423,12 @@ def filter_hits (blast, CITES_dic, blacklist):
 			# check if the taxon id of the blast hit
 			# is present in the CITES_dic
 			if blast[8] in CITES_dic:
-				logging.debug('Appending CITES info to blast hit.')
-				results += CITES_dic[blast[8]][1:]				
+				logging.debug('Appending CITES info to blast hit taxon {0}.'.format(blast[8]))
+				results += CITES_dic[blast[8]][1:]
 				flag_cites = True
 			else:
 				results += ['','','']
-			
+
 			# write the results
 			write_results(results, 'a', 'td', flag_cites)
 
@@ -464,8 +467,8 @@ def main ():
 	else:
 		logging.basicConfig(filename=args.lf, filemode='a', format=log_format, level=log_level)
 
-	# Write input commands to log
-	logging.debug(' '.join(sys.argv))
+	# write input commands to log
+	logging.debug('Provided command line arguments: '+' '.join(sys.argv))
 
 	# clean CITES lists and blacklist if applicable
 	args.cd = sanitize_multiple_inputs(args.cd)
@@ -475,7 +478,7 @@ def main ():
 	# if the users wants to run a local blast, check if the local blast version is high enough
 	if args.lb == True:
 		bv = blast_version()
-		if bv == 'pass': logging.info('Local blast version is 2.2.28 or higher')
+		if bv == 'pass': logging.info('OK: Local blast version is 2.2.28 or higher, as needed')
 		elif bv == 'low':
 			logging.critical('The local blast version is 2.2.27 or lower, update the blast+ software to a more' +
 			' recent version or try using the online blast option.')
@@ -490,7 +493,7 @@ def main ():
 	if args.lb == False and args.hs > 20:
 		logging.critical('Maximum of online blast hits exceeds the limit of 20. Please lower the number blast hits.')
 		return
-	
+
 	# Check if input fasta file and output file are provided
 	if args.i == '':
 		logging.critical('No fasta file or output file provided, see -help for details.')
@@ -504,10 +507,12 @@ def main ():
 	# create a dictionary containing the local CITES set	
 	logging.info('Reading the CITES database(s) from {0}'.format(args.cd))
 	CITES_dic = get_CITES_dic()
+	logging.info('Read {0} records from CITES database(s)'.format(len(CITES_dic.keys())))
 
 	# create a list with the blacklisted genbank ids
 	logging.info('Reading the user Taxon ID blacklist.')
 	blacklist = get_blacklist()
+	logging.info('Read {0} records from Taxon ID blacklist'.format(len(blacklist)))
 
 	# create a blank result file and write the header
 	if args.ah:
@@ -530,7 +535,7 @@ def main ():
 	write_results(header, 'w', 'th', False)
 
 	# parse through the sequence file, blast all sequences and write the blast hits + CITES info
-	logging.info('Processing the sequence file.')
+	logging.info('Processing sequence file {0}.'.format(args.i))
 	parse_seq_file(CITES_dic, blacklist)
 	
 	# write the HTML footer, if needed
