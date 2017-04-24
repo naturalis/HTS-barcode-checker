@@ -280,9 +280,12 @@ def write_results (result, mode, tag, flag_cites):
 			
 		else:
 			csvfile = sys.stdout
+			outname = 'STDOUT'
 			if args.o != '-':
 				csvfile = open(args.o, mode)
+				outname = args.o
 			writer = csv.writer(csvfile, delimiter = '\t',  quoting=csv.QUOTE_NONE, lineterminator='\n')
+			logging.debug('Writing to {0} result: "{1}"'.format(outname,result))
 			writer.writerow(result)
 	
 
@@ -292,7 +295,9 @@ def local_blast ():
 	logging.debug('Starting local BLAST')
 	logging.debug('{0} -query {1} -db {2} -max_target_seqs {3}'.format(args.ba,args.i,args.bd,str(args.hs)))
 	temp_output = '{0}_temp-blast.tsv'.format(os.path.splitext(args.i)[0])
-	cores = multiprocessing.cpu_count()
+
+	# leave one core free
+	cores = multiprocessing.cpu_count() - 1
 
 	# Use the selected BLAST algorithm
 	if args.ba == 'blastn':
