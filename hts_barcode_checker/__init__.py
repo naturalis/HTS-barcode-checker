@@ -366,7 +366,7 @@ class TaxonDB(object):
 		"""Returns the database as CSV text."""
 		
 		writer = csv.writer( handle, encoding='utf-8' )
-		writer.writerow(( u'#Date of last update:' ))
+		writer.writerow(( u'#Date of last update:', ))
 		writer.writerow(( u'Date', unicode(self.date) ))
 		writer.writerow(( u'#taxon id', u'CITES species', u'CITES description', u'taxon species', u'CITES appendix' ))
 		for taxon in self.taxa:
