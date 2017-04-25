@@ -12,13 +12,6 @@
     #end if
     #if $local_cites.CITES_loc == "local"
     --CITES_db $local_cites.CITES_db
-      #if $local_cites.update.cites_update == "force"
-      --force_download
-      #elif $local_cites.update.cites_update == "avoid"
-      --avoid_download
-      #else
-        #pass
-      #end if
     #else
     -new $output.id $__new_file_path__
     #end if
@@ -72,18 +65,18 @@
 
     <conditional name="local_cites">
       <param name="CITES_loc" type="select" label="CITES database">
-        <option value="none">No local CITES database, will download a new copy</option>
+        <option value="none">No local CITES database, will fetch a new copy</option>
         <option value="local" selected="true">Local copy</option>
       </param>
       <when value="local">
         <param format="csv" name="CITES_db" type="data" label="CITES database"/>
-        <conditional name="update">
+        <!--conditional name="update">
           <param name="cites_update" type="select" label="Update CITES database">
             <option value="check" selected="true">Update if outdated</option>
             <option value="force">Force update</option>
             <option value="avoid">Avoid update</option>
           </param>
-        </conditional>
+        </conditional-->
       </when>
     </conditional>
 
