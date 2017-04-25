@@ -1,4 +1,6 @@
-import logging, urllib2, re, unicodedata, requests, time, csv
+import logging, urllib2, re, unicodedata, requests, time
+import unicodecsv as csv
+from io import BytesIO
 from Bio import Entrez
 try:
 	from BeautifulSoup import BeautifulSoup
@@ -36,52 +38,82 @@ class Taxon(object):
 		else:
 			logging.basicConfig(filename=logfile, filemode='a', format=logfrmt, level=loglevel)
 	
-	def tnrs(self,reverse={}):
+	def tnrs(self,cursor=None):
 		
 		"""Once the CITES name property is set, fetches the NCBI names and taxon ID."""
 		
-		logging.info('Resolving taxon "%s"' % self.name)    
-		if self.name in reverse:
-			taxid = reverse[self.name]
-			self.ncbi[taxid] = self.name
-			logging.debug('Taxon "%s" was exact match in NCBI' % self.name)
-		else:
-		
-			# compose the TNRS request
+		logging.info('Resolving taxon "%s"' % self.name)
+
+		# attempt to do an exact match against the local sqlite database via cursor
+		if cursor != None:
+			name = unicode(self.name)
+			cursor.execute('select id from node where name=?', (name,))
+			result = cursor.fetchone()
+			if result != None:      
+				self.ncbi[result[0]] = self.name
+				logging.info('"%s" had exact local match: %d' % (self.name,result[0]))
+				return
+			else:
+				logging.debug('No exact match local match for "%s"' % self.name ) 
+
+		# no cursor or exact match, try TNRS
+		try:
 			url = 'http://resolver.globalnames.org/name_resolvers.json'
-			TNRS_req = requests.get( url, params={'names':self.name}, allow_redirects=True )
-			logging.debug('Composed url: %s' % TNRS_req.url)
-		
-			# try to download the JSON object with the TNRS results.
-			try:
-				response = requests.get(TNRS_req.url)
-				json = response.json()                
-			except:
-				json = []
+			response = requests.get(url, params={'names':self.name}, allow_redirects=True)
+			json = response.json()
+		except:
+			logging.warn('TNRS globalnames connection error')
+			json = []
 			
-			# if the JSON object has results, iterate over all matches
-			if u'results' in json[u'data'][0].keys():
-				if u'name_string' in json[u'data'][0][u'results'][0].keys():
-					logging.debug('Received JSON object')
-					for data_dict in json[u'data']:
-						for results_dict in data_dict[u'results']:
+		# if the JSON object has results, iterate over all matches
+		if u'results' in json[u'data'][0].keys():
+			if u'name_string' in json[u'data'][0][u'results'][0].keys():
+				logging.debug('Received JSON object')
+				for data_dict in json[u'data']:
+					m = 0
+					for results_dict in data_dict[u'results']:
 							
-							# the focal result is a match in the NCBI taxonomy
-							if results_dict[u'data_source_title'] == 'NCBI':
+						# the focal result is a match in the NCBI taxonomy
+						if results_dict[u'data_source_title'] == 'NCBI':
 								
-								# store the NCBI taxon ID and name
-								taxid = int(results_dict[u'taxon_id'])
-								match = results_dict[u'name_string']
-								self.ncbi[taxid] = match
-								logging.debug('Added match {%d:"%s"}' % (taxid,match))
+							# store the NCBI taxon ID and name
+							taxid = int(results_dict[u'taxon_id'])
+							match = results_dict[u'name_string']
+							self.ncbi[taxid] = match
+							m += 1
+							logging.debug('Added match {%d:"%s"}' % (taxid,match))
 					
-					# we processed a valid payload. done.
-					return
+					# log number of checked data sources
+					s = len(data_dict[u'results'])
+					n = self.name
+					logging.info('Found %d matches for %s in %d data sources' % (m,n,s))					
+
+				# we processed a valid payload. done.
+				return
 	
-	def expand(self,mapping={}):
+	def expand(self,cursor=None):
 		
 		"""Expands the set of NCBI taxon IDs to the full subtree."""
 		
+		# attempt to do the expansion using the local sqlite database via cursor
+		if cursor != None:
+			logging.debug('Will expand %s using local database' % self.name)
+			result = {}
+			for taxid in self.ncbi.keys():
+				logging.debug('Expanding id {0}'.format(taxid))
+				cursor.execute('select left,right from node where id=?', (taxid,))
+				lr = cursor.fetchone()
+				if lr != None and lr[0] != lr[1]:
+					l1 = lr[0] + 1
+					l2 = lr[1] - 1
+					logging.debug('left={0} right={1}'.format(l1,l2))
+					for row in cursor.execute('select id,name from node where left between ? and ?', (l1,l2,)):
+						logging.debug('descendant {0}={1}'.format(row[0],row[1]))
+						result[row[0]] = row[1]
+			logging.info('Expanded %s to %d descendants' % (self.name,len(result.keys())))
+			return result
+
+		# no cursor, use Entrez. Beware: this is slow
 		Entrez.email = "HTS-barcode-checker@gmail.com"
 		for species in self.ncbi.values():
 			if species == None:
@@ -121,23 +153,22 @@ class Taxon(object):
 					logging.debug('Stored NCBI taxon ID %s' % taxid)
 			return result
 	
-	def to_csv(self):
+	def to_csv(self,handle=BytesIO()):
 		
 		"""Stringifies the invocant in the format of records in CITES_db.csv."""
 		
-		result = []
+		writer = csv.writer(handle,encoding='utf-8')
 		for taxid in self.ncbi.keys():
 			
-			# taxon id, CITES species, CITES description, taxon species, CITES appendix
-			row = [
-				str(taxid),
-				str(self.name),
-				'"' + str(self.description) + '"',
-				'"' + str(self.ncbi[taxid]) + '"',
-				str(self.appendix)
-			]
-			result.append( ','.join(row) )
-		return "\n".join(result)
+			# NCBI id, CITES species, CITES description, NCBI species, CITES appendix
+			writer.writerow((
+				unicode(taxid),
+				unicode(self.name),
+				unicode(self.description),
+				unicode(self.ncbi[taxid]),
+				unicode(self.appendix)
+			))
+		return handle
 	
 class TaxonDB(object):
 	
@@ -201,15 +232,17 @@ class TaxonDB(object):
 		return mapping
 	
 	def from_csv(self,path=None,add=False):
+
+		"""Reads a previously constructed CITES<->NCBI CSV mapping database."""
 		
 		# open the file and read the .csv
 		logging.debug('Going to read csv file "%s"' % path)
 		with open(path, 'rb') as csvfile:
-			read = csv.reader(csvfile, delimiter=',', quotechar='"')
+			read = csv.reader(csvfile, encoding='utf-8', delimiter=',', quotechar='"')
 			for line in read:
 				
 				# store the date
-				if line[0] == 'Date':
+				if line[0] == u'Date':
 					self.date = line[1]
 					logging.debug('Stored date: "%s"' % self.date)
 				
@@ -234,12 +267,14 @@ class TaxonDB(object):
 					logging.debug('Instantiated "%s" with {%s:%s}' % (name,taxid,canon))
 	
 	def from_dump(self,path):
+
+		"""Reads a downloaded CITES database dump."""
 		
 		# open the file and read the .csv
 		logging.info('Reading the CITES data dump.')
 		header = {}
 		with open(path, 'rb') as csvfile:
-			read = csv.reader(csvfile, delimiter=',', quotechar='"')
+			read = csv.reader(csvfile, delimiter=',', quotechar='"', encoding='utf-8')
 			for line in read:
 				if not header:
 					header = line
@@ -248,19 +283,21 @@ class TaxonDB(object):
 					record = {}
 					for idx, val in enumerate(header):
 						record[header[idx]] = line[idx]
-					if record['CitesAccepted'] == 'true':
-						app   = { 'I':1,'II':2,'III':3 }
-						for i in record['CurrentListing'].split('/'):
+					if record[u'CitesAccepted'] == u'true':
+						app   = { u'I':1, u'II':2, u'III':3 }
+						for i in record[u'CurrentListing'].split(u'/'):
 							if i in app:
 								taxon = Taxon(
-									name=record['FullName'],
-									description=record['AnnotationEnglish'],
-									appendix=app[i]
+									name=record[u'FullName'],
+									description=record[u'AnnotationEnglish'],
+									appendix=unicode(app[i])
 								)
 								self.taxa.append(taxon)
 	
 	def from_html(self,url='http://www.cites.org/eng/app/appendices.php'):
 	
+		"""Reads CITES appendices directly from web pages."""
+
 		# open the url and read the .php webpage
 		logging.info('Downloading CITES appendix webpage.') 
 		CITES_url = urllib2.urlopen(url)
@@ -324,15 +361,14 @@ class TaxonDB(object):
 							footnotes=notes
 						) )
 	
-	def to_csv(self):
+	def to_csv(self,handle=BytesIO()):
 		
 		"""Returns the database as CSV text."""
 		
-		result = '#Date of last update:' + "\n"
-		result = result + 'Date,' + self.date + "\n"
-		result = result + '#taxon id,CITES species,CITES description,taxon species,CITES appendix' + "\n"
+		writer = csv.writer( handle, encoding='utf-8' )
+		writer.writerow(( u'#Date of last update:' ))
+		writer.writerow(( u'Date', unicode(self.date) ))
+		writer.writerow(( u'#taxon id', u'CITES species', u'CITES description', u'taxon species', u'CITES appendix' ))
 		for taxon in self.taxa:
-			tcsv = taxon.to_csv()
-			if tcsv:
-				result = result + tcsv + "\n"
-		return result;
+			taxon.to_csv(handle)
+		return handle;
